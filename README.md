@@ -3,18 +3,18 @@
 ### about me 
 
 - - <span style="color: #CE93D8;"> **🎓**: Recently Graduated
-- - <span style="color: #CE93D8;"> **Academic🧠 Focus**: Human-AI Relationships, Transformative Impacts of AI
-- - <span style="color: #90CAF9;"> **🌱🤝**: Always exploring new technologies and best practices; Open to socio-technical discussions and esp. interdisciplinary projects
+- - <span style="color: #CE93D8;"> **🧠**: Human-AI Relationships, Transformative Impacts of AI
+- - <span style="color: #90CAF9;"> **🌱**: Always exploring new technologies and best practices; Open to socio-technical discussions and esp. interdisciplinary projects
 ---
 
 ### 🌐 AI-co-created projects 
 
-#### 1. 🐱 Manus Cat - LinkedIn Newsletter
+#### 1. Manus Cat - LinkedIn Newsletter
 Weekly insights on macro forces, tech news, society, and Of Course AI. Scroll down to the bottom to see my AI employee. 
 
 [![Subscribe! LinkedIn Newsletter](https://img.shields.io/badge/Follow%20Newsletter-Manus%20Cat-90CAF9?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7422191016994217984)
 
-#### 2. 🚀 Momentum Dashboard
+#### 2. Momentum Dashboard
 (Need to create an accout to try out) Momentum is a gentle life management tool I created to help people visualize and manage your energy through small, science-backed recovery actions. Inspired by the rhythm of daily life, Momentum transforms rest into a visible, intentional part of your energy for productivity. Each time you complete a micro-recovery task — like a 5-minute walk, a moment of gratitude, or simply closing your eyes — your energy heart glows brighter. These small acts are what sustain it. Rest is not escape — it’s part of your momentum. 
 
 _**There are many ways i am thinking of in approving it , and adding new functions, changing the action contents. It is still a web page not in an app format, If you are developer and want to collaborate with me, feel free to reach out! _**
