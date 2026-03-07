@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grace · work-from-home</title>
-    <!-- Font Awesome for icons -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* ----- GLOBAL & CUSTOM CURSOR ----- */
@@ -17,31 +17,42 @@
         body {
             font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
             background: #1a1a1a;
-            color: #1e1e1e;
-            line-height: 1.5;
+            color: #111;
+            line-height: 1.4;
             min-height: 100vh;
             overflow-x: hidden;
         }
         #cat-cursor {
             position: fixed;
-            width: 32px; height: 32px;
+            width: 28px; height: 28px;
             pointer-events: none;
             z-index: 9999;
-            font-size: 28px;
+            font-size: 24px;
             transform: translate(-50%, -50%);
             transition: transform 0.1s ease;
             filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
             display: none;
         }
-        /* text turns light blue on hover, except headings */
+
+        /* ----- GLOBAL HOVER COLOR: WHITE (except collab and footer) ----- */
         *:hover {
+            color: #ffffff !important;
+        }
+        .collab *:hover {
+            color: #1e1e1e !important;
+        }
+        footer *:hover {
             color: #90CAF9 !important;
         }
-        h1:hover, h2:hover, h3:hover {
-            color: #ffffff !important; /* keep white on hover */
+        .card:hover * {
+            color: #ffffff !important;
+        }
+        .btn:hover {
+            background-color: inherit !important;
+            border-color: transparent;
         }
 
-        /* ----- PIXEL BACKGROUND TEXT (high contrast) ----- */
+        /* ----- PIXEL BACKGROUND TEXT (SQUARE PIXELS, 无高亮) ----- */
         .pixel-bg {
             position: absolute;
             top: 0;
@@ -49,34 +60,54 @@
             width: 100%;
             height: 100%;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
             pointer-events: none;
             z-index: 0;
             color: rgba(255, 255, 255, 0.5);
             font-family: 'Courier New', monospace;
             font-weight: bold;
-            text-transform: uppercase;
             white-space: pre-wrap;
             word-break: break-word;
-            text-align: center;
-            line-height: 1.2;
-            background-image: radial-gradient(rgba(255,255,255,0.2) 1px, transparent 1px);
+            text-align: left;
+            line-height: 1.5;
+            /* 方形像素点背景 */
+            background-image: 
+                repeating-linear-gradient(0deg, rgba(255,255,255,0.2) 0px, transparent 1px, transparent 4px),
+                repeating-linear-gradient(90deg, rgba(255,255,255,0.2) 0px, transparent 1px, transparent 4px);
             background-size: 4px 4px;
-            letter-spacing: 8px;
+            background-position: 0 0;
+            padding: 2rem 1.5rem;
+            font-size: clamp(0.8rem, 2.2vw, 1.3rem);
             text-shadow: 
-                2px 2px 0 rgba(255,255,255,0.2),
-                4px 4px 0 rgba(200,200,200,0.2),
-                6px 6px 0 rgba(150,150,150,0.2);
+                2px 2px 0 rgba(255,255,255,0.15),
+                4px 4px 0 rgba(200,200,200,0.15),
+                6px 6px 0 rgba(150,150,150,0.15);
         }
         #page1 .pixel-bg {
-            font-size: clamp(4rem, 15vw, 12rem);
+            font-size: clamp(6rem, 20vw, 14rem);
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0;
+            text-transform: uppercase;
+            letter-spacing: 10px;
         }
-        #page2 .pixel-bg {
-            font-size: clamp(1.2rem, 5vw, 3rem);
-            text-transform: none;
+
+        /* 首页底部提示行 */
+        .home-tagline {
+            position: absolute;
+            bottom: 5vh;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.9rem;
+            font-family: 'Courier New', monospace;
             letter-spacing: 2px;
-            padding: 2rem;
+            z-index: 3;
+            pointer-events: none;
         }
 
         /* ----- TWO-PAGE LAYOUT ----- */
@@ -93,14 +124,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 1rem;
+            padding: 0.5rem;
             position: relative;
             background: transparent;
         }
         #page1 {
             height: 100vh;
             align-items: flex-end;
-            padding-bottom: 20vh;  /* about card in lower third */
+            padding-bottom: 12vh;
         }
         #page2 {
             min-height: 100vh;
@@ -110,7 +141,7 @@
             padding-bottom: 5vh;
         }
         .page-content {
-            max-width: 600px;       /* narrow center column */
+            max-width: 560px;
             width: 100%;
             margin: 0 auto;
             position: relative;
@@ -120,22 +151,22 @@
         /* scroll indicator */
         .scroll-indicator {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 20px;
+            right: 20px;
             background: white;
-            width: 50px;
-            height: 50px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
             z-index: 100;
             cursor: pointer;
             transition: all 0.3s ease;
             border: 2px solid #90CAF9;
             color: #2c3e50;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: bold;
             text-decoration: none;
         }
@@ -145,135 +176,185 @@
             transform: scale(1.1);
         }
 
-        /* Headings outside cards (white) */
-        h1, h2 {
+        /* 主要栏目标题 (大号) */
+        h1, h2, .full-width h2 {
             color: #ffffff;
             font-weight: 500;
-        }
-        h1 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        h2 {
-            font-size: 1.4rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid rgba(255,255,255,0.2);
-        }
-        /* Override for card headings (keep dark) */
-        .card h3, .about-card h3, .table-section h3 {
-            color: #2c3e50;
             font-size: 1.2rem;
             margin-bottom: 0.8rem;
         }
+        h1 {
+            margin-bottom: 0.8rem;
+        }
+        h2 {
+            padding-bottom: 0.2rem;
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+        }
+        .full-width h2 {
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+        }
+        /* 右侧表格标题和协作区标题恢复小号 */
+        .right-col h2 {
+            font-size: 0.9rem;
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+        }
+        .collab h2 {
+            font-size: 0.9rem;
+            border-bottom: none;
+            color: #2c3e50;
+        }
 
-        /* about card (semi-transparent) */
+        /* about card (宽度 340px) */
         .about-card {
-            background: rgba(255, 255, 255, 0.7); /* more transparent */
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(2px);
-            border-radius: 20px;
-            padding: 1.2rem;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            padding: 0.9rem;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.3);
             border: 1px solid rgba(255,255,255,0.2);
-            width: 100%;
-            color: #1e1e1e;
+            width: 340px;
+            margin: 0 auto;
+            color: #111;
+            transition: background 0.2s;
+            border-radius: 18px;
+        }
+        .about-card:hover {
+            background: rgba(255, 255, 255, 0.3);
         }
         .about-items {
             display: flex;
             flex-direction: column;
-            gap: 0.8rem;
-            margin: 1rem 0 0.5rem;
+            gap: 0.5rem;
+            margin: 0.6rem 0 0.1rem;
         }
         .about-item {
             display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
+            align-items: center;  /* 改为居中对齐，使 emoji 和文字垂直居中 */
+            gap: 0.4rem;
             background: rgba(245, 245, 245, 0.9);
-            padding: 0.8rem 1.2rem;
-            border-radius: 40px;
-            font-size: 1rem;
+            padding: 0.4rem 0.6rem;  /* 更紧凑的内边距 */
+            font-size: 0.68rem;       /* 微调字体大小 */
             color: #2c3e50;
             border: 1px solid rgba(0,0,0,0.05);
-            flex-wrap: wrap;
+            flex-wrap: wrap;          /* 允许必要时换行，但尽量一行 */
+            transition: background 0.2s;
+            border-radius: 30px;
+        }
+        .about-item:hover {
+            background: rgba(255,255,255,0.5);
         }
         .about-item span:first-child {
-            font-size: 1.5rem;
+            font-size: 1.1rem;
             line-height: 1;
         }
-        .research-inline {
-            font-size: 0.85rem;
-            margin-left: 2rem;
+        .research-btn {
+            margin-left: 1.3rem;
             width: 100%;
-            color: #4a6fa5;
         }
-        .research-inline a {
-            color: #4a6fa5;
+        .research-btn .btn.research {
+            background-color: #FFE0F0;
+            color: #b0003a;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.65rem;
+            font-weight: 500;
             text-decoration: none;
-            border-bottom: 1px dashed #90CAF9;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            border: 1px solid transparent;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+        }
+        .research-btn .btn i {
+            font-size: 0.7rem;
         }
 
-        /* cards grid: fixed width, centered */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, 280px);
+        /* ----- 第二页两列布局 ----- */
+        .two-col {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
             justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+        }
+        .left-col {
+            flex: 1 1 260px;
+            max-width: 260px;
+        }
+        .right-col {
+            flex: 1 1 240px;
+            max-width: 240px;
+        }
+        .full-width {
+            width: 100%;
+            margin-top: 1.5rem;
+        }
+
+        /* 项目卡片 */
+        .projects-vertical {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
         }
         .card {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(2px);
-            border-radius: 20px;
-            padding: 1.2rem;
-            box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+            padding: 0.8rem;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.2);
             border: 1px solid rgba(255,255,255,0.3);
             display: flex;
             flex-direction: column;
-            color: #1e1e1e;
-            transition: all 0.25s ease;
-            width: 280px;
+            color: #111;
+            transition: background 0.2s, transform 0.2s;
+            width: 100%;
+            border-radius: 16px;
         }
         .card:hover {
-            animation: bubblePop 0.6s ease;
+            background: rgba(255, 255, 255, 0.3);
+            animation: bubblePop 0.5s ease;
         }
         @keyframes bubblePop {
             0% { transform: scale(1); }
-            30% { transform: scale(1.03); }
+            30% { transform: scale(1.02); }
             50% { transform: scale(0.98); }
             70% { transform: scale(1.01); }
             100% { transform: scale(1); }
         }
-        .card .description {
-            color: #4a4a4a;
-            margin-bottom: 1rem;
-            flex: 1;
+        .card h3 {
+            color: #2c3e50;
             font-size: 0.9rem;
+            margin-bottom: 0.4rem;
+        }
+        .card .description {
+            color: #333;
+            margin-bottom: 0.6rem;
+            flex: 1;
+            font-size: 0.7rem;
+            line-height: 1.3;
         }
         .card .links {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.3rem;
             margin-top: auto;
             align-items: center;
         }
 
-        /* buttons */
+        /* 按钮 */
         .btn {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 4px;
             background-color: #f0f0f0;
             color: #1e1e1e;
-            padding: 0.4rem 1rem;
-            border-radius: 30px;
-            font-size: 0.8rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.6rem;
             font-weight: 500;
             text-decoration: none;
             border: 1px solid transparent;
             transition: all 0.2s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
         }
-        .btn i { font-size: 1rem; }
+        .btn i { font-size: 0.7rem; }
         .btn.linkedin { background-color: #90CAF9; color: #0a66c2; }
         .btn.play { background-color: #F8BBD0; color: #b0003a; }
         .btn.chart { background-color: #FFAB91; color: #bf360c; }
@@ -281,84 +362,119 @@
         .btn.gov { background-color: #9FA8DA; color: #1a237e; }
         .btn.safety { background-color: #B39DDB; color: #311b92; }
         .btn.portfolio { background-color: #9FA8DA; color: #283593; }
+        .btn.research { background-color: #FFE0F0; color: #b0003a; }
 
-        /* table (semi-transparent, narrower) */
+        /* 右侧表格 */
         .table-section {
-            margin: 2rem 0;
+            margin-bottom: 0;
         }
         .project-table {
             width: 100%;
             border-collapse: collapse;
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(2px);
-            border-radius: 16px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+            font-size: 0.65rem;
+            transition: background 0.2s;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-            font-size: 0.85rem;
+        }
+        .project-table:hover {
+            background: rgba(255, 255, 255, 0.3);
         }
         .project-table th {
             background-color: rgba(240, 244, 248, 0.9);
             color: #2c3e50;
             font-weight: 600;
-            padding: 0.8rem;
+            padding: 0.4rem;
             text-align: left;
         }
         .project-table td {
-            padding: 0.8rem;
+            padding: 0.4rem;
             border-bottom: 1px solid rgba(0,0,0,0.05);
             color: #1e1e1e;
         }
         .project-table a {
             text-decoration: none;
             color: inherit;
-            font-size: 1.2rem;
+            font-size: 0.9rem;
         }
 
-        /* certificates list */
+        /* AI Learning 列表 */
         .cert-list {
             display: flex;
             flex-direction: column;
-            gap: 0.8rem;
-            margin: 1.5rem 0;
+            gap: 0.6rem;
+            margin: 1rem 0 0.5rem;
         }
         .cert-item {
-            background: #2a2a2a;
-            border-radius: 14px;
-            padding: 1rem;
-            border-left: 4px solid #90CAF9;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(2px);
+            padding: 0.7rem;
             display: flex;
             flex-wrap: wrap;
-            align-items: center;
-            gap: 1rem;
-            color: #e0e0e0;
-            font-size: 0.9rem;
+            align-items: flex-start;
+            gap: 0.6rem;
+            color: #111;
+            font-size: 0.75rem;
+            transition: background 0.2s;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 14px;
+        }
+        .cert-item:hover {
+            background: rgba(255, 255, 255, 0.3);
         }
         .cert-school {
             font-weight: bold;
-            color: #90CAF9;
-            min-width: 100px;
+            color: #000000;
+            min-width: 85px;
+            font-size: 0.75rem;
         }
         .cert-details {
             flex: 1;
         }
         .cert-title {
             font-weight: 600;
-            color: #fff;
-            margin-bottom: 0.2rem;
+            color: #111;
+            margin-bottom: 0.1rem;
+            line-height: 1.3;
         }
         .cert-meta {
-            font-size: 0.8rem;
-            color: #aaa;
+            font-size: 0.65rem;
+            color: #444;
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
         }
-        .cert-meta a {
-            color: #90CAF9;
-            text-decoration: none;
+        /* 独立小气泡 */
+        .more-learning-bubble {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(2px);
+            padding: 0.4rem 0.8rem;
+            display: inline-block;
+            margin-top: 0.5rem;
+            font-size: 0.7rem;
+            color: #000000;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 14px;
         }
 
-        /* email popup */
+        /* 协作区 */
+        .collab {
+            text-align: center;
+            background: #e8f0fe;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            border: 1px dashed #90CAF9;
+            color: #1e1e1e;
+            border-radius: 30px;
+        }
+        .collab p {
+            color: #000000;  /* 改为纯黑色 */
+            font-size: 0.75rem;
+        }
+
+        /* email 弹窗 */
         .email-popup {
             position: fixed;
             top: 50%;
@@ -366,32 +482,29 @@
             transform: translate(-50%, -50%);
             background: #2a2a2a;
             border: 2px solid #90CAF9;
-            border-radius: 20px;
-            padding: 2rem;
+            border-radius: 18px;
+            padding: 1.5rem;
             z-index: 10000;
             box-shadow: 0 20px 40px black;
             display: none;
             text-align: center;
-            min-width: 300px;
+            min-width: 240px;
         }
         .email-popup p {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
             color: white;
         }
         .email-popup button {
             background: #90CAF9;
             color: #1a1a1a;
             border: none;
-            padding: 0.6rem 1.5rem;
-            border-radius: 40px;
-            font-size: 1rem;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
             font-weight: bold;
             cursor: pointer;
-            margin: 0 0.5rem;
-        }
-        .email-popup button:hover {
-            background: #fff;
+            margin: 0 0.3rem;
         }
         .email-popup .close-btn {
             background: transparent;
@@ -399,22 +512,28 @@
             border: 1px solid #555;
         }
 
-        /* collaboration area (opaque) */
-        .collab {
-            text-align: center;
-            background: #e8f0fe;
-            border-radius: 40px;
-            padding: 1.8rem;
-            margin-top: 2rem;
-            border: 1px dashed #90CAF9;
-            color: #1e1e1e;
+        /* footer 白色 */
+        footer {
+            color: #ffffff !important;
+        }
+        footer * {
+            color: #ffffff;
+        }
+        footer *:hover {
+            color: #90CAF9 !important;
         }
 
-        /* responsive */
-        @media (max-width: 650px) {
-            .page-content { max-width: 95%; }
-            .projects-grid { grid-template-columns: 1fr; }
-            .card { width: 100%; }
+        @media (max-width: 550px) {
+            .two-col {
+                flex-direction: column;
+                align-items: center;
+            }
+            .left-col, .right-col {
+                max-width: 280px;
+            }
+            .about-card {
+                width: 300px;
+            }
         }
         @media (hover: none) and (pointer: coarse) {
             * { cursor: auto; }
@@ -440,20 +559,21 @@
         <!-- PAGE 1: ABOUT ME -->
         <div class="page" id="page1">
             <div class="pixel-bg">Linge · Grace</div>
+            <div class="home-tagline">Sociotechnical Lens | AI | Technology | Human-Computer Interaction</div>
             <div class="page-content">
                 <h1>💿 work-from-home-</h1>
                 <div class="about-card" id="about-card">
                     <h2>🌸 about me</h2>
                     <div class="about-items">
-                        <!-- 🧠 bubble with research brief inside -->
+                        <!-- 🧠 一行显示 -->
                         <div class="about-item">
                             <span>🧠</span>
-                            <span>Human-AI Relationships, Transformative Impacts of AI</span>
-                            <div class="research-inline">
-                                <a href="https://docs.google.com/document/d/12eNN13O5TKNAK14_JdCBk-iyzrYMIT0P/edit?usp=sharing&ouid=118104064415940762847&rtpof=true&sd=true" target="_blank">📄 Research Brief</a>
+                            <span>Human-AI Relationships, Transformative Impacts of Technology</span>
+                            <div class="research-btn">
+                                <a href="https://docs.google.com/document/d/12eNN13O5TKNAK14_JdCBk-iyzrYMIT0P/edit?usp=sharing&ouid=118104064415940762847&rtpof=true&sd=true" target="_blank" class="btn research"><i class="fas fa-file-alt"></i> Research Brief</a>
                             </div>
                         </div>
-                        <!-- 🌱 bubble -->
+                        <!-- 🌱 一行显示 -->
                         <div class="about-item">
                             <span>🌱</span>
                             <span>Always exploring new technologies & interdisciplinary projects</span>
@@ -463,78 +583,119 @@
             </div>
         </div>
 
-        <!-- PAGE 2: PROJECTS + CERTIFICATES -->
+        <!-- PAGE 2: PROJECTS + AI LEARNING -->
         <div class="page" id="page2">
-            <div class="pixel-bg">Researcher Manifesto: I am a trained sociologist studying the societal impact of digital technologies through sociotechnical lens. With a particular interest in AI, I examine the underlying mechanisms of its infrastructure to inform ethics from a sociological perspective.</div>
+            <!-- 背景文字 -->
+            <div class="pixel-bg">
+                Sociotechnical Lens | AI | Technology | Human-Computer Interaction<br>
+                I am a trained sociologist studying the societal impact of digital technologies through sociotechnical lens. With a particular interest in AI, I examine the underlying mechanisms of its infrastructure to inform ethics from a sociological perspective.<br>
+                Inspired by critical questions raised during the 2023 AI Safety Summit (ASS), I began exploring the issue of AI deception—how different forms of deceptive capabilities entangled with historical and societal biases, and how discourses around deception evolve alongside technological development. Drawing on courses in Science and Technology Studies to deepen my understanding of the power dynamics shaping technological paradigms, I offered an evaluation of AI deception’ social implications and persistent challenges, which was published on arXiv during my undergraduate studies.<br>
+                During my Sociology MSc at the University of Oxford, I deepened my technical understanding through studies at the Oxford Internet Institute, where I gained expertise in Fairness, Transparency, and Accountability in Machine Learning. I applied these tools in a qualitative audit of Microsoft’s XiaoIce model—an AI companion released in 2014, predating popular apps like Character.ai and Replika. This audit, conducted in accordance with ACM FAccT’s auditing principles, integrated interdisciplinary theories to critically examine the model’s gendered design and the power dynamics embedded in its affordances. Although currently unpublished, this work was completed in May 2025 as part of a course project and served as the foundation for my ongoing thesis.<br>
+                My thesis investigated the contexts, processes, and mechanisms through which users connect with AI Companions (AICs), perceiving them as trustworthy “social actors”. Rather than assuming anthropomorphization as a prerequisite for connectedness, I asked at what point do users anthropomorphize AICs? Using a mixed-methods approach – quantitative dataset analysis and qualitative interviews with inductive analysis – I examined both romantic and non-romantic users’ experiences with AICs. My analysis explored the mechanisms of connectedness, moments of anthropomorphisation, and the cyclical fulfilment of dual needs that can foster compulsive use. This study interrogates the ways in which AICs facilitate non-judgemental backstage self-disclosure, and examines how these interactions may reshape role expectations and reconceptualise romantic relationships and love, thereby contributing to the tangible social implications of human–AI socialisation.
+            </div>
             <div class="page-content">
-                <h2>🌐 AI-co-created projects</h2>
-                
-                <!-- Card-based projects (fixed width 280px) -->
-                <div class="projects-grid">
-                    <!-- Manus Cat -->
-                    <div class="card">
-                        <h3>🐱 Manus Cat · LinkedIn Newsletter</h3>
-                        <div class="description">
-                            Weekly insights on macro forces, tech news, society, and of course AI.<br><br>
-                            Scroll down to see my AI employee.
-                        </div>
-                        <div class="links">
-                            <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7422191016994217984" target="_blank" class="btn linkedin"><i class="fab fa-linkedin"></i> Follow</a>
+                <!-- 两个标题并排 -->
+                <div class="two-col">
+                    <!-- 左侧：项目卡片 -->
+                    <div class="left-col">
+                        <h2>🌐 AI-co-created projects</h2>
+                        <div class="projects-vertical">
+                            <!-- Manus Cat -->
+                            <div class="card">
+                                <h3>🐱 Manus Cat · LinkedIn Newsletter</h3>
+                                <div class="description">
+                                    Weekly insights on macro forces, tech news, society, and of course AI.<br><br>
+                                    Scroll down to see my AI employee.
+                                </div>
+                                <div class="links">
+                                    <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7422191016994217984" target="_blank" class="btn linkedin"><i class="fab fa-linkedin"></i> Follow</a>
+                                </div>
+                            </div>
+
+                            <!-- Academic Portfolio -->
+                            <div class="card">
+                                <h3>🪿 Academic Portfolio</h3>
+                                <div class="description">
+                                    Research project showcase. Including recommended study tools, AI sources, Books.<br>
+                                    Pick your everyday quote!<br>
+                                    <em>"𝒰𝓃𝒸𝒽𝒶𝒾𝓃𝑒𝒹 𝑀𝑒𝓁𝑜𝒹𝓎" — play this song and take your time.</em>
+                                </div>
+                                <div class="links">
+                                    <a href="https://app--graces-kiosk-a4c1d845.base44.app/" target="_blank" class="btn portfolio"><i class="fas fa-globe"></i> Grace's Kiosk</a>
+                                </div>
+                            </div>
+
+                            <!-- Momentum App -->
+                            <div class="card">
+                                <h3>🛁 Momentum App</h3>
+                                <div class="description">
+                                    Momentum is a gentle life management tool to help you visualize and manage your energy through small, science‑backed recovery actions. Rest is not escape — it’s part of your momentum.<br>
+                                    <small>Ideas for improvement? Collaboration welcome!</small>
+                                </div>
+                                <div class="links">
+                                    <a href="https://screenapp.io/app/v/YzJV1A2nJl" target="_blank" class="btn play"><i class="fas fa-play"></i> Demo</a>
+                                    <a href="https://rugged-build-your-momentum.base44.app/Home" target="_blank" class="btn chart"><i class="fas fa-chart-bar"></i> Dashboard</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Academic Portfolio -->
-                    <div class="card">
-                        <h3>🪿 Academic Portfolio</h3>
-                        <div class="description">
-                            Research project showcase. Including recommended study tools, AI sources, Books.<br>
-                            Pick your everyday quote!<br>
-                            <em>"𝒰𝓃𝒸𝒽𝒶𝒾𝓃𝑒𝒹 𝑀𝑒𝓁𝑜𝒹𝓎" — play this song and take your time.</em>
-                        </div>
-                        <div class="links">
-                            <a href="https://app--graces-kiosk-a4c1d845.base44.app/" target="_blank" class="btn portfolio"><i class="fas fa-globe"></i> Kiosk</a>
-                        </div>
-                    </div>
-
-                    <!-- Momentum App -->
-                    <div class="card">
-                        <h3>🛁 Momentum App</h3>
-                        <div class="description">
-                            <em>(account needed)</em><br>
-                            A gentle life management tool to visualize energy through micro-recovery actions.
-                        </div>
-                        <div class="links">
-                            <a href="https://screenapp.io/app/v/YzJV1A2nJl" target="_blank" class="btn play"><i class="fas fa-play"></i> Demo</a>
-                            <a href="https://rugged-build-your-momentum.base44.app/Home" target="_blank" class="btn chart"><i class="fas fa-chart-bar"></i> Dashboard</a>
+                    <!-- 右侧：表格 -->
+                    <div class="right-col">
+                        <h2>🦷 Some AI Knowledge Compilation</h2>
+                        <div class="table-section">
+                            <table class="project-table">
+                                <thead>
+                                    <tr><th>Project</th><th>Focus Area</th><th>Description</th><th>Link</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><strong>AI Wiki</strong></td><td>Knowledge Base</td><td>Comprehensive LLM concepts and AI fundamentals.</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/UfMaw8HkmiQR8JkdZwjcmQNjnyc?from=from_copylink" target="_blank">📁</a></td></tr>
+                                    <tr><td><strong>Chinese AI Governance</strong></td><td>Policy & Governance</td><td>Framework for understanding AI governance in China.</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/P5O8w8uENiE6RGkVrw2c5pUunTc?from=from_copylink" target="_blank">📃</a></td></tr>
+                                    <tr><td><strong>Prompt Red Teaming</strong></td><td>Safety & Ethics</td><td>Moral evaluations and safety testing of AI systems.</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/Ep3ewlDZligXJMkiZnxcQsDDnNc?from=from_copylink" target="_blank">🦙</a></td></tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
 
-                <!-- Table-based AI Knowledge (emoji updated) -->
-                <div class="table-section">
-                    <h2 style="border-bottom: none;">🦷 Some AI Knowledge Compilation</h2>
-                    <table class="project-table">
-                        <thead>
-                            <tr><th>Project</th><th>Focus Area</th><th>Description</th><th>Link</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td><strong>AI Wiki</strong></td><td>Knowledge Base</td><td>Comprehensive LLM concepts and AI fundamentals.</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/UfMaw8HkmiQR8JkdZwjcmQNjnyc?from=from_copylink" target="_blank">🤍</a></td></tr>
-                            <tr><td><strong>Chinese AI Governance</strong></td><td>Policy & Governance</td><td>Framework for understanding AI governance in China.</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/P5O8w8uENiE6RGkVrw2c5pUunTc?from=from_copylink" target="_blank">📋</a></td></tr>
-                            <tr><td><strong>Prompt Red Teaming</strong></td><td>Safety & Ethics</td><td>Moral evaluations and safety testing of AI systems.</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/Ep3ewlDZligXJMkiZnxcQsDDnNc?from=from_copylink" target="_blank">🦙</a></td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- My Online Learning Section (updated emoji, removed items, added Oxford) -->
-                <div style="margin-top: 2rem;">
-                    <h2>👯 My Online Learning</h2>
+                <!-- AI Learning -->
+                <div class="full-width">
+                    <h2>🤍 AI Learning</h2>
                     <div class="cert-list">
+                        <!-- Oxford -->
+                        <div class="cert-item">
+                            <div class="cert-school">Oxford Internet Institute</div>
+                            <div class="cert-details">
+                                <div class="cert-title">Institutional Learning: Fairness, Accountability and Transparency of Machine Learning</div>
+                                <div class="cert-meta">2025</div>
+                            </div>
+                        </div>
+                        <!-- 艾伦·图灵研究所 -->
+                        <div class="cert-item">
+                            <div class="cert-school">The Alan Turing Institute</div>
+                            <div class="cert-details">
+                                <div class="cert-title">Operationalising Ethics in AI - Expert</div>
+                                <div class="cert-meta">learning ———</div>
+                            </div>
+                        </div>
+                        <!-- UCL -->
+                        <div class="cert-item">
+                            <div class="cert-school">UCL</div>
+                            <div class="cert-details">
+                                <div class="cert-title">
+                                    Sociology of Science and Technology<br>
+                                    Sociology of Cybersecurity<br>
+                                    Special Topics in Science and Society
+                                </div>
+                                <div class="cert-meta">2021-2024</div>
+                            </div>
+                        </div>
                         <!-- Duke -->
                         <div class="cert-item">
                             <div class="cert-school">Duke University</div>
                             <div class="cert-details">
                                 <div class="cert-title">Machine Learning Foundations for Product Managers (Coursera)</div>
-                                <div class="cert-meta"><span><i class="far fa-calendar-alt"></i> Issued Mar 2026</span> <span><i class="fas fa-code"></i> Skills: Machine Learning</span></div>
+                                <div class="cert-meta"><span><i class="far fa-calendar-alt"></i> Issued Mar 2026</span> <span>Skills: Train AutoML Model on Google Cloud Vertex AI.</span></div>
                             </div>
                         </div>
                         <!-- IBM -->
@@ -549,38 +710,32 @@
                         <div class="cert-item">
                             <div class="cert-school">Amazon</div>
                             <div class="cert-details">
-                                <div class="cert-title">Fundamentals of Machine Learning and Artificial Intelligence (Coursera)</div>
-                                <div class="cert-meta"><span><i class="far fa-calendar-alt"></i> Issued Feb 2026</span> <span><i class="fas fa-code"></i> Skills: Machine Learning</span></div>
-                            </div>
-                        </div>
-                        <!-- Oxford Internet Institute (new) -->
-                        <div class="cert-item">
-                            <div class="cert-school">Oxford Internet Institute</div>
-                            <div class="cert-details">
-                                <div class="cert-title">Institutional Learning: Fairness, Accountability and Transparency of Machine Learning</div>
-                                <div class="cert-meta">More ONLINE learning see <a href="#">Personal Web</a> & <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7422191016994217984" target="_blank">LinkedIn</a></div>
+                                <div class="cert-title">Fundamentals of Machine Learning and AI (Coursera)</div>
+                                <div class="cert-meta"><span><i class="far fa-calendar-alt"></i> Issued Feb 2026</span></div>
                             </div>
                         </div>
                     </div>
+                    <!-- 独立小气泡 -->
+                    <div class="more-learning-bubble">More ONLINE learning see Personal Web & LinkedIn</div>
                 </div>
 
-                <!-- COLLABORATE -->
+                <!-- 协作区 (文字黑色) -->
                 <div class="collab">
-                    <h2 style="color:#2c3e50; border-bottom: none;">💡 Let's Collaborate!</h2>
-                    <p style="font-size: 1rem; margin-bottom: 1rem;">Interested in any project? Have an idea? Let's connect.</p>
+                    <h2>💡 Let's Collaborate!</h2>
+                    <p>Interested? Have an idea? Let's connect.</p>
                     <div class="links" style="justify-content: center;">
                         <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7422191016994217984" target="_blank" class="btn linkedin"><i class="fab fa-linkedin"></i> LinkedIn Newsletter</a>
                         <a href="#" id="emailBtn" class="btn wiki"><i class="fas fa-envelope"></i> Email</a>
                     </div>
                 </div>
-                <footer style="text-align: center; color: #666; padding: 1.5rem 0 0.5rem;">✦ built with curiosity ✦</footer>
+                <footer style="text-align: center; padding: 1rem 0 0.2rem; font-size: 0.6rem;">✦ built with curiosity ✦</footer>
             </div>
         </div>
     </div>
 
     <script>
         (function() {
-            // Custom cursor
+            // 自定义光标
             const cursor = document.getElementById('cat-cursor');
             const aboutCard = document.getElementById('about-card');
             if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
@@ -592,7 +747,7 @@
                 cursor.innerText = '🐱';
                 aboutCard.addEventListener('mouseenter', () => { cursor.innerText = '🎐'; });
                 aboutCard.addEventListener('mouseleave', () => { cursor.innerText = '🐱'; });
-                document.querySelectorAll('a, button, .btn, .card').forEach(el => {
+                document.querySelectorAll('a, button, .btn, .card, .about-item, .cert-item').forEach(el => {
                     el.addEventListener('mouseenter', () => cursor.style.transform = 'translate(-50%, -50%) scale(1.2)');
                     el.addEventListener('mouseleave', () => cursor.style.transform = 'translate(-50%, -50%) scale(1)');
                 });
@@ -601,7 +756,7 @@
                 document.body.style.cursor = 'auto';
             }
 
-            // Scroll indicator
+            // 滚动指示器
             const container = document.getElementById('pagesContainer');
             const scrollBtn = document.getElementById('scrollBtn');
             let currentPage = 1;
@@ -627,7 +782,7 @@
             });
             window.addEventListener('resize', updateButton);
 
-            // Email popup
+            // Email 弹窗复制
             const emailBtn = document.getElementById('emailBtn');
             const popup = document.getElementById('emailPopup');
             const copyBtn = document.getElementById('copyEmailBtn');
