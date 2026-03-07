@@ -411,8 +411,6 @@
             margin: 1.2rem 0 0.5rem;
             width: 100%;
             max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
         }
         .cert-item {
             background: rgba(255, 255, 255, 0.85);
@@ -463,22 +461,23 @@
             color: #000000;
             border: 1px solid rgba(255,255,255,0.2);
             border-radius: 14px;
-            width: 100%;
-            max-width: 800px;
+            width: fit-content;
+             max-width: 100%;
             margin-left: auto;
             margin-right: auto;
         }
 
         /* 协作区 - 恢复固定宽度 (100%) */
         .collab {
-            text-align: center;
-            background: #e8f0fe;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            border: 1px dashed #90CAF9;
-            color: #1e1e1e;
-            border-radius: 30px;
-            width: 100%;
+    text-align: center;
+    background: #e8f0fe;
+    padding: 1.5rem;
+    margin: 2rem auto;        /* 水平居中 */
+    border: 1px dashed #90CAF9;
+    color: #1e1e1e;
+    border-radius: 30px;
+    width: fit-content;       /* 宽度适应内容 */
+    max-width: 100%;          /* 防止溢出 */
         }
         .collab p {
             color: #000000;
