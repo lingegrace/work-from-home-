@@ -80,14 +80,14 @@
             background-size: 4px 4px;
             background-position: 0 0;
             padding: 2rem 1.5rem;
-            font-size: clamp(1.6rem, 4.4vw, 2.6rem); /* 放大一倍 */
+            font-size: clamp(1rem, 2.5vw, 1.6rem); /* 背景字体适当缩小 */
             text-shadow: 
                 2px 2px 0 rgba(255,255,255,0.15),
                 4px 4px 0 rgba(200,200,200,0.15),
                 6px 6px 0 rgba(150,150,150,0.15);
         }
         #page1 .pixel-bg {
-            font-size: clamp(8rem, 25vw, 18rem); /* 首页大字冲击力 */
+            font-size: clamp(6rem, 20vw, 14rem); /* 首页大字恢复较早版本大小 */
             align-items: center;
             justify-content: center;
             text-align: center;
@@ -288,7 +288,7 @@
             margin-top: 2rem;
             display: flex;
             flex-direction: column;
-            align-items: center; /* 使内部内容居中 */
+            align-items: center;
         }
 
         /* 项目卡片 (宽度100%，即450px) */
@@ -410,7 +410,7 @@
             gap: 0.8rem;
             margin: 1.2rem 0 0.5rem;
             width: 100%;
-            max-width: 800px;       /* 统一最大宽度 */
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -427,7 +427,7 @@
             transition: background 0.2s;
             border: 1px solid rgba(255,255,255,0.2);
             border-radius: 14px;
-            width: 100%;            /* 与父容器等宽 */
+            width: 100%;
         }
         .cert-item:hover {
             background: rgba(255, 255, 255, 0.3);
@@ -469,17 +469,16 @@
             margin-right: auto;
         }
 
-        /* 协作区 - 宽度自适应，居中 */
+        /* 协作区 - 恢复固定宽度 (100%) */
         .collab {
             text-align: center;
             background: #e8f0fe;
-            padding: 1.5rem 2.5rem;
-            margin: 2rem auto;
+            padding: 1.5rem;
+            margin: 2rem 0;
             border: 1px dashed #90CAF9;
             color: #1e1e1e;
             border-radius: 30px;
-            width: fit-content;
-            max-width: 100%;
+            width: 100%;
         }
         .collab p {
             color: #000000;
@@ -550,9 +549,6 @@
             .about-card {
                 width: 90%;
             }
-            .collab {
-                padding: 1rem 1.5rem;
-            }
             .cert-list, .more-learning-bubble {
                 max-width: 100%;
             }
@@ -607,7 +603,7 @@
 
         <!-- PAGE 2: PROJECTS + AI LEARNING -->
         <div class="page" id="page2">
-            <!-- 背景文字 (放大一倍，行高增大) -->
+            <!-- 背景文字 (适当缩小，但依然铺满底部) -->
             <div class="pixel-bg">
                 Sociotechnical Lens | AI | Technology | Human-Computer Interaction<br>
                 I am a trained sociologist studying the societal impact of digital technologies through sociotechnical lens. With a particular interest in AI, I examine the underlying mechanisms of its infrastructure to inform ethics from a sociological perspective.<br>
@@ -680,7 +676,7 @@
                     </div>
                 </div>
 
-                <!-- AI Learning (宽度统一为最大800px，居中) -->
+                <!-- AI Learning (宽度统一) -->
                 <div class="full-width">
                     <h2>🤍 AI Learning</h2>
                     <div class="cert-list">
@@ -737,11 +733,11 @@
                             </div>
                         </div>
                     </div>
-                    <!-- 独立小气泡 (宽度统一) -->
+                    <!-- 独立小气泡 -->
                     <div class="more-learning-bubble">More ONLINE learning see Personal Web & LinkedIn</div>
                 </div>
 
-                <!-- 协作区 (宽度自适应，居中) -->
+                <!-- 协作区 (固定宽度) -->
                 <div class="collab">
                     <h2>💡 Let's Collaborate!</h2>
                     <p>Interested? Have an idea? Let's connect.</p>
