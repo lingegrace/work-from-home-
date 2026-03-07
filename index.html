@@ -21,7 +21,7 @@
             line-height: 1.5;
             min-height: 100vh;
             overflow-x: hidden;
-            font-size: 16px; /* 基础字体 */
+            font-size: 16px;
         }
         #cat-cursor {
             position: fixed;
@@ -80,7 +80,7 @@
             background-size: 4px 4px;
             background-position: 0 0;
             padding: 2rem 1.5rem;
-            font-size: 1rem; /* 增大背景文字 */
+            font-size: 1rem; /* 保持大尺寸 */
             text-shadow: 
                 2px 2px 0 rgba(255,255,255,0.15),
                 4px 4px 0 rgba(200,200,200,0.15),
@@ -142,7 +142,7 @@
             padding-bottom: 5vh;
         }
         .page-content {
-            max-width: 700px;       /* 内容区宽度增加 */
+            max-width: 1000px;       /* 增加宽度以适应更大的卡片和表格 */
             width: 100%;
             margin: 0 auto;
             position: relative;
@@ -177,7 +177,7 @@
             transform: scale(1.1);
         }
 
-        /* 标题字体增大 */
+        /* 标题字体 */
         h1, h2, .full-width h2 {
             color: #ffffff;
             font-weight: 500;
@@ -194,7 +194,6 @@
         .full-width h2 {
             border-bottom: 2px solid rgba(255,255,255,0.2);
         }
-        /* 右侧表格标题和协作区标题保持稍小但依然增大 */
         .right-col h2 {
             font-size: 1.2rem;
             border-bottom: 2px solid rgba(255,255,255,0.2);
@@ -205,14 +204,14 @@
             color: #2c3e50;
         }
 
-        /* about card (宽度100%，内边距增大) */
+        /* about card (宽度为父容器的75%，居中) */
         .about-card {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(2px);
             padding: 1.2rem;
             box-shadow: 0 8px 18px rgba(0,0,0,0.3);
             border: 1px solid rgba(255,255,255,0.2);
-            width: 100%;
+            width: 75%;
             margin: 0 auto;
             color: #111;
             transition: background 0.2s;
@@ -269,7 +268,7 @@
             font-size: 0.9rem;
         }
 
-        /* ----- 第二页两列布局 ----- */
+        /* ----- 第二页两列布局 (列宽450px) ----- */
         .two-col {
             display: flex;
             gap: 1.5rem;
@@ -277,19 +276,19 @@
             justify-content: center;
         }
         .left-col {
-            flex: 1 1 300px;
-            max-width: 300px;
+            flex: 1 1 450px;
+            max-width: 450px;
         }
         .right-col {
-            flex: 1 1 300px;
-            max-width: 300px;
+            flex: 1 1 450px;
+            max-width: 450px;
         }
         .full-width {
             width: 100%;
             margin-top: 2rem;
         }
 
-        /* 项目卡片 (固定宽度300px，网格居中) */
+        /* 项目卡片 (宽度100%，即450px) */
         .projects-vertical {
             display: flex;
             flex-direction: column;
@@ -339,7 +338,7 @@
             align-items: center;
         }
 
-        /* 按钮增大 */
+        /* 按钮 */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -365,7 +364,7 @@
         .btn.portfolio { background-color: #9FA8DA; color: #283593; }
         .btn.research { background-color: #FFE0F0; color: #b0003a; }
 
-        /* 右侧表格 (字体增大) */
+        /* 右侧表格 (宽度100%，即450px) */
         .table-section {
             margin-bottom: 0;
         }
@@ -401,7 +400,7 @@
             font-size: 1.2rem;
         }
 
-        /* AI Learning 列表 (字体增大) */
+        /* AI Learning 列表 */
         .cert-list {
             display: flex;
             flex-direction: column;
@@ -447,7 +446,6 @@
             gap: 1rem;
             flex-wrap: wrap;
         }
-        /* 独立小气泡 */
         .more-learning-bubble {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(2px);
@@ -514,7 +512,6 @@
             border: 1px solid #555;
         }
 
-        /* footer 白色 */
         footer {
             color: #ffffff !important;
             font-size: 0.8rem;
@@ -528,7 +525,7 @@
             color: #90CAF9 !important;
         }
 
-        @media (max-width: 750px) {
+        @media (max-width: 950px) {
             .page-content { max-width: 95%; }
             .two-col {
                 flex-direction: column;
@@ -536,6 +533,9 @@
             }
             .left-col, .right-col {
                 max-width: 100%;
+            }
+            .about-card {
+                width: 90%; /* 小屏幕稍宽 */
             }
         }
         @media (hover: none) and (pointer: coarse) {
@@ -588,7 +588,7 @@
 
         <!-- PAGE 2: PROJECTS + AI LEARNING -->
         <div class="page" id="page2">
-            <!-- 背景文字 -->
+            <!-- 背景文字 (大尺寸) -->
             <div class="pixel-bg">
                 Sociotechnical Lens | AI | Technology | Human-Computer Interaction<br>
                 I am a trained sociologist studying the societal impact of digital technologies through sociotechnical lens. With a particular interest in AI, I examine the underlying mechanisms of its infrastructure to inform ethics from a sociological perspective.<br>
@@ -599,7 +599,7 @@
             <div class="page-content">
                 <!-- 两个标题并排 -->
                 <div class="two-col">
-                    <!-- 左侧：项目卡片 -->
+                    <!-- 左侧：项目卡片 (宽450px) -->
                     <div class="left-col">
                         <h2>🌐 AI-co-created projects</h2>
                         <div class="projects-vertical">
@@ -643,7 +643,7 @@
                         </div>
                     </div>
 
-                    <!-- 右侧：表格 -->
+                    <!-- 右侧：表格 (宽450px) -->
                     <div class="right-col">
                         <h2>🦷 Some AI Knowledge Compilation</h2>
                         <div class="table-section">
