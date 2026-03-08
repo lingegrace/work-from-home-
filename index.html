@@ -633,7 +633,7 @@
             font-size: 1rem;
             color: white;
             min-height: 3rem;
-            margin: 1.8rem 0 1rem;  /* 修复：去掉空格 */
+            margin: 2.1rem 0 1rem;  /* 修复：去掉空格 */
             text-align: center;
             text-shadow: 0 0 6px cyan;
         }
@@ -708,12 +708,16 @@
         }
         .project-detail-card,
             .project-detail-card * {
-                color: #111 !important;
+                color: #111;
         }
-        .project-detail-card:hover,
-        .project-detail-card:hover * {
-                color: #111 !important;
-        }
+        .project-detail-card:hover {
+    background: rgba(255, 255, 255, 0.27) !important;
+    transition: all 0.2s ease;
+}
+
+.project-detail-card:hover * {
+    color: #ffffff !important;
+}
         .close-detail-btn {
             position: absolute;
             top: 1rem;
