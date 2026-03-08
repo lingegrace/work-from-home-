@@ -633,7 +633,7 @@
             font-size: 1rem;
             color: white;
             min-height: 3rem;
-            margin: 2.5rem 0 1rem;  /* 修复：去掉空格 */
+            margin: 2.7rem 0 1rem;  /* 修复：去掉空格 */
             text-align: center;
             text-shadow: 0 0 6px cyan;
         }
@@ -690,7 +690,7 @@
             margin-bottom: 4rem;
         }
         .project-detail-card {
-    background: rgba(255, 255, 255, 0.25);  /* 白色透明25% */
+    background: rgba(255, 255, 255, 0.75);  /* 白色透明25% */
     backdrop-filter: blur(2px);             /* 轻微模糊，增强玻璃质感 */
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 28px;                    /* 更大的圆角，更像气泡 */
@@ -703,8 +703,9 @@
     font-size: 1rem;
     line-height: 1.6;
     box-shadow: 
-        0 12px 30px rgba(0, 0, 0, 0.4),      /* 外阴影增加立体感 */
-        0 0 0 1px rgba(255, 255, 255, 0.2) inset; /* 内发光，柔和边缘 */
+        0 12px 30px rgba(0, 0, 0, 0.5),       /* 外部深阴影增加立体感 */
+        0 0 0 1px rgba(255, 255, 255, 0.15) inset, /* 内部微弱白边 */
+        0 0 20px 4px rgba(255, 255, 255, 0.2);
     position: relative;
     font-family: 'JetBrains Mono', 'Courier New', monospace;
 }
@@ -737,10 +738,12 @@
             font-family: 'Inter', 'Helvetica', sans-serif;
             transition: all 0.2s;
         }
-        .close-detail-btn:hover {
-            background: #f0f0f0;
-            border-color: #999;
-        }
+        .close-detail-btn {
+    color: #111;  /* 黑色文字 */
+    background: white;
+    border: 1px solid #ccc;
+    /* 其他属性保持不变 */
+}
         
     </style>
 </head>
