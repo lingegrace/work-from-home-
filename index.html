@@ -690,33 +690,38 @@
             margin-bottom: 4rem;
         }
         .project-detail-card {
-            background: rgba(255, 255, 255, 0.84); /* 透明度70% */
-            backdrop-filter: blur(2px);
-            border: 1px solid rgba(0, 0, 0, 0.15);
-            border-radius: 16px;
-            padding: 2rem 2rem 2.5rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 1.5rem;
-            color: #111;
-            font-size: 1rem;
-            line-height: 1.6;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-            position: relative;
-            font-family: 'JetBrains Mono', 'Courier New', monospace; /* 优先使用 JetBrains Mono */
-        }
-        .project-detail-card,
-            .project-detail-card * {
-                color: #111;
-        }
-        .project-detail-card:hover {
-    background: rgba(255, 255, 255, 0.27) !important;
-    transition: all 0.2s ease;
+    background: rgba(255, 255, 255, 0.25);  /* 白色透明25% */
+    backdrop-filter: blur(2px);             /* 轻微模糊，增强玻璃质感 */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 28px;                    /* 更大的圆角，更像气泡 */
+    padding: 2rem 2rem 2.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.5rem;
+    color: #ffffff;                          /* 文字永久白色 */
+    font-size: 1rem;
+    line-height: 1.6;
+    box-shadow: 
+        0 12px 30px rgba(0, 0, 0, 0.4),      /* 外阴影增加立体感 */
+        0 0 0 1px rgba(255, 255, 255, 0.2) inset; /* 内发光，柔和边缘 */
+    position: relative;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
 }
 
-.project-detail-card:hover * {
+/* 卡片内所有文字强制白色 */
+.project-detail-card * {
     color: #ffffff !important;
+}
+
+/* 链接可保留淡蓝色，也可改为白色，这里保留淡蓝以提高识别度 */
+.project-detail-card a {
+    color: #aac9ff !important;
+}
+
+.project-detail-card a:hover {
+    color: #ffffff !important;
+    text-decoration: underline;
 }
         .close-detail-btn {
             position: absolute;
