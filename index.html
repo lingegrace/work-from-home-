@@ -633,7 +633,7 @@
             font-size: 1rem;
             color: white;
             min-height: 3rem;
-            margin: 1.7rem 0 1rem;  /* 修复：去掉空格 */
+            margin: 1.8rem 0 1rem;  /* 修复：去掉空格 */
             text-align: center;
             text-shadow: 0 0 6px cyan;
         }
@@ -654,7 +654,7 @@
         /* continue 按钮 */
         .continue-wrapper {
             text-align: center;
-            margin-top: 1.2rem;  /* 修复：去掉空格 */
+            margin-top: 1.4rem;  /* 修复：去掉空格 */
         }
         .continue-btn {
             background: #444;
@@ -1060,51 +1060,52 @@
             }
 
             // 花瓣点击事件
-            petals.forEach(petal => {
-                petal.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    if (!petalsEnabled) return;
-                    
-                    let petalId = '';
-                    if (this.classList.contains('petal-1')) petalId = 'analyze';
-                    else if (this.classList.contains('petal-2')) petalId = 'through';
-                    else if (this.classList.contains('petal-3')) petalId = 'pursue';
-                    else if (this.classList.contains('petal-4')) petalId = 'speak';
+           petals.forEach(petal => {
+    petal.addEventListener('click', function(e) {
+        e.stopPropagation();  // 阻止事件冒泡，避免触发空白关闭
+        if (!petalsEnabled) return;  // Unlock 后禁用点击
 
-                    if (!clickedState[petalId]) {
-                        clickedState[petalId] = true;
-                        this.classList.add('clicked');
-                        clickedCount++;
-                    }
-                    startTyping(phraseMap[petalId]);
-                    showDetailCard(petalId);
-                    updateButtonState();
-                });
-            });
+        let petalId = '';
+        if (this.classList.contains('petal-1')) petalId = 'analyze';
+        else if (this.classList.contains('petal-2')) petalId = 'through';
+        else if (this.classList.contains('petal-3')) petalId = 'pursue';
+        else if (this.classList.contains('petal-4')) petalId = 'speak';
 
-            // 悬停事件
-            petals.forEach(petal => {
-                petal.addEventListener('mouseenter', function() {
-                    let petalId = '';
-                    if (this.classList.contains('petal-1')) petalId = 'analyze';
-                    else if (this.classList.contains('petal-2')) petalId = 'through';
-                    else if (this.classList.contains('petal-3')) petalId = 'pursue';
-                    else if (this.classList.contains('petal-4')) petalId = 'speak';
+        if (!clickedState[petalId]) {
+            clickedState[petalId] = true;
+            this.classList.add('clicked');
+            clickedCount++;
+        }
+        startTyping(phraseMap[petalId]);
+        showDetailCard(petalId);
+        updateButtonState();
+    });
+});
 
-                    if (currentLockedPetal === null || currentLockedPetal !== petalId) {
-                        startTyping(phraseMap[petalId]);
-                    }
-                });
+// 花瓣悬停事件（打字动画，不影响点击）
+petals.forEach(petal => {
+    petal.addEventListener('mouseenter', function() {
+        let petalId = '';
+        if (this.classList.contains('petal-1')) petalId = 'analyze';
+        else if (this.classList.contains('petal-2')) petalId = 'through';
+        else if (this.classList.contains('petal-3')) petalId = 'pursue';
+        else if (this.classList.contains('petal-4')) petalId = 'speak';
 
-                petal.addEventListener('mouseleave', function() {
-                    if (currentLockedPetal === null) {
-                        typewriterSpan.textContent = '';
-                        if (activeTimer) clearInterval(activeTimer);
-                        activeTimer = null;
-                    }
-                });
-            });
+        // 如果当前没有锁定的卡片，或者悬停的不是锁定的花瓣，就显示悬停短语
+        if (currentLockedPetal === null || currentLockedPetal !== petalId) {
+            startTyping(phraseMap[petalId]);
+        }
+    });
 
+    petal.addEventListener('mouseleave', function() {
+        // 如果没有锁定的卡片，清空打字区域
+        if (currentLockedPetal === null) {
+            typewriterSpan.textContent = '';
+            if (activeTimer) clearInterval(activeTimer);
+            activeTimer = null;
+        }
+    });
+});
             // 点击空白处：关闭卡片并清空打字区域
             document.addEventListener('click', (e) => {
                 if (!e.target.closest('.petal') && !e.target.closest('.project-detail-card') && !e.target.closest('#continueBtn') && !e.target.closest('.close-detail-btn')) {
