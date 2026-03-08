@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grace · work-from-home</title>
+    <title>Grace · work-from-home · 花瓣解锁</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- 像素字体 (用于花瓣内部) -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
     <style>
-        /* ----- GLOBAL & CUSTOM CURSOR ----- */
+        /* ===== 完全保留原有样式 ===== */
         * {
             margin: 0;
             padding: 0;
@@ -34,8 +36,6 @@
             filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
             display: none;
         }
-
-        /* ----- GLOBAL HOVER COLOR: WHITE (except collab and footer) ----- */
         *:hover {
             color: #ffffff !important;
         }
@@ -52,8 +52,6 @@
             background-color: inherit !important;
             border-color: transparent;
         }
-
-        /* ----- PIXEL BACKGROUND TEXT (SQUARE PIXELS, 无高亮) ----- */
         .pixel-bg {
             position: absolute;
             top: 0;
@@ -73,7 +71,6 @@
             word-break: break-word;
             text-align: left;
             line-height: 1.6;
-            /* 方形像素点背景 */
             background-image: 
                 repeating-linear-gradient(0deg, rgba(255,255,255,0.2) 0px, transparent 1px, transparent 4px),
                 repeating-linear-gradient(90deg, rgba(255,255,255,0.2) 0px, transparent 1px, transparent 4px);
@@ -95,8 +92,6 @@
             text-transform: uppercase;
             letter-spacing: 10px;
         }
-
-        /* 首页底部提示行 */
         .home-tagline {
             position: absolute;
             bottom: 5vh;
@@ -110,12 +105,10 @@
             z-index: 3;
             pointer-events: none;
         }
-
-        /* ----- TWO-PAGE LAYOUT ----- */
         .pages-container {
             height: 100vh;
             overflow-y: scroll;
-            scroll-snap-type: y mandatory;
+            scroll-snap-type: y proximity; /* 改为 proximity，允许自由滑动 */
             scroll-behavior: smooth;
             position: relative;
             z-index: 1;
@@ -131,8 +124,9 @@
         }
         #page1 {
             height: 100vh;
-            align-items: flex-end;
-            padding-bottom: 12vh;
+            align-items: flex-start;    /* 改为顶部对齐，让花瓣更靠上 */
+            padding-top: 5vh;           /* 增加顶部内边距，确保花瓣完整可见 */
+            padding-bottom: 5vh;
         }
         #page2 {
             min-height: 100vh;
@@ -140,6 +134,7 @@
             align-items: flex-start;
             padding-top: 3vh;
             padding-bottom: 5vh;
+            display: none; /* 初始隐藏 */
         }
         .page-content {
             max-width: 1000px;
@@ -148,8 +143,6 @@
             position: relative;
             z-index: 2;
         }
-
-        /* scroll indicator */
         .scroll-indicator {
             position: fixed;
             bottom: 20px;
@@ -176,8 +169,6 @@
             color: white !important;
             transform: scale(1.1);
         }
-
-        /* 标题字体 */
         h1, h2, .full-width h2 {
             color: #ffffff;
             font-weight: 500;
@@ -203,8 +194,7 @@
             border-bottom: none;
             color: #2c3e50;
         }
-
-        /* about card (宽度为父容器的75%，居中) */
+        /* about card 原有样式保留但我们将隐藏它 */
         .about-card {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(2px);
@@ -267,8 +257,6 @@
         .research-btn .btn i {
             font-size: 0.9rem;
         }
-
-        /* ----- 第二页两列布局 (列宽450px) ----- */
         .two-col {
             display: flex;
             gap: 1.5rem;
@@ -288,10 +276,8 @@
             margin-top: 2rem;
             display: flex;
             flex-direction: column;
-            align-items: center; /* 使子元素居中 */
+            align-items: center;
         }
-
-        /* 项目卡片 (宽度100%，即450px) */
         .projects-vertical {
             display: flex;
             flex-direction: column;
@@ -340,8 +326,6 @@
             margin-top: auto;
             align-items: center;
         }
-
-        /* 按钮 */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -366,8 +350,6 @@
         .btn.safety { background-color: #B39DDB; color: #311b92; }
         .btn.portfolio { background-color: #9FA8DA; color: #283593; }
         .btn.research { background-color: #FFE0F0; color: #b0003a; }
-
-        /* 右侧表格 (宽度100%，即450px) */
         .table-section {
             margin-bottom: 0;
         }
@@ -402,8 +384,6 @@
             color: inherit;
             font-size: 1.2rem;
         }
-
-        /* AI Learning 列表 - 宽度统一，居中，左对齐 */
         .cert-list {
             display: flex;
             flex-direction: column;
@@ -468,12 +448,10 @@
             margin-left: auto;
             margin-right: auto;
         }
-
-        /* 协作区 - 宽度适应内容，增加左右内边距使卡片更长 */
         .collab {
             text-align: center;
-            background: #e8f0fe;
-            padding: 1.5rem 2.5rem;   /* 左右内边距增加，宽度增加约1/3 */
+            background: #b8d4f0;  /* 浅蓝色，与背景区分 */
+            padding: 1.5rem 2.5rem;
             margin: 2rem auto;
             border: 1px dashed #90CAF9;
             color: #1e1e1e;
@@ -485,8 +463,6 @@
             font-size: 1rem;
             margin: 0.8rem 0;
         }
-
-        /* email 弹窗 */
         .email-popup {
             position: fixed;
             top: 50%;
@@ -523,7 +499,6 @@
             color: #aaa;
             border: 1px solid #555;
         }
-
         footer {
             color: #ffffff !important;
             font-size: 0.8rem;
@@ -536,7 +511,6 @@
         footer *:hover {
             color: #90CAF9 !important;
         }
-
         @media (max-width: 950px) {
             .page-content { max-width: 95%; }
             .two-col {
@@ -557,6 +531,202 @@
             * { cursor: auto; }
             #cat-cursor { display: none !important; }
         }
+
+        /* ===== 花瓣样式 ===== */
+        .flower-center {
+            position: relative;
+            width: 600px;
+            height: 500px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .petal {
+            position: absolute;
+            width: 220px;
+            height: 260px;
+            background: rgba(255, 255, 255, 0.28);
+            background-image: 
+                linear-gradient(0deg, rgba(255,255,255,0.25) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.25) 1px, transparent 1px);
+            background-size: 8px 8px;
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.15) inset, 0 0 30px rgba(140,200,255,0.4);
+            filter: drop-shadow(0 0 8px rgba(180,220,255,0.3));
+            transition: box-shadow 0.2s, filter 0.2s;
+            border-radius: 85% 15% 75% 25% / 55% 40% 60% 45%;
+            pointer-events: auto;
+        }
+        .petal:hover {
+            box-shadow: 0 0 0 2px rgba(255,255,255,0.4) inset, 0 0 40px #8cbaff;
+        }
+        .petal.clicked {
+            box-shadow: 0 0 0 3px #ffffff inset, 0 0 50px #ffffff;
+            filter: drop-shadow(0 0 15px white);
+        }
+        .petal-1 {
+            top: 40px;
+            left: 190px;
+            transform: rotate(-20deg);
+        }
+        .petal-2 {
+            top: 120px;
+            left: 290px;
+            transform: rotate(-90deg);
+        }
+        .petal-3 {
+            top: 200px;
+            left: 190px;
+            transform: rotate(180deg);
+        }
+        .petal-4 {
+            top: 120px;
+            left: 90px;
+            transform: rotate(90deg);
+        }
+        .petal-text {
+            position: absolute;
+            font-family: 'Press Start 2P', monospace;
+            color: white;
+            text-shadow: 0 0 8px #aae0ff, 2px 2px 0 #0a1a2a;
+            letter-spacing: 1.5px;
+            white-space: nowrap;
+            text-align: center;
+            pointer-events: none;
+        }
+        .short {
+            font-size: 0.8rem;
+            margin-bottom: 0.2rem;
+        }
+        .micro {
+            font-family: 'VT323', monospace;
+            font-size: 1rem;
+            color: rgba(230, 240, 255, 0.95);
+            text-shadow: 0 0 6px #4a80d0;
+        }
+        .petal-1 .petal-text {
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%) rotate(20deg);
+        }
+        .petal-2 .petal-text {
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%) rotate(90deg);
+            transform-origin: left center;
+        }
+        .petal-3 .petal-text {
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%) rotate(180deg);
+        }
+        .petal-4 .petal-text {
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%) rotate(-90deg);
+            transform-origin: right center;
+        }
+
+        /* 打字区域 */
+        .typewriter-container {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 1rem;
+            color: white;
+            min-height: 3rem;
+            margin: 0.5rem 0 1rem;
+            text-align: center;
+            text-shadow: 0 0 6px cyan;
+        }
+        .cursor-blink {
+            display: inline-block;
+            width: 8px;
+            height: 1.2rem;
+            background-color: #fff;
+            margin-left: 4px;
+            animation: blink 1s step-end infinite;
+            vertical-align: middle;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* continue 按钮 */
+        .continue-wrapper {
+            text-align: center;
+            margin-top: 1rem;
+        }
+        .continue-btn {
+            background: #444;
+            border: 2px solid #777;
+            color: #aaa;
+            font-size: 1.2rem;
+            font-family: 'Press Start 2P', monospace;
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            letter-spacing: 2px;
+            cursor: not-allowed;
+            transition: all 0.3s ease;
+            opacity: 0.6;
+            box-shadow: none;
+        }
+        .continue-btn.active {
+            background: white;
+            border-color: #ccc;
+            color: #111;
+            cursor: pointer;
+            opacity: 1;
+            box-shadow: 0 0 20px rgba(255,255,255,0.5);
+        }
+        .continue-btn.active:hover {
+            background: #f0f0f0;
+            transform: scale(1.02);
+        }
+
+        /* 项目卡片容器 */
+        .project-cards-container {
+            width: 100%;
+            margin-top: 1.5rem;
+        }
+        .project-detail-card {
+            background: rgba(255, 255, 255, 0.7); /* 透明度70% */
+            backdrop-filter: blur(2px);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 16px;
+            padding: 1.5rem;
+            color: #111; /* 黑色文字 */
+            font-family: 'Courier New', monospace;
+            margin-bottom: 1rem;
+            position: relative;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        .project-detail-card:hover,
+        .project-detail-card *:hover {
+            color: #111 !important; /* 强制保持黑色 */
+        }
+        .project-detail-card a {
+            color: #1155cc;
+        }
+        .project-detail-card a:hover {
+            color: #0d3d8c;
+        }
+        .close-detail-btn {
+            position: absolute;
+            top: 0.8rem;
+            right: 1rem;
+            background: white;        /* 白色背景 */
+            border: 1px solid #ccc;
+            color: #111;              /* 黑色文字 */
+            font-size: 0.8rem;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+        }
+        .close-detail-btn:hover {
+            background: #f0f0f0;
+            color: #111 !important;
+        }
     </style>
 </head>
 <body>
@@ -574,36 +744,54 @@
 
     <!-- Pages Container -->
     <div class="pages-container" id="pagesContainer">
-        <!-- PAGE 1: ABOUT ME -->
+        <!-- PAGE 1: 花瓣区域 -->
         <div class="page" id="page1">
             <div class="pixel-bg">Linge · Grace</div>
             <div class="home-tagline">Sociotechnical Lens | AI | Technology | Human-Computer Interaction</div>
             <div class="page-content">
                 <h1>💿 work-from-home-</h1>
-                <div class="about-card" id="about-card">
-                    <h2>🌸 about me</h2>
-                    <div class="about-items">
-                        <!-- 🧠 一行显示 -->
-                        <div class="about-item">
-                            <span>🧠</span>
-                            <span>Human-AI Relationships, Transformative Impacts of Technology</span>
-                            <div class="research-btn">
-                                <a href="https://docs.google.com/document/d/12eNN13O5TKNAK14_JdCBk-iyzrYMIT0P/edit?usp=sharing&ouid=118104064415940762847&rtpof=true&sd=true" target="_blank" class="btn research"><i class="fas fa-file-alt"></i> Research Brief</a>
-                            </div>
+                <!-- 花瓣容器 -->
+                <div class="flower-center">
+                    <div class="petal petal-1" data-petal="analyze">
+                        <div class="petal-text">
+                            <div class="short">ANALYZE</div>
+                            <div class="micro">contextualized·cognitive</div>
                         </div>
-                        <!-- 🌱 一行显示 -->
-                        <div class="about-item">
-                            <span>🌱</span>
-                            <span>Always exploring new technologies & interdisciplinary projects</span>
+                    </div>
+                    <div class="petal petal-2" data-petal="through">
+                        <div class="petal-text">
+                            <div class="short">THROUGH</div>
+                            <div class="micro">systems·power</div>
+                        </div>
+                    </div>
+                    <div class="petal petal-3" data-petal="pursue">
+                        <div class="petal-text">
+                            <div class="short">PURSUE</div>
+                            <div class="micro">ethical·effective</div>
+                        </div>
+                    </div>
+                    <div class="petal petal-4" data-petal="speak">
+                        <div class="petal-text">
+                            <div class="short">SPEAK</div>
+                            <div class="micro">voice·justice</div>
                         </div>
                     </div>
                 </div>
+                <!-- 打字区域 -->
+                <div class="typewriter-container" id="typewriter">
+                    <span id="typewriter-text"></span><span class="cursor-blink" id="cursor"></span>
+                </div>
+                <!-- continue 按钮 -->
+                <div class="continue-wrapper">
+                    <button id="continueBtn" class="continue-btn" disabled>Click All</button>
+                </div>
+                <!-- 项目卡片容器 (动态添加) -->
+                <div id="projectCardsContainer" class="project-cards-container"></div>
             </div>
         </div>
 
-        <!-- PAGE 2: PROJECTS + AI LEARNING -->
+        <!-- PAGE 2: 原第二页 (项目内容) 初始隐藏 -->
         <div class="page" id="page2">
-            <!-- 背景文字 -->
             <div class="pixel-bg">
                 Sociotechnical Lens | AI | Technology | Human-Computer Interaction<br>
                 I am a trained sociologist studying the societal impact of digital technologies through sociotechnical lens. With a particular interest in AI, I examine the underlying mechanisms of its infrastructure to inform ethics from a sociological perspective.<br>
@@ -612,13 +800,11 @@
                 My thesis investigated the contexts, processes, and mechanisms through which users connect with AI Companions (AICs), perceiving them as trustworthy “social actors”. Rather than assuming anthropomorphization as a prerequisite for connectedness, I asked at what point do users anthropomorphize AICs? Using a mixed-methods approach – quantitative dataset analysis and qualitative interviews with inductive analysis – I examined both romantic and non-romantic users’ experiences with AICs. My analysis explored the mechanisms of connectedness, moments of anthropomorphisation, and the cyclical fulfilment of dual needs that can foster compulsive use. This study interrogates the ways in which AICs facilitate non-judgemental backstage self-disclosure, and examines how these interactions may reshape role expectations and reconceptualise romantic relationships and love, thereby contributing to the tangible social implications of human–AI socialisation.
             </div>
             <div class="page-content">
-                <!-- 两个标题并排 -->
+                <!-- 两列布局 (完全保留原样) -->
                 <div class="two-col">
-                    <!-- 左侧：项目卡片 (宽450px) -->
                     <div class="left-col">
                         <h2>🌐 AI-co-created projects</h2>
                         <div class="projects-vertical">
-                            <!-- Manus Cat -->
                             <div class="card">
                                 <h3>🐱 Manus Cat · LinkedIn Newsletter</h3>
                                 <div class="description">
@@ -629,8 +815,6 @@
                                     <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7422191016994217984" target="_blank" class="btn linkedin"><i class="fab fa-linkedin"></i> Follow</a>
                                 </div>
                             </div>
-
-                            <!-- Academic Portfolio -->
                             <div class="card">
                                 <h3>🪿 Academic Portfolio</h3>
                                 <div class="description">
@@ -642,8 +826,6 @@
                                     <a href="https://app--graces-kiosk-a4c1d845.base44.app/" target="_blank" class="btn portfolio"><i class="fas fa-globe"></i> Grace's Kiosk</a>
                                 </div>
                             </div>
-
-                            <!-- Momentum App -->
                             <div class="card">
                                 <h3>🛁 Momentum App</h3>
                                 <div class="description">
@@ -657,8 +839,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- 右侧：表格 (宽450px) -->
                     <div class="right-col">
                         <h2>🦷 Some AI Knowledge Compilation</h2>
                         <div class="table-section">
@@ -675,12 +855,9 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- AI Learning (全幅居中，左对齐) -->
                 <div class="full-width">
                     <h2>🤍 AI Learning</h2>
                     <div class="cert-list">
-                        <!-- Oxford -->
                         <div class="cert-item">
                             <div class="cert-school">Oxford Internet Institute</div>
                             <div class="cert-details">
@@ -688,7 +865,6 @@
                                 <div class="cert-meta">2025, Qualitative Audit & prompt-testing of Microsoft XiaoIce model</div>
                             </div>
                         </div>
-                        <!-- 艾伦·图灵研究所 -->
                         <div class="cert-item">
                             <div class="cert-school">The Alan Turing Institute</div>
                             <div class="cert-details">
@@ -696,19 +872,13 @@
                                 <div class="cert-meta">learning ———</div>
                             </div>
                         </div>
-                        <!-- UCL -->
                         <div class="cert-item">
                             <div class="cert-school">UCL</div>
                             <div class="cert-details">
-                                <div class="cert-title">
-                                    Sociology of Science and Technology<br>
-                                    Sociology of Cybersecurity<br>
-                                    Special Topics in Science and Society
-                                </div>
+                                <div class="cert-title">Sociology of Science and Technology<br>Sociology of Cybersecurity<br>Special Topics in Science and Society</div>
                                 <div class="cert-meta">2021-2024</div>
                             </div>
                         </div>
-                        <!-- Duke -->
                         <div class="cert-item">
                             <div class="cert-school">Duke University</div>
                             <div class="cert-details">
@@ -716,7 +886,6 @@
                                 <div class="cert-meta"><span><i class="far fa-calendar-alt"></i> Issued Mar 2026</span> <span>Skills: Train AutoML Model on Google Cloud Vertex AI.</span></div>
                             </div>
                         </div>
-                        <!-- IBM -->
                         <div class="cert-item">
                             <div class="cert-school">IBM</div>
                             <div class="cert-details">
@@ -724,7 +893,6 @@
                                 <div class="cert-meta"><span><i class="far fa-calendar-alt"></i> Issued Feb 2026</span></div>
                             </div>
                         </div>
-                        <!-- Amazon (如果保留) -->
                         <div class="cert-item">
                             <div class="cert-school">Amazon</div>
                             <div class="cert-details">
@@ -733,11 +901,8 @@
                             </div>
                         </div>
                     </div>
-                    <!-- 独立小气泡 -->
                     <div class="more-learning-bubble">More ONLINE learning see Personal Web & LinkedIn</div>
                 </div>
-
-                <!-- 协作区 -->
                 <div class="collab">
                     <h2>💡 Let's Collaborate!</h2>
                     <p>Interested? Have an idea? Let's connect.</p>
@@ -755,7 +920,6 @@
         (function() {
             // 自定义光标
             const cursor = document.getElementById('cat-cursor');
-            const aboutCard = document.getElementById('about-card');
             if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
                 cursor.style.display = 'block';
                 document.addEventListener('mousemove', e => {
@@ -763,16 +927,202 @@
                     cursor.style.top = e.clientY + 'px';
                 });
                 cursor.innerText = '🐈';
-                aboutCard.addEventListener('mouseenter', () => { cursor.innerText = '🎐'; });
-                aboutCard.addEventListener('mouseleave', () => { cursor.innerText = '🐈'; });
-                document.querySelectorAll('a, button, .btn, .card, .about-item, .cert-item').forEach(el => {
-                    el.addEventListener('mouseenter', () => cursor.style.transform = 'translate(-50%, -50%) scale(1.2)');
-                    el.addEventListener('mouseleave', () => cursor.style.transform = 'translate(-50%, -50%) scale(1)');
+
+                // 为所有可交互元素添加缩放效果
+                document.querySelectorAll('a, button, .btn, .card, .about-item, .cert-item, .close-detail-btn').forEach(el => {
+                    if (el) {
+                        el.addEventListener('mouseenter', () => cursor.style.transform = 'translate(-50%, -50%) scale(1.2)');
+                        el.addEventListener('mouseleave', () => cursor.style.transform = 'translate(-50%, -50%) scale(1)');
+                    }
+                });
+
+                // 花瓣特殊光标：🎐
+                const petals = document.querySelectorAll('.petal');
+                petals.forEach(petal => {
+                    petal.addEventListener('mouseenter', () => {
+                        cursor.innerText = '🎐';
+                        cursor.style.transform = 'translate(-50%, -50%) scale(1.2)';
+                    });
+                    petal.addEventListener('mouseleave', () => {
+                        cursor.innerText = '🐈';
+                        cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+                    });
                 });
             } else {
                 cursor.style.display = 'none';
                 document.body.style.cursor = 'auto';
             }
+
+            // 获取元素
+            const petals = document.querySelectorAll('.petal');
+            const continueBtn = document.getElementById('continueBtn');
+            const typewriterSpan = document.getElementById('typewriter-text');
+            const cursorSpan = document.getElementById('cursor');
+            const page2 = document.getElementById('page2');
+            const cardsContainer = document.getElementById('projectCardsContainer');
+            let clickedCount = 0;
+            const totalPetals = 4;
+            const clickedState = {};
+
+            // 短语映射
+            const phraseMap = {
+                analyze: "Analyze Human-Technology Interaction",
+                through: "Through Socio-Technical Lens",
+                pursue: "Pursue the Best Practice",
+                speak: "Speak for the Marginalized"
+            };
+
+            // 详细卡片内容映射
+            const detailMap = {
+                analyze: "My thesis investigated the contexts, processes, and mechanisms through which users connect with AI Companions (AICs), perceiving them as trustworthy 'social actors'. Rather than assuming anthropomorphization as a prerequisite for connectedness, I asked at what point do users anthropomorphize AICs? Using a mixed-methods approach – quantitative dataset analysis and qualitative interviews with inductive analysis – I examined both romantic and non-romantic users' experiences with AICs. My analysis explored the mechanisms of connectedness, moments of anthropomorphisation, and the cyclical fulfilment of dual needs that can foster compulsive use. This study interrogates the ways in which AICs facilitate non-judgemental backstage self-disclosure, and examines how these interactions may reshape role expectations and reconceptualise romantic relationships and love, thereby contributing to the tangible social implications of human–AI socialisation.",
+                through: "During my Sociology MSc at the University of Oxford, I deepened my technical understanding through studies at the Oxford Internet Institute, where I gained expertise in Fairness, Transparency, and Accountability in Machine Learning. I applied these tools in a qualitative audit of Microsoft's XiaoIce model—an AI companion released in 2014, predating popular apps like Character.ai and Replika. This audit, conducted in accordance with ACM FAccT's auditing principles, integrated interdisciplinary theories to critically examine the model's gendered design and the power dynamics embedded in its affordances.",
+                pursue: "Building on the empirical insights of my thesis analysis, I developed a comprehensive policy recommendation submitted to the Cyberspace Administration of China, aiming to inform the refinement of China's provisional regulatory framework for the increasingly anthropomorphised services provided by AI companions and generative conversational systems. These risks should be interpreted not as universally representative outcomes, but rather as possibilities that emerge under interaction of specific usage patterns, motivations, and cognitive biases. Against this backdrop, my policy recommendations focus on four key regulatory priorities: developing measurable indicators and monitoring systems to assess user emotional dependency; establishing tiered intervention protocols for users experiencing high-risk psychological states; requiring clear in-interface disclosure; and strengthening oversight of anthropomorphic deliberation to avoid exploiting psychological vulnerabilities to maximise engagement.",
+                speak: "Inspired by critical questions raised during the 2023 AI Safety Summit (ASS), I began exploring the issue of AI deception— how different forms of deceptive capabilities entangled with historical and societal biases, and how discourses around deception evolve alongside technological development. Drawing on courses in Science and Technology Studies to deepen my understanding of the power dynamics shaping technological paradigms, I offered an evaluation of AI deception' social implications and persistent challenges, which was published on arXiv during my undergraduate studies. <a href='https://arxiv.org/abs/2403.09676' target='_blank' style='color: #1155cc;'>arXiv:2403.09676</a>"
+            };
+
+            // 打字动画
+            let activeTimer = null;
+            function startTyping(phrase) {
+                if (activeTimer) clearInterval(activeTimer);
+                typewriterSpan.textContent = '';
+                let index = 0;
+                activeTimer = setInterval(() => {
+                    if (index < phrase.length) {
+                        typewriterSpan.textContent += phrase.charAt(index);
+                        index++;
+                    } else {
+                        clearInterval(activeTimer);
+                        activeTimer = null;
+                    }
+                }, 60);
+            }
+
+            // 重置花瓣状态
+            function resetPetals() {
+                petals.forEach(p => p.classList.remove('clicked'));
+                clickedCount = 0;
+                for (let key in clickedState) delete clickedState[key];
+                typewriterSpan.textContent = '';
+                if (activeTimer) clearInterval(activeTimer);
+                activeTimer = null;
+                cardsContainer.innerHTML = '';
+            }
+
+            // 更新按钮状态
+            function updateButtonState() {
+                if (clickedCount === totalPetals) {
+                    continueBtn.disabled = false;
+                    continueBtn.classList.add('active');
+                    continueBtn.textContent = 'Unlock';
+                } else {
+                    continueBtn.disabled = true;
+                    continueBtn.classList.remove('active');
+                    continueBtn.textContent = 'Click All';
+                }
+            }
+
+            // 当前锁定的花瓣id
+            let currentLockedPetal = null;
+
+            // 显示卡片 (只显示一个)
+            function showDetailCard(petalId) {
+                cardsContainer.innerHTML = '';
+                const card = document.createElement('div');
+                card.className = 'project-detail-card';
+                card.setAttribute('data-petal', petalId);
+                card.innerHTML = `
+                    <button class="close-detail-btn">✕ CLOSE</button>
+                    <p>${detailMap[petalId]}</p>
+                `;
+                const closeBtn = card.querySelector('.close-detail-btn');
+                closeBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    card.remove();
+                    currentLockedPetal = null; // 解锁
+                });
+                cardsContainer.appendChild(card);
+                currentLockedPetal = petalId;
+            }
+
+            // 关闭所有卡片 (点击空白时调用)
+            function closeAllCards() {
+                cardsContainer.innerHTML = '';
+                currentLockedPetal = null;
+            }
+
+            // 花瓣点击事件
+            petals.forEach(petal => {
+                petal.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    let petalId = '';
+                    if (this.classList.contains('petal-1')) petalId = 'analyze';
+                    else if (this.classList.contains('petal-2')) petalId = 'through';
+                    else if (this.classList.contains('petal-3')) petalId = 'pursue';
+                    else if (this.classList.contains('petal-4')) petalId = 'speak';
+
+                    if (!clickedState[petalId]) {
+                        clickedState[petalId] = true;
+                        this.classList.add('clicked');
+                        clickedCount++;
+                    }
+                    startTyping(phraseMap[petalId]);
+                    showDetailCard(petalId);
+                    updateButtonState();
+                });
+            });
+
+            // 悬停事件
+            petals.forEach(petal => {
+                petal.addEventListener('mouseenter', function() {
+                    let petalId = '';
+                    if (this.classList.contains('petal-1')) petalId = 'analyze';
+                    else if (this.classList.contains('petal-2')) petalId = 'through';
+                    else if (this.classList.contains('petal-3')) petalId = 'pursue';
+                    else if (this.classList.contains('petal-4')) petalId = 'speak';
+
+                    if (currentLockedPetal === null || currentLockedPetal !== petalId) {
+                        startTyping(phraseMap[petalId]);
+                    }
+                });
+
+                petal.addEventListener('mouseleave', function() {
+                    if (currentLockedPetal === null) {
+                        typewriterSpan.textContent = '';
+                        if (activeTimer) clearInterval(activeTimer);
+                        activeTimer = null;
+                    }
+                });
+            });
+
+            // 点击空白处：关闭卡片并清空打字区域
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.petal') && !e.target.closest('.project-detail-card') && !e.target.closest('#continueBtn') && !e.target.closest('.close-detail-btn')) {
+                    closeAllCards();
+                    typewriterSpan.textContent = '';
+                    if (activeTimer) clearInterval(activeTimer);
+                    activeTimer = null;
+                }
+            });
+
+            // 按钮点击逻辑
+            continueBtn.addEventListener('click', function() {
+                if (!continueBtn.classList.contains('active')) return;
+
+                if (continueBtn.textContent === 'Unlock') {
+                    page2.style.display = 'flex';
+                    setTimeout(() => {
+                        page2.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 100);
+                    continueBtn.textContent = 'Reset';
+                } else if (continueBtn.textContent === 'Reset') {
+                    page2.style.display = 'none';
+                    resetPetals();
+                    currentLockedPetal = null;
+                    continueBtn.textContent = 'Click All';
+                    continueBtn.disabled = true;
+                    continueBtn.classList.remove('active');
+                }
+            });
 
             // 滚动指示器
             const container = document.getElementById('pagesContainer');
@@ -793,21 +1143,25 @@
             setTimeout(updateButton, 100);
             scrollBtn.addEventListener('click', () => {
                 if (currentPage === 1) {
-                    document.getElementById('page2').scrollIntoView({ behavior: 'smooth' });
+                    if (page2.style.display === 'flex') {
+                        page2.scrollIntoView({ behavior: 'smooth' });
+                    }
                 } else {
                     document.getElementById('page1').scrollIntoView({ behavior: 'smooth' });
                 }
             });
             window.addEventListener('resize', updateButton);
 
-            // Email 弹窗复制
+            // Email 弹窗
             const emailBtn = document.getElementById('emailBtn');
             const popup = document.getElementById('emailPopup');
             const copyBtn = document.getElementById('copyEmailBtn');
-            emailBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                popup.style.display = 'block';
-            });
+            if (emailBtn) {
+                emailBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    popup.style.display = 'block';
+                });
+            }
             copyBtn.addEventListener('click', () => {
                 navigator.clipboard.writeText('graceguo2004@outlook.com').then(() => {
                     alert('Email copied to clipboard!');
@@ -816,7 +1170,7 @@
                 });
             });
             window.addEventListener('click', (e) => {
-                if (!popup.contains(e.target) && e.target !== emailBtn && !emailBtn.contains(e.target)) {
+                if (!popup.contains(e.target) && e.target !== emailBtn && !emailBtn?.contains(e.target)) {
                     popup.style.display = 'none';
                 }
             });
