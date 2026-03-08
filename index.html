@@ -687,6 +687,7 @@
         .project-cards-container {
             width: 100%;
             margin-top: 1.5rem;
+            margin-bottom: 4rem;
         }
         .project-detail-card {
             background: rgba(255, 255, 255, 0.7); /* 透明度70% */
@@ -1041,6 +1042,7 @@
                     currentLockedPetal = null; // 解锁
                 });
                 cardsContainer.appendChild(card);
+                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 currentLockedPetal = petalId;
             }
 
@@ -1048,6 +1050,7 @@
             function closeAllCards() {
                 cardsContainer.innerHTML = '';
                 currentLockedPetal = null;
+                document.getElementById('page1').scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
 
             // 花瓣点击事件
@@ -1109,6 +1112,7 @@
                 if (!continueBtn.classList.contains('active')) return;
 
                 if (continueBtn.textContent === 'Unlock') {
+                    closeAllCards();                // 关闭所有卡片
                     page2.style.display = 'flex';
                     setTimeout(() => {
                         page2.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -1123,7 +1127,7 @@
                     continueBtn.classList.remove('active');
                 }
             });
-
+            
             // 滚动指示器
             const container = document.getElementById('pagesContainer');
             const scrollBtn = document.getElementById('scrollBtn');
