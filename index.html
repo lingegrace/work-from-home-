@@ -561,7 +561,7 @@
     </style>
 </head>
 <body>
-    <div id="cat-cursor">🐱</div>
+    <div id="cat-cursor">🐈</div>
 
     <!-- Email Popup -->
     <div id="emailPopup" class="email-popup">
@@ -763,9 +763,9 @@
                     cursor.style.left = e.clientX + 'px';
                     cursor.style.top = e.clientY + 'px';
                 });
-                cursor.innerText = '🐱';
+                cursor.innerText = '🐈';
                 aboutCard.addEventListener('mouseenter', () => { cursor.innerText = '🎐'; });
-                aboutCard.addEventListener('mouseleave', () => { cursor.innerText = '🐱'; });
+                aboutCard.addEventListener('mouseleave', () => { cursor.innerText = '🐈'; });
                 document.querySelectorAll('a, button, .btn, .card, .about-item, .cert-item').forEach(el => {
                     el.addEventListener('mouseenter', () => cursor.style.transform = 'translate(-50%, -50%) scale(1.2)');
                     el.addEventListener('mouseleave', () => cursor.style.transform = 'translate(-50%, -50%) scale(1)');
