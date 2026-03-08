@@ -700,19 +700,18 @@
             margin-right: auto;
             margin-bottom: 1.5rem;
             color: #111;
-            font-family: 'Inter', Arial, sans-serif;    
             font-size: 1rem;
             line-height: 1.6;
             box-shadow: 0 8px 20px rgba(0,0,0,0.4);
             position: relative;
         }
-        .project-detail-card a {
-            color: #0066cc;
-            text-decoration: underline;
-            text-underline-offset: 2px;
+        .project-detail-card,
+            .project-detail-card * {
+                color: #111 !important;
         }
-        .project-detail-card *:hover {
-            color: #111 !important;
+        .project-detail-card:hover,
+        .project-detail-card:hover * {
+                color: #111 !important;
         }
         .close-detail-btn {
             position: absolute;
