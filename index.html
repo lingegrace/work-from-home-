@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grace · work-from-home · 花瓣解锁</title>
+    <title>Grace · work-from-home · AI portfolio/title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- 像素字体 (用于花瓣内部) -->
@@ -633,7 +633,7 @@
             font-size: 1rem;
             color: white;
             min-height: 3rem;
-            margin: 0.5rem 0 1rem;
+            margin: 1.8 rem 0 1rem;
             text-align: center;
             text-shadow: 0 0 6px cyan;
         }
@@ -654,7 +654,7 @@
         /* continue 按钮 */
         .continue-wrapper {
             text-align: center;
-            margin-top: 1rem;
+            margin-top: 0.2 rem;
         }
         .continue-btn {
             background: #444;
@@ -975,9 +975,9 @@
 
             // 详细卡片内容映射
             const detailMap = {
-                analyze: "My thesis investigated the contexts, processes, and mechanisms through which users connect with AI Companions (AICs), perceiving them as trustworthy 'social actors'. Rather than assuming anthropomorphization as a prerequisite for connectedness, I asked at what point do users anthropomorphize AICs? Using a mixed-methods approach – quantitative dataset analysis and qualitative interviews with inductive analysis – I examined both romantic and non-romantic users' experiences with AICs. My analysis explored the mechanisms of connectedness, moments of anthropomorphisation, and the cyclical fulfilment of dual needs that can foster compulsive use. This study interrogates the ways in which AICs facilitate non-judgemental backstage self-disclosure, and examines how these interactions may reshape role expectations and reconceptualise romantic relationships and love, thereby contributing to the tangible social implications of human–AI socialisation.",
-                through: "During my Sociology MSc at the University of Oxford, I deepened my technical understanding through studies at the Oxford Internet Institute, where I gained expertise in Fairness, Transparency, and Accountability in Machine Learning. I applied these tools in a qualitative audit of Microsoft's XiaoIce model—an AI companion released in 2014, predating popular apps like Character.ai and Replika. This audit, conducted in accordance with ACM FAccT's auditing principles, integrated interdisciplinary theories to critically examine the model's gendered design and the power dynamics embedded in its affordances.",
-                pursue: "Building on the empirical insights of my thesis analysis, I developed a comprehensive policy recommendation submitted to the Cyberspace Administration of China, aiming to inform the refinement of China's provisional regulatory framework for the increasingly anthropomorphised services provided by AI companions and generative conversational systems. These risks should be interpreted not as universally representative outcomes, but rather as possibilities that emerge under interaction of specific usage patterns, motivations, and cognitive biases. Against this backdrop, my policy recommendations focus on four key regulatory priorities: developing measurable indicators and monitoring systems to assess user emotional dependency; establishing tiered intervention protocols for users experiencing high-risk psychological states; requiring clear in-interface disclosure; and strengthening oversight of anthropomorphic deliberation to avoid exploiting psychological vulnerabilities to maximise engagement.",
+                analyze: "My master thesis at Oxford investigated the contexts, processes, and mechanisms through which users connect with AI Companions (AICs), perceiving them as trustworthy 'social actors'. Rather than assuming anthropomorphization as a prerequisite for connectedness, I asked at what point do users anthropomorphize AICs? Using a mixed-methods approach – quantitative dataset analysis and qualitative interviews with inductive analysis – I examined both romantic and non-romantic users' experiences with AICs. My analysis explored the mechanisms of connectedness, moments of anthropomorphisation, and the cyclical fulfilment of dual needs that can foster compulsive use. This study interrogates the ways in which AICs facilitate non-judgemental backstage self-disclosure, and examines how these interactions may reshape role expectations and reconceptualise romantic relationships and love, thereby contributing to the tangible social implications of human–AI socialisation. Please feel free to requst the Abstract indiviudally.",
+                through: "I have deepened my technical understanding through studies at the Oxford Internet Institute, where I gained expertise in Fairness, Transparency, and Accountability in Machine Learning. I applied these tools in a qualitative audit of Microsoft's XiaoIce model—an AI companion released in 2014, predating popular apps like Character.ai and Replika. This audit, conducted in accordance with ACM FAccT's auditing principles, integrated interdisciplinary theories to critically examine the model's gendered design and the power dynamics embedded in its affordances.",
+                pursue: "Building on the empirical insights of my thesis analysis, I developed a comprehensive policy recommendation submitted to the Cyberspace Administration of China, aiming to inform China's provisional regulatory framework for the increasingly anthropomorphised services. These risks should be interpreted not as universally representative outcomes, but rather as possibilities that emerge under interaction of specific usage patterns, motivations, and cognitive biases. Against this backdrop, my policy recommendations focus on four key regulatory priorities: developing measurable indicators and monitoring systems to assess user emotional dependency; establishing tiered intervention protocols for users experiencing high-risk psychological states; requiring clear in-interface disclosure; and strengthening oversight of anthropomorphic deliberation to avoid exploiting psychological vulnerabilities to maximise engagement.Please feel free to requst indiviudally.",
                 speak: "Inspired by critical questions raised during the 2023 AI Safety Summit (ASS), I began exploring the issue of AI deception— how different forms of deceptive capabilities entangled with historical and societal biases, and how discourses around deception evolve alongside technological development. Drawing on courses in Science and Technology Studies to deepen my understanding of the power dynamics shaping technological paradigms, I offered an evaluation of AI deception' social implications and persistent challenges, which was published on arXiv during my undergraduate studies. <a href='https://arxiv.org/abs/2403.09676' target='_blank' style='color: #1155cc;'>arXiv:2403.09676</a>"
             };
 
@@ -1042,7 +1042,7 @@
                     currentLockedPetal = null; // 解锁
                 });
                 cardsContainer.appendChild(card);
-                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                card.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 currentLockedPetal = petalId;
             }
 
