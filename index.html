@@ -523,7 +523,12 @@
         .project-detail-card * { color: #ffffff !important; }
         .project-detail-card a { color: #aac9ff !important; }
         .project-detail-card a:hover { color: #ffffff !important; text-decoration: underline; }
-
+        .project-detail-card p {
+            margin: 0 0 1.2em 0;
+        }
+        .project-detail-card p:last-child {
+            margin-bottom: 0;
+        }
         .close-detail-btn {
             position: absolute;
             top: 1rem;
@@ -542,6 +547,10 @@
             background: #f0f0f0;
             border-color: #999;
             color: #111 !important;
+        }
+        .empty-line {
+            height: 1.2em;
+            width: 100%;
         }
     </style>
 </head>
@@ -805,12 +814,16 @@
                 const paragraphs = rawContent.split('（空行）').map(p => p.trim()).filter(p => p.length > 0);
 
                 let innerHTML = '<button class="close-detail-btn">✕ CLOSE</button>';
-                paragraphs.forEach(para => {
-                    innerHTML += `<p>${para}</p>`;
-                });
-
-                card.innerHTML = innerHTML;
-
+                segments.forEach(segment => {
+                if (segment.trim() === '') {
+                    // 空字符串代表一个空行：插入一个空白占位元素
+                    innerHTML += '<div class="empty-line" style="height: 1.2em;"></div>';
+                } else {
+                    // 非空内容作为段落
+                    innerHTML += `<p>${segment.trim()}</p>`;
+                }
+            });
+            card.innerHTML = innerHTML;
                 const closeBtn = card.querySelector('.close-detail-btn');
                 closeBtn.addEventListener('click', (e) => {
                     e.stopPropagation();
