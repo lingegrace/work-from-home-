@@ -523,7 +523,12 @@
         .project-detail-card * { color: #ffffff !important; }
         .project-detail-card a { color: #aac9ff !important; }
         .project-detail-card a:hover { color: #ffffff !important; text-decoration: underline; }
-
+        .project-detail-card p {
+            margin: 0 0 1.2em 0;
+        }
+        .project-detail-card p:last-child {
+            margin-bottom: 0;
+        }
         .close-detail-btn {
             position: absolute;
             top: 1rem;
@@ -542,6 +547,10 @@
             background: #f0f0f0;
             border-color: #999;
             color: #111 !important;
+        }
+        .empty-line {
+            height: 1.2em;
+            width: 100%;
         }
     </style>
 </head>
@@ -802,11 +811,19 @@
                 card.setAttribute('data-petal', petalId);
 
                 const rawContent = detailMap[petalId];
-                const paragraphs = rawContent.split('（空行）').map(p => p.trim()).filter(p => p.length > 0);
+                // 按“（空行）”分割，保留所有片段（包括空字符串）
+                const segments = rawContent.split('（空行）');
 
                 let innerHTML = '<button class="close-detail-btn">✕ CLOSE</button>';
-                paragraphs.forEach(para => {
-                    innerHTML += `<p>${para}</p>`;
+
+                segments.forEach(segment => {
+                    if (segment.trim() === '') {
+                        // 空字符串代表一个空行：插入空白占位元素
+                        innerHTML += '<div class="empty-line"></div>';
+                    } else {
+                        // 非空内容作为段落
+                        innerHTML += `<p>${segment.trim()}</p>`;
+                    }
                 });
 
                 card.innerHTML = innerHTML;
@@ -852,29 +869,29 @@
             });
 
             // 花瓣悬停事件（仅打字动画，不影响点击）
-petals.forEach(petal => {
-    petal.addEventListener('mouseenter', function() {
-        // 如果有锁定的卡片，忽略所有悬停
-        if (currentLockedPetal !== null) return;
+            petals.forEach(petal => {
+                petal.addEventListener('mouseenter', function() {
+                    // 如果有锁定的卡片，忽略所有悬停
+                    if (currentLockedPetal !== null) return;
 
-        let petalId = '';
-        if (this.classList.contains('petal-1')) petalId = 'analyze';
-        else if (this.classList.contains('petal-2')) petalId = 'through';
-        else if (this.classList.contains('petal-3')) petalId = 'pursue';
-        else if (this.classList.contains('petal-4')) petalId = 'speak';
+                    let petalId = '';
+                    if (this.classList.contains('petal-1')) petalId = 'analyze';
+                    else if (this.classList.contains('petal-2')) petalId = 'through';
+                    else if (this.classList.contains('petal-3')) petalId = 'pursue';
+                    else if (this.classList.contains('petal-4')) petalId = 'speak';
 
-        startTyping(phraseMap[petalId]);
-    });
+                    startTyping(phraseMap[petalId]);
+                });
 
-    petal.addEventListener('mouseleave', function() {
-        // 如果有锁定的卡片，保留锁定短语，不清空
-        if (currentLockedPetal !== null) return;
+                petal.addEventListener('mouseleave', function() {
+                    // 如果有锁定的卡片，保留锁定短语，不清空
+                    if (currentLockedPetal !== null) return;
 
-        typewriterSpan.textContent = '';
-        if (activeTimer) clearInterval(activeTimer);
-        activeTimer = null;
-    });
-});
+                    typewriterSpan.textContent = '';
+                    if (activeTimer) clearInterval(activeTimer);
+                    activeTimer = null;
+                });
+            });
 
             // 空白点击：仅在第二页未显示且点击非指定元素时关闭卡片并滚动回首页
             document.addEventListener('click', (e) => {
