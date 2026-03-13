@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grace · work-from-home · AI portfolio</title>
-    <!-- Font Awesome (只保留一个) -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
-    <!-- 像素字体 (用于花瓣内部) -->
+    <!-- 像素字体 -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
     <style>
-        /* 原有样式保持不变，仅微调关闭按钮 */
+        /* ----- 原有所有样式（完全保留，仅删除聊天相关）----- */
         * {
             margin: 0;
             padding: 0;
@@ -610,12 +610,12 @@
                 <div class="continue-wrapper">
                     <button id="continueBtn" class="continue-btn" disabled>Click All</button>
                 </div>
-                <!-- 项目卡片容器 (动态添加) -->
+                <!-- 项目卡片容器 -->
                 <div id="projectCardsContainer" class="project-cards-container"></div>
             </div>
         </div>
 
-        <!-- PAGE 2: 原第二页 (项目内容) 初始隐藏 -->
+        <!-- PAGE 2: 原第二页 -->
         <div class="page" id="page2">
             <div class="pixel-bg">
                 Sociotechnical Lens | AI | Technology | Human-Computer Interaction<br>
@@ -625,7 +625,7 @@
                 My thesis investigated the contexts, processes, and mechanisms through which users connect with AI Companions (AICs), perceiving them as trustworthy “social actors”. Rather than assuming anthropomorphization as a prerequisite for connectedness, I asked at what point do users anthropomorphize AICs? Using a mixed-methods approach – quantitative dataset analysis and qualitative interviews with inductive analysis – I examined both romantic and non-romantic users’ experiences with AICs. My analysis explored the mechanisms of connectedness, moments of anthropomorphisation, and the cyclical fulfilment of dual needs that can foster compulsive use. This study interrogates the ways in which AICs facilitate non-judgemental backstage self-disclosure, and examines how these interactions may reshape role expectations and reconceptualise romantic relationships and love, thereby contributing to the tangible social implications of human–AI socialisation.
             </div>
             <div class="page-content">
-                <!-- 两列布局 (完全保留原样) -->
+                <!-- 两列布局 -->
                 <div class="two-col">
                     <div class="left-col">
                         <h2>🌐 AI-co-created projects</h2>
@@ -640,6 +640,7 @@
                                     <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7422191016994217984" target="_blank" class="btn linkedin"><i class="fab fa-linkedin"></i> Follow</a>
                                 </div>
                             </div>
+                            <!-- 在 Academic Portfolio 卡片中新增按钮 -->
                             <div class="card">
                                 <h3>🪿 Academic Portfolio</h3>
                                 <div class="description">
@@ -649,6 +650,8 @@
                                 </div>
                                 <div class="links">
                                     <a href="https://app--graces-kiosk-a4c1d845.base44.app/" target="_blank" class="btn portfolio"><i class="fas fa-globe"></i> Grace's Kiosk</a>
+                                    <!-- 新增 Academic Agent 按钮 -->
+                                    <a href="https://code.coze.cn/p/7616316878792818726/preview" target="_blank" class="btn portfolio"><i class="fas fa-robot"></i> Academic Agent</a>
                                 </div>
                             </div>
                             <div class="card">
@@ -703,6 +706,7 @@
         </div>
     </div>
 
+    <!-- 原有JavaScript（完全保留，仅删除聊天相关） -->
     <script>
         (function() {
             let petalsEnabled = true;
@@ -756,7 +760,7 @@
                 speak: "Speak for the Marginalized"
             };
 
-            // 详细卡片内容映射 (已插入“（空行）”标记)
+            // 详细卡片内容映射
             const detailMap = {
                 analyze: "The Velvet Cage of AI Companions (AICs): Illusions of Intimacy and Control, and Their Social Implication（空行）（空行）My master thesis at Oxford investigated the contexts, processes, and mechanisms through which users connect with AI Companions (AICs), perceiving them as trustworthy 'social actors'. Rather than assuming anthropomorphization as a prerequisite for connectedness, I asked at what point do users anthropomorphize AICs?（空行）（空行）Using a mixed-methods approach – quantitative dataset analysis and qualitative interviews with inductive analysis – I examined both romantic and non-romantic users' experiences with AICs. My analysis explored the mechanisms of connectedness, moments of anthropomorphisation, and the cyclical fulfilment of dual needs that can foster compulsive use. This study interrogates the ways in which AICs facilitate non-judgemental backstage self-disclosure, and examines how these interactions may reshape role expectations and reconceptualise romantic relationships and love, thereby contributing to the tangible social implications of human–AI socialisation. Please feel free to requst the Abstract indiviudally.",
                 through: "“Unmasking Artificial Intimacy: A Critical Audit of Microsoft’s XiaoIce AI Companion in Chinese Context”（空行）（空行）I have deepened my technical understanding through studies at the Oxford Internet Institute, where I gained expertise in Fairness, Transparency, and Accountability in Machine Learning. I applied these tools in a qualitative audit of Microsoft's XiaoIce model—an AI companion released in 2014, predating popular apps like Character.ai and Replika. This audit, conducted in accordance with ACM FAccT's auditing principles, integrated interdisciplinary theories to critically examine the model's gendered design and the power dynamics embedded in its affordances.",
@@ -811,17 +815,14 @@
                 card.setAttribute('data-petal', petalId);
 
                 const rawContent = detailMap[petalId];
-                // 按“（空行）”分割，保留所有片段（包括空字符串）
                 const segments = rawContent.split('（空行）');
 
                 let innerHTML = '<button class="close-detail-btn">✕ CLOSE</button>';
 
                 segments.forEach(segment => {
                     if (segment.trim() === '') {
-                        // 空字符串代表一个空行：插入空白占位元素
                         innerHTML += '<div class="empty-line"></div>';
                     } else {
-                        // 非空内容作为段落
                         innerHTML += `<p>${segment.trim()}</p>`;
                     }
                 });
@@ -842,7 +843,6 @@
             function closeAllCards() {
                 cardsContainer.innerHTML = '';
                 currentLockedPetal = null;
-                // 注意：滚动逻辑移到点击事件中按条件执行
             }
 
             // 花瓣点击事件
@@ -868,10 +868,9 @@
                 });
             });
 
-            // 花瓣悬停事件（仅打字动画，不影响点击）
+            // 花瓣悬停事件
             petals.forEach(petal => {
                 petal.addEventListener('mouseenter', function() {
-                    // 如果有锁定的卡片，忽略所有悬停
                     if (currentLockedPetal !== null) return;
 
                     let petalId = '';
@@ -884,7 +883,6 @@
                 });
 
                 petal.addEventListener('mouseleave', function() {
-                    // 如果有锁定的卡片，保留锁定短语，不清空
                     if (currentLockedPetal !== null) return;
 
                     typewriterSpan.textContent = '';
@@ -893,9 +891,7 @@
                 });
             });
 
-            // 空白点击：仅在第二页未显示且点击非指定元素时关闭卡片并滚动回首页
             document.addEventListener('click', (e) => {
-                // 如果第二页显示，忽略所有空白点击
                 if (page2.style.display === 'flex') return;
 
                 if (!e.target.closest('.petal') && !e.target.closest('.project-detail-card') && !e.target.closest('#continueBtn') && !e.target.closest('.close-detail-btn')) {
@@ -909,7 +905,6 @@
                 }
             });
 
-            // 按钮点击逻辑
             continueBtn.addEventListener('click', function() {
                 if (!continueBtn.classList.contains('active')) return;
 
@@ -932,7 +927,6 @@
                 }
             });
 
-            // 滚动指示器
             const container = document.getElementById('pagesContainer');
             const scrollBtn = document.getElementById('scrollBtn');
             let currentPage = 1;
@@ -960,7 +954,6 @@
             });
             window.addEventListener('resize', updateButton);
 
-            // Email 弹窗
             const emailBtn = document.getElementById('emailBtn');
             const popup = document.getElementById('emailPopup');
             const copyBtn = document.getElementById('copyEmailBtn');
