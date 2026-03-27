@@ -143,7 +143,7 @@
             display: none;
         }
         .page-content {
-            max-width: 1100px;
+            max-width: 1200px;
             width: 100%;
             margin: 0 auto;
             position: relative;
@@ -245,16 +245,18 @@
         .btn.research { background-color: #FFE0F0; color: #b0003a; }
         .table-section { margin-bottom: 0; }
         .project-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(2px);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
-            font-size: 0.85rem;
-            transition: background 0.2s;
-            border-radius: 12px;
-            overflow: hidden;
-        }
+    width: 100%;
+    table-layout: fixed;
+    word-break: break-word;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    font-size: 0.85rem;
+    transition: background 0.2s;
+    border-radius: 12px;
+    overflow: hidden;
+}
         .project-table:hover { background: rgba(255, 255, 255, 0.3); }
         .project-table th {
             background-color: rgba(240, 244, 248, 0.9);
@@ -377,12 +379,14 @@
     margin-bottom: 1rem;
 }       
         @media (max-width: 1000px) {
-    .page-content { max-width: 95%; }
     .two-col {
-        align-items: center;
+        flex-wrap: wrap;
     }
-            .left-col, .right-col { max-width: 100%; flex: 1 1 auto; }
-            .cert-list, .more-learning-bubble { max-width: 100%; }
+    .left-col, .right-col { max-width: 100%; flex: 1 1 auto; }
+}
+
+.left-col { flex: 1 1 320px; max-width: 360px; }
+.right-col { flex: 1.6 1 480px; max-width: 580px; }
             .collab { width: 90%; }
         }
         @media (hover: none) and (pointer: coarse) {
@@ -543,8 +547,8 @@
 
         /* ===== 修正新闻气泡样式 ===== */
         .news-list-container {
-            margin-top: 1.5rem;
-        }
+    overflow-x: auto;
+}
         .news-bubble {
             background: rgba(255, 255, 255, 0.88);
             backdrop-filter: blur(2px);
