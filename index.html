@@ -10,7 +10,7 @@
     <!-- 像素字体 -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
     <style>
-        /* ----- 原有所有样式（完全保留，仅删除聊天相关）----- */
+        /* 原有所有样式（完全保留，仅新增 news 样式） */
         * {
             margin: 0;
             padding: 0;
@@ -552,6 +552,47 @@
             height: 1.2em;
             width: 100%;
         }
+
+        /* ----- 新增新闻列表样式 ----- */
+        .news-bubble {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(2px);
+    border-radius: 16px;
+    padding: 1.2rem;
+    margin-top: 1.5rem;
+    font-family: 'Courier New', monospace;
+}
+.link-header {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    padding-bottom: 0.5rem;
+}
+.link-header a {
+    color: #0a66c2;
+    text-decoration: none;
+    border-bottom: 1px dotted #90CAF9;
+}
+.link-header a:hover {
+    color: #ffffff !important;
+}
+.news-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+.news-section .section-title {
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+    color: #2c3e50;
+}
+.news-section .section-content {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: #111;
+    white-space: pre-line;
+}
     </style>
 </head>
 <body>
@@ -640,7 +681,6 @@
                                     <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7422191016994217984" target="_blank" class="btn linkedin"><i class="fab fa-linkedin"></i> Follow</a>
                                 </div>
                             </div>
-                            <!-- 在 Academic Portfolio 卡片中新增按钮 -->
                             <div class="card">
                                 <h3>🪿 Academic Portfolio</h3>
                                 <div class="description">
@@ -650,14 +690,13 @@
                                 </div>
                                 <div class="links">
                                     <a href="https://app--graces-kiosk-a4c1d845.base44.app/" target="_blank" class="btn portfolio"><i class="fas fa-globe"></i> Grace's Kiosk</a>
-                                    <!-- 新增 Academic Agent 按钮 -->
                                     <a href="https://code.coze.cn/p/7616316878792818726/preview" target="_blank" class="btn portfolio"><i class="fas fa-robot"></i> Academic Agent</a>
                                 </div>
                             </div>
                             <div class="card">
-                                <h3>🛁 Momentum & Neuro-Mentum Apps</h3>
+                                <h3>🛁 Momentum App</h3>
                                 <div class="description">
-                                    Momentum is a gentle life management tool to help you visualize and manage your energy through small, science‑backed recovery actions. Rest is not escape — it’s part of your momentum. This is the first app I created for the goal of # Guiding genuine Rest to realize your full productivity#. The second App improved from its and from some market research been the Nuero-Mentum. Cognitive-burnout consequences are being overlooked and becoming more visible in our daily lives with Doomscrolling, which is not restorative.  <br>
+                                    Momentum is a gentle life management tool to help you visualize and manage your energy through small, science‑backed recovery actions. Rest is not escape — it’s part of your momentum.<br>
                                     <small>Ideas for improvement? Collaboration welcome!</small>
                                 </div>
                                 <div class="links">
@@ -672,16 +711,94 @@
                         <h2>🦷 Some AI Knowledge Compilation</h2>
                         <div class="table-section">
                             <table class="project-table">
-                                <thead><tr><th>Project</th><th>Focus Area</th><th>Description</th><th>Link</th></tr></thead>
+                                <thead>
+    <tr>
+        <th>Project</th>
+        <th>Focus Area</th>
+        <th>Description</th>
+        <th>Link</th>
+    </tr>
+</thead>
                                 <tbody>
-                                    <tr><td><strong>AI Wiki</strong></td><td>Knowledge Base</td><td>Comprehensive LLM concepts and AI fundamentals.</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/UfMaw8HkmiQR8JkdZwjcmQNjnyc?from=from_copylink" target="_blank">📁</a></td></tr>
-                                    <tr><td><strong>Chinese AI Governance</strong></td><td>Policy & Governance</td><td>Framework for understanding AI governance in China.</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/P5O8w8uENiE6RGkVrw2c5pUunTc?from=from_copylink" target="_blank">📃</a></td></tr>
-                                    <tr><td><strong>Prompt Red Teaming</strong></td><td>Safety & Ethics</td><td>Moral evaluations and safety testing of AI systems.</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/Ep3ewlDZligXJMkiZnxcQsDDnNc?from=from_copylink" target="_blank">🦙</a></td></tr>
+                                    <tr><td><strong>AI Wiki</strong></td><td>Knowledge Base</td><td>Comprehensive LLM concepts and AI fundamentals.</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/UfMaw8HkmiQR8JkdZwjcmQNjnyc?from=from_copylink" target="_blank">📁</a></td> </tr>
+                                    <tr><td><strong>Chinese AI Governance</strong></td><td>Policy & Governance</td><td>Framework for understanding AI governance in China.</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/P5O8w8uENiE6RGkVrw2c5pUunTc?from=from_copylink" target="_blank">📃</a></td> </tr>
+                                    <tr><td><strong>Prompt Red Teaming</strong></td><td>Safety & Ethics</td><td>Moral evaluations and safety testing of AI systems.</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/Ep3ewlDZligXJMkiZnxcQsDDnNc?from=from_copylink" target="_blank">🦙</a></td> </tr>
+                                    <tr><td><strong>Learning Sum</strong></td><td>Learning Notes</td><td>AI learning from Youtube Podcasts & Newsletter, miscellaneously sought and systematically structured in notes, feel free to request individually</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/U7oJwODIEiwUtHkEXKncffCYnNc?from=from_copylink" target="_blank">📓</a></td></tr>
                                 </tbody>
                             </table>
                         </div>
-                    </div>
+
+                        <!-- 新增 My AI news-List 区块 -->
+                        <div class="news-list-container">
+    <div class="news-bubble">
+        <div class="link-header">
+            📚 Link Compilations: 
+            <a href="https://rcnd1qqt63cw.feishu.cn/wiki/U7oJwODIEiwUtHkEXKncffCYnNc?from=from_copylink" target="_blank" class="news-link">Full AI News & Tools List</a>
+        </div>
+        <div class="news-sections">
+            <div class="news-section">
+                <div class="section-title">(engineer) :</div>
+                <div class="section-content">
+                    AI News<br>
+                    Latent Space Substack<br>
+                    Andrej Karpathy Personal Web ()infra
                 </div>
+            </div>
+            <div class="news-section">
+                <div class="section-title">(newsletter/blogs):</div>
+                <div class="section-content">
+                    YC Combinator、newsletter archives、online course<br>
+                    AI·Business ()specialized modules:NLP,ML,Data,Automation,Verticles,Responsible,GenAI<br>
+                    TechCrunch News ()venture<br>
+                    Lenny's Podcast Substack ()youtuber interviews, product<br>
+                    Artificial Ignorance Substack ()write<br>
+                    Elena's Growth Scoop Substack ()growth<br>
+                    AI Valley ()short-read about tech giants + Tools
+                </div>
+            </div>
+            <div class="news-section">
+                <div class="section-title">(policy):</div>
+                <div class="section-content">
+                    AI safety in China Substack<br>
+                    Centre for Humane Technology Substack
+                </div>
+            </div>
+            <div class="news-section">
+                <div class="section-title">(Macro Insights):</div>
+                <div class="section-content">
+                    Futurum Signals ()tech<br>
+                    Gartner ()<br>
+                    NIQ IQ Brief ()consumer<br>
+                    human8 annual trend report ()consulting cases
+                </div>
+            </div>
+            <div class="news-section">
+                <div class="section-title"># ... more AI newsletter Directions,: Verge、Rest of World、Zara's recommend-podcasts、</div>
+                <div class="section-content">
+                    (list items)
+                </div>
+            </div>
+            <div class="news-section">
+                <div class="section-title"># Tools Compilation: AIValley、futurepedia、producthunt、</div>
+                <div class="section-content">
+                    (list items)
+                </div>
+            </div>
+            <div class="news-section">
+                <div class="section-title"># Interesting apps: BeforeSunset ()planners, MagicPatterns, Ossus,</div>
+                <div class="section-content">
+                    (list items)
+                </div>
+            </div>
+            <div class="news-section">
+                <div class="section-title"># I AI:</div>
+                <div class="section-content">
+                    Base44、Lovable、LongCut、Socialresearch、Coze、Aminer、Manus、Posthog、Replit、Bolt、ChatPRD、NanoBanana、GPT、Deepseek、Grok、Claude、doubaoetc。
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
                 <div class="full-width">
                     <h2>🤍 AI Learning</h2>
                     <div class="cert-list">
@@ -707,7 +824,7 @@
         </div>
     </div>
 
-    <!-- 原有JavaScript（完全保留，仅删除聊天相关） -->
+    <!-- 原有JavaScript（完全保留） -->
     <script>
         (function() {
             let petalsEnabled = true;
