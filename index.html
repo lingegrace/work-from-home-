@@ -377,10 +377,9 @@
     margin-bottom: 1rem;
 }       
         @media (max-width: 1000px) {
-            .page-content { max-width: 95%; }
-            .two-col {
-        /* flex-direction: column;   
-        align-items: stretch;       
+    .page-content { max-width: 95%; }
+    .two-col {
+        align-items: center;
     }
             .left-col, .right-col { max-width: 100%; flex: 1 1 auto; }
             .cert-list, .more-learning-bubble { max-width: 100%; }
@@ -498,7 +497,7 @@
     border: 1px solid rgba(255,255,255,0.3);
     border-radius: 28px;
     padding: 2rem 2rem 2.5rem;
-    max-width: 800px;
+    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1.8rem;
@@ -719,20 +718,20 @@
     
     <script>
         // 保留所有原有JS逻辑，仅调整reset时确保无冲突
-        function smoothScrollToElement(element, duration = 800) {
-    const start = window.scrollY || window.pageYOffset;
-    const target = element.getBoundingClientRect().top + start;
-    const startTime = performance.now();
-    function scrollStep(now) {
-        const elapsed = now - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const ease = 1 - Math.pow(1 - progress, 3);
-        window.scrollTo(0, start + (target - start) * ease);
-        if (progress < 1) requestAnimationFrame(scrollStep);
-    }
-    requestAnimationFrame(scrollStep);
-}
         (function() {
+            function smoothScrollToElement(element, duration = 800) {
+        const start = window.scrollY || window.pageYOffset;
+        const target = element.getBoundingClientRect().top + start;
+        const startTime = performance.now();
+        function step(now) {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const ease = 1 - Math.pow(1 - progress, 3);
+            window.scrollTo(0, start + (target - start) * ease);
+            if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+    }
             let petalsEnabled = true;
             const cursor = document.getElementById('cat-cursor');
             if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
