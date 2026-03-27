@@ -7,10 +7,8 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
-    <!-- 像素字体 -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
     <style>
-        /* 原有所有样式（保留，移除全局暴力hover变白，优化新闻区） */
         * {
             margin: 0;
             padding: 0;
@@ -37,8 +35,7 @@
             filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
             display: none;
         }
-        /* 移除全局*:hover强制变白，恢复独立控制 */
-        /* 保留卡片、特定区域悬浮效果 */
+        /* 移除全局*:hover强制变白 */
         .card:hover * {
             color: #ffffff !important;
         }
@@ -78,8 +75,8 @@
             text-align: left;
             line-height: 1.6;
             background-image: 
-    repeating-linear-gradient(0deg, rgba(255,255,255,0.3) 0px, transparent 1px, transparent 4px),
-    repeating-linear-gradient(90deg, rgba(255,255,255,0.3) 0px, transparent 1px, transparent 4px);
+                repeating-linear-gradient(0deg, rgba(255,255,255,0.3) 0px, transparent 1px, transparent 4px),
+                repeating-linear-gradient(90deg, rgba(255,255,255,0.3) 0px, transparent 1px, transparent 4px);
             background-size: 4px 4px;
             background-position: 0 0;
             padding: 2rem 1.5rem;
@@ -186,9 +183,9 @@
         .right-col h2 { font-size: 1.2rem; border-bottom: 2px solid rgba(255,255,255,0.2); color: #ffffff; }
         .collab h2 { font-size: 0.9rem; border-bottom: none; color: #2c3e50; }
         
-        /* 左右列宽度调整：左列窄，右列宽，总和一致 */
-        .left-col { flex: 1 1 320px; max-width: 360px; }
-        .right-col { flex: 1.6 1 480px; max-width: 580px; }
+        /* 左右列宽度调整 */
+        .left-col { flex: 1 1 360px; max-width: 400px; }
+        .right-col { flex: 1.4 1 500px; max-width: 560px; }
         .full-width { width: 100%; margin-top: 2rem; display: flex; flex-direction: column; align-items: center; }
         .projects-vertical { display: flex; flex-direction: column; gap: 1.2rem; }
         .card {
@@ -236,6 +233,7 @@
         }
         .btn i { font-size: 0.9rem; }
         .btn.linkedin { background-color: #90CAF9; color: #0a66c2; }
+        .btn.latest { background-color: #90CAF9; color: #0a66c2; }
         .btn.play { background-color: #F8BBD0; color: #b0003a; }
         .btn.chart { background-color: #FFAB91; color: #bf360c; }
         .btn.wiki { background-color: #CE93D8; color: #4a148c; }
@@ -245,31 +243,22 @@
         .btn.research { background-color: #FFE0F0; color: #b0003a; }
         .table-section { margin-bottom: 0; }
         .project-table {
-    width: 100%;
-    table-layout: fixed;
-    word-break: break-word;
-    border-collapse: collapse;
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(2px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
-    font-size: 0.85rem;
-    transition: background 0.2s;
-    border-radius: 12px;
-    overflow: hidden;
-}
-        /* 调整表格列宽：Description 加宽，Link 变窄 */
-.project-table th:nth-child(1), 
-.project-table td:nth-child(1) { width: 18; }   /* Project */
-
-.project-table th:nth-child(2), 
-.project-table td:nth-child(2) { width: 20%; }   /* Focus Area */
-
-.project-table th:nth-child(3), 
-.project-table td:nth-child(3) { width: 52%; }   /* Description */
-
-.project-table th:nth-child(4), 
-.project-table td:nth-child(4) { width: 10%; }   /* Link */ 
-        
+            width: 100%;
+            table-layout: fixed;
+            word-break: break-word;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+            font-size: 0.85rem;
+            transition: background 0.2s;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .project-table th:nth-child(1), .project-table td:nth-child(1) { width: 18%; }
+        .project-table th:nth-child(2), .project-table td:nth-child(2) { width: 24%; }
+        .project-table th:nth-child(3), .project-table td:nth-child(3) { width: 48%; }
+        .project-table th:nth-child(4), .project-table td:nth-child(4) { width: 10%; }
         .project-table:hover { background: rgba(255, 255, 255, 0.3); }
         .project-table th {
             background-color: rgba(240, 244, 248, 0.9);
@@ -344,12 +333,13 @@
         }
         .collab p { color: #000000; font-size: 1rem; margin: 0.8rem 0; }
         .collab .links { margin-bottom: 1rem; }
-        .collab-footer {
-            margin-top: 0.8rem;
-            font-family: 'Courier New', monospace;
-            font-size: 0.85rem;
+        .curiosity-line {
+            font-family: 'Press Start 2P', monospace;
+            text-align: center;
+            font-size: 0.65rem;
             letter-spacing: 1px;
-            color: #2c3e50;
+            color: rgba(255, 255, 255, 0.65);
+            margin-top: 0.75rem;
         }
         .email-popup {
             position: fixed;
@@ -382,38 +372,22 @@
         footer { color: #ffffff !important; font-size: 0.8rem; padding: 1rem 0 0; text-align: center; }
         footer * { color: #ffffff; }
         footer *:hover { color: #90CAF9 !important; }
-.curiosity-line {
-    font-family: 'Press Start 2P', monospace;
-    text-align: center;
-    font-size: 0.65rem;
-    letter-spacing: 1px;
-    color: rgba(255, 255, 255, 0.65);
-    margin-top: 0.75rem;
-    margin-bottom: 1rem;
-}       
         .two-col {
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: nowrap;
-    justify-content: center;
-}
-
-.left-col { flex: 1 1 400px; max-width: 480px; }
-.right-col { flex: 1 1 400px; max-width: 480px; }
-        
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: nowrap;
+            justify-content: center;
+        }
         @media (max-width: 1000px) {
-    .two-col {
-        flex-wrap: wrap;
-    }
-    .left-col, .right-col { max-width: 100%; flex: 1 1 auto; }
-    .collab { width: 90%; }  /* 保留原有 */
-}
+            .two-col { flex-wrap: wrap; }
+            .left-col, .right-col { max-width: 100%; flex: 1 1 auto; }
+        }
         @media (hover: none) and (pointer: coarse) {
             * { cursor: auto; }
             #cat-cursor { display: none !important; }
         }
 
-        /* ===== 花瓣样式 ===== */
+        /* 花瓣样式 */
         .flower-center {
             position: relative;
             width: 600px;
@@ -461,7 +435,6 @@
         .petal-3 .petal-text { top: 15px; left: 50%; transform: translateX(-50%) rotate(180deg); }
         .petal-4 .petal-text { top: 50%; right: 10px; transform: translateY(-50%) rotate(-90deg); transform-origin: right center; }
 
-        /* 打字区域 */
         .typewriter-container {
             font-family: 'Press Start 2P', monospace;
             font-size: 1rem;
@@ -482,7 +455,6 @@
         }
         @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0;} }
 
-        /* continue 按钮 */
         .continue-wrapper { text-align: center; margin-top: 0.7rem; }
         .continue-btn {
             background: #444;
@@ -508,38 +480,33 @@
         }
         .continue-btn.active:hover { background: #f0f0f0; transform: scale(1.02); }
 
-        /* 项目卡片容器 */
         .project-cards-container { width: 100%; margin-top: 1.5rem; margin-bottom: 4rem; }
         .project-detail-card {
-    background: rgba(0, 0, 0, 0.65);          /* 深色半透明背景，增强文字对比 */
-    backdrop-filter: blur(2px);
-    background-image: 
-        repeating-linear-gradient(0deg, rgba(255,255,255,0.15) 0px, transparent 1px, transparent 4px),
-        repeating-linear-gradient(90deg, rgba(255,255,255,0.15) 0px, transparent 1px, transparent 4px);
-    background-size: 4px 4px;
-    border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 28px;
-    padding: 2rem 2rem 2.5rem;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 1.8rem;
-    color: #ffffff;
-    font-size: 1rem;
-    line-height: 1.6;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.15) inset, 0 0 20px 4px rgba(255,255,255,0.2);
-    position: relative;
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
-}
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(2px);
+            background-image: 
+                repeating-linear-gradient(0deg, rgba(255,255,255,0.15) 0px, transparent 1px, transparent 4px),
+                repeating-linear-gradient(90deg, rgba(255,255,255,0.15) 0px, transparent 1px, transparent 4px);
+            background-size: 4px 4px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 28px;
+            padding: 2rem 2rem 2.5rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 1.8rem;
+            color: #ffffff;
+            font-size: 1rem;
+            line-height: 1.6;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.15) inset, 0 0 20px 4px rgba(255,255,255,0.2);
+            position: relative;
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+        }
         .project-detail-card * { color: #ffffff !important; }
         .project-detail-card a { color: #aac9ff !important; }
         .project-detail-card a:hover { color: #ffffff !important; text-decoration: underline; }
-        .project-detail-card p {
-            margin: 0 0 1.2em 0;
-        }
-        .project-detail-card p:last-child {
-            margin-bottom: 0;
-        }
+        .project-detail-card p { margin: 0 0 1.2em 0; }
+        .project-detail-card p:last-child { margin-bottom: 0; }
         .close-detail-btn {
             position: absolute;
             top: 1rem;
@@ -554,20 +521,11 @@
             font-family: 'Inter', 'Helvetica', sans-serif;
             transition: all 0.2s;
         }
-        .close-detail-btn:hover {
-            background: #f0f0f0;
-            border-color: #999;
-            color: #111 !important;
-        }
-        .empty-line {
-            height: 1.2em;
-            width: 100%;
-        }
+        .close-detail-btn:hover { background: #f0f0f0; border-color: #999; color: #111 !important; }
+        .empty-line { height: 1.2em; width: 100%; }
 
-        /* ===== 修正新闻气泡样式 ===== */
-        .news-list-container {
-    overflow-x: auto;
-}
+        /* 新闻气泡样式 */
+        .news-list-container { overflow-x: auto; }
         .news-bubble {
             background: rgba(255, 255, 255, 0.88);
             backdrop-filter: blur(2px);
@@ -578,21 +536,17 @@
             font-family: 'JetBrains Mono', 'Courier New', monospace;
             transition: background 0.2s;
         }
-        .news-bubble:hover {
-            background: rgba(255, 255, 255, 0.7);
-        }
+        .news-bubble:hover { background: rgba(255, 255, 255, 0.7); }
         .news-main-title-outside {
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: #ffffff;
-    border-bottom: 2px solid rgba(255,255,255,0.2);
-    padding-bottom: 0.3rem;
-    margin: 1.5rem 0 0.8rem 0;
-    font-family: 'Press Start 2P', monospace;
-}
-        .link-header {
-            margin: 0.5rem 0 0.8rem 0;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #ffffff;
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+            padding-bottom: 0.3rem;
+            margin: 1.5rem 0 0.8rem 0;
+            font-family: 'Press Start 2P', monospace;
         }
+        .link-header { margin: 0.5rem 0 0.8rem 0; }
         .link-header a {
             color: #2c3e50;
             font-family: 'Press Start 2P', monospace;
@@ -600,11 +554,7 @@
             font-weight: 500;
             font-size: 0.7rem;
         }
-        .news-sections {
-            display: flex;
-            flex-direction: column;
-            gap: 0.7rem;
-        }
+        .news-sections { display: flex; flex-direction: column; gap: 0.7rem; }
         .news-section .section-title {
             font-weight: 600;
             color: #1e2f3f;
@@ -612,10 +562,7 @@
             font-size: 0.85rem;
             letter-spacing: -0.2px;
         }
-        .section-content {
-            line-height: 1.3;
-            margin-left: 0.5rem;
-        }
+        .section-content { line-height: 1.3; margin-left: 0.5rem; }
         .news-line {
             padding: 0.15rem 0;
             transition: color 0.2s ease;
@@ -624,34 +571,22 @@
             font-size: 0.85rem;
             cursor: default;
         }
-        /* 悬浮单独变白，背景不变 */
-        .news-line:hover {
-            color: #ffffff !important;
-            text-shadow: 0 0 2px rgba(0,0,0,0.2);
-        }
-        /* 保证气泡内其他元素悬浮不变白 */
-        .news-bubble .link-header a:hover {
-            color: #ffffff !important;
-        }
-        .news-bubble .section-title:hover {
-            color: inherit !important;
-        }
+        .news-line:hover { color: #ffffff !important; text-shadow: 0 0 2px rgba(0,0,0,0.2); }
+        .news-bubble .link-header a:hover { color: #ffffff !important; }
+        .news-bubble .section-title:hover { color: inherit !important; }
     </style>
 </head>
 <body>
     <div id="cat-cursor">🐈</div>
 
-    <!-- Email Popup -->
     <div id="emailPopup" class="email-popup">
         <p>📧 graceguo2004@outlook.com</p>
         <button id="copyEmailBtn"><i class="fas fa-copy"></i> Copy</button>
         <button class="close-btn" onclick="document.getElementById('emailPopup').style.display='none'">Close</button>
     </div>
 
-    <!-- Scroll Indicator -->
     <a class="scroll-indicator" id="scrollBtn">↑</a>
 
-    <!-- Pages Container -->
     <div class="pages-container" id="pagesContainer">
         <!-- PAGE 1: 花瓣区域 -->
         <div class="page" id="page1">
@@ -671,7 +606,7 @@
             </div>
         </div>
 
-        <!-- PAGE 2: 原第二页 -->
+        <!-- PAGE 2: 内容页面 -->
         <div class="page" id="page2">
             <div class="pixel-bg">
                 Sociotechnical Lens | AI | Technology | Human-Computer Interaction<br>
@@ -679,23 +614,71 @@
                 Inspired by critical questions raised during the 2023 AI Safety Summit (ASS), I began exploring the issue of AI deception—how different forms of deceptive capabilities entangled with historical and societal biases, and how discourses around deception evolve alongside technological development. Drawing on courses in Science and Technology Studies to deepen my understanding of the power dynamics shaping technological paradigms, I offered an evaluation of AI deception’ social implications and persistent challenges, which was published on arXiv during my undergraduate studies.<br>
                 During my Sociology MSc at the University of Oxford, I deepened my technical understanding through studies at the Oxford Internet Institute, where I gained expertise in Fairness, Transparency, and Accountability in Machine Learning. I applied these tools in a qualitative audit of Microsoft’s XiaoIce model—an AI companion released in 2014, predating popular apps like Character.ai and Replika. This audit, conducted in accordance with ACM FAccT’s auditing principles, integrated interdisciplinary theories to critically examine the model’s gendered design and the power dynamics embedded in its affordances. Although currently unpublished, this work was completed in May 2025 as part of a course project and served as the foundation for my ongoing thesis.<br>
                 My thesis investigated the contexts, processes, and mechanisms through which users connect with AI Companions (AICs), perceiving them as trustworthy “social actors”. Using a mixed-methods approach – quantitative dataset analysis and qualitative interviews with inductive analysis – I examined both romantic and non-romantic users’ experiences with AICs. My analysis explored the mechanisms of connectedness, moments of anthropomorphisation, and the cyclical fulfilment of dual needs that can foster compulsive use. This study interrogates the ways in which AICs facilitate non-judgemental backstage self-disclosure, and examines how these interactions may reshape role expectations and reconceptualise romantic relationships and love, thereby contributing to the tangible social implications of human–AI socialisation.
+                Detailed Abstracts are Below.<br>
+                “Unmasking the Shadows of AI: Investigating Deceptive Capabilities in Large Language Models” <br>
+                Abstract<br>
+                This research navigates the intricate landscape of AI deception, concentrating on deceptive behaviours of Large Language Models (LLMs). The research initiates with an evaluation of the AI Safety Summit 2023 (ASS) and introduction of LLMs, emphasising multidimensional biases that underlie their deceptive capabilities. <br>
+                My objective is to delve into its categorization [Strategic deception, Imitation, Sycophancy, and Unfaithful Reasoning], and subsequently examine the discourse and ramifications surrounding it. <br>
+                I take an evaluative stance on various aspects related to navigating the persistent challenges of the deceptive AI and propose solutions encompassing 1) Considerations of international collaborative governance, 2) Reconfigured engagement of individuals with AI, 3) Practical adjustments in digital education.<br>
+                “Unmasking Artificial Intimacy: A Critical Audit of Microsoft’s XiaoIce AI Companion in Chinese Context”<br>
+                Abstract<br>
+                This paper is an audit of Microsoft’s XiaoIce Model (http://xiaoice.ai/), an empathetic AI-driven social chatbot designed to foster “long-term emotional connections” with users. Such AI companion as a non-human actant does not passively reflect digital emotional engagement but embeds with agency that actively reconstructs and mediates social interactions based on corporate priorities, affecting how intimacy and emotional dependency manifest in human-AI relationships.<br>
+                I conducted a prompt-based testing to cultivate the 1) Risk in XiaoIce’s data infrastructure [Counterfactual bias, Sycophancy], 2) Bias in affordance architecture, and 3) Ethical/societal risks in social development [Lack of suicide-related Intervention, Discouragement of Human Relationships].<br>
+                By elucidating anthropomorphization, not merely as user-side construction, but as a mechanism of power, this paper offers a methodological contribution, putting forth a concept-driven, interdisciplinary evaluation of social chatbots systems. <br>
+            
             </div>
             <div class="page-content">
                 <div class="two-col">
+                    <!-- 左侧：项目卡片 -->
                     <div class="left-col">
                         <h2>🌐 AI-co-created projects</h2>
                         <div class="projects-vertical">
-                            <div class="card"><h3>🐈‍⬛ LinkedIn Newsletter</h3><div class="description">Weekly insights on macro forces, tech news, society, and of course on AI, from a Humanistic perspective.<br><br>Scroll down to see my AI employee.</div><div class="links"><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7422191016994217984" target="_blank" class="btn linkedin"><i class="fab fa-linkedin"></i> Follow</a><a href="https://www.linkedin.com/pulse/openclaw-revolution-from-digital-employee-demographic-linge-guo-43vwc" target="_blank" class="btn latest"><i class="fab fa-linkedin"></i> Latest Episode: OpenClaw</a></div></div></div></div>
-                            <div class="card"><h3>🪿 Academic Portfolio</h3><div class="description">Research project showcase. Including recommended study tools, AI sources, Books.<br>Pick your everyday quote!<br><em>"𝒰𝓃𝒸𝒽𝒶𝒾𝓃𝑒𝒹 𝑀𝑒𝓁𝑜𝒹𝓎" — play this song and take your time.</em></div><div class="links"><a href="https://app--graces-kiosk-a4c1d845.base44.app/" target="_blank" class="btn portfolio"><i class="fas fa-globe"></i> Grace's Kiosk(de-bugging～)</a><a href="https://code.coze.cn/p/7616316878792818726/preview" target="_blank" class="btn portfolio"><i class="fas fa-robot"></i> Academic Agent</a></div></div>
-                            <div class="card"><h3>🛁 Productivity Apps</h3><div class="description">Momentum is a gentle life management tool to help you visualize and manage your energy through small, science‑backed recovery actions. Rest is not escape — it’s part of your momentum. This is the first app I created for the goal of # Guiding genuine Rest to realize your full productivity#.<br><br>The second App improved from its and from some market research been the Nuero-Mentum. Cognitive-burnout consequences are being overlooked and becoming more visible in our daily lives with Doomscrolling, which is not restorative. Nuero-Mentum embeds Micro-Tasks with 60-mins Deep Work Focus Session yo recover your Prefrontal Cortex after intensive concentration. <br><small>Ideas for improvement? Collaboration welcome!</small></div><div class="links"><a href="https://screenapp.io/app/v/YzJV1A2nJl" target="_blank" class="btn play"><i class="fas fa-play"></i> Demo</a><a href="https://rugged-build-your-momentum.base44.app/Home" target="_blank" class="btn chart"><i class="fas fa-chart-bar"></i> Momentum</a><a href="https://clear-pfc-flow.base44.app" target="_blank" class="btn chart"><i class="fas fa-chart-bar"></i> Neuro-Mentum</a></div></div>
+                            <!-- 卡片 1: LinkedIn Newsletter -->
+                            <div class="card">
+                                <h3>🐈‍⬛ LinkedIn Newsletter</h3>
+                                <div class="description">Weekly insights on macro forces, tech news, society, and of course on AI, from a Humanistic perspective.<br><br>Scroll down to see my AI employee.</div>
+                                <div class="links">
+                                    <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7422191016994217984" target="_blank" class="btn linkedin"><i class="fab fa-linkedin"></i> Follow</a>
+                                    <a href="https://www.linkedin.com/pulse/openclaw-revolution-from-digital-employee-demographic-linge-guo-43vwc" target="_blank" class="btn latest"><i class="fab fa-linkedin"></i> Latest Episode: OpenClaw</a>
+                                </div>
+                            </div>
+                            <!-- 卡片 2: Academic Portfolio -->
+                            <div class="card">
+                                <h3>🪿 Academic Portfolio</h3>
+                                <div class="description">Research project showcase. Including recommended study tools, AI sources, Books.<br>Pick your everyday quote!<br><em>"𝒰𝓃𝒸𝒽𝒶𝒾𝓃𝑒𝒹 𝑀𝑒𝓁𝑜𝒹𝓎" — play this song and take your time.</em></div>
+                                <div class="links">
+                                    <a href="https://app--graces-kiosk-a4c1d845.base44.app/" target="_blank" class="btn portfolio"><i class="fas fa-globe"></i> Grace's Kiosk (de-bugging～)</a>
+                                    <a href="https://code.coze.cn/p/7616316878792818726/preview" target="_blank" class="btn portfolio"><i class="fas fa-robot"></i> Academic Agent</a>
+                                </div>
+                            </div>
+                            <!-- 卡片 3: Productivity Apps -->
+                            <div class="card">
+                                <h3>🛁 Productivity Apps</h3>
+                                <div class="description">Momentum is a gentle life management tool to help you visualize and manage your energy through small, science‑backed recovery actions. Rest is not escape — it’s part of your momentum. This is the first app I created for the goal of # Guiding genuine Rest to realize your full productivity#.<br><br>The second App improved from its and from some market research been the Nuero-Mentum. Cognitive-burnout consequences are being overlooked and becoming more visible in our daily lives with Doomscrolling, which is not restorative. Nuero-Mentum embeds Micro-Tasks with 60-mins Deep Work Focus Session yo recover your Prefrontal Cortex after intensive concentration. <br><small>Ideas for improvement? Collaboration welcome!</small></div>
+                                <div class="links">
+                                    <a href="https://screenapp.io/app/v/YzJV1A2nJl" target="_blank" class="btn play"><i class="fas fa-play"></i> Demo</a>
+                                    <a href="https://rugged-build-your-momentum.base44.app/Home" target="_blank" class="btn chart"><i class="fas fa-chart-bar"></i> Momentum</a>
+                                    <a href="https://clear-pfc-flow.base44.app" target="_blank" class="btn chart"><i class="fas fa-chart-bar"></i> Neuro-Mentum</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- 右侧：表格 + 新闻气泡 -->
                     <div class="right-col">
                         <h2>🦷 AI Knowledge Compilation</h2>
                         <div class="table-section">
-                            <table class="project-table"><thead><tr><th>Project</th><th>Focus Area</th><th>Description</th><th>Link</th></tr></thead><tbody><tr><td><strong>LLM Wiki</strong></td><td>AI Knowledge Base</td><td>Comprehensive LLM concepts and AI fundamentals.</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/UfMaw8HkmiQR8JkdZwjcmQNjnyc?from=from_copylink" target="_blank">📁</a></td></tr><tr><td><strong>AI Governance</strong></td><td>Policy & Governance</td><td>Framework for understanding AI governance in China.</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/P5O8w8uENiE6RGkVrw2c5pUunTc?from=from_copylink" target="_blank">📃</a></td></tr><tr><td><strong>Prompt Red Teaming</strong></td><td>Safety & Ethics</td><td>Moral evaluations and safety testing of AI systems.</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/Ep3ewlDZligXJMkiZnxcQsDDnNc?from=from_copylink" target="_blank">🦙</a></td></tr><tr><td><strong>Learning Sum</strong></td><td>Knowledge Piece-s</td><td>AI Podcasts & Newsletter learning notes, please request individually.</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/U7oJwODIEiwUtHkEXKncffCYnNc?from=from_copylink" target="_blank">📓</a></td></tr></tbody></table>
+                            <table class="project-table">
+                                <thead><tr><th>Project</th><th>Focus Area</th><th>Description</th><th>Link</th></tr></thead>
+                                <tbody>
+                                    <tr><td><strong>LLM Wiki</strong></td><td>AI Knowledge Base</td><td>Comprehensive LLM concepts and AI fundamentals.</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/UfMaw8HkmiQR8JkdZwjcmQNjnyc?from=from_copylink" target="_blank">📁</a></td></tr>
+                                    <tr><td><strong>AI Governance</strong></td><td>Policy & Governance</td><td>Framework for understanding AI governance in China.</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/P5O8w8uENiE6RGkVrw2c5pUunTc?from=from_copylink" target="_blank">📃</a></td></tr>
+                                    <tr><td><strong>Prompt Red Teaming</strong></td><td>Safety & Ethics</td><td>Moral evaluations and safety testing of AI systems.</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/Ep3ewlDZligXJMkiZnxcQsDDnNc?from=from_copylink" target="_blank">🦙</a></td></tr>
+                                    <tr><td><strong>Learning Sum</strong></td><td>Knowledge Piece-s</td><td>AI Podcasts & Newsletter learning notes, please request individually.</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/U7oJwODIEiwUtHkEXKncffCYnNc?from=from_copylink" target="_blank">📓</a></td></tr>
+                                </tbody>
+                            </table>
                         </div>
-                        <!-- 新闻气泡：完全修复 -->
+
                         <div class="news-main-title-outside">🪽 AI-credible-news-/-source-list</div>
                         <div class="news-list-container">
                             <div class="news-bubble">
@@ -708,8 +691,10 @@
                                 </div>
                             </div>
                         </div>
-                    </div>  
+                    </div>
                 </div>
+
+                <!-- AI Learning 部分 -->
                 <div class="full-width">
                     <h2>🤍 AI Institutional/self- systematic Learning</h2>
                     <div class="cert-list">
@@ -721,39 +706,38 @@
                         <div class="cert-item"><div class="cert-school">Amazon</div><div class="cert-details"><div class="cert-title">Fundamentals of Machine Learning and AI (Coursera)</div><div class="cert-meta"><span><i class="far fa-calendar-alt"></i> Issued Feb 2026</span></div></div></div>
                     </div>
                 </div>
-                <!-- 💡 Let's Collaborate! 气泡，内部包含footer -->
+
+                <!-- 协作区 -->
                 <div class="collab">
                     <h2>💡 Let's Collaborate!</h2>
                     <p>Interested? Have an idea? Let's connect.</p>
-                    <div class="links" style="justify-content: center;">
+                    <div class="links">
                         <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7422191016994217984" target="_blank" class="btn linkedin"><i class="fab fa-linkedin"></i> LinkedIn Newsletter</a>
                         <a href="#" id="emailBtn" class="btn wiki"><i class="fas fa-envelope"></i> Email</a>
                     </div>
+                    <div class="curiosity-line">✦ built with curiosity ✦</div>
                 </div>
-                <!-- 原footer已移入collab，此处移除避免重复 -->
-            <div class="curiosity-line">✦ built with curiosity ✦</div>
             </div>
         </div>
     </div>
-    
 
-    
     <script>
-        // 保留所有原有JS逻辑，仅调整reset时确保无冲突
-        (function() {
-            function smoothScrollToElement(element, duration = 800) {
-        const start = window.scrollY || window.pageYOffset;
-        const target = element.getBoundingClientRect().top + start;
-        const startTime = performance.now();
-        function step(now) {
-            const elapsed = now - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const ease = 1 - Math.pow(1 - progress, 3);
-            window.scrollTo(0, start + (target - start) * ease);
-            if (progress < 1) requestAnimationFrame(step);
+        // 平滑滚动函数（全局）
+        function smoothScrollToElement(element, duration = 800) {
+            const start = window.scrollY || window.pageYOffset;
+            const target = element.getBoundingClientRect().top + start;
+            const startTime = performance.now();
+            function step(now) {
+                const elapsed = now - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const ease = 1 - Math.pow(1 - progress, 3);
+                window.scrollTo(0, start + (target - start) * ease);
+                if (progress < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
         }
-        requestAnimationFrame(step);
-    }
+
+        (function() {
             let petalsEnabled = true;
             const cursor = document.getElementById('cat-cursor');
             if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
@@ -761,11 +745,20 @@
                 document.addEventListener('mousemove', e => { cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; });
                 cursor.innerText = '🐈';
                 document.querySelectorAll('a, button, .btn, .card, .cert-item, .close-detail-btn').forEach(el => {
-                    if (el) { el.addEventListener('mouseenter', () => cursor.style.transform = 'translate(-50%, -50%) scale(1.2)'); el.addEventListener('mouseleave', () => cursor.style.transform = 'translate(-50%, -50%) scale(1)'); }
+                    if (el) { 
+                        el.addEventListener('mouseenter', () => cursor.style.transform = 'translate(-50%, -50%) scale(1.2)');
+                        el.addEventListener('mouseleave', () => cursor.style.transform = 'translate(-50%, -50%) scale(1)');
+                    }
                 });
                 const petalsDom = document.querySelectorAll('.petal');
-                petalsDom.forEach(petal => { petal.addEventListener('mouseenter', () => { cursor.innerText = '🎐'; cursor.style.transform = 'translate(-50%, -50%) scale(1.2)'; }); petal.addEventListener('mouseleave', () => { cursor.innerText = '🐈'; cursor.style.transform = 'translate(-50%, -50%) scale(1)'; }); });
-            } else { cursor.style.display = 'none'; document.body.style.cursor = 'auto'; }
+                petalsDom.forEach(petal => {
+                    petal.addEventListener('mouseenter', () => { cursor.innerText = '🎐'; cursor.style.transform = 'translate(-50%, -50%) scale(1.2)'; });
+                    petal.addEventListener('mouseleave', () => { cursor.innerText = '🐈'; cursor.style.transform = 'translate(-50%, -50%) scale(1)'; });
+                });
+            } else {
+                cursor.style.display = 'none';
+                document.body.style.cursor = 'auto';
+            }
 
             const petals = document.querySelectorAll('.petal');
             const continueBtn = document.getElementById('continueBtn');
@@ -775,21 +768,195 @@
             let clickedCount = 0;
             const totalPetals = 4;
             const clickedState = {};
-            const phraseMap = { analyze: "Analyze Human-Technology Interaction", through: "Through Socio-Technical Lens", pursue: "Pursue the Best Practice", speak: "Speak for the Marginalized" };
-            const detailMap = { analyze: "The Velvet Cage of AI Companions (AICs): Illusions of Intimacy and Control, and Their Social Implication（空行）（空行）My master thesis at Oxford investigated the contexts, processes, and mechanisms through which users connect with AI Companions (AICs), perceiving them as trustworthy 'social actors'. Using a mixed-methods approach – quantitative dataset analysis and qualitative interviews with inductive analysis – I examined both romantic and non-romantic users' experiences with AICs. My analysis explored the mechanisms of connectedness, moments of anthropomorphisation, and the cyclical fulfilment of dual needs that can foster compulsive use. This study interrogates the ways in which AICs facilitate non-judgemental backstage self-disclosure, and examines how these interactions may reshape role expectations and reconceptualise romantic relationships and love, thereby contributing to the tangible social implications of human–AI socialisation. Please feel free to requst the Abstract indiviudally.", through: "“Unmasking Artificial Intimacy: A Critical Audit of Microsoft’s XiaoIce AI Companion in Chinese Context”（空行）（空行）I have deepened my technical understanding through studies at the Oxford Internet Institute, where I gained expertise in Fairness, Transparency, and Accountability in Machine Learning. I applied these tools in a qualitative audit of Microsoft's XiaoIce model—an AI companion released in 2014, predating popular apps like Character.ai and Replika. This audit, conducted in accordance with ACM FAccT's auditing principles, integrated interdisciplinary theories to critically examine the model's gendered design and the power dynamics embedded in its affordances.", pursue: "Building on the empirical insights of my thesis analysis, I developed a comprehensive policy recommendation submitted to the Cyberspace Administration of China, aiming to inform China's provisional regulatory framework for the increasingly anthropomorphised services. These risks should be interpreted not as universally representative outcomes, but rather as possibilities that emerge under interaction of specific usage patterns, motivations, and cognitive biases.（空行）（空行）Against this backdrop, my policy recommendations focus on four key regulatory priorities: developing measurable indicators and monitoring systems to assess user emotional dependency; establishing tiered intervention protocols for users experiencing high-risk psychological states; requiring clear in-interface disclosure; and strengthening oversight of anthropomorphic deliberation to avoid exploiting psychological vulnerabilities to maximise engagement. Please feel free to requst indiviudally.", speak: "“Unmasking the Shadows of AI: Investigating Deceptive Capabilities in Large Language Models”（空行）（空行）Inspired by critical questions raised during the 2023 AI Safety Summit (ASS), I began exploring the issue of AI deception— how different forms of deceptive capabilities entangled with historical and societal biases, and how discourses around deception evolve alongside technological development.（空行）（空行）Drawing on courses in Science and Technology Studies to deepen my understanding of the power dynamics shaping technological paradigms, I offered an evaluation of AI deception' social implications and persistent challenges, which was published on arXiv during my undergraduate studies. <a href='https://arxiv.org/abs/2403.09676' target='_blank' style='color: #aac9ff;'>arXiv:2403.09676</a>" };
+            const phraseMap = {
+                analyze: "Analyze Human-Technology Interaction",
+                through: "Through Socio-Technical Lens",
+                pursue: "Pursue the Best Practice",
+                speak: "Speak for the Marginalized"
+            };
+            const detailMap = {
+                analyze: "The Velvet Cage of AI Companions (AICs): Illusions of Intimacy and Control, and Their Social Implication（空行）（空行）My master thesis at Oxford investigated the contexts, processes, and mechanisms through which users connect with AI Companions (AICs), perceiving them as trustworthy 'social actors'. Using a mixed-methods approach – quantitative dataset analysis and qualitative interviews with inductive analysis – I examined both romantic and non-romantic users' experiences with AICs. My analysis explored the mechanisms of connectedness, moments of anthropomorphisation, and the cyclical fulfilment of dual needs that can foster compulsive use. This study interrogates the ways in which AICs facilitate non-judgemental backstage self-disclosure, and examines how these interactions may reshape role expectations and reconceptualise romantic relationships and love, thereby contributing to the tangible social implications of human–AI socialisation. Please feel free to requst the Abstract indiviudally.",
+                through: "“Unmasking Artificial Intimacy: A Critical Audit of Microsoft’s XiaoIce AI Companion in Chinese Context”（空行）（空行）I have deepened my technical understanding through studies at the Oxford Internet Institute, where I gained expertise in Fairness, Transparency, and Accountability in Machine Learning. I applied these tools in a qualitative audit of Microsoft's XiaoIce model—an AI companion released in 2014, predating popular apps like Character.ai and Replika. This audit, conducted in accordance with ACM FAccT's auditing principles, integrated interdisciplinary theories to critically examine the model's gendered design and the power dynamics embedded in its affordances.",
+                pursue: "Building on the empirical insights of my thesis analysis, I developed a comprehensive policy recommendation submitted to the Cyberspace Administration of China, aiming to inform China's provisional regulatory framework for the increasingly anthropomorphised services. These risks should be interpreted not as universally representative outcomes, but rather as possibilities that emerge under interaction of specific usage patterns, motivations, and cognitive biases.（空行）（空行）Against this backdrop, my policy recommendations focus on four key regulatory priorities: developing measurable indicators and monitoring systems to assess user emotional dependency; establishing tiered intervention protocols for users experiencing high-risk psychological states; requiring clear in-interface disclosure; and strengthening oversight of anthropomorphic deliberation to avoid exploiting psychological vulnerabilities to maximise engagement. Please feel free to requst indiviudally.",
+                speak: "“Unmasking the Shadows of AI: Investigating Deceptive Capabilities in Large Language Models”（空行）（空行）Inspired by critical questions raised during the 2023 AI Safety Summit (ASS), I began exploring the issue of AI deception— how different forms of deceptive capabilities entangled with historical and societal biases, and how discourses around deception evolve alongside technological development.（空行）（空行）Drawing on courses in Science and Technology Studies to deepen my understanding of the power dynamics shaping technological paradigms, I offered an evaluation of AI deception' social implications and persistent challenges, which was published on arXiv during my undergraduate studies. <a href='https://arxiv.org/abs/2403.09676' target='_blank' style='color: #aac9ff;'>arXiv:2403.09676</a>"
+            };
+
             let activeTimer = null;
-            function startTyping(phrase) { if (activeTimer) clearInterval(activeTimer); typewriterSpan.textContent = ''; let index = 0; activeTimer = setInterval(() => { if (index < phrase.length) { typewriterSpan.textContent += phrase.charAt(index); index++; } else { clearInterval(activeTimer); activeTimer = null; } }, 60); }
-            function resetPetals() { petals.forEach(p => p.classList.remove('clicked')); clickedCount = 0; for (let key in clickedState) delete clickedState[key]; typewriterSpan.textContent = ''; if (activeTimer) clearInterval(activeTimer); activeTimer = null; cardsContainer.innerHTML = ''; }
-            function updateButtonState() { if (clickedCount === totalPetals) { continueBtn.disabled = false; continueBtn.classList.add('active'); continueBtn.textContent = 'Unlock'; } else { continueBtn.disabled = true; continueBtn.classList.remove('active'); continueBtn.textContent = 'Click All'; } }
+            function startTyping(phrase) {
+                if (activeTimer) clearInterval(activeTimer);
+                typewriterSpan.textContent = '';
+                let index = 0;
+                activeTimer = setInterval(() => {
+                    if (index < phrase.length) {
+                        typewriterSpan.textContent += phrase.charAt(index);
+                        index++;
+                    } else {
+                        clearInterval(activeTimer);
+                        activeTimer = null;
+                    }
+                }, 60);
+            }
+            function resetPetals() {
+                petals.forEach(p => p.classList.remove('clicked'));
+                clickedCount = 0;
+                for (let key in clickedState) delete clickedState[key];
+                typewriterSpan.textContent = '';
+                if (activeTimer) clearInterval(activeTimer);
+                activeTimer = null;
+                cardsContainer.innerHTML = '';
+            }
+            function updateButtonState() {
+                if (clickedCount === totalPetals) {
+                    continueBtn.disabled = false;
+                    continueBtn.classList.add('active');
+                    continueBtn.textContent = 'Unlock';
+                } else {
+                    continueBtn.disabled = true;
+                    continueBtn.classList.remove('active');
+                    continueBtn.textContent = 'Click All';
+                }
+            }
             let currentLockedPetal = null;
-            function showDetailCard(petalId) { cardsContainer.innerHTML = ''; const card = document.createElement('div'); card.className = 'project-detail-card'; card.setAttribute('data-petal', petalId); const rawContent = detailMap[petalId]; const segments = rawContent.split('（空行）'); let innerHTML = '<button class="close-detail-btn">✕ CLOSE</button>'; segments.forEach(segment => { if (segment.trim() === '') innerHTML += '<div class="empty-line"></div>'; else innerHTML += `<p>${segment.trim()}</p>`; }); card.innerHTML = innerHTML; const closeBtn = card.querySelector('.close-detail-btn'); closeBtn.addEventListener('click', (e) => { e.stopPropagation(); card.remove(); currentLockedPetal = null; }); cardsContainer.appendChild(card); card.scrollIntoView({ behavior: 'smooth', block: 'start' }); currentLockedPetal = petalId; }
+            function showDetailCard(petalId) {
+                cardsContainer.innerHTML = '';
+                const card = document.createElement('div');
+                card.className = 'project-detail-card';
+                card.setAttribute('data-petal', petalId);
+                const rawContent = detailMap[petalId];
+                const segments = rawContent.split('（空行）');
+                let innerHTML = '<button class="close-detail-btn">✕ CLOSE</button>';
+                segments.forEach(segment => {
+                    if (segment.trim() === '') innerHTML += '<div class="empty-line"></div>';
+                    else innerHTML += `<p>${segment.trim()}</p>`;
+                });
+                card.innerHTML = innerHTML;
+                const closeBtn = card.querySelector('.close-detail-btn');
+                closeBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    card.remove();
+                    currentLockedPetal = null;
+                });
+                cardsContainer.appendChild(card);
+                card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                currentLockedPetal = petalId;
+            }
             function closeAllCards() { cardsContainer.innerHTML = ''; currentLockedPetal = null; }
-            petals.forEach(petal => { petal.addEventListener('click', function(e) { e.stopPropagation(); if (!petalsEnabled) return; let petalId = ''; if (this.classList.contains('petal-1')) petalId = 'analyze'; else if (this.classList.contains('petal-2')) petalId = 'through'; else if (this.classList.contains('petal-3')) petalId = 'pursue'; else if (this.classList.contains('petal-4')) petalId = 'speak'; if (!clickedState[petalId]) { clickedState[petalId] = true; this.classList.add('clicked'); clickedCount++; } startTyping(phraseMap[petalId]); showDetailCard(petalId); updateButtonState(); }); });
-            petals.forEach(petal => { petal.addEventListener('mouseenter', function() { if (currentLockedPetal !== null) return; let petalId = ''; if (this.classList.contains('petal-1')) petalId = 'analyze'; else if (this.classList.contains('petal-2')) petalId = 'through'; else if (this.classList.contains('petal-3')) petalId = 'pursue'; else if (this.classList.contains('petal-4')) petalId = 'speak'; startTyping(phraseMap[petalId]); }); petal.addEventListener('mouseleave', function() { if (currentLockedPetal !== null) return; typewriterSpan.textContent = ''; if (activeTimer) clearInterval(activeTimer); activeTimer = null; }); });
-            document.addEventListener('click', (e) => { if (page2.style.display === 'flex') return; if (!e.target.closest('.petal') && !e.target.closest('.project-detail-card') && !e.target.closest('#continueBtn') && !e.target.closest('.close-detail-btn')) { if (cardsContainer.children.length > 0) { closeAllCards(); typewriterSpan.textContent = ''; if (activeTimer) clearInterval(activeTimer); activeTimer = null; document.getElementById('page1').scrollIntoView({ behavior: 'smooth', block: 'start' }); } } });
-            continueBtn.addEventListener('click', function() { if (!continueBtn.classList.contains('active')) return; if (continueBtn.textContent === 'Unlock') { closeAllCards(); petalsEnabled = false; page2.style.display = 'flex'; setTimeout(() => { page2.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100); continueBtn.textContent = 'Reset'; } else if (continueBtn.textContent === 'Reset') { page2.style.display = 'none'; resetPetals(); currentLockedPetal = null; petalsEnabled = true; continueBtn.textContent = 'Click All'; continueBtn.disabled = true; continueBtn.classList.remove('active'); } });
-            const container = document.getElementById('pagesContainer'); const scrollBtn = document.getElementById('scrollBtn'); let currentPage = 1; function updateButton() { const page1El = document.getElementById('page1'); const rect1 = page1El.getBoundingClientRect(); if (rect1.top >= -50 && rect1.top < window.innerHeight/2) { currentPage = 1; scrollBtn.textContent = '↓'; } else { currentPage = 2; scrollBtn.textContent = '↑'; } } container.addEventListener('scroll', updateButton); setTimeout(updateButton, 100); scrollBtn.addEventListener('click', () => { if (currentPage === 1) { if (page2.style.display === 'flex') page2.scrollIntoView({ behavior: 'smooth' }); } else { smoothScrollToElement(document.getElementById('page1'), 1200); } }); window.addEventListener('resize', updateButton);
-            const emailBtn = document.getElementById('emailBtn'); const popup = document.getElementById('emailPopup'); const copyBtn = document.getElementById('copyEmailBtn'); if (emailBtn) { emailBtn.addEventListener('click', (e) => { e.preventDefault(); popup.style.display = 'block'; }); } copyBtn.addEventListener('click', () => { navigator.clipboard.writeText('graceguo2004@outlook.com').then(() => { alert('Email copied to clipboard!'); }).catch(() => { alert('Press Ctrl+C to copy: graceguo2004@outlook.com'); }); }); window.addEventListener('click', (e) => { if (!popup.contains(e.target) && e.target !== emailBtn && !emailBtn?.contains(e.target)) { popup.style.display = 'none'; } });
+
+            petals.forEach(petal => {
+                petal.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    if (!petalsEnabled) return;
+                    let petalId = '';
+                    if (this.classList.contains('petal-1')) petalId = 'analyze';
+                    else if (this.classList.contains('petal-2')) petalId = 'through';
+                    else if (this.classList.contains('petal-3')) petalId = 'pursue';
+                    else if (this.classList.contains('petal-4')) petalId = 'speak';
+                    if (!clickedState[petalId]) {
+                        clickedState[petalId] = true;
+                        this.classList.add('clicked');
+                        clickedCount++;
+                    }
+                    startTyping(phraseMap[petalId]);
+                    showDetailCard(petalId);
+                    updateButtonState();
+                });
+            });
+            petals.forEach(petal => {
+                petal.addEventListener('mouseenter', function() {
+                    if (currentLockedPetal !== null) return;
+                    let petalId = '';
+                    if (this.classList.contains('petal-1')) petalId = 'analyze';
+                    else if (this.classList.contains('petal-2')) petalId = 'through';
+                    else if (this.classList.contains('petal-3')) petalId = 'pursue';
+                    else if (this.classList.contains('petal-4')) petalId = 'speak';
+                    startTyping(phraseMap[petalId]);
+                });
+                petal.addEventListener('mouseleave', function() {
+                    if (currentLockedPetal !== null) return;
+                    typewriterSpan.textContent = '';
+                    if (activeTimer) clearInterval(activeTimer);
+                    activeTimer = null;
+                });
+            });
+            document.addEventListener('click', (e) => {
+                if (page2.style.display === 'flex') return;
+                if (!e.target.closest('.petal') && !e.target.closest('.project-detail-card') && !e.target.closest('#continueBtn') && !e.target.closest('.close-detail-btn')) {
+                    if (cardsContainer.children.length > 0) {
+                        closeAllCards();
+                        typewriterSpan.textContent = '';
+                        if (activeTimer) clearInterval(activeTimer);
+                        activeTimer = null;
+                        document.getElementById('page1').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+            continueBtn.addEventListener('click', function() {
+                if (!continueBtn.classList.contains('active')) return;
+                if (continueBtn.textContent === 'Unlock') {
+                    closeAllCards();
+                    petalsEnabled = false;
+                    page2.style.display = 'flex';
+                    setTimeout(() => {
+                        page2.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 100);
+                    continueBtn.textContent = 'Reset';
+                } else if (continueBtn.textContent === 'Reset') {
+                    page2.style.display = 'none';
+                    resetPetals();
+                    currentLockedPetal = null;
+                    petalsEnabled = true;
+                    continueBtn.textContent = 'Click All';
+                    continueBtn.disabled = true;
+                    continueBtn.classList.remove('active');
+                }
+            });
+
+            const container = document.getElementById('pagesContainer');
+            const scrollBtn = document.getElementById('scrollBtn');
+            let currentPage = 1;
+            function updateButton() {
+                const page1El = document.getElementById('page1');
+                const rect1 = page1El.getBoundingClientRect();
+                if (rect1.top >= -50 && rect1.top < window.innerHeight/2) {
+                    currentPage = 1;
+                    scrollBtn.textContent = '↓';
+                } else {
+                    currentPage = 2;
+                    scrollBtn.textContent = '↑';
+                }
+            }
+            container.addEventListener('scroll', updateButton);
+            setTimeout(updateButton, 100);
+            scrollBtn.addEventListener('click', () => {
+                if (currentPage === 1) {
+                    if (page2.style.display === 'flex') page2.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    smoothScrollToElement(document.getElementById('page1'), 1200);
+                }
+            });
+            window.addEventListener('resize', updateButton);
+
+            const emailBtn = document.getElementById('emailBtn');
+            const popup = document.getElementById('emailPopup');
+            const copyBtn = document.getElementById('copyEmailBtn');
+            if (emailBtn) {
+                emailBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    popup.style.display = 'block';
+                });
+            }
+            copyBtn.addEventListener('click', () => {
+                navigator.clipboard.writeText('graceguo2004@outlook.com').then(() => {
+                    alert('Email copied to clipboard!');
+                }).catch(() => {
+                    alert('Press Ctrl+C to copy: graceguo2004@outlook.com');
+                });
+            });
+            window.addEventListener('click', (e) => {
+                if (!popup.contains(e.target) && e.target !== emailBtn && !emailBtn?.contains(e.target)) {
+                    popup.style.display = 'none';
+                }
+            });
         })();
     </script>
 </body>
