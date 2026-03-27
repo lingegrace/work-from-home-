@@ -555,43 +555,43 @@
 
         /* ----- 新增新闻列表样式 ----- */
         .news-bubble {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(2px);
-    border-radius: 16px;
-    padding: 1.2rem;
-    margin-top: 1.5rem;
-    font-family: 'Courier New', monospace;
+    font-weight: normal;
+            color: #111;
+}
+.news-main-title {
+    font-size: 1rem;
+    font-weight: normal;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    border-left: 3px solid #9b59b6;
+    padding-left: 0.5rem;
 }
 .link-header {
-    font-size: 1rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid rgba(0,0,0,0.2);
-    padding-bottom: 0.5rem;
+    color: #9b59b6;
+    font-weight: normal;
+    margin-bottom: 0.5rem;
 }
 .link-header a {
-    color: #0a66c2;
-    text-decoration: none;
-    border-bottom: 1px dotted #90CAF9;
-}
-.link-header a:hover {
-    color: #ffffff !important;
+    color: inherit;
+    text-decoration: underline;
 }
 .news-sections {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
+    gap: 0.3rem;
+}
+.section-content {
+    line-height: 1.2;
+    margin-top: 0.2rem;
 }
 .news-section .section-title {
-    font-weight: 600;
-    margin-bottom: 0.2rem;
-    color: #2c3e50;
+    margin-bottom: 0.1rem;
+    font-weight: normal;
 }
-.news-section .section-content {
-    font-size: 0.85rem;
-    line-height: 1.4;
-    color: #111;
-    white-space: pre-line;
+.news-line {
+    padding: 0.1rem 0;
+    transition: color 0.2s;
+}
+.news-line:hover {
+    color: #ffffff !important;
 }
     </style>
 </head>
@@ -696,7 +696,7 @@
                             <div class="card">
                                 <h3>🛁 Momentum App</h3>
                                 <div class="description">
-                                    Momentum is a gentle life management tool to help you visualize and manage your energy through small, science‑backed recovery actions. Rest is not escape — it’s part of your momentum.<br>
+                                    Momentum is a gentle life management tool to help you visualize and manage your energy through small, science‑backed recovery actions. Rest is not escape — it’s part of your momentum. This is the first app I created for the goal of # Guiding genuine Rest to realize your full productivity#. The second App improved from its and from some market research been the Nuero-Mentum. Cognitive-burnout consequences are being overlooked and becoming more visible in our daily lives with Doomscrolling, which is not restorative.  <br>
                                     <small>Ideas for improvement? Collaboration welcome!</small>
                                 </div>
                                 <div class="links">
@@ -708,89 +708,91 @@
                         </div>
                     </div>
                     <div class="right-col">
-                        <h2>🦷 Some AI Knowledge Compilation</h2>
-                        <div class="table-section">
-                            <table class="project-table">
-                                <thead>
-    <tr>
-        <th>Project</th>
-        <th>Focus Area</th>
-        <th>Description</th>
-        <th>Link</th>
-    </tr>
-</thead>
-                                <tbody>
-                                    <tr><td><strong>LLM Wiki</strong></td><td>AI Knowledge Base</td><td>Comprehensive LLM concepts and AI fundamentals.</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/UfMaw8HkmiQR8JkdZwjcmQNjnyc?from=from_copylink" target="_blank">📁</a></td> </tr>
-                                    <tr><td><strong>AI Governance</strong></td><td>Policy & Governance</td><td>Framework for understanding AI governance in China.</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/P5O8w8uENiE6RGkVrw2c5pUunTc?from=from_copylink" target="_blank">📃</a></td> </tr>
-                                    <tr><td><strong>Prompt Red Teaming</strong></td><td>Safety & Ethics</td><td>Moral evaluations and safety testing of AI systems.</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/Ep3ewlDZligXJMkiZnxcQsDDnNc?from=from_copylink" target="_blank">🦙</a></td> </tr>
-                                    <tr><td><strong>Learning Sum</strong></td><td>Self-Learning Notes</td><td>AI learning from Youtube Podcasts & Newsletter, miscellaneously sought and systematically structured in notes, feel free to request individually</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/U7oJwODIEiwUtHkEXKncffCYnNc?from=from_copylink" target="_blank">📓</a></td></tr>
-                                </tbody>
-                            </table>
-                        </div>
+    <h2>🦷 Some AI Knowledge Compilation</h2>
+    <div class="table-section">
+        <table class="project-table">
+            <thead>
+                 <tr>
+                    <th>Project</th>
+                    <th>Focus Area</th>
+                    <th>Description</th>
+                    <th>Link</th>
+                 </tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>LLM Wiki</strong></td><td>AI Knowledge Base</td><td>Comprehensive LLM concepts and AI fundamentals.</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/UfMaw8HkmiQR8JkdZwjcmQNjnyc?from=from_copylink" target="_blank">📁</a></td></tr>
+                <tr><td><strong>AI Governance</strong></td><td>Policy & Governance</td><td>Framework for understanding AI governance in China.</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/P5O8w8uENiE6RGkVrw2c5pUunTc?from=from_copylink" target="_blank">📃</a></td></tr>
+                <tr><td><strong>Prompt Red Teaming</strong></td><td>Safety & Ethics</td><td>Moral evaluations and safety testing of AI systems.</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/Ep3ewlDZligXJMkiZnxcQsDDnNc?from=from_copylink" target="_blank">🦙</a></td></tr>
+                <tr><td><strong>Learning Sum</strong></td><td>Self-Learning Notes</td><td>AI learning from Youtube Podcasts & Newsletter, miscellaneously sought and systematically structured in notes, feel free to request individually</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/U7oJwODIEiwUtHkEXKncffCYnNc?from=from_copylink" target="_blank">📓</a></td></tr>
+            </tbody>
+        </table>
+    </div>
 
-                        <!-- 新增 My AI news-List 区块 -->
-                        <div class="news-list-container">
-    <div class="news-bubble">
-        <div class="link-header">
-            📓 Link Compilations: 
-            <a href="https://rcnd1qqt63cw.feishu.cn/wiki/U7oJwODIEiwUtHkEXKncffCYnNc?from=from_copylink" target="_blank" class="news-link">Full AI News & Tools List</a>
-        </div>
-        <div class="news-sections">
-            <div class="news-section">
-                <div class="section-title">(engineer) :</div>
-                <div class="section-content">
-                    AI News<br>
-                    Latent Space Substack<br>
-                    Andrej Karpathy Personal Web ()infra
-                </div>
+    <!-- 新闻列表 -->
+    <div class="news-list-container">
+        <div class="news-bubble">
+            <div class="news-main-title">AI-credible-news-/-source-list-try-out</div>
+            <div class="link-header">
+                <a href="https://rcnd1qqt63cw.feishu.cn/wiki/U7oJwODIEiwUtHkEXKncffCYnNc?from=from_copylink" target="_blank" class="news-link">📓 Link Compilations</a>
             </div>
-            <div class="news-section">
-                <div class="section-title">(newsletter/blogs):</div>
-                <div class="section-content">
-                    YC Combinator、newsletter archives、online course<br>
-                    AI·Business ()specialized modules:NLP,ML,Data,Automation,Verticles,Responsible,GenAI<br>
-                    TechCrunch News ()venture<br>
-                    Lenny's Podcast Substack ()youtuber interviews, product<br>
-                    Artificial Ignorance Substack ()write<br>
-                    Elena's Growth Scoop Substack ()growth<br>
-                    AI Valley ()short-read about tech giants + Tools
+            <div class="news-sections">
+                <div class="news-section">
+                    <div class="section-title">(engineer) :</div>
+                    <div class="section-content">
+                        <div class="news-line">AI News</div>
+                        <div class="news-line">Latent Space Substack</div>
+                        <div class="news-line">Andrej Karpathy Personal Web ()infra</div>
+                    </div>
                 </div>
-            </div>
-            <div class="news-section">
-                <div class="section-title">(policy):</div>
-                <div class="section-content">
-                    AI safety in China Substack<br>
-                    Centre for Humane Technology Substack
+                <div class="news-section">
+                    <div class="section-title">(newsletter/blogs):</div>
+                    <div class="section-content">
+                        <div class="news-line">YC Combinator、newsletter archives、online course</div>
+                        <div class="news-line">AI·Business ()specialized modules:NLP,ML,Data,Automation,Verticles,Responsible,GenAI</div>
+                        <div class="news-line">TechCrunch News ()venture</div>
+                        <div class="news-line">Lenny's Podcast Substack ()youtuber interviews, product</div>
+                        <div class="news-line">Artificial Ignorance Substack ()write</div>
+                        <div class="news-line">Elena's Growth Scoop Substack ()growth</div>
+                        <div class="news-line">AI Valley ()short-read about tech giants + Tools</div>
+                    </div>
                 </div>
-            </div>
-            <div class="news-section">
-                <div class="section-title">(Macro Insights):</div>
-                <div class="section-content">
-                    Futurum Signals ()tech<br>
-                    Gartner ()<br>
-                    NIQ IQ Brief ()consumer<br>
-                    human8 annual trend report ()consulting cases
+                <div class="news-section">
+                    <div class="section-title">(policy):</div>
+                    <div class="section-content">
+                        <div class="news-line">AI safety in China Substack</div>
+                        <div class="news-line">Centre for Humane Technology Substack</div>
+                    </div>
                 </div>
-            </div>
-            <div class="news-section">
-                <div class="section-title"># ... more AI newsletter Directions,: Verge、Rest of World、Zara's recommend-podcasts、</div>
+                <div class="news-section">
+                    <div class="section-title">(Macro Insights):</div>
+                    <div class="section-content">
+                        <div class="news-line">Futurum Signals ()tech</div>
+                        <div class="news-line">Gartner ()</div>
+                        <div class="news-line">NIQ IQ Brief ()consumer</div>
+                        <div class="news-line">human8 annual trend report ()consulting cases</div>
+                    </div>
                 </div>
-            </div>
-            <div class="news-section">
-                <div class="section-title"># Tools Compilation: AIValley、futurepedia、producthunt、</div>
+                <div class="news-section">
+                    <div class="section-title"># ... more AI newsletter Directions,: Verge、Rest of World、Zara's recommend-podcasts、</div>
+                    <div class="section-content"></div>
                 </div>
-            </div>
-            <div class="news-section">
-                <div class="section-title"># Interesting apps: BeforeSunset ()planners, MagicPatterns, Ossus,</div>
+                <div class="news-section">
+                    <div class="section-title"># Tools Compilation: AIValley、futurepedia、producthunt、</div>
+                    <div class="section-content"></div>
                 </div>
-            </div>
-            <div class="news-section">
-                <div class="section-title"># I AI:Base44、Lovable、LongCut、Socialresearch、Coze、Aminer、Manus、Posthog、Replit、Bolt、ChatPRD、NanoBanana、GPT、Deepseek、Grok、Claude、doubaoetc。
+                <div class="news-section">
+                    <div class="section-title"># Interesting apps: BeforeSunset ()planners, MagicPatterns, Ossus,</div>
+                    <div class="section-content"></div>
+                </div>
+                <div class="news-section">
+                    <div class="section-title"># I AI:Base44、Lovable、LongCut、Socialresearch、Coze、Aminer、Manus、Posthog、Replit、Bolt、ChatPRD、NanoBanana、GPT、Deepseek、Grok、Claude、doubaoetc。</div>
+                    <div class="section-content"></div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div>   <!-- 关闭 right-col -->
+                    
                 <div class="full-width">
                     <h2>🤍 AI Learning</h2>
                     <div class="cert-list">
