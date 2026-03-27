@@ -42,9 +42,6 @@
         .card:hover * {
             color: #ffffff !important;
         }
-        .about-card:hover * {
-            color: #111 !important; /* 保持可读 */
-        }
         .cert-item:hover * {
             color: #ffffff !important;
         }
@@ -184,75 +181,43 @@
             margin-bottom: 1rem;
         }
         h1 { font-size: 1.6rem; }
-        h2 { font-size: 1.3rem; font-family: 'Press Start 2P', monospace; padding-bottom: 0.3rem; border-bottom: 2px solid rgba(255,255,255,0.2); }
-        .full-width h2 { border-bottom: 2px solid rgba(255,255,255,0.2); }
-        .right-col h2 { font-size: 1.2rem; border-bottom: 2px solid rgba(255,255,255,0.2); color: #ffffff; }
-        .collab h2 { font-size: 0.9rem; border-bottom: none; color: #2c3e50; }
+h2 {
+    font-size: 1.3rem;
+    font-family: 'Press Start 2P', monospace;
+    padding-bottom: 0.3rem;
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+}
+.full-width h2 { border-bottom: 2px solid rgba(255,255,255,0.2); }
+.right-col h2 { font-size: 1.2rem; border-bottom: 2px solid rgba(255,255,255,0.2); color: #ffffff; }
+.collab h2 {
+    font-family: inherit;
+    font-size: 0.9rem;
+    border-bottom: none;
+    color: #2c3e50;
+}
+
+.news-main-title-outside {
+    font-size: 1.3rem;
+    color: #ffffff;
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+    padding-bottom: 0.3rem;
+    margin: 1.5rem 0 0.8rem 0;
+    font-family: 'Press Start 2P', monospace;
+}.left-col h2,
+.right-col h2,
+.full-width h2,
+.news-main-title-outside {
+    transition: box-shadow 0.2s, filter 0.2s;
+    cursor: default;
+}
+.left-col h2:hover,
+.right-col h2:hover,
+.full-width h2:hover,
+.news-main-title-outside:hover {
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.4) inset, 0 0 20px rgba(140,200,255,0.6);
+    filter: drop-shadow(0 0 6px rgba(140,200,255,0.5));
+}
         
-        .about-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(2px);
-            padding: 1.2rem;
-            box-shadow: 0 8px 18px rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.2);
-            width: 75%;
-            margin: 0 auto;
-            color: #111;
-            transition: background 0.2s;
-            border-radius: 25px;
-        }
-        .about-card:hover { background: rgba(255, 255, 255, 0.3); }
-        .about-items { display: flex; flex-direction: column; gap: 0.8rem; margin: 1rem 0 0.2rem; }
-        .about-item {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            background: rgba(245, 245, 245, 0.9);
-            padding: 0.6rem 1rem;
-            font-size: 0.95rem;
-            color: #2c3e50;
-            border: 1px solid rgba(0,0,0,0.05);
-            flex-wrap: wrap;
-            transition: background 0.2s;
-            border-radius: 30px;
-        }
-        .about-item:hover { background: rgba(255,255,255,0.5); }
-        .about-item span:first-child { font-size: 1.4rem; line-height: 1; }
-        .research-btn { margin-left: 1.5rem; width: 100%; }
-        .research-btn .btn.research {
-            background-color: #FFE0F0;
-            color: #b0003a;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            border: 1px solid transparent;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-        }
-        .research-btn .btn i { font-size: 0.9rem; }
-        .two-col { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; align-items: stretch; }
-        /* 左右列宽度调整：左列窄，右列宽，总和一致 */
-        .left-col { flex: 1 1 320px; max-width: 360px; }
-        .right-col { flex: 1.6 1 480px; max-width: 580px; }
-        .full-width { width: 100%; margin-top: 2rem; display: flex; flex-direction: column; align-items: center; }
-        .projects-vertical { display: flex; flex-direction: column; gap: 1.2rem; }
-        .card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(2px);
-            padding: 1.2rem;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.2);
-            border: 1px solid rgba(255,255,255,0.3);
-            display: flex;
-            flex-direction: column;
-            color: #111;
-            transition: background 0.2s, transform 0.2s;
-            width: 100%;
-            border-radius: 16px;
-        }
         .card:hover {
             background: rgba(255, 255, 255, 0.3);
             animation: bubblePop 0.5s ease;
@@ -264,9 +229,10 @@
             70% { transform: scale(1.01); }
             100% { transform: scale(1); }
         }
-        .card h3 { color: #2c3e50; font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 1rem; margin-bottom: 0.6rem; }
+        .card h3 { color: #2c3e50; font-family: 'Press Start 2P', monospace; font-size: 1rem; margin-bottom: 0.6rem; }
         .card .description { color: #333; margin-bottom: 1rem; flex: 1; font-size: 0.9rem; line-height: 1.4; }
         .card .links { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: auto; align-items: center; }
+        
         .btn {
             display: inline-flex;
             align-items: center;
@@ -429,7 +395,6 @@
             .page-content { max-width: 95%; }
             .two-col { flex-direction: column; align-items: center; }
             .left-col, .right-col { max-width: 100%; flex: 1 1 auto; }
-            .about-card { width: 90%; }
             .cert-list, .more-learning-bubble { max-width: 100%; }
             .collab { width: 90%; }
         }
@@ -536,23 +501,28 @@
         /* 项目卡片容器 */
         .project-cards-container { width: 100%; margin-top: 1.5rem; margin-bottom: 4rem; }
         .project-detail-card {
-            background: rgba(255, 255, 255, 0.23);
-            backdrop-filter: blur(2px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 28px;
-            padding: 2rem 2rem 2.5rem;
-            max-width: 1000px;
-            width: 90%;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 1.8rem;
-            color: #ffffff;
-            font-size: 1rem;
-            line-height: 1.6;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.15) inset, 0 0 20px 4px rgba(255,255,255,0.2);
-            position: relative;
-            font-family: 'JetBrains Mono', 'Courier New', monospace;
-        }
+    background: rgba(0, 0, 0, 0.6);          /* 深色半透明背景，增强文字对比 */
+    backdrop-filter: blur(2px);
+    background-image: 
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.15) 0px, transparent 1px, transparent 4px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.15) 0px, transparent 1px, transparent 4px);
+    background-size: 4px 4px;
+    background-position: 0 0;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 28px;
+    padding: 2rem 2rem 2.5rem;
+    max-width: 1000px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.8rem;
+    color: #ffffff;
+    font-size: 1rem;
+    line-height: 1.6;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.15) inset, 0 0 20px 4px rgba(255,255,255,0.2);
+    position: relative;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+}
         .project-detail-card * { color: #ffffff !important; }
         .project-detail-card a { color: #aac9ff !important; }
         .project-detail-card a:hover { color: #ffffff !important; text-decoration: underline; }
@@ -708,9 +678,9 @@
                     <div class="left-col">
                         <h2>🌐 AI-co-created projects</h2>
                         <div class="projects-vertical">
-                            <div class="card"><h3>🐱 Manus Cat · LinkedIn Newsletter</h3><div class="description">Weekly insights on macro forces, tech news, society, and of course AI.<br><br>Scroll down to see my AI employee.</div><div class="links"><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7422191016994217984" target="_blank" class="btn linkedin"><i class="fab fa-linkedin"></i> Follow</a></div></div>
+                            <div class="card"><h3>🐈‍⬛ LinkedIn Newsletter</h3><div class="description">Weekly insights on macro forces, tech news, society, and of course AI.<br><br>Scroll down to see my AI employee.</div><div class="links"><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7422191016994217984" target="_blank" class="btn linkedin"><i class="fab fa-linkedin"></i> Follow</a></div></div>
                             <div class="card"><h3>🪿 Academic Portfolio</h3><div class="description">Research project showcase. Including recommended study tools, AI sources, Books.<br>Pick your everyday quote!<br><em>"𝒰𝓃𝒸𝒽𝒶𝒾𝓃𝑒𝒹 𝑀𝑒𝓁𝑜𝒹𝓎" — play this song and take your time.</em></div><div class="links"><a href="https://app--graces-kiosk-a4c1d845.base44.app/" target="_blank" class="btn portfolio"><i class="fas fa-globe"></i> Grace's Kiosk</a><a href="https://code.coze.cn/p/7616316878792818726/preview" target="_blank" class="btn portfolio"><i class="fas fa-robot"></i> Academic Agent</a></div></div>
-                            <div class="card"><h3>🛁 Apps Creation</h3><div class="description">Momentum is a gentle life management tool to help you visualize and manage your energy through small, science‑backed recovery actions. Rest is not escape — it’s part of your momentum. This is the first app I created for the goal of # Guiding genuine Rest to realize your full productivity#.<br><br>The second App improved from its and from some market research been the Nuero-Mentum. Cognitive-burnout consequences are being overlooked and becoming more visible in our daily lives with Doomscrolling, which is not restorative.  <br><small>Ideas for improvement? Collaboration welcome!</small></div><div class="links"><a href="https://screenapp.io/app/v/YzJV1A2nJl" target="_blank" class="btn play"><i class="fas fa-play"></i> Demo</a><a href="https://rugged-build-your-momentum.base44.app/Home" target="_blank" class="btn chart"><i class="fas fa-chart-bar"></i> Momentum</a><a href="https://clear-pfc-flow.base44.app" target="_blank" class="btn chart"><i class="fas fa-chart-bar"></i> Neuro-Mentum</a></div></div>
+                            <div class="card"><h3>🛁 Productivity Apps</h3><div class="description">Momentum is a gentle life management tool to help you visualize and manage your energy through small, science‑backed recovery actions. Rest is not escape — it’s part of your momentum. This is the first app I created for the goal of # Guiding genuine Rest to realize your full productivity#.<br><br>The second App improved from its and from some market research been the Nuero-Mentum. Cognitive-burnout consequences are being overlooked and becoming more visible in our daily lives with Doomscrolling, which is not restorative. Nuero-Mentum embeds Micro-Tasks with 60-mins Deep Work Focus Session yo recover your Prefrontal Cortex after intensive concentration.<br><small>Ideas for improvement? Collaboration welcome!</small></div><div class="links"><a href="https://screenapp.io/app/v/YzJV1A2nJl" target="_blank" class="btn play"><i class="fas fa-play"></i> Demo</a><a href="https://rugged-build-your-momentum.base44.app/Home" target="_blank" class="btn chart"><i class="fas fa-chart-bar"></i> Momentum</a><a href="https://clear-pfc-flow.base44.app" target="_blank" class="btn chart"><i class="fas fa-chart-bar"></i> Neuro-Mentum</a></div></div>
                         </div>
                     </div>
                     <div class="right-col">
@@ -770,7 +740,7 @@
                 cursor.style.display = 'block';
                 document.addEventListener('mousemove', e => { cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; });
                 cursor.innerText = '🐈';
-                document.querySelectorAll('a, button, .btn, .card, .about-item, .cert-item, .close-detail-btn').forEach(el => {
+                document.querySelectorAll('a, button, .btn, .card, .cert-item, .close-detail-btn').forEach(el => {
                     if (el) { el.addEventListener('mouseenter', () => cursor.style.transform = 'translate(-50%, -50%) scale(1.2)'); el.addEventListener('mouseleave', () => cursor.style.transform = 'translate(-50%, -50%) scale(1)'); }
                 });
                 const petalsDom = document.querySelectorAll('.petal');
