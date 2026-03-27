@@ -264,7 +264,7 @@
             70% { transform: scale(1.01); }
             100% { transform: scale(1); }
         }
-        .card h3 { color: #2c3e50; font-size: 1.2rem; margin-bottom: 0.6rem; }
+        .card h3 { color: #2c3e50; font-family: 'Press Start 2P', monospace; font-size: 0.9rem; margin-bottom: 0.6rem; }
         .card .description { color: #333; margin-bottom: 1rem; flex: 1; font-size: 0.9rem; line-height: 1.4; }
         .card .links { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: auto; align-items: center; }
         .btn {
@@ -273,9 +273,10 @@
             gap: 6px;
             background-color: #f0f0f0;
             color: #1e1e1e;
-            padding: 0.3rem 0.9rem;
+            padding: 0.4rem 0.9rem;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 0.65rem;
             font-weight: 500;
             text-decoration: none;
             border: 1px solid transparent;
@@ -365,11 +366,12 @@
             text-align: center;
             background: #b8d4f0;
             padding: 1.5rem 2.5rem;
-            margin: 2rem auto 1rem;
+            margin: 2rem auto 0.5rem;
             border: 1px dashed #90CAF9;
             color: #1e1e1e;
             border-radius: 30px;
-            width: 75%;
+            width: fit-content; 
+            max-width: 90%;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -594,23 +596,22 @@
             padding: 1.2rem 1.3rem;
             box-shadow: 0 8px 20px rgba(0,0,0,0.2);
             border: 1px solid rgba(255,255,255,0.4);
-            font-family: 'Press Start 2P', monospace;
+            font-family: 'Courier New', 'Courier', monospace;
             transition: background 0.2s;
         }
         .news-bubble:hover {
             background: rgba(255, 255, 255, 0.7);
         }
         /* 标题样式与 “Some AI Knowledge Compilation” 保持一致 */
-        .news-main-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #000000;
-            border-bottom: 2px solid rgba(255,255,255,0.2);
-            padding-bottom: 0.3rem;
-            margin-bottom: 1rem;
-            font-family: 'Inter', 'Helvetica', sans-serif;
-            letter-spacing: -0.2px;
-        }
+        .news-main-title-outside {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #ffffff;
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+    padding-bottom: 0.3rem;
+    margin: 1.5rem 0 0.8rem 0;
+    font-family: 'Inter', 'Helvetica', sans-serif;
+}
         .link-header {
             margin: 0.5rem 0 0.8rem 0;
         }
@@ -639,6 +640,7 @@
         .news-line {
             padding: 0.15rem 0;
             transition: color 0.2s ease;
+            font-family: 'Inter', 'Helvetica', sans-serif;
             color: #111;
             font-size: 0.85rem;
             cursor: default;
@@ -715,9 +717,9 @@
                             <table class="project-table"><thead><tr><th>Project</th><th>Focus Area</th><th>Description</th><th>Link</th></tr></thead><tbody><tr><td><strong>LLM Wiki</strong></td><td>AI Knowledge Base</td><td>Comprehensive LLM concepts and AI fundamentals.</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/UfMaw8HkmiQR8JkdZwjcmQNjnyc?from=from_copylink" target="_blank">📁</a></td></tr><tr><td><strong>AI Governance</strong></td><td>Policy & Governance</td><td>Framework for understanding AI governance in China.</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/P5O8w8uENiE6RGkVrw2c5pUunTc?from=from_copylink" target="_blank">📃</a></td></tr><tr><td><strong>Prompt Red Teaming</strong></td><td>Safety & Ethics</td><td>Moral evaluations and safety testing of AI systems.</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/Ep3ewlDZligXJMkiZnxcQsDDnNc?from=from_copylink" target="_blank">🦙</a></td></tr><tr><td><strong>Learning Sum</strong></td><td>Knowledge Piece-s</td><td>AI Podcasts & Newsletter learning notes, please request.</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/U7oJwODIEiwUtHkEXKncffCYnNc?from=from_copylink" target="_blank">📓</a></td></tr></tbody></table>
                         </div>
                         <!-- 新闻气泡：完全修复 -->
+                        <div class="news-main-title-outside">AI-credible-news-/-source-list-try-out</div>
                         <div class="news-list-container">
                             <div class="news-bubble">
-                                <div class="news-main-title">AI-credible-news-/-source-list-try-out</div>
                                 <div class="link-header"><a href="https://rcnd1qqt63cw.feishu.cn/wiki/U7oJwODIEiwUtHkEXKncffCYnNc?from=from_copylink" target="_blank" class="news-link">📓 Link Compilations</a></div>
                                 <div class="news-sections">
                                     <div class="news-section"><div class="section-title">(engineer) :</div><div class="section-content"><div class="news-line">AI News</div><div class="news-line">Latent Space Substack</div><div class="news-line">Andrej Karpathy Personal Web ()infra</div></div></div>
@@ -750,11 +752,11 @@
                     </div>
                 </div>
                 <!-- 原footer已移入collab，此处移除避免重复 -->
+            <div class="curiosity-line">✦ built with curiosity ✦</div>
             </div>
         </div>
     </div>
     
-<div class="curiosity-line">✦ built with curiosity ✦</div>
 
     
     <script>
