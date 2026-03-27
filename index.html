@@ -378,17 +378,23 @@
     margin-top: 0.75rem;
     margin-bottom: 1rem;
 }       
+        .two-col {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.left-col { flex: 1 1 320px; max-width: 360px; }
+.right-col { flex: 1.6 1 480px; max-width: 580px; }
+
         @media (max-width: 1000px) {
     .two-col {
         flex-wrap: wrap;
     }
     .left-col, .right-col { max-width: 100%; flex: 1 1 auto; }
+    .collab { width: 90%; }  /* 保留原有 */
 }
-
-.left-col { flex: 1 1 320px; max-width: 360px; }
-.right-col { flex: 1.6 1 480px; max-width: 580px; }
-            .collab { width: 90%; }
-        }
         @media (hover: none) and (pointer: coarse) {
             * { cursor: auto; }
             #cat-cursor { display: none !important; }
