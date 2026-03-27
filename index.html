@@ -78,8 +78,8 @@
             text-align: left;
             line-height: 1.6;
             background-image: 
-                repeating-linear-gradient(0deg, rgba(255,255,255,0.2) 0px, transparent 1px, transparent 4px),
-                repeating-linear-gradient(90deg, rgba(255,255,255,0.2) 0px, transparent 1px, transparent 4px);
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.3) 0px, transparent 1px, transparent 4px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.3) 0px, transparent 1px, transparent 4px);
             background-size: 4px 4px;
             background-position: 0 0;
             padding: 2rem 1.5rem;
@@ -181,43 +181,29 @@
             margin-bottom: 1rem;
         }
         h1 { font-size: 1.6rem; }
-h2 {
-    font-size: 1.3rem;
-    font-family: 'Press Start 2P', monospace;
-    padding-bottom: 0.3rem;
-    border-bottom: 2px solid rgba(255,255,255,0.2);
-}
-.full-width h2 { border-bottom: 2px solid rgba(255,255,255,0.2); }
-.right-col h2 { font-size: 1.2rem; border-bottom: 2px solid rgba(255,255,255,0.2); color: #ffffff; }
-.collab h2 {
-    font-family: inherit;
-    font-size: 0.9rem;
-    border-bottom: none;
-    color: #2c3e50;
-}
-
-.news-main-title-outside {
-    font-size: 1.3rem;
-    color: #ffffff;
-    border-bottom: 2px solid rgba(255,255,255,0.2);
-    padding-bottom: 0.3rem;
-    margin: 1.5rem 0 0.8rem 0;
-    font-family: 'Press Start 2P', monospace;
-}.left-col h2,
-.right-col h2,
-.full-width h2,
-.news-main-title-outside {
-    transition: box-shadow 0.2s, filter 0.2s;
-    cursor: default;
-}
-.left-col h2:hover,
-.right-col h2:hover,
-.full-width h2:hover,
-.news-main-title-outside:hover {
-    box-shadow: 0 0 0 2px rgba(255,255,255,0.4) inset, 0 0 20px rgba(140,200,255,0.6);
-    filter: drop-shadow(0 0 6px rgba(140,200,255,0.5));
-}
+        h2 { font-size: 1.4rem; font-family: 'Press Start 2P', monospace; padding-bottom: 0.3rem; border-bottom: 2px solid rgba(255,255,255,0.2); }
+        .full-width h2 { border-bottom: 2px solid rgba(255,255,255,0.2); }
+        .right-col h2 { font-size: 1.2rem; border-bottom: 2px solid rgba(255,255,255,0.2); color: #ffffff; }
+        .collab h2 { font-size: 0.9rem; border-bottom: none; color: #2c3e50; }
         
+        /* 左右列宽度调整：左列窄，右列宽，总和一致 */
+        .left-col { flex: 1 1 320px; max-width: 360px; }
+        .right-col { flex: 1.6 1 480px; max-width: 580px; }
+        .full-width { width: 100%; margin-top: 2rem; display: flex; flex-direction: column; align-items: center; }
+        .projects-vertical { display: flex; flex-direction: column; gap: 1.2rem; }
+        .card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(2px);
+            padding: 1.2rem;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            display: flex;
+            flex-direction: column;
+            color: #111;
+            transition: background 0.2s, transform 0.2s;
+            width: 100%;
+            border-radius: 16px;
+        }
         .card:hover {
             background: rgba(255, 255, 255, 0.3);
             animation: bubblePop 0.5s ease;
@@ -229,10 +215,9 @@ h2 {
             70% { transform: scale(1.01); }
             100% { transform: scale(1); }
         }
-        .card h3 { color: #2c3e50; font-family: 'Press Start 2P', monospace; font-size: 1rem; margin-bottom: 0.6rem; }
+        .card h3 { color: #2c3e50; font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 1rem; margin-bottom: 0.6rem; }
         .card .description { color: #333; margin-bottom: 1rem; flex: 1; font-size: 0.9rem; line-height: 1.4; }
         .card .links { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: auto; align-items: center; }
-        
         .btn {
             display: inline-flex;
             align-items: center;
@@ -501,18 +486,16 @@ h2 {
         /* 项目卡片容器 */
         .project-cards-container { width: 100%; margin-top: 1.5rem; margin-bottom: 4rem; }
         .project-detail-card {
-    background: rgba(0, 0, 0, 0.6);          /* 深色半透明背景，增强文字对比 */
+    background: rgba(0, 0, 0, 0.65);          /* 深色半透明背景，增强文字对比 */
     backdrop-filter: blur(2px);
     background-image: 
         repeating-linear-gradient(0deg, rgba(255,255,255,0.15) 0px, transparent 1px, transparent 4px),
         repeating-linear-gradient(90deg, rgba(255,255,255,0.15) 0px, transparent 1px, transparent 4px);
     background-size: 4px 4px;
-    background-position: 0 0;
     border: 1px solid rgba(255,255,255,0.3);
     border-radius: 28px;
     padding: 2rem 2rem 2.5rem;
-    max-width: 1000px;
-    width: 90%;
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1.8rem;
@@ -678,9 +661,9 @@ h2 {
                     <div class="left-col">
                         <h2>🌐 AI-co-created projects</h2>
                         <div class="projects-vertical">
-                            <div class="card"><h3>🐈‍⬛ LinkedIn Newsletter</h3><div class="description">Weekly insights on macro forces, tech news, society, and of course AI.<br><br>Scroll down to see my AI employee.</div><div class="links"><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7422191016994217984" target="_blank" class="btn linkedin"><i class="fab fa-linkedin"></i> Follow</a></div></div>
-                            <div class="card"><h3>🪿 Academic Portfolio</h3><div class="description">Research project showcase. Including recommended study tools, AI sources, Books.<br>Pick your everyday quote!<br><em>"𝒰𝓃𝒸𝒽𝒶𝒾𝓃𝑒𝒹 𝑀𝑒𝓁𝑜𝒹𝓎" — play this song and take your time.</em></div><div class="links"><a href="https://app--graces-kiosk-a4c1d845.base44.app/" target="_blank" class="btn portfolio"><i class="fas fa-globe"></i> Grace's Kiosk</a><a href="https://code.coze.cn/p/7616316878792818726/preview" target="_blank" class="btn portfolio"><i class="fas fa-robot"></i> Academic Agent</a></div></div>
-                            <div class="card"><h3>🛁 Productivity Apps</h3><div class="description">Momentum is a gentle life management tool to help you visualize and manage your energy through small, science‑backed recovery actions. Rest is not escape — it’s part of your momentum. This is the first app I created for the goal of # Guiding genuine Rest to realize your full productivity#.<br><br>The second App improved from its and from some market research been the Nuero-Mentum. Cognitive-burnout consequences are being overlooked and becoming more visible in our daily lives with Doomscrolling, which is not restorative. Nuero-Mentum embeds Micro-Tasks with 60-mins Deep Work Focus Session yo recover your Prefrontal Cortex after intensive concentration.<br><small>Ideas for improvement? Collaboration welcome!</small></div><div class="links"><a href="https://screenapp.io/app/v/YzJV1A2nJl" target="_blank" class="btn play"><i class="fas fa-play"></i> Demo</a><a href="https://rugged-build-your-momentum.base44.app/Home" target="_blank" class="btn chart"><i class="fas fa-chart-bar"></i> Momentum</a><a href="https://clear-pfc-flow.base44.app" target="_blank" class="btn chart"><i class="fas fa-chart-bar"></i> Neuro-Mentum</a></div></div>
+                            <div class="card"><h3>🐱 Manus Cat · LinkedIn Newsletter</h3><div class="description">Weekly insights on macro forces, tech news, society, and of course AI.<br><br>Scroll down to see my AI employee.</div><div class="links"><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7422191016994217984" target="_blank" class="btn linkedin"><i class="fab fa-linkedin"></i> Follow</a></div></div>
+                            <div class="card"><h3>🪿 Academic Portfolio</h3><div class="description">Research project showcase. Including recommended study tools, AI sources, Books.<br>Pick your everyday quote!<br><em>"𝒰𝓃𝒸𝒽𝒶𝒾𝓃𝑒𝒹 𝑀𝑒𝓁𝑜𝒹𝓎" — play this song and take your time.</em></div><div class="links"><a href="https://app--graces-kiosk-a4c1d845.base44.app/" target="_blank" class="btn portfolio"><i class="fas fa-globe"></i> Grace's Kiosk(de-bugging～)</a><a href="https://code.coze.cn/p/7616316878792818726/preview" target="_blank" class="btn portfolio"><i class="fas fa-robot"></i> Academic Agent</a></div></div>
+                            <div class="card"><h3>🛁 Apps Creation</h3><div class="description">Momentum is a gentle life management tool to help you visualize and manage your energy through small, science‑backed recovery actions. Rest is not escape — it’s part of your momentum. This is the first app I created for the goal of # Guiding genuine Rest to realize your full productivity#.<br><br>The second App improved from its and from some market research been the Nuero-Mentum. Cognitive-burnout consequences are being overlooked and becoming more visible in our daily lives with Doomscrolling, which is not restorative.  <br><small>Ideas for improvement? Collaboration welcome!</small></div><div class="links"><a href="https://screenapp.io/app/v/YzJV1A2nJl" target="_blank" class="btn play"><i class="fas fa-play"></i> Demo</a><a href="https://rugged-build-your-momentum.base44.app/Home" target="_blank" class="btn chart"><i class="fas fa-chart-bar"></i> Momentum</a><a href="https://clear-pfc-flow.base44.app" target="_blank" class="btn chart"><i class="fas fa-chart-bar"></i> Neuro-Mentum</a></div></div>
                         </div>
                     </div>
                     <div class="right-col">
@@ -768,7 +751,7 @@ h2 {
             petals.forEach(petal => { petal.addEventListener('mouseenter', function() { if (currentLockedPetal !== null) return; let petalId = ''; if (this.classList.contains('petal-1')) petalId = 'analyze'; else if (this.classList.contains('petal-2')) petalId = 'through'; else if (this.classList.contains('petal-3')) petalId = 'pursue'; else if (this.classList.contains('petal-4')) petalId = 'speak'; startTyping(phraseMap[petalId]); }); petal.addEventListener('mouseleave', function() { if (currentLockedPetal !== null) return; typewriterSpan.textContent = ''; if (activeTimer) clearInterval(activeTimer); activeTimer = null; }); });
             document.addEventListener('click', (e) => { if (page2.style.display === 'flex') return; if (!e.target.closest('.petal') && !e.target.closest('.project-detail-card') && !e.target.closest('#continueBtn') && !e.target.closest('.close-detail-btn')) { if (cardsContainer.children.length > 0) { closeAllCards(); typewriterSpan.textContent = ''; if (activeTimer) clearInterval(activeTimer); activeTimer = null; document.getElementById('page1').scrollIntoView({ behavior: 'smooth', block: 'start' }); } } });
             continueBtn.addEventListener('click', function() { if (!continueBtn.classList.contains('active')) return; if (continueBtn.textContent === 'Unlock') { closeAllCards(); petalsEnabled = false; page2.style.display = 'flex'; setTimeout(() => { page2.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100); continueBtn.textContent = 'Reset'; } else if (continueBtn.textContent === 'Reset') { page2.style.display = 'none'; resetPetals(); currentLockedPetal = null; petalsEnabled = true; continueBtn.textContent = 'Click All'; continueBtn.disabled = true; continueBtn.classList.remove('active'); } });
-            const container = document.getElementById('pagesContainer'); const scrollBtn = document.getElementById('scrollBtn'); let currentPage = 1; function updateButton() { const page1El = document.getElementById('page1'); const rect1 = page1El.getBoundingClientRect(); if (rect1.top >= -50 && rect1.top < window.innerHeight/2) { currentPage = 1; scrollBtn.textContent = '↓'; } else { currentPage = 2; scrollBtn.textContent = '↑'; } } container.addEventListener('scroll', updateButton); setTimeout(updateButton, 100); scrollBtn.addEventListener('click', () => { if (currentPage === 1) { if (page2.style.display === 'flex') page2.scrollIntoView({ behavior: 'smooth' }); } else { document.getElementById('page1').scrollIntoView({ behavior: 'smooth' }); } }); window.addEventListener('resize', updateButton);
+            const container = document.getElementById('pagesContainer'); const scrollBtn = document.getElementById('scrollBtn'); let currentPage = 1; function updateButton() { const page1El = document.getElementById('page1'); const rect1 = page1El.getBoundingClientRect(); if (rect1.top >= -50 && rect1.top < window.innerHeight/2) { currentPage = 1; scrollBtn.textContent = '↓'; } else { currentPage = 2; scrollBtn.textContent = '↑'; } } container.addEventListener('scroll', updateButton); setTimeout(updateButton, 100); scrollBtn.addEventListener('click', () => { if (currentPage === 1) { if (page2.style.display === 'flex') page2.scrollIntoView({ behavior: 'smooth' }); } else { smoothScrollToElement(document.getElementById('page1'), 1200); } }); window.addEventListener('resize', updateButton);
             const emailBtn = document.getElementById('emailBtn'); const popup = document.getElementById('emailPopup'); const copyBtn = document.getElementById('copyEmailBtn'); if (emailBtn) { emailBtn.addEventListener('click', (e) => { e.preventDefault(); popup.style.display = 'block'; }); } copyBtn.addEventListener('click', () => { navigator.clipboard.writeText('graceguo2004@outlook.com').then(() => { alert('Email copied to clipboard!'); }).catch(() => { alert('Press Ctrl+C to copy: graceguo2004@outlook.com'); }); }); window.addEventListener('click', (e) => { if (!popup.contains(e.target) && e.target !== emailBtn && !emailBtn?.contains(e.target)) { popup.style.display = 'none'; } });
         })();
     </script>
