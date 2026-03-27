@@ -215,7 +215,7 @@
             70% { transform: scale(1.01); }
             100% { transform: scale(1); }
         }
-        .card h3 { color: #2c3e50; font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 1rem; margin-bottom: 0.6rem; }
+        .card h3 { color: #2c3e50; font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 0.83rem; margin-bottom: 0.6rem; }
         .card .description { color: #333; margin-bottom: 1rem; flex: 1; font-size: 0.9rem; line-height: 1.4; }
         .card .links { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: auto; align-items: center; }
         .btn {
@@ -376,9 +376,12 @@
     margin-top: 0.75rem;
     margin-bottom: 1rem;
 }       
-        @media (max-width: 950px) {
+        @media (max-width: 1000px) {
             .page-content { max-width: 95%; }
-            .two-col { flex-direction: column; align-items: center; }
+            .two-col {
+        /* flex-direction: column;   
+        align-items: stretch;       
+    }
             .left-col, .right-col { max-width: 100%; flex: 1 1 auto; }
             .cert-list, .more-learning-bubble { max-width: 100%; }
             .collab { width: 90%; }
@@ -661,9 +664,9 @@
                     <div class="left-col">
                         <h2>🌐 AI-co-created projects</h2>
                         <div class="projects-vertical">
-                            <div class="card"><h3>🐱 Manus Cat · LinkedIn Newsletter</h3><div class="description">Weekly insights on macro forces, tech news, society, and of course AI.<br><br>Scroll down to see my AI employee.</div><div class="links"><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7422191016994217984" target="_blank" class="btn linkedin"><i class="fab fa-linkedin"></i> Follow</a></div></div>
+                            <div class="card"><h3>🐈‍⬛ LinkedIn Newsletter</h3><div class="description">Weekly insights on macro forces, tech news, society, and of course AI.<br><br>Scroll down to see my AI employee.</div><div class="links"><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7422191016994217984" target="_blank" class="btn linkedin"><i class="fab fa-linkedin"></i> Follow</a></div></div>
                             <div class="card"><h3>🪿 Academic Portfolio</h3><div class="description">Research project showcase. Including recommended study tools, AI sources, Books.<br>Pick your everyday quote!<br><em>"𝒰𝓃𝒸𝒽𝒶𝒾𝓃𝑒𝒹 𝑀𝑒𝓁𝑜𝒹𝓎" — play this song and take your time.</em></div><div class="links"><a href="https://app--graces-kiosk-a4c1d845.base44.app/" target="_blank" class="btn portfolio"><i class="fas fa-globe"></i> Grace's Kiosk(de-bugging～)</a><a href="https://code.coze.cn/p/7616316878792818726/preview" target="_blank" class="btn portfolio"><i class="fas fa-robot"></i> Academic Agent</a></div></div>
-                            <div class="card"><h3>🛁 Apps Creation</h3><div class="description">Momentum is a gentle life management tool to help you visualize and manage your energy through small, science‑backed recovery actions. Rest is not escape — it’s part of your momentum. This is the first app I created for the goal of # Guiding genuine Rest to realize your full productivity#.<br><br>The second App improved from its and from some market research been the Nuero-Mentum. Cognitive-burnout consequences are being overlooked and becoming more visible in our daily lives with Doomscrolling, which is not restorative.  <br><small>Ideas for improvement? Collaboration welcome!</small></div><div class="links"><a href="https://screenapp.io/app/v/YzJV1A2nJl" target="_blank" class="btn play"><i class="fas fa-play"></i> Demo</a><a href="https://rugged-build-your-momentum.base44.app/Home" target="_blank" class="btn chart"><i class="fas fa-chart-bar"></i> Momentum</a><a href="https://clear-pfc-flow.base44.app" target="_blank" class="btn chart"><i class="fas fa-chart-bar"></i> Neuro-Mentum</a></div></div>
+                            <div class="card"><h3>🛁 Productivity Apps</h3><div class="description">Momentum is a gentle life management tool to help you visualize and manage your energy through small, science‑backed recovery actions. Rest is not escape — it’s part of your momentum. This is the first app I created for the goal of # Guiding genuine Rest to realize your full productivity#.<br><br>The second App improved from its and from some market research been the Nuero-Mentum. Cognitive-burnout consequences are being overlooked and becoming more visible in our daily lives with Doomscrolling, which is not restorative. Nuero-Mentum embeds Micro-Tasks with 60-mins Deep Work Focus Session yo recover your Prefrontal Cortex after intensive concentration. <br><small>Ideas for improvement? Collaboration welcome!</small></div><div class="links"><a href="https://screenapp.io/app/v/YzJV1A2nJl" target="_blank" class="btn play"><i class="fas fa-play"></i> Demo</a><a href="https://rugged-build-your-momentum.base44.app/Home" target="_blank" class="btn chart"><i class="fas fa-chart-bar"></i> Momentum</a><a href="https://clear-pfc-flow.base44.app" target="_blank" class="btn chart"><i class="fas fa-chart-bar"></i> Neuro-Mentum</a></div></div>
                         </div>
                     </div>
                     <div class="right-col">
@@ -716,6 +719,19 @@
     
     <script>
         // 保留所有原有JS逻辑，仅调整reset时确保无冲突
+        function smoothScrollToElement(element, duration = 800) {
+    const start = window.scrollY || window.pageYOffset;
+    const target = element.getBoundingClientRect().top + start;
+    const startTime = performance.now();
+    function scrollStep(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        window.scrollTo(0, start + (target - start) * ease);
+        if (progress < 1) requestAnimationFrame(scrollStep);
+    }
+    requestAnimationFrame(scrollStep);
+}
         (function() {
             let petalsEnabled = true;
             const cursor = document.getElementById('cat-cursor');
