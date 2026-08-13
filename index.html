@@ -2,954 +2,1183 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Grace · work-from-home · AI portfolio</title>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grace · Linge Guo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Preload all 3 background photos with high priority — start downloading before CSS/JS parse finishes -->
+    <link rel="preload" as="image" href="./deer.jpg" fetchpriority="high">
+    <link rel="preload" as="image" href="./rabbit-back.jpg" fetchpriority="high">
+    <link rel="preload" as="image" href="./rabbit-lying.webp" type="image/webp" fetchpriority="high">
+    <script>
+      /* Kick off image downloads immediately, in parallel, before the CSS is done parsing */
+      ['./deer.jpg','./rabbit-back.jpg','./rabbit-lying.webp'].forEach(src => { const i = new Image(); i.fetchPriority = 'high'; i.src = src; });
+    </script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            cursor: none;
+        :root {
+            --ink: #1A0F07;
+            --cream: #F8ECD1;
+            --cream-warm: #FDF4DE;
+            --cream-soft: rgba(248, 236, 209, 0.75);
+            --cream-mute: rgba(248, 236, 209, 0.55);
+            --accent: #E8A85C;       /* honey */
+            --accent-deep: #C4562A;  /* burnt orange */
+            --accent-warm: #F5C482;
+            --line: rgba(248, 236, 209, 0.18);
         }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
-            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
-            background: #1a1a1a;
-            color: #111;
-            line-height: 1.5;
+            font-family: 'Inter', system-ui, sans-serif;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--cream);
+            background: #1A0F07;
             min-height: 100vh;
             overflow-x: hidden;
-            font-size: 16px;
-        }
-        #cat-cursor {
-            position: fixed;
-            width: 32px; height: 32px;
-            pointer-events: none;
-            z-index: 9999;
-            font-size: 28px;
-            transform: translate(-50%, -50%);
-            transition: transform 0.1s ease;
-            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
-            display: none;
-        }
-        /* 移除全局*:hover强制变白 */
-        .card:hover * {
-            color: #ffffff !important;
-        }
-        .cert-item:hover * {
-            color: #ffffff !important;
-        }
-        .project-table:hover * {
-            color: #ffffff !important;
-        }
-        .collab *:hover {
-            color: #1e1e1e !important;
-        }
-        footer *:hover {
-            color: #90CAF9 !important;
-        }
-        .btn:hover {
-            background-color: inherit !important;
-            border-color: transparent;
-        }
-        .pixel-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-start;
-            pointer-events: none;
-            z-index: 0;
-            color: rgba(255, 255, 255, 0.5);
-            font-family: 'Courier New', monospace;
-            font-weight: bold;
-            white-space: pre-wrap;
-            word-break: break-word;
-            text-align: left;
-            line-height: 1.6;
-            background-image: 
-                repeating-linear-gradient(0deg, rgba(255,255,255,0.3) 0px, transparent 1px, transparent 4px),
-                repeating-linear-gradient(90deg, rgba(255,255,255,0.3) 0px, transparent 1px, transparent 4px);
-            background-size: 4px 4px;
-            background-position: 0 0;
-            padding: 2rem 1.5rem;
-            font-size: clamp(1.1rem, 2.75vw, 1.76rem);
-            text-shadow: 
-                2px 2px 0 rgba(255,255,255,0.15),
-                4px 4px 0 rgba(200,200,200,0.15),
-                6px 6px 0 rgba(150,150,150,0.15);
-        }
-        #page1 .pixel-bg {
-            font-size: clamp(6rem, 20vw, 14rem);
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 0;
-            text-transform: uppercase;
-            letter-spacing: 10px;
-        }
-        .home-tagline {
-            position: absolute;
-            bottom: 5vh;
-            left: 0;
-            width: 100%;
-            text-align: center;
-            color: rgba(255,255,255,0.4);
-            font-size: 1rem;
-            font-family: 'Courier New', monospace;
-            letter-spacing: 2px;
-            z-index: 3;
-            pointer-events: none;
-        }
-        .pages-container {
-            height: 100vh;
-            overflow-y: scroll;
-            scroll-snap-type: y proximity;
-            scroll-behavior: smooth;
-            position: relative;
-            z-index: 1;
-        }
-        .page {
-            scroll-snap-align: start;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-            position: relative;
-            background: transparent;
-        }
-        #page1 {
-            height: 100vh;
-            align-items: flex-start;
-            padding-top: 5vh;
-            padding-bottom: 5vh;
-        }
-        #page2 {
-            min-height: 100vh;
-            height: auto;
-            align-items: flex-start;
-            padding-top: 3vh;
-            padding-bottom: 5vh;
-            display: none;
-        }
-        .page-content {
-            max-width: 1200px;
-            width: 100%;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-        .scroll-indicator {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            z-index: 100;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid #90CAF9;
-            color: #2c3e50;
-            font-size: 1.8rem;
-            font-weight: bold;
-            text-decoration: none;
-        }
-        .scroll-indicator:hover {
-            background: #90CAF9;
-            color: white !important;
-            transform: scale(1.1);
-        }
-        h1, h2, .full-width h2 {
-            color: #ffffff;
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-        h1 { font-size: 1.6rem; }
-        h2 { font-size: 1.2rem; font-family: 'Press Start 2P', monospace; padding-bottom: 0.3rem; border-bottom: 2px solid rgba(255,255,255,0.2); }
-        .full-width h2 { border-bottom: 2px solid rgba(255,255,255,0.2); }
-        .right-col h2 { font-size: 1.2rem; border-bottom: 2px solid rgba(255,255,255,0.2); color: #ffffff; }
-        .collab h2 { font-size: 0.9rem; border-bottom: none; color: #2c3e50; }
-        
-        /* 左右列宽度调整 */
-        .left-col { flex: 1 1 400px; max-width: 480px; }
-        .right-col { flex: 1.2 1 480px; max-width: 540px; }
-        
-        .full-width { width: 100%; margin-top: 2rem; display: flex; flex-direction: column; align-items: center; }
-        .projects-vertical { display: flex; flex-direction: column; gap: 1.2rem; }
-        .card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(2px);
-            padding: 1.2rem;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.2);
-            border: 1px solid rgba(255,255,255,0.3);
-            display: flex;
-            flex-direction: column;
-            color: #111;
-            transition: background 0.2s, transform 0.2s;
-            width: 100%;
-            border-radius: 16px;
-        }
-        .card:hover {
-            background: rgba(255, 255, 255, 0.3);
-            animation: bubblePop 0.5s ease;
-        }
-        @keyframes bubblePop {
-            0% { transform: scale(1); }
-            30% { transform: scale(1.02); }
-            50% { transform: scale(0.98); }
-            70% { transform: scale(1.01); }
-            100% { transform: scale(1); }
-        }
-        .card h3 { color: #2c3e50; font-family: 'Press Start 2P', monospace; font-size: 0.8rem; margin-bottom: 0.6rem; }
-        .card .description { color: #333; margin-bottom: 1rem; flex: 1; font-size: 0.9rem; line-height: 1.4; }
-        .card .links { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: auto; align-items: center; }
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background-color: #f0f0f0;
-            color: #1e1e1e;
-            padding: 0.4rem 0.9rem;
-            border-radius: 20px;
-            font-family: 'Press Start 2P', monospace;
-            font-size: 0.6rem;
-            font-weight: 500;
-            text-decoration: none;
-            border: 1px solid transparent;
-            transition: all 0.2s ease;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-        }
-        .btn i { font-size: 0.9rem; }
-        .btn.linkedin { background-color: #90CAF9; color: #0a66c2; }
-        .btn.latest { background-color: #90CAF9; color: #0a66c2; }
-        .btn.play { background-color: #F8BBD0; color: #b0003a; }
-        .btn.chart { background-color: #FFAB91; color: #bf360c; }
-        .btn.wiki { background-color: #CE93D8; color: #4a148c; }
-        .btn.gov { background-color: #9FA8DA; color: #1a237e; }
-        .btn.safety { background-color: #B39DDB; color: #311b92; }
-        .btn.portfolio { background-color: #9FA8DA; color: #283593; }
-        .btn.research { background-color: #FFE0F0; color: #b0003a; }
-        .table-section { margin-bottom: 0; }
-        .project-table {
-            width: 100%;
-            table-layout: fixed;
-            word-break: break-word;
-            border-collapse: collapse;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(2px);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
-            font-size: 0.85rem;
-            transition: background 0.2s;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-        .project-table th:nth-child(1), .project-table td:nth-child(1) { width: 21%; }
-        .project-table th:nth-child(2), .project-table td:nth-child(2) { width: 23%; }
-        .project-table th:nth-child(3), .project-table td:nth-child(3) { width: 46%; }
-        .project-table th:nth-child(4), .project-table td:nth-child(4) { width: 10%; }
-        .project-table:hover { background: rgba(255, 255, 255, 0.3); }
-        .project-table th {
-            background-color: rgba(240, 244, 248, 0.9);
-            color: #2c3e50;
-            font-weight: 600;
-            padding: 0.7rem;
-            text-align: left;
-        }
-        .project-table td {
-            padding: 0.7rem;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            color: #1e1e1e;
-        }
-        .project-table a { text-decoration: none; color: inherit; font-size: 1.2rem; }
-        .cert-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-            margin: 1.2rem 0 0.5rem;
-            width: 100%;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .cert-item {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(2px);
-            padding: 1rem;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: flex-start;
-            gap: 0.8rem;
-            color: #111;
-            font-size: 0.9rem;
-            transition: background 0.2s;
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 14px;
-            width: 100%;
-        }
-        .cert-item:hover { background: rgba(255, 255, 255, 0.3); }
-        .cert-school { font-weight: bold; color: #000000; min-width: 100px; font-size: 0.9rem; }
-        .cert-details { flex: 1; }
-        .cert-title { font-weight: 600; color: #111; margin-bottom: 0.2rem; line-height: 1.4; }
-        .cert-meta { font-size: 0.8rem; color: #444; display: flex; gap: 1rem; flex-wrap: wrap; }
-        .more-learning-bubble {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(2px);
-            padding: 0.5rem 1rem;
-            margin-top: 0.5rem;
-            font-size: 0.85rem;
-            color: #000000;
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 14px;
-            width: fit-content;
-            max-width: 100%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .collab {
-            text-align: center;
-            background: #b8d4f0;
-            padding: 1.5rem 2.5rem;
-            margin: 2rem auto 0.5rem;
-            border: 1px dashed #90CAF9;
-            color: #1e1e1e;
-            border-radius: 30px;
-            width: fit-content; 
-            max-width: 90%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .collab p { color: #000000; font-size: 1rem; margin: 0.8rem 0; }
-        .collab .links { margin-bottom: 1rem; }
-        .curiosity-line {
-            font-family: 'Press Start 2P', monospace;
-            text-align: center;
-            font-size: 0.65rem;
-            letter-spacing: 1px;
-            color: rgba(255, 255, 255, 0.65);
-            margin-top: 0.75rem;
-        }
-        .email-popup {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: #2a2a2a;
-            border: 2px solid #90CAF9;
-            border-radius: 18px;
-            padding: 1.5rem;
-            z-index: 10000;
-            box-shadow: 0 20px 40px black;
-            display: none;
-            text-align: center;
-            min-width: 260px;
-        }
-        .email-popup p { font-size: 1rem; margin-bottom: 1rem; color: white; }
-        .email-popup button {
-            background: #90CAF9;
-            color: #1a1a1a;
-            border: none;
-            padding: 0.5rem 1.2rem;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            cursor: pointer;
-            margin: 0 0.3rem;
-        }
-        .email-popup .close-btn { background: transparent; color: #aaa; border: 1px solid #555; }
-        footer { color: #ffffff !important; font-size: 0.8rem; padding: 1rem 0 0; text-align: center; }
-        footer * { color: #ffffff; }
-        footer *:hover { color: #90CAF9 !important; }
-        .two-col {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: nowrap;
-            justify-content: center;
-        }
-        @media (max-width: 1000px) {
-            .two-col { flex-wrap: wrap; }
-            .left-col, .right-col { max-width: 100%; flex: 1 1 auto; }
+            cursor: none;
         }
         @media (hover: none) and (pointer: coarse) {
-            * { cursor: auto; }
-            #cat-cursor { display: none !important; }
+            body { cursor: auto; }
+            #cursor, #cursor-dot { display: none !important; }
         }
 
-        /* 花瓣样式 */
-        .flower-center {
-            position: relative;
-            width: 600px;
-            height: 500px;
-            margin: 0 auto 1.5rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .petal {
-            position: absolute;
-            width: 220px;
-            height: 260px;
-            background: rgba(255, 255, 255, 0.28);
-            background-image: 
-                linear-gradient(0deg, rgba(255,255,255,0.25) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.25) 1px, transparent 1px);
-            background-size: 8px 8px;
-            box-shadow: 0 0 0 1px rgba(255,255,255,0.15) inset, 0 0 30px rgba(140,200,255,0.4);
-            filter: drop-shadow(0 0 8px rgba(180,220,255,0.3));
-            transition: box-shadow 0.2s, filter 0.2s;
-            border-radius: 85% 15% 75% 25% / 55% 40% 60% 45%;
-            pointer-events: auto;
-        }
-        .petal:hover { box-shadow: 0 0 0 2px rgba(255,255,255,0.4) inset, 0 0 40px #8cbaff; }
-        .petal.clicked { box-shadow: 0 0 0 3px #ffffff inset, 0 0 50px #ffffff; filter: drop-shadow(0 0 15px white); }
-        .petal-1 { top: 40px; left: 190px; transform: rotate(-20deg); }
-        .petal-2 { top: 120px; left: 290px; transform: rotate(-90deg); }
-        .petal-3 { top: 200px; left: 190px; transform: rotate(180deg); }
-        .petal-4 { top: 120px; left: 90px; transform: rotate(90deg); }
-        .petal-text {
-            position: absolute;
-            font-family: 'Press Start 2P', monospace;
-            color: white;
-            text-shadow: 0 0 8px #aae0ff, 2px 2px 0 #0a1a2a !important;
-            letter-spacing: 1.5px;
-            white-space: nowrap;
-            text-align: center;
+        /* ═══════ CURSOR ═══════ */
+        #cursor {
+            position: fixed;
+            width: 220px; height: 220px;
+            border-radius: 50%;
             pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle at center,
+                rgba(255, 220, 170, 0.28) 0%,
+                rgba(230, 180, 130, 0.14) 35%,
+                transparent 70%);
+            filter: blur(20px);
+            mix-blend-mode: screen;
+            display: none;
         }
-        .short { font-size: 0.8rem; margin-bottom: 0.2rem; }
-        .micro { font-family: 'VT323', monospace; font-size: 1rem; color: rgba(230, 240, 255, 0.95); text-shadow: 0 0 6px #4a80d0; }
-        .petal-1 .petal-text { top: 15px; left: 50%; transform: translateX(-50%) rotate(20deg); }
-        .petal-2 .petal-text { top: 50%; left: 10px; transform: translateY(-50%) rotate(90deg); transform-origin: left center; }
-        .petal-3 .petal-text { top: 15px; left: 50%; transform: translateX(-50%) rotate(180deg); }
-        .petal-4 .petal-text { top: 50%; right: 10px; transform: translateY(-50%) rotate(-90deg); transform-origin: right center; }
+        #cursor-dot {
+            position: fixed;
+            width: 5px; height: 5px;
+            border-radius: 50%;
+            background: var(--cream);
+            pointer-events: none;
+            z-index: 10000;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px rgba(248, 236, 209, 0.7);
+            transition: transform 0.15s ease, background 0.25s ease, box-shadow 0.25s ease;
+            display: none;
+        }
+        #cursor-dot.on-paper {
+            background: #3A1F0F;
+            box-shadow: 0 0 8px rgba(58, 31, 15, 0.6);
+        }
 
-        .typewriter-container {
-            font-family: 'Press Start 2P', monospace;
-            font-size: 1rem;
-            color: white;
-            min-height: 3rem;
-            margin: 2.7rem 0 1rem;
-            text-align: center;
-            text-shadow: 0 0 6px cyan;
+        /* ═══════ NAV ═══════ */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 1.6rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            background: linear-gradient(180deg, rgba(15, 8, 3, 0.55) 0%, rgba(15, 8, 3, 0.15) 60%, transparent 100%);
+            backdrop-filter: blur(4px);
         }
-        .cursor-blink {
-            display: inline-block;
-            width: 8px;
-            height: 1.2rem;
-            background-color: #fff;
-            margin-left: 4px;
-            animation: blink 1s step-end infinite;
-            vertical-align: middle;
+        .brand {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: 1.55rem;
+            color: var(--cream);
+            text-decoration: none;
+            transition: color 0.3s;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
         }
-        @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0;} }
-
-        .continue-wrapper { text-align: center; margin-top: 0.7rem; }
-        .continue-btn {
-            background: #444;
-            border: 2px solid #777;
-            color: #aaa;
-            font-size: 1.2rem;
-            font-family: 'Press Start 2P', monospace;
-            padding: 0.5rem 1.5rem;
-            border-radius: 40px;
-            letter-spacing: 2px;
-            cursor: not-allowed;
-            transition: all 0.3s ease;
-            opacity: 0.6;
-            box-shadow: none;
-        }
-        .continue-btn.active {
-            background: white;
-            border-color: #ccc;
-            color: #111;
-            cursor: pointer;
-            opacity: 1;
-            box-shadow: 0 0 20px rgba(255,255,255,0.5);
-        }
-        .continue-btn.active:hover { background: #f0f0f0; transform: scale(1.02); }
-
-        .project-cards-container { width: 100%; margin-top: 1.5rem; margin-bottom: 4rem; }
-        .project-detail-card {
-            background: rgba(0, 0, 0, 0.65);
-            backdrop-filter: blur(2px);
-            background-image: 
-                repeating-linear-gradient(0deg, rgba(255,255,255,0.15) 0px, transparent 1px, transparent 4px),
-                repeating-linear-gradient(90deg, rgba(255,255,255,0.15) 0px, transparent 1px, transparent 4px);
-            background-size: 4px 4px;
-            border: 1px solid rgba(255,255,255,0.3);
-            border-radius: 28px;
-            padding: 2rem 2rem 2.5rem;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 1.8rem;
-            color: #ffffff;
-            font-size: 1rem;
-            line-height: 1.6;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.15) inset, 0 0 20px 4px rgba(255,255,255,0.2);
+        .brand:hover { color: var(--accent-warm); }
+        .nav-links { display: flex; gap: 2.4rem; }
+        .nav-link {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--cream-soft);
+            text-decoration: none;
+            transition: color 0.3s;
             position: relative;
-            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            padding-bottom: 3px;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.5);
         }
-        .project-detail-card * { color: #ffffff !important; }
-        .project-detail-card a { color: #aac9ff !important; }
-        .project-detail-card a:hover { color: #ffffff !important; text-decoration: underline; }
-        .project-detail-card p { margin: 0 0 1.2em 0; }
-        .project-detail-card p:last-child { margin-bottom: 0; }
-        .close-detail-btn {
+        .nav-link:hover, .nav-link.active { color: var(--accent-warm); }
+        .nav-link.active::after {
+            content: '';
             position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: white;
-            border: 1px solid #ccc;
-            color: #111 !important;
-            font-size: 0.8rem;
-            padding: 0.3rem 1.2rem;
-            border-radius: 30px;
-            cursor: pointer;
-            font-family: 'Inter', 'Helvetica', sans-serif;
+            bottom: 0; left: 0; right: 0;
+            height: 1px;
+            background: var(--accent-warm);
+        }
+        @media (max-width: 640px) {
+            nav { padding: 1.2rem 1.4rem; }
+            .nav-links { gap: 1.4rem; }
+            .nav-link { font-size: 0.6rem; letter-spacing: 0.2em; }
+            .brand { font-size: 1.2rem; }
+        }
+
+        /* ═══════ VIEW BASE ═══════ */
+        .view {
+            display: none;
+            min-height: 100vh;
+            position: relative;
+            padding: 6.5rem 2rem 4rem;
+        }
+        .view.active { display: block; animation: viewIn 0.7s cubic-bezier(0.2, 0.7, 0.2, 1); }
+        @keyframes viewIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+            z-index: 3;
+        }
+
+        /* ═══════ HOME — deer photo bg ═══════ */
+        #view-home {
+            background:
+                linear-gradient(180deg, rgba(15, 8, 3, 0.42) 0%, rgba(15, 8, 3, 0.15) 40%, rgba(15, 8, 3, 0.55) 100%),
+                url('./deer.jpg') center/cover fixed no-repeat;
+        }
+        /* subtle grain over photo — makes it feel like film, not too crisp */
+        #view-home::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.22;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch' seed='4'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.7'/></svg>");
+            mix-blend-mode: overlay;
+            z-index: 1;
+        }
+
+        .hero { text-align: center; margin-bottom: 3rem; }
+        .hero-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: var(--accent-warm);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+        }
+        .hero-name {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: clamp(4rem, 10vw, 7.5rem);
+            line-height: 0.95;
+            color: var(--cream);
+            letter-spacing: -0.02em;
+            font-weight: 400;
+            text-shadow: 0 4px 24px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.4);
+        }
+        .hero-sub {
+            font-family: 'Fraunces', 'Instrument Serif', serif;
+            font-weight: 300;
+            font-style: italic;
+            font-size: clamp(1rem, 1.5vw, 1.28rem);
+            color: var(--cream-warm);
+            max-width: 560px;
+            margin: 1.1rem auto 0;
+            line-height: 1.6;
+            letter-spacing: 0.035em;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+        }
+
+        /* ═══════ SPOTS on the deer ═══════ */
+        .deer-marks {
+            position: relative;
+            width: 100%;
+            height: min(50vh, 460px);
+            margin: 2rem auto 1rem;
+            max-width: 1100px;
+        }
+        .spot {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            cursor: none;
+            transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.3, 1);
+            z-index: 4;
+        }
+        .spot:hover { transform: translateY(-2px); }
+        /* Marker — dashed outline circle with roman numeral inside (field-notebook style) */
+        .spot-dot {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            border: 1.5px dashed rgba(248, 236, 209, 0.7);
+            background: rgba(15, 8, 3, 0.32);
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: var(--cream);
+            transition: border-color 0.5s, background 0.5s, color 0.5s, transform 0.4s, box-shadow 0.4s;
+            flex-shrink: 0;
+            animation: borderBreathe 4.2s ease-in-out infinite;
+        }
+        .spot.s1 .spot-dot { animation-delay: 0s; }
+        .spot.s2 .spot-dot { animation-delay: 1.05s; }
+        .spot.s3 .spot-dot { animation-delay: 2.1s; }
+        .spot.s4 .spot-dot { animation-delay: 3.15s; }
+        @keyframes borderBreathe {
+            0%, 100% { border-color: rgba(248, 236, 209, 0.55); }
+            50%      { border-color: rgba(248, 236, 209, 0.95); }
+        }
+        .spot:hover .spot-dot {
+            border-color: var(--accent-warm);
+            border-style: solid;
+            background: rgba(245, 196, 130, 0.18);
+            color: var(--accent-warm);
+            transform: scale(1.12);
+            box-shadow: 0 0 28px rgba(245, 196, 130, 0.55);
+            animation-play-state: paused;
+        }
+        .spot.clicked .spot-dot {
+            border-color: var(--accent);
+            border-style: solid;
+            background: rgba(232, 168, 92, 0.22);
+            color: var(--accent-warm);
+        }
+        /* Label — dark pill capsule; the name is always visible and prominent */
+        .spot-label {
+            background: rgba(15, 8, 3, 0.78);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(232, 168, 92, 0.32);
+            padding: 0.55rem 1.15rem;
+            border-radius: 100px;
+            white-space: nowrap;
+            transition: border-color 0.3s, background 0.3s, color 0.3s, transform 0.3s;
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: 1.10rem;
+            color: var(--cream);
+            letter-spacing: 0.015em;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+        }
+        .spot:hover .spot-label {
+            background: rgba(15, 8, 3, 0.9);
+            border-color: var(--accent-warm);
+            color: var(--accent-warm);
+            transform: translateX(2px);
+        }
+        /* Positions — diagonal along the sika deer's spine (upper-left → lower-right) */
+        .spot.s1 { top: 8%;  left: 30%; }   /* neck / shoulder */
+        .spot.s2 { top: 26%; left: 45%; }   /* upper back */
+        .spot.s3 { top: 46%; left: 60%; }   /* mid back */
+        .spot.s4 { top: 66%; left: 74%; }   /* lower back / hip */
+        /* Right-side markers get labels flipped to the left so they don't fall off the edge */
+        .spot.s3, .spot.s4 { flex-direction: row-reverse; }
+
+        @media (max-width: 780px) {
+            .deer-marks { height: auto; min-height: 0; padding: 0 1rem; }
+            .spot { position: relative !important; top: auto !important; left: auto !important; margin-bottom: 1rem; flex-direction: row !important; }
+        }
+
+        .hero-hint {
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: var(--cream);
+            margin-top: 2.5rem;
+            transition: opacity 0.5s;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+        }
+        .hero-hint.dim { opacity: 0.35; }
+        .hero-hint em { color: var(--accent-warm); font-style: normal; }
+
+        /* ═══════ READING PANE ═══════ */
+        .reading-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 8, 3, 0.65);
+            backdrop-filter: blur(4px);
+            z-index: 200;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s, visibility 0.4s;
+        }
+        .reading-backdrop.visible { opacity: 1; visibility: visible; }
+        .reading {
+            position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -48%);
+            width: min(640px, 92vw);
+            max-height: 82vh;
+            overflow-y: auto;
+            background: #1F1108;
+            color: var(--cream);
+            padding: 2.8rem 3rem 2.2rem;
+            z-index: 201;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s cubic-bezier(0.2, 0.9, 0.3, 1),
+                        transform 0.5s cubic-bezier(0.2, 0.9, 0.3, 1),
+                        visibility 0.5s;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.6);
+            border-radius: 6px;
+            border: 1px solid rgba(232, 168, 92, 0.25);
+        }
+        .reading.visible {
+            opacity: 1; visibility: visible;
+            transform: translate(-50%, -50%);
+        }
+        .reading::-webkit-scrollbar { width: 4px; }
+        .reading::-webkit-scrollbar-thumb { background: rgba(248, 236, 209, 0.2); }
+        .reading-label {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: 2.4rem;
+            color: var(--accent-warm);
+            line-height: 1;
+            margin-bottom: 0.3rem;
+            letter-spacing: -0.005em;
+        }
+        .reading-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.36em;
+            text-transform: uppercase;
+            color: rgba(245, 196, 130, 0.75);
+            margin-bottom: 1.4rem;
+        }
+        .reading-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(1.5rem, 2.6vw, 2rem);
+            line-height: 1.25;
+            color: var(--cream);
+            margin-bottom: 1.6rem;
+            font-weight: 400;
+        }
+        .reading-body p {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 1.08rem;
+            line-height: 1.75;
+            color: rgba(248, 236, 209, 0.95);
+            margin-bottom: 1.1em;
+            letter-spacing: 0.01em;
+        }
+        .reading-body p:last-child { margin-bottom: 0; }
+        .reading-body mark {
+            background: none;
+            color: var(--cream);
+            border-bottom: 1px solid var(--accent);
+        }
+        .reading-body a {
+            color: var(--accent-warm);
+            border-bottom: 1px solid var(--accent-warm);
+            text-decoration: none;
+        }
+        .reading-body a:hover { color: var(--cream); }
+        .reading-nav {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-top: 2rem; padding-top: 1.3rem;
+            border-top: 1px solid rgba(248, 236, 209, 0.18);
+        }
+        .reading-progress {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem; letter-spacing: 0.24em;
+            color: rgba(248, 236, 209, 0.55);
+        }
+        .reading-next {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem; letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--accent-warm);
+            background: none; border: none;
+            cursor: none; padding: 0.4rem 0;
+        }
+        .reading-next:hover { color: var(--cream); }
+        .reading-close {
+            position: absolute;
+            top: 1rem; right: 1.2rem;
+            background: none; border: none;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem; letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: rgba(248, 236, 209, 0.55);
+            cursor: none; padding: 0.3rem 0.5rem;
+        }
+        .reading-close:hover { color: var(--accent-warm); }
+
+        /* ═══════ WORKS — rabbit-back photo bg ═══════ */
+        #view-works {
+            background:
+                linear-gradient(180deg, rgba(15, 8, 3, 0.5) 0%, rgba(15, 8, 3, 0.35) 100%),
+                url('./rabbit-back.jpg') center/cover fixed no-repeat;
+        }
+        #view-works::before {
+            content: '';
+            position: absolute; inset: 0;
+            pointer-events: none;
+            opacity: 0.18;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch' seed='5'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/></svg>");
+            mix-blend-mode: overlay;
+            z-index: 1;
+        }
+        .page-header { text-align: center; margin-bottom: 4rem; }
+        .page-title {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: clamp(3.2rem, 6.5vw, 5rem);
+            color: var(--cream);
+            letter-spacing: -0.01em;
+            margin-bottom: 0.4rem;
+            font-weight: 400;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+        }
+        .page-sub {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: var(--cream-warm);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+        }
+        .work {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 3rem;
+            padding: 2.8rem 2.4rem;
+            background: rgba(15, 8, 3, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            margin-bottom: 8rem;
+            border: 1px solid rgba(232, 168, 92, 0.18);
+            border-radius: 6px;
+            transition: border-color 0.4s, background 0.4s, transform 0.4s;
+        }
+        .work:hover {
+            border-color: rgba(232, 168, 92, 0.5);
+            background: rgba(15, 8, 3, 0.72);
+            transform: translateY(-3px);
+        }
+        @media (max-width: 640px) { .work { grid-template-columns: 1fr; gap: 1.2rem; padding: 2rem 1.5rem; } }
+        .work-num {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: 2.5rem;
+            color: var(--accent-warm);
+            line-height: 1;
+        }
+        .work-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+            color: var(--cream);
+            margin-bottom: 0.8rem;
+            line-height: 1.2;
+            font-weight: 400;
+        }
+        .work-desc {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--cream-soft);
+            margin-bottom: 1.2rem;
+            max-width: 560px;
+        }
+        .work-desc mark {
+            background: none;
+            color: var(--cream);
+            border-bottom: 1px solid var(--accent-warm);
+        }
+        .work-desc strong { color: var(--cream); font-weight: 500; }
+        .work-desc em {
+            color: var(--accent-warm);
+            font-style: italic;
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.05rem;
+        }
+        .work-links { display: flex; gap: 1.6rem; flex-wrap: wrap; }
+        .work-link {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--accent-warm);
+            text-decoration: none;
+            padding-bottom: 3px;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s, color 0.3s;
+        }
+        .work-link::before { content: '→ '; opacity: 0.5; }
+        .work-link:hover { color: var(--cream); border-bottom-color: var(--accent-warm); }
+        .wiki-inline {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.7rem 2rem;
+            margin-top: 0.4rem;
+        }
+        @media (max-width: 640px) { .wiki-inline { grid-template-columns: 1fr; } }
+        .wiki-line {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.05rem;
+            color: var(--cream-soft);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 3px;
+            transition: color 0.3s, border-color 0.3s;
+        }
+        .wiki-line:hover { color: var(--cream); border-bottom-color: var(--accent-warm); }
+        .wiki-line em {
+            color: var(--accent-warm);
+            font-style: normal;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-right: 0.6rem;
+        }
+
+        /* ═══════ ABOUT — rabbit-lying photo bg ═══════ */
+        #view-about {
+            background:
+                linear-gradient(180deg, rgba(15, 8, 3, 0.7) 0%, rgba(15, 8, 3, 0.85) 100%),
+                url('./rabbit-lying.webp') center/cover fixed no-repeat;
+        }
+        #view-about::before {
+            content: '';
+            position: absolute; inset: 0;
+            pointer-events: none;
+            opacity: 0.18;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch' seed='6'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/></svg>");
+            mix-blend-mode: overlay;
+            z-index: 1;
+        }
+        .about-paper {
+            background: var(--cream-warm);
+            color: var(--ink);
+            padding: 3.5rem 3.5rem 2.8rem;
+            max-width: 640px;
+            margin: 0 auto 2.5rem;
+            position: relative;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.55);
+            border-radius: 4px;
+        }
+        .about-paper p {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.18rem;
+            line-height: 1.75;
+            color: #4A3020;
+            margin-bottom: 1.1em;
+        }
+        .about-paper p:last-of-type { margin-bottom: 0; }
+        .about-paper mark {
+            background: none;
+            color: var(--ink);
+            border-bottom: 1px solid var(--accent-deep);
+        }
+        .about-paper strong { color: var(--ink); font-weight: 500; }
+        .about-sign {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--accent-deep);
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(26, 15, 7, 0.15);
+        }
+
+        .about-nl {
+            max-width: 640px;
+            margin: 2.5rem auto 0;
+            padding: 1.6rem 1.8rem;
+            background: rgba(15, 8, 3, 0.55);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(232, 168, 92, 0.2);
+            border-radius: 6px;
+            display: flex; gap: 1.4rem;
+            align-items: baseline;
+            flex-wrap: wrap;
+        }
+        .about-nl-title {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: 1.25rem;
+            color: var(--cream);
+        }
+        .about-nl-desc {
+            flex: 1;
+            font-size: 0.95rem;
+            color: var(--cream-soft);
+            font-family: 'Instrument Serif', serif;
+        }
+        .about-nl-desc a {
+            color: var(--accent-warm);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent-warm);
+        }
+        .about-nl-follow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem; letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--accent-warm);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent-warm);
+            padding-bottom: 2px;
+        }
+        .news-block { max-width: 640px; margin: 2rem auto 0; }
+        .news-toggle {
+            width: 100%;
+            background: rgba(15, 8, 3, 0.5);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(232, 168, 92, 0.2);
+            color: var(--cream);
+            padding: 1rem 1.4rem;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between; align-items: center;
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.2rem;
+            font-style: italic;
+            cursor: none;
+            transition: border-color 0.3s, background 0.3s, color 0.3s;
+        }
+        .news-toggle:hover { color: var(--accent-warm); border-color: var(--accent-warm); background: rgba(15, 8, 3, 0.7); }
+        .news-toggle .chev {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--cream-mute);
+            transition: transform 0.3s;
+        }
+        .news-toggle.open .chev { transform: rotate(180deg); }
+        .news-body {
+            max-height: 0; overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        .news-body.open { max-height: 1600px; padding: 1.5rem 0.6rem 0.5rem; }
+        .news-cat { margin-bottom: 1.5rem; }
+        .news-cat-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: var(--accent-warm);
+            margin-bottom: 0.5rem;
+        }
+        .news-cat-items {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.02rem;
+            color: var(--cream-soft);
+            line-height: 1.75;
+        }
+        .news-full-link {
+            display: inline-block;
+            margin-top: 0.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem; letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--accent-warm);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent-warm);
+            padding-bottom: 3px;
+        }
+        .certs { max-width: 640px; margin: 3rem auto 0; }
+        .certs h4 {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: 1.3rem;
+            color: var(--cream);
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+        }
+        .cert {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--line);
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 1.5rem;
+        }
+        .cert:last-child { border-bottom: none; }
+        @media (max-width: 640px) { .cert { grid-template-columns: 1fr; gap: 0.4rem; } }
+        .cert-school {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem; letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-warm);
+        }
+        .cert-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.05rem;
+            color: var(--cream);
+            margin-bottom: 0.25rem;
+        }
+        .cert-meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--cream-mute);
+        }
+        .about-links {
+            display: flex; justify-content: center;
+            gap: 3rem;
+            margin: 3rem auto 0;
+            flex-wrap: wrap;
+        }
+        .about-link {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--cream);
+            text-decoration: none;
+            padding-bottom: 3px;
+            border-bottom: 1px solid var(--accent-warm);
+            transition: color 0.3s;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+        }
+        .about-link:hover { color: var(--accent-warm); }
+
+        .footer {
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--cream-mute);
+            text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+        }
+
+        /* Email popup */
+        .email-popup {
+            position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--cream-warm);
+            color: var(--ink);
+            padding: 2rem 2.2rem;
+            z-index: 300;
+            display: none;
+            text-align: center;
+            border-radius: 4px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            min-width: 320px;
+        }
+        .email-popup p {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        .email-popup button {
+            background: none;
+            border: 1px solid var(--ink);
+            color: var(--ink);
+            padding: 0.5rem 1.2rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            cursor: none;
+            margin: 0 0.3rem;
             transition: all 0.2s;
         }
-        .close-detail-btn:hover { background: #f0f0f0; border-color: #999; color: #111 !important; }
-        .empty-line { height: 1.2em; width: 100%; }
-
-        /* 新闻气泡样式 */
-        .news-list-container { overflow-x: auto; }
-        .news-bubble {
-            background: rgba(255, 255, 255, 0.88);
-            backdrop-filter: blur(2px);
-            border-radius: 24px;
-            padding: 1.2rem 1.3rem;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-            border: 1px solid rgba(255,255,255,0.4);
-            font-family: 'JetBrains Mono', 'Courier New', monospace;
-            transition: background 0.2s;
-        }
-        .news-bubble:hover { background: rgba(255, 255, 255, 0.7); }
-        .news-main-title-outside {
-            font-size: 1.2rem;
-            font-weight: 500;
-            color: #ffffff;
-            border-bottom: 2px solid rgba(255,255,255,0.2);
-            padding-bottom: 0.3rem;
-            margin: 1.5rem 0 0.8rem 0;
-            font-family: 'Press Start 2P', monospace;
-        }
-        .link-header { margin: 0.5rem 0 0.8rem 0; }
-        .link-header a {
-            color: #2c3e50;
-            font-family: 'Press Start 2P', monospace;
-            text-decoration: underline;
-            font-weight: 500;
-            font-size: 0.7rem;
-        }
-        .news-sections { display: flex; flex-direction: column; gap: 0.7rem; }
-        .news-section .section-title {
-            font-weight: 600;
-            color: #1e2f3f;
-            margin-bottom: 0.2rem;
-            font-family: 'JetBrains Mono', 'Courier New', monospace;
-            font-size: 0.9rem;
-            letter-spacing: -0.2px;
-        }
-        .section-content { line-height: 1.3; margin-left: 0.5rem; }
-        .news-line {
-            padding: 0.15rem 0;
-            transition: color 0.3s ease;
-            color: #111;
-            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
-            font-size: 0.85rem;
-            cursor: default;
-        }
-        .news-line:hover { color: #ffffff !important; text-shadow: 0 0 2px rgba(0,0,0,0.2); }
-        .news-bubble .link-header a:hover { color: #ffffff !important; }
-        .news-bubble .section-title:hover { color: inherit !important; }
+        .email-popup button:hover { background: var(--ink); color: var(--cream); }
     </style>
 </head>
 <body>
-    <div id="cat-cursor">🐈</div>
+    <div id="cursor"></div>
+    <div id="cursor-dot"></div>
 
     <div id="emailPopup" class="email-popup">
-        <p>📧 graceguo2004@outlook.com</p>
-        <button id="copyEmailBtn"><i class="fas fa-copy"></i> Copy</button>
-        <button class="close-btn" onclick="document.getElementById('emailPopup').style.display='none'">Close</button>
+        <p>graceguo2004@outlook.com</p>
+        <button id="copyBtn">Copy</button>
+        <button onclick="document.getElementById('emailPopup').style.display='none'">Close</button>
     </div>
 
-    <a class="scroll-indicator" id="scrollBtn">↑</a>
-
-    <div class="pages-container" id="pagesContainer">
-        <!-- PAGE 1: 花瓣区域 -->
-        <div class="page" id="page1">
-            <div class="pixel-bg">Linge · Grace</div>
-            <div class="home-tagline">Sociotechnical Lens | AI | Technology | Human-Computer Interaction</div>
-            <div class="page-content">
-                <h1>💿 work-from-home-</h1>
-                <div class="flower-center">
-                    <div class="petal petal-1" data-petal="analyze"><div class="petal-text"><div class="short">ANALYZE</div><div class="micro">contextualized·cognitive</div></div></div>
-                    <div class="petal petal-2" data-petal="through"><div class="petal-text"><div class="short">THROUGH</div><div class="micro">systems·power</div></div></div>
-                    <div class="petal petal-3" data-petal="pursue"><div class="petal-text"><div class="short">PURSUE</div><div class="micro">ethical·effective</div></div></div>
-                    <div class="petal petal-4" data-petal="speak"><div class="petal-text"><div class="short">SPEAK</div><div class="micro">voice·justice</div></div></div>
-                </div>
-                <div class="typewriter-container" id="typewriter"><span id="typewriter-text"></span><span class="cursor-blink" id="cursor"></span></div>
-                <div class="continue-wrapper"><button id="continueBtn" class="continue-btn" disabled>Click All</button></div>
-                <div id="projectCardsContainer" class="project-cards-container"></div>
-            </div>
-        </div>
-
-        <!-- PAGE 2: 内容页面 -->
-        <div class="page" id="page2">
-            <div class="pixel-bg">
-                Sociotechnical Lens | AI | Technology | Human-Computer Interaction<br>
-                I am a trained sociologist studying the societal impact of digital technologies through sociotechnical lens. With a particular interest in AI, I examine the underlying mechanisms of its infrastructure to inform ethics from a sociological perspective.<br>
-                Inspired by critical questions raised during the 2023 AI Safety Summit (ASS), I began exploring the issue of AI deception—how different forms of deceptive capabilities entangled with historical and societal biases, and how discourses around deception evolve alongside technological development. Drawing on courses in Science and Technology Studies to deepen my understanding of the power dynamics shaping technological paradigms, I offered an evaluation of AI deception’ social implications and persistent challenges, which was published on arXiv during my undergraduate studies.<br>
-                During my Sociology MSc at the University of Oxford, I deepened my technical understanding through studies at the Oxford Internet Institute, where I gained expertise in Fairness, Transparency, and Accountability in Machine Learning. I applied these tools in a qualitative audit of Microsoft’s XiaoIce model—an AI companion released in 2014, predating popular apps like Character.ai and Replika. This audit, conducted in accordance with ACM FAccT’s auditing principles, integrated interdisciplinary theories to critically examine the model’s gendered design and the power dynamics embedded in its affordances. Although currently unpublished, this work was completed in May 2025 as part of a course project and served as the foundation for my ongoing thesis.<br>
-                My thesis investigated the contexts, processes, and mechanisms through which users connect with AI Companions (AICs), perceiving them as trustworthy “social actors”. Using a mixed-methods approach – quantitative dataset analysis and qualitative interviews with inductive analysis – I examined both romantic and non-romantic users’ experiences with AICs. My analysis explored the mechanisms of connectedness, moments of anthropomorphisation, and the cyclical fulfilment of dual needs that can foster compulsive use. This study interrogates the ways in which AICs facilitate non-judgemental backstage self-disclosure, and examines how these interactions may reshape role expectations and reconceptualise romantic relationships and love, thereby contributing to the tangible social implications of human–AI socialisation.
-                Detailed Abstracts are Below.<br>
-                “Unmasking the Shadows of AI: Investigating Deceptive Capabilities in Large Language Models” <br>
-            </div>
-            <div class="page-content">
-                <div class="two-col">
-                    <!-- 左侧：项目卡片 -->
-                    <div class="left-col">
-                        <h2>🌐 AI-co-created projects</h2>
-                        <div class="projects-vertical">
-                            <!-- 卡片 1: LinkedIn Newsletter -->
-                            <div class="card">
-                                <h3>🐈‍⬛ LinkedIn Newsletter</h3>
-                                <div class="description">Weekly insights on macro forces, tech news, society, and of course on AI, from a Humanistic perspective.<br><br>Scroll down to see my AI employee.</div>
-                                <div class="links">
-                                    <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7422191016994217984" target="_blank" class="btn linkedin"><i class="fab fa-linkedin"></i> Follow</a>
-                                    <a href="https://www.linkedin.com/pulse/openclaw-revolution-from-digital-employee-demographic-linge-guo-43vwc" target="_blank" class="btn latest"><i class="fab fa-linkedin"></i> Latest Episode: OpenClaw</a>
-                                </div>
-                            </div>
-                            <!-- 卡片 2: Academic Portfolio -->
-                            <div class="card">
-                                <h3>🪿 Academic Portfolio</h3>
-                                <div class="description">Research project showcase. Including recommended study tools, AI sources, Books. Pick your everyday quote!<br>"𝒰𝓃𝒸𝒽𝒶𝒾𝓃𝑒𝒹 𝑀𝑒𝓁𝑜𝒹𝓎" — play this song and take your time.<br><br>My academic bot _Grace's Bot, supports Q&A on my personal papers and research, and also serves as a sociology study partner, helping you analyze sociological theories, explore new research questions, and offer the latest observations on empirical social trends.</div>
-                                <div class="links">
-                                    <a href="https://app--graces-kiosk-a4c1d845.base44.app/" target="_blank" class="btn portfolio"><i class="fas fa-globe"></i> Grace's Kiosk </a>
-                                    <a href="https://code.coze.cn/p/7616316878792818726/preview" target="_blank" class="btn portfolio"><i class="fas fa-robot"></i> Academic Agent</a>
-                                </div>
-                            </div>
-                            <!-- 卡片 3: Productivity Apps -->
-                            <div class="card">
-                                <h3>🛁 Productivity Apps</h3>
-                                <div class="description">Momentum is a gentle life management tool to help you visualize and manage your energy through small, science‑backed recovery actions. Rest is not escape — it’s part of your momentum. This is the first app I created for the goal of # Guiding genuine Rest to realize your full productivity#.<br><br>The second App improved from its and from some market research been the Nuero-Mentum. Cognitive-burnout consequences are being overlooked and becoming more visible in our daily lives with Doomscrolling, which is not restorative. Nuero-Mentum embeds Micro-Tasks with 60-mins Deep Work Focus Session yo recover your Prefrontal Cortex after intensive concentration. <br><small>Ideas for improvement? Collaboration welcome!</small></div>
-                                <div class="links">
-                                    <a href="https://screenapp.io/app/v/YzJV1A2nJl" target="_blank" class="btn play"><i class="fas fa-play"></i> Demo</a>
-                                    <a href="https://rugged-build-your-momentum.base44.app/Home" target="_blank" class="btn chart"><i class="fas fa-chart-bar"></i> Momentum</a>
-                                    <a href="https://clear-pfc-flow.base44.app" target="_blank" class="btn chart"><i class="fas fa-chart-bar"></i> Neuro-Mentum</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 右侧：表格 + 新闻气泡 -->
-                    <div class="right-col">
-                        <h2>🦷 AI Knowledge Compilation</h2>
-                        <div class="table-section">
-                            <table class="project-table">
-                                <thead><tr><th>Project</th><th>Focus Area</th><th>Description</th><th>Link</th></tr></thead>
-                                <tbody>
-                                    <tr><td><strong>LLM Wiki</strong></td><td>AI Knowledge Base</td><td>Comprehensive LLM concepts and AI fundamentals.</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/UfMaw8HkmiQR8JkdZwjcmQNjnyc?from=from_copylink" target="_blank">📁</a></td></tr>
-                                    <tr><td><strong>AI Governance</strong></td><td>Policy & Governance</td><td>Framework for understanding AI governance in China.</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/P5O8w8uENiE6RGkVrw2c5pUunTc?from=from_copylink" target="_blank">📃</a></td></tr>
-                                    <tr><td><strong>Prompt Red Teaming</strong></td><td>Safety & Ethics</td><td>Moral evaluations and safety testing of AI systems.</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/Ep3ewlDZligXJMkiZnxcQsDDnNc?from=from_copylink" target="_blank">🦙</a></td></tr>
-                                    <tr><td><strong>Learning Sum</strong></td><td>Knowledge Piece-s</td><td>AI Podcasts & Newsletter learning notes, please request individually.</td><td><a href="https://rcnd1qqt63cw.feishu.cn/wiki/U7oJwODIEiwUtHkEXKncffCYnNc?from=from_copylink" target="_blank">📓</a></td></tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="news-main-title-outside">🪽 AI-news-/-source-list</div>
-                        <div class="news-list-container">
-                            <div class="news-bubble">
-                                <div class="link-header"><a href="https://rcnd1qqt63cw.feishu.cn/wiki/CDjwwrbjsixKWDkdmUzcdSCmnnE?from=from_copylink" target="_blank" class="news-link">📓 Link Compilations-CLick here</a></div>
-                                <div class="news-sections">
-                                    <div class="news-section"><div class="section-title">[engineer] :</div><div class="section-content"><div class="news-line">AI News</div><div class="news-line">Latent Space Substack</div><div class="news-line">Andrej Karpathy Personal Web (AI infra/LLM)</div></div></div>
-                                    <div class="news-section"><div class="section-title">[newsletter/blogs]:</div><div class="section-content"><div class="news-line">YC Combinator</div><div class="news-line">AI·Business (Specialized modules)</div><div class="news-line">TechCrunch News (Startup & Ventures)</div><div class="news-line">Lenny's Podcast Substack (Youtuber interviews, AI PM)</div><div class="news-line">Artificial Ignorance Substack (Content Creation)</div><div class="news-line">Elena's Growth Scoop Substack (Product Growth)</div><div class="news-line">AI Valley (Short-read about tech giants + Tools)</div></div></div>
-                                    <div class="news-section"><div class="section-title">[policy]:</div><div class="section-content"><div class="news-line">AI safety in China Substack</div><div class="news-line">Centre for Humane Technology Substack</div></div></div>
-                                    <div class="news-section"><div class="section-title">[Macro Insights]:</div><div class="section-content"><div class="news-line">Futurum Signals (Tech Specialization)</div><div class="news-line">Gartner ()</div><div class="news-line">NIQ IQ Brief (Consumer trends)</div><div class="news-line">human8 annual trend report (Consulting cases)</div></div></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- AI Learning 部分 -->
-                <div class="full-width">
-                    <h2>🤍 AI Course Learning</h2>
-                    <div class="cert-list">
-                        <div class="cert-item"><div class="cert-school">Oxford Internet Institute</div><div class="cert-details"><div class="cert-title">Fairness, Accountability and Transparency of Machine Learning</div><div class="cert-meta">2025, Qualitative Audit & prompt-testing of Microsoft XiaoIce model</div></div></div>
-                        <div class="cert-item"><div class="cert-school">The Alan Turing Institute</div><div class="cert-details"><div class="cert-title">Operationalising Ethics in AI - Expert</div><div class="cert-meta">learning ———</div></div></div>
-                        <div class="cert-item"><div class="cert-school">UCL</div><div class="cert-details"><div class="cert-title">Sociology of Science and Technology<br>Sociology of Cybersecurity<br>Special Topics in Science and Society</div><div class="cert-meta">2021-2024</div></div></div>
-                        <div class="cert-item"><div class="cert-school">Duke University</div><div class="cert-details"><div class="cert-title">Machine Learning Foundations for Product Managers (Coursera)</div><div class="cert-meta"><span><i class="far fa-calendar-alt"></i> Issued Mar 2026</span> <span>Skills: Train AutoML Model on Google Cloud Vertex AI.</span></div></div></div>
-                        <div class="cert-item"><div class="cert-school">IBM</div><div class="cert-details"><div class="cert-title">Product Management: An Introduction (Coursera)</div><div class="cert-meta"><span><i class="far fa-calendar-alt"></i> Issued Feb 2026</span></div></div></div>
-                        <div class="cert-item"><div class="cert-school">Amazon</div><div class="cert-details"><div class="cert-title">Fundamentals of Machine Learning and AI (Coursera)</div><div class="cert-meta"><span><i class="far fa-calendar-alt"></i> Issued Feb 2026</span></div></div></div>
-                    </div>
-                </div>
-
-                <!-- 协作区 -->
-                <div class="collab">
-                    <h2>💡 Let's Collaborate!</h2>
-                    <p>Interested? Have an idea? Let's connect.</p>
-                    <div class="links">
-                        <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7422191016994217984" target="_blank" class="btn linkedin"><i class="fab fa-linkedin"></i> LinkedIn Newsletter</a>
-                        <a href="#" id="emailBtn" class="btn wiki"><i class="fas fa-envelope"></i> Email</a>
-                    </div>
-                </div>
-                <div class="curiosity-line">✦ built with curiosity ✦</div>
-            </div>
+    <div id="readingBackdrop" class="reading-backdrop"></div>
+    <div id="reading" class="reading">
+        <button class="reading-close" id="readingClose">Close</button>
+        <div class="reading-label" id="readingLabel"></div>
+        <div class="reading-eyebrow" id="readingEyebrow"></div>
+        <h2 class="reading-title" id="readingTitle"></h2>
+        <div class="reading-body" id="readingBody"></div>
+        <div class="reading-nav">
+            <span class="reading-progress" id="readingProgress">01 / 04</span>
+            <button class="reading-next" id="readingNext">Next →</button>
         </div>
     </div>
+
+    <nav>
+        <a class="brand" data-view="home">grace</a>
+        <div class="nav-links">
+            <a class="nav-link active" data-view="home">Home</a>
+            <a class="nav-link" data-view="works">Works</a>
+            <a class="nav-link" data-view="about">About</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- ═══════ HOME ═══════ -->
+        <section class="view active" id="view-home">
+            <div class="container">
+                <div class="hero">
+                    <div class="hero-eyebrow">Linge · Grace · Guo</div>
+                    <h1 class="hero-name">grace</h1>
+                    <p class="hero-sub">a sociotechnical lens on artificial intelligence, technology, and the humans caught between them.</p>
+                </div>
+
+                <div class="deer-marks">
+                    <div class="spot s1" data-item="speak">
+                        <div class="spot-dot">i</div>
+                        <div class="spot-label">speak</div>
+                    </div>
+                    <div class="spot s2" data-item="through">
+                        <div class="spot-dot">ii</div>
+                        <div class="spot-label">through</div>
+                    </div>
+                    <div class="spot s3" data-item="analyze">
+                        <div class="spot-dot">iii</div>
+                        <div class="spot-label">analyze</div>
+                    </div>
+                    <div class="spot s4" data-item="pursue">
+                        <div class="spot-dot">iv</div>
+                        <div class="spot-label">pursue</div>
+                    </div>
+                </div>
+
+                <div class="hero-hint" id="heroHint">
+                    click a mark on the fawn — start with <em>i. speak</em>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════ WORKS ═══════ -->
+        <section class="view" id="view-works">
+            <div class="container">
+                <div class="page-header">
+                    <h2 class="page-title">works</h2>
+                    <div class="page-sub">four things I keep building</div>
+                </div>
+
+                <div class="work">
+                    <div class="work-num">01</div>
+                    <div>
+                        <h3 class="work-title">Academic Portfolio</h3>
+                        <p class="work-desc">Research project showcase — study tools, AI sources, books. <em>"Unchained Melody" — play and take your time.</em> Grace's Kiosk is my academic folder.</p>
+                        <p class="work-desc">Grace's Bot: Q&amp;A on my papers plus a <mark>sociology study partner</mark> for theories, questions, and empirical trends.</p>
+                        <div class="work-links">
+                            <a class="work-link" href="https://app--graces-kiosk-a4c1d845.base44.app/" target="_blank">Grace's Kiosk</a>
+                            <a class="work-link" href="https://code.coze.cn/p/7616316878792818726/preview" target="_blank">Academic Agent</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work">
+                    <div class="work-num">02</div>
+                    <div>
+                        <h3 class="work-title">Productivity Apps</h3>
+                        <p class="work-desc"><strong>Momentum</strong> — a gentle life management tool to visualize energy through <mark>science-backed recovery actions</mark>. Rest is not escape; it's part of your momentum.</p>
+                        <p class="work-desc"><strong>Neuro-Mentum</strong> — Micro-Tasks embedded in a 60-min Deep Work Focus Session to recover the Prefrontal Cortex after intensive concentration.</p>
+                        <div class="work-links">
+                            <a class="work-link" href="https://screenapp.io/app/v/YzJV1A2nJl" target="_blank">Demo</a>
+                            <a class="work-link" href="https://rugged-build-your-momentum.base44.app/Home" target="_blank">Momentum</a>
+                            <a class="work-link" href="https://clear-pfc-flow.base44.app" target="_blank">Neuro-Mentum</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work">
+                    <div class="work-num">03</div>
+                    <div>
+                        <h3 class="work-title">LinkedIn Newsletter</h3>
+                        <p class="work-desc">Weekly insights on macro forces, tech news, society, and of course on AI, from a <mark>humanistic perspective</mark>. Latest: <em>OpenClaw — Revolution from Digital Employee to Demographic Shift.</em></p>
+                        <div class="work-links">
+                            <a class="work-link" href="https://www.linkedin.com/pulse/openclaw-revolution-from-digital-employee-demographic-linge-guo-43vwc" target="_blank">Read latest</a>
+                            <a class="work-link" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7422191016994217984" target="_blank">Follow</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work">
+                    <div class="work-num">04</div>
+                    <div>
+                        <h3 class="work-title">AI Knowledge Wiki</h3>
+                        <p class="work-desc">Four notebooks I keep updating — for anyone who wants to <mark>think about AI seriously</mark>.</p>
+                        <div class="wiki-inline">
+                            <a class="wiki-line" href="https://rcnd1qqt63cw.feishu.cn/wiki/UfMaw8HkmiQR8JkdZwjcmQNjnyc?from=from_copylink" target="_blank"><em>i.</em>LLM Wiki</a>
+                            <a class="wiki-line" href="https://rcnd1qqt63cw.feishu.cn/wiki/P5O8w8uENiE6RGkVrw2c5pUunTc?from=from_copylink" target="_blank"><em>ii.</em>AI Governance</a>
+                            <a class="wiki-line" href="https://rcnd1qqt63cw.feishu.cn/wiki/Ep3ewlDZligXJMkiZnxcQsDDnNc?from=from_copylink" target="_blank"><em>iii.</em>Prompt Red Team</a>
+                            <a class="wiki-line" href="https://rcnd1qqt63cw.feishu.cn/wiki/U7oJwODIEiwUtHkEXKncffCYnNc?from=from_copylink" target="_blank"><em>iv.</em>Learning Sum</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════ ABOUT ═══════ -->
+        <section class="view" id="view-about">
+            <div class="container">
+                <div class="page-header">
+                    <h2 class="page-title">about</h2>
+                    <div class="page-sub">the person behind the marks</div>
+                </div>
+
+                <div class="about-paper">
+                    <p>Hi, I'm <mark>Grace (Linge Guo)</mark>.</p>
+                    <p>I'm a trained sociologist studying the societal impact of digital technologies through a <mark>sociotechnical lens</mark>. With a particular interest in AI, I examine the underlying mechanisms of its infrastructure to inform ethics from a sociological perspective.</p>
+                    <p>I studied Sociology at UCL, then completed my MSc in Sociology at the University of Oxford — deepening my technical grounding at the Oxford Internet Institute in <mark>Fairness, Transparency, and Accountability of Machine Learning</mark>.</p>
+                    <p>Currently I'm working at the intersection of AI companions, AI deception, and platform governance — click any mark on the <strong>Home</strong> page to open the specific research threads.</p>
+                    <p class="about-sign">— always thinking, sometimes writing.</p>
+                </div>
+
+                <div class="about-nl">
+                    <div class="about-nl-title">LinkedIn Newsletter</div>
+                    <div class="about-nl-desc">Weekly humanistic take on AI. Latest: <a href="https://www.linkedin.com/pulse/openclaw-revolution-from-digital-employee-demographic-linge-guo-43vwc" target="_blank">OpenClaw</a>.</div>
+                    <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7422191016994217984" target="_blank" class="about-nl-follow">Follow</a>
+                </div>
+
+                <div class="news-block">
+                    <button class="news-toggle" id="newsToggle">
+                        <span><em>AI news &amp; source list</em></span>
+                        <span class="chev">◇</span>
+                    </button>
+                    <div class="news-body" id="newsBody">
+                        <div class="news-cat">
+                            <div class="news-cat-title">— engineer</div>
+                            <div class="news-cat-items">
+                                <div>AI News</div>
+                                <div>Latent Space Substack</div>
+                                <div>Andrej Karpathy — Personal Web</div>
+                            </div>
+                        </div>
+                        <div class="news-cat">
+                            <div class="news-cat-title">— newsletter · blogs</div>
+                            <div class="news-cat-items">
+                                <div>YC Combinator</div>
+                                <div>AI·Business — specialized modules</div>
+                                <div>TechCrunch — Startup &amp; Ventures</div>
+                                <div>Lenny's Podcast Substack</div>
+                                <div>Artificial Ignorance Substack</div>
+                                <div>Elena's Growth Scoop Substack</div>
+                                <div>AI Valley</div>
+                            </div>
+                        </div>
+                        <div class="news-cat">
+                            <div class="news-cat-title">— policy</div>
+                            <div class="news-cat-items">
+                                <div>AI Safety in China Substack</div>
+                                <div>Centre for Humane Technology</div>
+                            </div>
+                        </div>
+                        <div class="news-cat">
+                            <div class="news-cat-title">— macro insights</div>
+                            <div class="news-cat-items">
+                                <div>Futurum Signals</div>
+                                <div>Gartner</div>
+                                <div>NIQ IQ Brief</div>
+                                <div>human8 annual trend report</div>
+                            </div>
+                        </div>
+                        <a href="https://rcnd1qqt63cw.feishu.cn/wiki/CDjwwrbjsixKWDkdmUzcdSCmnnE?from=from_copylink" target="_blank" class="news-full-link">Full compilation →</a>
+                    </div>
+                </div>
+
+                <div class="certs">
+                    <h4>learning</h4>
+                    <div class="cert"><div class="cert-school">Oxford Internet Institute</div><div><div class="cert-title">Fairness, Accountability &amp; Transparency of ML</div><div class="cert-meta">2025 · Qualitative audit of XiaoIce</div></div></div>
+                    <div class="cert"><div class="cert-school">Alan Turing Institute</div><div><div class="cert-title">Operationalising Ethics in AI — Expert</div><div class="cert-meta">Ongoing</div></div></div>
+                    <div class="cert"><div class="cert-school">UCL</div><div><div class="cert-title">Sociology of Science &amp; Tech · Cybersecurity · STS</div><div class="cert-meta">2021–2024</div></div></div>
+                    <div class="cert"><div class="cert-school">Duke</div><div><div class="cert-title">ML Foundations for Product Managers</div><div class="cert-meta">Coursera · Mar 2026</div></div></div>
+                    <div class="cert"><div class="cert-school">IBM</div><div><div class="cert-title">Product Management: An Introduction</div><div class="cert-meta">Coursera · Feb 2026</div></div></div>
+                    <div class="cert"><div class="cert-school">Amazon</div><div><div class="cert-title">Fundamentals of Machine Learning and AI</div><div class="cert-meta">Coursera · Feb 2026</div></div></div>
+                </div>
+
+                <div class="about-links">
+                    <a href="#" class="about-link" id="emailBtn">Email</a>
+                    <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7422191016994217984" target="_blank" class="about-link">LinkedIn</a>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">built with curiosity · 2026</footer>
+    </main>
 
     <script>
-        // 平滑滚动函数（全局）
-        function smoothScrollToElement(element, duration = 800) {
-            const start = window.scrollY || window.pageYOffset;
-            const target = element.getBoundingClientRect().top + start;
-            const startTime = performance.now();
-            function step(now) {
-                const elapsed = now - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                const ease = 1 - Math.pow(1 - progress, 3);
-                window.scrollTo(0, start + (target - start) * ease);
-                if (progress < 1) requestAnimationFrame(step);
-            }
-            requestAnimationFrame(step);
+    (function() {
+        /* CURSOR */
+        const cursor = document.getElementById('cursor');
+        const dot = document.getElementById('cursor-dot');
+        if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+            cursor.style.display = 'block';
+            dot.style.display = 'block';
+            let mx = innerWidth/2, my = innerHeight/2, gx = mx, gy = my;
+            document.addEventListener('mousemove', e => {
+                mx = e.clientX; my = e.clientY;
+                dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+            });
+            (function raf() {
+                gx += (mx - gx) * 0.16; gy += (my - gy) * 0.16;
+                cursor.style.left = gx + 'px'; cursor.style.top = gy + 'px';
+                requestAnimationFrame(raf);
+            })();
+            const interactive = 'a, button, .spot, .nav-link, .brand, .work-link, .wiki-line, .news-toggle, .about-link, .about-nl-follow, .news-full-link, .reading-close, .reading-next, .work';
+            document.addEventListener('mouseover', e => {
+                if (e.target.closest && e.target.closest(interactive)) {
+                    dot.style.transform = 'translate(-50%, -50%) scale(3)';
+                }
+                /* Cream paper cards (about + reading pane) — swap dot to dark brown so it stays visible */
+                if (e.target.closest && e.target.closest('.about-paper, .reading')) {
+                    dot.classList.add('on-paper');
+                }
+            });
+            document.addEventListener('mouseout', e => {
+                if (e.target.closest && e.target.closest(interactive)) {
+                    dot.style.transform = 'translate(-50%, -50%) scale(1)';
+                }
+                if (e.target.closest && e.target.closest('.about-paper, .reading')) {
+                    dot.classList.remove('on-paper');
+                }
+            });
+        } else { document.body.style.cursor = 'auto'; }
+
+        /* NAV / VIEW */
+        const navLinks = document.querySelectorAll('nav [data-view]');
+        const views = document.querySelectorAll('.view');
+        function switchView(name) {
+            views.forEach(v => v.classList.toggle('active', v.id === `view-${name}`));
+            document.querySelectorAll('.nav-link').forEach(a => a.classList.toggle('active', a.dataset.view === name));
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+        navLinks.forEach(a => a.addEventListener('click', e => { e.preventDefault(); switchView(a.dataset.view); }));
 
-        (function() {
-            let petalsEnabled = true;
-            const cursor = document.getElementById('cat-cursor');
-            if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-                cursor.style.display = 'block';
-                document.addEventListener('mousemove', e => { cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; });
-                cursor.innerText = '🐈';
-                document.querySelectorAll('a, button, .btn, .card, .cert-item, .close-detail-btn').forEach(el => {
-                    if (el) { 
-                        el.addEventListener('mouseenter', () => cursor.style.transform = 'translate(-50%, -50%) scale(1.2)');
-                        el.addEventListener('mouseleave', () => cursor.style.transform = 'translate(-50%, -50%) scale(1)');
-                    }
-                });
-                const petalsDom = document.querySelectorAll('.petal');
-                petalsDom.forEach(petal => {
-                    petal.addEventListener('mouseenter', () => { cursor.innerText = '🎐'; cursor.style.transform = 'translate(-50%, -50%) scale(1.2)'; });
-                    petal.addEventListener('mouseleave', () => { cursor.innerText = '🐈'; cursor.style.transform = 'translate(-50%, -50%) scale(1)'; });
-                });
-            } else {
-                cursor.style.display = 'none';
-                document.body.style.cursor = 'auto';
-            }
+        /* SPOTS / READING */
+        const order = ['speak', 'through', 'analyze', 'pursue'];
+        const spots = document.querySelectorAll('.spot');
+        const heroHint = document.getElementById('heroHint');
+        const readingBackdrop = document.getElementById('readingBackdrop');
+        const reading = document.getElementById('reading');
+        const readingClose = document.getElementById('readingClose');
+        const readingLabel = document.getElementById('readingLabel');
+        const readingEyebrow = document.getElementById('readingEyebrow');
+        const readingTitle = document.getElementById('readingTitle');
+        const readingBody = document.getElementById('readingBody');
+        const readingNext = document.getElementById('readingNext');
+        const readingProgress = document.getElementById('readingProgress');
+        const clickedState = {};
+        let currentId = null;
 
-            const petals = document.querySelectorAll('.petal');
-            const continueBtn = document.getElementById('continueBtn');
-            const typewriterSpan = document.getElementById('typewriter-text');
-            const page2 = document.getElementById('page2');
-            const cardsContainer = document.getElementById('projectCardsContainer');
-            let clickedCount = 0;
-            const totalPetals = 4;
-            const clickedState = {};
-            const phraseMap = {
-                analyze: "Analyze Human-Technology Interaction",
-                through: "Through Socio-Technical Lens",
-                pursue: "Pursue the Best Practice",
-                speak: "Speak for the Marginalized"
-            };
-            const detailMap = {
-                analyze: "The Velvet Cage of AI Companions (AICs): Illusions of Intimacy and Control, and Their Social Implication（空行）（空行）My master thesis at Oxford investigated the contexts, processes, and mechanisms through which users connect with AI Companions (AICs), perceiving them as trustworthy 'social actors'. Using a mixed-methods approach – quantitative dataset analysis and qualitative interviews with inductive analysis – I examined both romantic and non-romantic users' experiences with AICs. My analysis explored the mechanisms of connectedness, moments of anthropomorphisation, and the cyclical fulfilment of dual needs that can foster compulsive use. This study interrogates the ways in which AICs facilitate non-judgemental backstage self-disclosure, and examines how these interactions may reshape role expectations and reconceptualise romantic relationships and love, thereby contributing to the tangible social implications of human–AI socialisation. Please feel free to requst the Abstract indiviudally.",
-                through: "“Unmasking Artificial Intimacy: A Critical Audit of Microsoft’s XiaoIce AI Companion in Chinese Context”（空行）（空行）I have deepened my technical understanding through studies at the Oxford Internet Institute, where I gained expertise in Fairness, Transparency, and Accountability in Machine Learning. I applied these tools in a qualitative audit of Microsoft's XiaoIce model—an AI companion released in 2014, predating popular apps like Character.ai and Replika. This audit, conducted in accordance with ACM FAccT's auditing principles, integrated interdisciplinary theories to critically examine the model's gendered design and the power dynamics embedded in its affordances.",
-                pursue: "Building on the empirical insights of my thesis analysis, I developed a comprehensive policy recommendation submitted to the Cyberspace Administration of China, aiming to inform China's provisional regulatory framework for the increasingly anthropomorphised services. These risks should be interpreted not as universally representative outcomes, but rather as possibilities that emerge under interaction of specific usage patterns, motivations, and cognitive biases.（空行）（空行）Against this backdrop, my policy recommendations focus on four key regulatory priorities: developing measurable indicators and monitoring systems to assess user emotional dependency; establishing tiered intervention protocols for users experiencing high-risk psychological states; requiring clear in-interface disclosure; and strengthening oversight of anthropomorphic deliberation to avoid exploiting psychological vulnerabilities to maximise engagement. Please feel free to requst indiviudally.",
-                speak: "“Unmasking the Shadows of AI: Investigating Deceptive Capabilities in Large Language Models”（空行）（空行）Inspired by critical questions raised during the 2023 AI Safety Summit (ASS), I began exploring the issue of AI deception— how different forms of deceptive capabilities entangled with historical and societal biases, and how discourses around deception evolve alongside technological development.（空行）（空行）Drawing on courses in Science and Technology Studies to deepen my understanding of the power dynamics shaping technological paradigms, I offered an evaluation of AI deception' social implications and persistent challenges, which was published on arXiv during my undergraduate studies. <a href='https://arxiv.org/abs/2403.09676' target='_blank' style='color: #aac9ff;'>arXiv:2403.09676</a>"
-            };
+        const eyebrowMap = {
+            speak:   'i. Speak — for the marginalized',
+            through: 'ii. Through — socio-technical lens',
+            analyze: 'iii. Analyze — human · technology interaction',
+            pursue:  'iv. Pursue — the best practice'
+        };
+        const titleMap = {
+            analyze: "The Velvet Cage of AI Companions — Illusions of Intimacy and Control",
+            through: "Unmasking Artificial Intimacy — A Critical Audit of Microsoft's XiaoIce",
+            pursue:  "Policy Recommendations to the Cyberspace Administration of China",
+            speak:   "Unmasking the Shadows of AI — Deceptive Capabilities in LLMs"
+        };
+        const bodyMap = {
+            analyze: [
+                "My master thesis at Oxford investigated the contexts, processes, and mechanisms through which users connect with AI Companions (AICs), perceiving them as <mark>trustworthy 'social actors'</mark>.",
+                "Using a mixed-methods approach — quantitative dataset analysis and qualitative interviews with inductive analysis — I examined both romantic and non-romantic users' experiences with AICs.",
+                "My analysis explored the mechanisms of connectedness, moments of anthropomorphisation, and the <mark>cyclical fulfilment of dual needs</mark> that can foster compulsive use. This study interrogates the ways in which AICs facilitate non-judgemental backstage self-disclosure, and examines how these interactions may reshape role expectations and reconceptualise romantic relationships and love.",
+                "Please feel free to request the Abstract individually."
+            ],
+            through: [
+                "I deepened my technical understanding through studies at the Oxford Internet Institute, where I gained expertise in <mark>Fairness, Transparency, and Accountability in Machine Learning</mark>.",
+                "I applied these tools in a qualitative audit of Microsoft's XiaoIce — an AI companion released in 2014, predating popular apps like Character.ai and Replika.",
+                "Conducted in accordance with ACM FAccT's auditing principles, this audit integrated interdisciplinary theories to critically examine the model's <mark>gendered design and the power dynamics embedded in its affordances</mark>."
+            ],
+            pursue: [
+                "Building on the empirical insights of my thesis, I developed <mark>comprehensive policy recommendations</mark> submitted to the Cyberspace Administration of China, informing China's provisional regulatory framework for increasingly anthropomorphised services.",
+                "Four regulatory priorities: (1) measurable indicators and monitoring systems to assess user emotional dependency; (2) tiered intervention protocols for users in high-risk psychological states; (3) clear in-interface disclosure; (4) oversight of anthropomorphic deliberation to prevent exploitation of <mark>psychological vulnerabilities</mark> for engagement.",
+                "Please feel free to request individually."
+            ],
+            speak: [
+                "Inspired by critical questions raised during the 2023 AI Safety Summit, I began exploring the issue of <mark>AI deception</mark> — how different forms of deceptive capabilities entangle with historical and societal biases, and how discourses around deception evolve alongside technological development.",
+                "Drawing on courses in Science and Technology Studies to deepen my understanding of the power dynamics shaping technological paradigms, I offered an evaluation of AI deception's social implications and persistent challenges — <mark>published on arXiv</mark> during my undergraduate studies.",
+                "→ <a href='https://arxiv.org/abs/2403.09676' target='_blank'>arXiv:2403.09676</a>"
+            ]
+        };
 
-            let activeTimer = null;
-            function startTyping(phrase) {
-                if (activeTimer) clearInterval(activeTimer);
-                typewriterSpan.textContent = '';
-                let index = 0;
-                activeTimer = setInterval(() => {
-                    if (index < phrase.length) {
-                        typewriterSpan.textContent += phrase.charAt(index);
-                        index++;
-                    } else {
-                        clearInterval(activeTimer);
-                        activeTimer = null;
-                    }
-                }, 60);
+        function openReading(id) {
+            currentId = id;
+            readingLabel.textContent = id;
+            readingEyebrow.textContent = eyebrowMap[id];
+            readingTitle.textContent = titleMap[id];
+            readingBody.innerHTML = bodyMap[id].map(p => `<p>${p}</p>`).join('');
+            const idx = order.indexOf(id);
+            readingProgress.textContent = String(idx + 1).padStart(2, '0') + ' / 04';
+            readingNext.textContent = idx < order.length - 1 ? `Next: ${order[idx + 1]} →` : 'Close ✕';
+            readingBackdrop.classList.add('visible');
+            reading.classList.add('visible');
+            reading.scrollTop = 0;
+        }
+        function closeReading() {
+            readingBackdrop.classList.remove('visible');
+            reading.classList.remove('visible');
+            currentId = null;
+        }
+        function nextReading() {
+            if (!currentId) return;
+            const idx = order.indexOf(currentId);
+            if (idx < order.length - 1) selectSpot(order[idx + 1]);
+            else closeReading();
+        }
+        function selectSpot(id) {
+            const el = document.querySelector(`.spot[data-item="${id}"]`);
+            if (el && !clickedState[id]) {
+                clickedState[id] = true;
+                el.classList.add('clicked');
             }
-            function resetPetals() {
-                petals.forEach(p => p.classList.remove('clicked'));
-                clickedCount = 0;
-                for (let key in clickedState) delete clickedState[key];
-                typewriterSpan.textContent = '';
-                if (activeTimer) clearInterval(activeTimer);
-                activeTimer = null;
-                cardsContainer.innerHTML = '';
-            }
-            function updateButtonState() {
-                if (clickedCount === totalPetals) {
-                    continueBtn.disabled = false;
-                    continueBtn.classList.add('active');
-                    continueBtn.textContent = 'Unlock';
-                } else {
-                    continueBtn.disabled = true;
-                    continueBtn.classList.remove('active');
-                    continueBtn.textContent = 'Click All';
-                }
-            }
-            let currentLockedPetal = null;
-            function showDetailCard(petalId) {
-                cardsContainer.innerHTML = '';
-                const card = document.createElement('div');
-                card.className = 'project-detail-card';
-                card.setAttribute('data-petal', petalId);
-                const rawContent = detailMap[petalId];
-                const segments = rawContent.split('（空行）');
-                let innerHTML = '<button class="close-detail-btn">✕ CLOSE</button>';
-                segments.forEach(segment => {
-                    if (segment.trim() === '') innerHTML += '<div class="empty-line"></div>';
-                    else innerHTML += `<p>${segment.trim()}</p>`;
-                });
-                card.innerHTML = innerHTML;
-                const closeBtn = card.querySelector('.close-detail-btn');
-                closeBtn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    card.remove();
-                    currentLockedPetal = null;
-                });
-                cardsContainer.appendChild(card);
-                card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                currentLockedPetal = petalId;
-            }
-            function closeAllCards() { cardsContainer.innerHTML = ''; currentLockedPetal = null; }
+            heroHint.classList.add('dim');
+            openReading(id);
+        }
+        readingBackdrop.addEventListener('click', closeReading);
+        readingClose.addEventListener('click', closeReading);
+        readingNext.addEventListener('click', nextReading);
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeReading(); });
+        spots.forEach(s => s.addEventListener('click', () => selectSpot(s.dataset.item)));
 
-            petals.forEach(petal => {
-                petal.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    if (!petalsEnabled) return;
-                    let petalId = '';
-                    if (this.classList.contains('petal-1')) petalId = 'analyze';
-                    else if (this.classList.contains('petal-2')) petalId = 'through';
-                    else if (this.classList.contains('petal-3')) petalId = 'pursue';
-                    else if (this.classList.contains('petal-4')) petalId = 'speak';
-                    if (!clickedState[petalId]) {
-                        clickedState[petalId] = true;
-                        this.classList.add('clicked');
-                        clickedCount++;
-                    }
-                    startTyping(phraseMap[petalId]);
-                    showDetailCard(petalId);
-                    updateButtonState();
-                });
+        /* EMAIL */
+        const emailBtn = document.getElementById('emailBtn');
+        const popup = document.getElementById('emailPopup');
+        const copyBtn = document.getElementById('copyBtn');
+        emailBtn?.addEventListener('click', e => { e.preventDefault(); popup.style.display = 'block'; });
+        copyBtn.addEventListener('click', () => {
+            navigator.clipboard?.writeText('graceguo2004@outlook.com').then(() => {
+                copyBtn.textContent = 'Copied';
+                setTimeout(() => copyBtn.textContent = 'Copy', 1500);
             });
-            petals.forEach(petal => {
-                petal.addEventListener('mouseenter', function() {
-                    if (currentLockedPetal !== null) return;
-                    let petalId = '';
-                    if (this.classList.contains('petal-1')) petalId = 'analyze';
-                    else if (this.classList.contains('petal-2')) petalId = 'through';
-                    else if (this.classList.contains('petal-3')) petalId = 'pursue';
-                    else if (this.classList.contains('petal-4')) petalId = 'speak';
-                    startTyping(phraseMap[petalId]);
-                });
-                petal.addEventListener('mouseleave', function() {
-                    if (currentLockedPetal !== null) return;
-                    typewriterSpan.textContent = '';
-                    if (activeTimer) clearInterval(activeTimer);
-                    activeTimer = null;
-                });
-            });
-            document.addEventListener('click', (e) => {
-                if (page2.style.display === 'flex') return;
-                if (!e.target.closest('.petal') && !e.target.closest('.project-detail-card') && !e.target.closest('#continueBtn') && !e.target.closest('.close-detail-btn')) {
-                    if (cardsContainer.children.length > 0) {
-                        closeAllCards();
-                        typewriterSpan.textContent = '';
-                        if (activeTimer) clearInterval(activeTimer);
-                        activeTimer = null;
-                        document.getElementById('page1').scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                }
-            });
-            continueBtn.addEventListener('click', function() {
-                if (!continueBtn.classList.contains('active')) return;
-                if (continueBtn.textContent === 'Unlock') {
-                    closeAllCards();
-                    petalsEnabled = false;
-                    page2.style.display = 'flex';
-                    setTimeout(() => {
-                        page2.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 100);
-                    continueBtn.textContent = 'Reset';
-                } else if (continueBtn.textContent === 'Reset') {
-                    page2.style.display = 'none';
-                    resetPetals();
-                    currentLockedPetal = null;
-                    petalsEnabled = true;
-                    continueBtn.textContent = 'Click All';
-                    continueBtn.disabled = true;
-                    continueBtn.classList.remove('active');
-                }
-            });
-
-            const container = document.getElementById('pagesContainer');
-            const scrollBtn = document.getElementById('scrollBtn');
-            let currentPage = 1;
-            function updateButton() {
-                const page1El = document.getElementById('page1');
-                const rect1 = page1El.getBoundingClientRect();
-                if (rect1.top >= -50 && rect1.top < window.innerHeight/2) {
-                    currentPage = 1;
-                    scrollBtn.textContent = '↓';
-                } else {
-                    currentPage = 2;
-                    scrollBtn.textContent = '↑';
-                }
+        });
+        document.addEventListener('click', e => {
+            if (popup.style.display === 'block' && !popup.contains(e.target) && e.target !== emailBtn) {
+                popup.style.display = 'none';
             }
-            container.addEventListener('scroll', updateButton);
-            setTimeout(updateButton, 100);
-            scrollBtn.addEventListener('click', () => {
-                if (currentPage === 1) {
-                    if (page2.style.display === 'flex') page2.scrollIntoView({ behavior: 'smooth' });
-                } else {
-                    smoothScrollToElement(document.getElementById('page1'), 1200);
-                }
-            });
-            window.addEventListener('resize', updateButton);
+        });
 
-            const emailBtn = document.getElementById('emailBtn');
-            const popup = document.getElementById('emailPopup');
-            const copyBtn = document.getElementById('copyEmailBtn');
-            if (emailBtn) {
-                emailBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    popup.style.display = 'block';
-                });
-            }
-            copyBtn.addEventListener('click', () => {
-                navigator.clipboard.writeText('graceguo2004@outlook.com').then(() => {
-                    alert('Email copied to clipboard!');
-                }).catch(() => {
-                    alert('Press Ctrl+C to copy: graceguo2004@outlook.com');
-                });
-            });
-            window.addEventListener('click', (e) => {
-                if (!popup.contains(e.target) && e.target !== emailBtn && !emailBtn?.contains(e.target)) {
-                    popup.style.display = 'none';
-                }
-            });
-        })();
+        /* NEWS */
+        const newsToggle = document.getElementById('newsToggle');
+        const newsBody = document.getElementById('newsBody');
+        newsToggle.addEventListener('click', () => {
+            newsToggle.classList.toggle('open');
+            newsBody.classList.toggle('open');
+        });
+    })();
     </script>
 </body>
 </html>
