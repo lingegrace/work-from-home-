@@ -8,11 +8,11 @@
   "updated": "2026-11-07",
   "skills": [
     {
-      "name": "product-value-fab",
+      "name": "value-proposition-writer",
       "section": "product-marketing",
-      "tagline": "Product value & FAB analysis",
+      "tagline": "Value proposition writer — features to benefits (FAB)",
       "summary": "Turns a PRD, spec or feature list into a Feature–Advantage–Benefit analysis grounded in your audience, their pain points and the competition.",
-      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/product-marketing/product-value-fab",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/product-marketing/value-proposition-writer",
       "featured": true
     },
     {

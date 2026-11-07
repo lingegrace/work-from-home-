@@ -14,7 +14,7 @@ import urllib.request
 
 REPO = "lingegrace/claude-research-skills"
 # Shown as full cards on the website; every other skill appears in the short list.
-FEATURED = ["product-value-fab", "competitive-market-research", "sociology-deep-research"]
+FEATURED = ["value-proposition-writer", "competitive-market-research", "sociology-deep-research"]
 OUT = pathlib.Path(__file__).resolve().parent.parent / "skills.json"
 
 
@@ -50,7 +50,7 @@ def main():
         print("No skills found. Keeping existing file.")
         return 0
     sections = ["product-marketing", "sociology", "research", ""]
-    preferred = ["product-value-fab", "positioning-messaging", "user-persona-builder", "customer-review-mining",
+    preferred = ["value-proposition-writer", "positioning-messaging", "user-persona-builder", "customer-review-mining",
                  "competitive-market-research", "feature-launch-kit", "customer-case-study", "ai-product-audit",
                  "research-question-grill", "sociology-deep-research", "interview-guide", "thematic-analysis",
                  "quantitative-analysis", "content-research-analyst", "fact-check-draft"]

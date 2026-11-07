@@ -701,16 +701,17 @@
                         <p class="group-desc" id="skillsIntro">15 free skills for the human side of product work and research: product value, positioning, personas, launches, competitor analysis, literature reviews, thematic analysis and fact-checking. Each one asks what you need first, and never makes things up.</p>
                         <code class="code-line">/plugin marketplace add lingegrace/claude-research-skills</code>
                         <div class="group-actions">
+                            <a class="btn btn-primary" href="https://lingegrace.github.io/skills/" target="_blank" rel="noopener">Visit the Skill Library ↗</a>
                             <a class="work-link" href="https://github.com/lingegrace/claude-research-skills" target="_blank" rel="noopener">View on GitHub ↗</a>
                             <a class="work-link" href="https://github.com/lingegrace/claude-research-skills#install" target="_blank" rel="noopener">How to install ↗</a>
                         </div>
                     </div>
                     <div class="subgrid three" id="skillCards">
                         <div class="sub">
-                            <div class="sub-kicker">Product value &amp; FAB analysis</div>
-                            <h3 class="sub-title">product-value-fab</h3>
+                            <div class="sub-kicker">Value proposition writer — features to benefits (FAB)</div>
+                            <h3 class="sub-title">value-proposition-writer</h3>
                             <p class="sub-desc">Turns a PRD, spec or feature list into a Feature–Advantage–Benefit analysis grounded in your audience, their pain points and the competition.</p>
-                            <div class="sub-links"><a class="work-link" href="https://github.com/lingegrace/claude-research-skills/tree/main/skills/product-marketing/product-value-fab" target="_blank" rel="noopener">Open ↗</a></div>
+                            <div class="sub-links"><a class="work-link" href="https://github.com/lingegrace/claude-research-skills/tree/main/skills/product-marketing/value-proposition-writer" target="_blank" rel="noopener">Open ↗</a></div>
                         </div>
                         <div class="sub">
                             <div class="sub-kicker">Competitor analysis &amp; market research</div>
@@ -727,7 +728,7 @@
                     </div>
                     <div class="more-skills" id="moreSkills">
                         <div class="more-title">More skills on GitHub</div>
-                        <p class="more-row"><a href="https://github.com/lingegrace/claude-research-skills#all-skills" target="_blank" rel="noopener">See all 15 skills ↗</a></p>
+                        <p class="more-row"><a href="https://lingegrace.github.io/skills/skills/" target="_blank" rel="noopener">See all skills in the Skill Library ↗</a></p>
                     </div>
                 </article>
 
@@ -1118,7 +1119,7 @@
             document.getElementById('moreSkills').innerHTML = `<div class="more-title">More skills on GitHub · ${rest.length}</div>` +
                 order.map(sec => `<p class="more-row"><b>${e(names[sec] || 'Other')}</b>${rest.filter(k => (k.section || '') === sec)
                     .map(k => `<a href="${e(k.url)}" target="_blank" rel="noopener" title="${e(k.tagline)}">${e(k.name)}</a>`).join('<span class="sep">·</span>')}</p>`).join('') +
-                `<p class="more-row"><a href="${repo}#all-skills" target="_blank" rel="noopener">See all ${list.length} skills on GitHub ↗</a></p>`;
+                `<p class="more-row"><a href="https://lingegrace.github.io/skills/skills/" target="_blank" rel="noopener">See all ${list.length} skills in the Skill Library ↗</a></p>`;
             const intro = document.getElementById('skillsIntro');
             if (intro) intro.textContent = intro.textContent.replace(/^\d+ free skills/, list.length + ' free skills');
         }).catch(() => {});
