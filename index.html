@@ -3,16 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grace · Linge Guo</title>
+    <title>Grace (Linge Guo) · Sociologist of AI & Technology</title>
+    <meta name="description" content="Linge (Grace) Guo — Oxford-trained sociologist researching AI companions, AI deception and platform governance through a sociotechnical lens. Research, apps, newsletter and open-source Claude research skills.">
+    <meta name="author" content="Linge (Grace) Guo">
+    <link rel="canonical" href="https://lingegrace.github.io/work-from-home-/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Grace (Linge Guo) · Sociologist of AI & Technology">
+    <meta property="og:description" content="Research on AI companions, AI deception and platform governance — plus the tools and writing I keep building.">
+    <meta property="og:url" content="https://lingegrace.github.io/work-from-home-/">
+    <meta property="og:image" content="https://lingegrace.github.io/work-from-home-/deer-opt.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#1A0F07">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231A0F07'/><text x='50' y='70' font-size='62' text-anchor='middle' font-family='Georgia,serif' font-style='italic' fill='%23F5C482'>g</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-    <!-- Preload all 3 background photos with high priority — start downloading before CSS/JS parse finishes -->
-    <link rel="preload" as="image" href="./deer.jpg" fetchpriority="high">
-    <link rel="preload" as="image" href="./rabbit-back.jpg" fetchpriority="high">
-    <link rel="preload" as="image" href="./rabbit-lying.webp" type="image/webp" fetchpriority="high">
-    <script>
-      /* Kick off image downloads immediately, in parallel, before the CSS is done parsing */
-      ['./deer.jpg','./rabbit-back.jpg','./rabbit-lying.webp'].forEach(src => { const i = new Image(); i.fetchPriority = 'high'; i.src = src; });
+    <!-- Only the first screen's photo is preloaded; Works/About photos load when opened -->
+    <link rel="preload" as="image" href="./deer-opt.jpg" fetchpriority="high">
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "Person", "name": "Linge Guo", "alternateName": "Grace Guo",
+     "url": "https://lingegrace.github.io/work-from-home-/", "jobTitle": "Sociologist — AI & society",
+     "alumniOf": [{"@type": "CollegeOrUniversity", "name": "University of Oxford"}, {"@type": "CollegeOrUniversity", "name": "University College London"}],
+     "knowsAbout": ["AI companions", "AI deception", "Platform governance", "Sociology of technology", "AI ethics"],
+     "sameAs": ["https://github.com/lingegrace", "https://arxiv.org/abs/2403.09676"]}
     </script>
     <style>
         :root {
@@ -151,7 +164,7 @@
         #view-home {
             background:
                 linear-gradient(180deg, rgba(15, 8, 3, 0.42) 0%, rgba(15, 8, 3, 0.15) 40%, rgba(15, 8, 3, 0.55) 100%),
-                url('./deer.jpg') center/cover fixed no-repeat;
+                url('./deer-opt.jpg') center/cover fixed no-repeat;
         }
         /* subtle grain over photo — makes it feel like film, not too crisp */
         #view-home::before {
@@ -422,393 +435,179 @@
         }
         .reading-close:hover { color: var(--accent-warm); }
 
-        /* ═══════ WORKS — rabbit-back photo bg ═══════ */
-        #view-works {
-            background:
-                linear-gradient(180deg, rgba(15, 8, 3, 0.5) 0%, rgba(15, 8, 3, 0.35) 100%),
-                url('./rabbit-back.jpg') center/cover fixed no-repeat;
+        /* ═══════ ADDITIONS (new) ═══════ */
+        a.nav-link, a.brand { cursor: none; }
+        .nav-links { align-items: baseline; }
+        .nav-cta {
+            font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
+            text-decoration: none; color: var(--ink); background: var(--accent-warm);
+            padding: 0.35rem 0.85rem; border-radius: 100px; transition: background .3s; cursor: none;
         }
-        #view-works::before {
-            content: '';
-            position: absolute; inset: 0;
-            pointer-events: none;
-            opacity: 0.18;
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch' seed='5'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/></svg>");
-            mix-blend-mode: overlay;
-            z-index: 1;
+        .nav-cta:hover { background: var(--cream); }
+        @media (max-width: 640px) { .nav-cta { display: none; } }
+        :focus-visible { outline: 2px solid var(--accent-warm); outline-offset: 3px; border-radius: 4px; }
+
+        /* home: the one new button, styled like the existing pills */
+        .hero-cta { text-align: center; margin-top: 1.6rem; }
+        .btn {
+            display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.22em;
+            text-transform: uppercase; text-decoration: none; padding: 0.7rem 1.4rem; border-radius: 100px; cursor: none;
+            border: 1px solid rgba(232, 168, 92, 0.55); transition: background .3s, color .3s, border-color .3s;
         }
-        .page-header { text-align: center; margin-bottom: 4rem; }
+        .btn-ghost { background: rgba(15, 8, 3, 0.6); color: var(--cream); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+        .btn-ghost:hover { border-color: var(--accent-warm); color: var(--accent-warm); background: rgba(15, 8, 3, 0.85); }
+        .btn-primary { background: var(--accent-warm); color: var(--ink); border-color: var(--accent-warm); }
+        .btn-primary:hover { background: var(--cream); border-color: var(--cream); }
+
+        /* page headers */
+        .page-header { text-align: center; margin-bottom: 3rem; }
         .page-title {
-            font-family: 'Instrument Serif', serif;
-            font-style: italic;
-            font-size: clamp(3.2rem, 6.5vw, 5rem);
-            color: var(--cream);
-            letter-spacing: -0.01em;
-            margin-bottom: 0.4rem;
-            font-weight: 400;
+            font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400;
+            font-size: clamp(3.2rem, 6.5vw, 5rem); letter-spacing: -0.01em; margin-bottom: 0.3rem; color: var(--cream);
             text-shadow: 0 4px 20px rgba(0,0,0,0.6);
         }
-        .page-sub {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.72rem;
-            letter-spacing: 0.32em;
-            text-transform: uppercase;
-            color: var(--cream-warm);
-            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
-        }
-        .work {
-            display: grid;
-            grid-template-columns: 100px 1fr;
-            gap: 3rem;
-            padding: 2.8rem 2.4rem;
-            background: rgba(15, 8, 3, 0.6);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            margin-bottom: 8rem;
-            border: 1px solid rgba(232, 168, 92, 0.18);
-            border-radius: 6px;
-            transition: border-color 0.4s, background 0.4s, transform 0.4s;
-        }
-        .work:hover {
-            border-color: rgba(232, 168, 92, 0.5);
-            background: rgba(15, 8, 3, 0.72);
-            transform: translateY(-3px);
-        }
-        @media (max-width: 640px) { .work { grid-template-columns: 1fr; gap: 1.2rem; padding: 2rem 1.5rem; } }
-        .work-num {
-            font-family: 'Instrument Serif', serif;
-            font-style: italic;
-            font-size: 2.5rem;
-            color: var(--accent-warm);
-            line-height: 1;
-        }
-        .work-title {
-            font-family: 'Instrument Serif', serif;
-            font-size: clamp(1.6rem, 2.6vw, 2.1rem);
-            color: var(--cream);
-            margin-bottom: 0.8rem;
-            line-height: 1.2;
-            font-weight: 400;
-        }
-        .work-desc {
-            font-size: 1rem;
-            line-height: 1.7;
-            color: var(--cream-soft);
-            margin-bottom: 1.2rem;
-            max-width: 560px;
-        }
-        .work-desc mark {
-            background: none;
-            color: var(--cream);
-            border-bottom: 1px solid var(--accent-warm);
-        }
-        .work-desc strong { color: var(--cream); font-weight: 500; }
-        .work-desc em {
-            color: var(--accent-warm);
-            font-style: italic;
-            font-family: 'Instrument Serif', serif;
-            font-size: 1.05rem;
-        }
-        .work-links { display: flex; gap: 1.6rem; flex-wrap: wrap; }
-        .work-link {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.72rem;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: var(--accent-warm);
-            text-decoration: none;
-            padding-bottom: 3px;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.3s, color 0.3s;
-        }
-        .work-link::before { content: '→ '; opacity: 0.5; }
-        .work-link:hover { color: var(--cream); border-bottom-color: var(--accent-warm); }
-        .wiki-inline {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.7rem 2rem;
-            margin-top: 0.4rem;
-        }
-        @media (max-width: 640px) { .wiki-inline { grid-template-columns: 1fr; } }
-        .wiki-line {
-            font-family: 'Instrument Serif', serif;
-            font-size: 1.05rem;
-            color: var(--cream-soft);
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            padding-bottom: 3px;
-            transition: color 0.3s, border-color 0.3s;
-        }
-        .wiki-line:hover { color: var(--cream); border-bottom-color: var(--accent-warm); }
-        .wiki-line em {
-            color: var(--accent-warm);
-            font-style: normal;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            margin-right: 0.6rem;
+        .page-sub { font-size: 1.05rem; color: var(--cream-warm); text-shadow: 0 2px 8px rgba(0,0,0,0.6); }
+        .tag {
+            font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.06em; color: var(--accent-warm);
+            border: 1px solid rgba(245,196,130,0.4); border-radius: 100px; padding: 0.15rem 0.6rem; white-space: nowrap;
         }
 
-        /* ═══════ ABOUT — rabbit-lying photo bg ═══════ */
-        #view-about {
-            background:
-                linear-gradient(180deg, rgba(15, 8, 3, 0.7) 0%, rgba(15, 8, 3, 0.85) 100%),
-                url('./rabbit-lying.webp') center/cover fixed no-repeat;
+        /* ═══════ WORKS ═══════ */
+        #view-works {
+            background: linear-gradient(180deg, rgba(15,8,3,0.55) 0%, rgba(15,8,3,0.45) 100%), url('./rabbit-back-opt.jpg') center/cover no-repeat;
         }
-        #view-about::before {
-            content: '';
-            position: absolute; inset: 0;
-            pointer-events: none;
-            opacity: 0.18;
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch' seed='6'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/></svg>");
-            mix-blend-mode: overlay;
-            z-index: 1;
+        #view-works::before, #view-about::before {
+            content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0.18; z-index: 1; mix-blend-mode: overlay;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch' seed='5'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/></svg>");
+        }
+        #view-works .container, #view-about .container { max-width: 1000px; }
+        .filters { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.2rem; }
+        .filter {
+            font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+            background: rgba(15,8,3,0.55); color: var(--cream-soft); border: 1px solid var(--line);
+            padding: 0.45rem 0.95rem; border-radius: 100px; cursor: none; backdrop-filter: blur(6px);
+        }
+        .filter[aria-pressed="true"], .filter:hover { color: var(--ink); background: var(--accent-warm); border-color: var(--accent-warm); }
+
+        .group {
+            background: rgba(15, 8, 3, 0.66); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(232,168,92,0.2); border-radius: 10px; padding: 1.9rem 1.9rem 1.7rem; margin-bottom: 1.5rem;
+            transition: border-color .3s;
+        }
+        .group:hover { border-color: rgba(232,168,92,0.45); }
+        .group.featured { border-color: rgba(245,196,130,0.5); }
+        .group[hidden] { display: none; }
+        @media (max-width: 640px) { .group { padding: 1.4rem 1.1rem; } }
+        .group-head { margin-bottom: 1.3rem; }
+        .group-top { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+        .work-num { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 1.8rem; color: var(--accent-warm); line-height: 1; }
+        .work-badge { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); background: var(--accent-warm); padding: 0.15rem 0.55rem; border-radius: 100px; }
+        .group-title { font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(1.7rem, 2.8vw, 2.2rem); line-height: 1.15; color: var(--cream); margin: 0.4rem 0 0.6rem; }
+        .group-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.8rem; }
+        .group-desc { font-size: 0.98rem; line-height: 1.65; color: var(--cream-soft); max-width: 720px; }
+        .group-desc strong { color: var(--cream); font-weight: 500; }
+        .group-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center; margin-top: 0.9rem; }
+
+        .subgrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.9rem; }
+        .subgrid.three { grid-template-columns: repeat(3, 1fr); }
+        @media (max-width: 860px) { .subgrid.three { grid-template-columns: 1fr; } }
+        @media (max-width: 640px) { .subgrid { grid-template-columns: 1fr; } }
+        .sub {
+            display: flex; flex-direction: column; background: rgba(248, 236, 209, 0.045);
+            border: 1px solid rgba(248, 236, 209, 0.12); border-radius: 8px; padding: 1.1rem 1.2rem 1.1rem;
+            transition: border-color .3s, background .3s, transform .3s;
+        }
+        .sub:hover { border-color: rgba(245,196,130,0.5); background: rgba(248,236,209,0.07); transform: translateY(-2px); }
+        .sub-kicker { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-warm); margin-bottom: 0.3rem; }
+        .sub-title { font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 1.4rem; line-height: 1.2; color: var(--cream); margin-bottom: 0.4rem; }
+        .sub-desc { font-size: 0.92rem; line-height: 1.6; color: var(--cream-soft); margin-bottom: 0.9rem; }
+        .sub-desc em { font-family: 'Instrument Serif', serif; font-size: 1.02rem; color: var(--accent-warm); }
+        .sub-links { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: auto; }
+        .work-link {
+            font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.08em; cursor: none;
+            color: var(--accent-warm); text-decoration: none; border: 1px solid rgba(245,196,130,0.4);
+            padding: 0.38rem 0.8rem; border-radius: 100px; transition: background .3s, color .3s;
+        }
+        .work-link:hover { background: var(--accent-warm); color: var(--ink); }
+        .work-link small { opacity: 0.7; font-size: 0.66rem; }
+        .work-note { font-size: 0.8rem; color: var(--cream-mute); margin-top: 0.9rem; }
+        .code-line {
+            display: block; font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--cream);
+            background: rgba(0,0,0,0.35); border: 1px solid var(--line); border-radius: 6px;
+            padding: 0.55rem 0.8rem; margin-top: 0.9rem; overflow-x: auto; white-space: nowrap; max-width: 560px;
+        }
+
+        /* newsletter */
+        .issue-latest { grid-column: 1 / -1; }
+        .issue-latest .sub-title { font-size: 1.65rem; }
+        .issue-date { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--cream-mute); margin-bottom: 0.8rem; }
+        .issue-list { list-style: none; grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.4rem 1.4rem; }
+        @media (max-width: 640px) { .issue-list { grid-template-columns: 1fr; } }
+        .issue-list a {
+            display: flex; justify-content: space-between; gap: 1rem; text-decoration: none; cursor: none;
+            color: var(--cream-soft); font-size: 0.92rem; padding: 0.55rem 0; border-bottom: 1px solid var(--line);
+        }
+        .issue-list a:hover { color: var(--accent-warm); }
+        .issue-list span { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--cream-mute); white-space: nowrap; }
+
+        /* ═══════ ABOUT ═══════ */
+        #view-about {
+            background: linear-gradient(180deg, rgba(15,8,3,0.72) 0%, rgba(15,8,3,0.88) 100%), url('./rabbit-lying.webp') center/cover no-repeat;
+        }
+        /* Works/About photos never rescale when the page gets taller (e.g. opening the source list) */
+        #view-works, #view-about { background-size: auto, auto 100vh; background-position: center, top center; }
+        @media (hover: hover) and (pointer: fine) {
+            #view-works, #view-about { background-attachment: fixed, fixed; background-size: cover, cover; background-position: center, center; }
         }
         .about-paper {
-            background: var(--cream-warm);
-            color: var(--ink);
-            padding: 3.5rem 3.5rem 2.8rem;
-            max-width: 640px;
-            margin: 0 auto 2.5rem;
-            position: relative;
-            box-shadow: 0 24px 60px rgba(0,0,0,0.55);
-            border-radius: 4px;
+            background: var(--cream-warm); color: var(--ink); padding: 3.2rem 3.4rem 2.6rem;
+            max-width: 680px; margin: 0 auto 2rem; box-shadow: 0 24px 60px rgba(0,0,0,0.55); border-radius: 4px;
         }
-        .about-paper p {
-            font-family: 'Instrument Serif', serif;
-            font-size: 1.18rem;
-            line-height: 1.75;
-            color: #4A3020;
-            margin-bottom: 1.1em;
+        @media (max-width: 640px) { .about-paper { padding: 2rem 1.4rem; } }
+        .about-paper p { font-family: 'Instrument Serif', serif; font-size: 1.2rem; line-height: 1.72; color: #4A3020; margin-bottom: 1em; }
+        .about-paper mark { background: none; color: var(--ink); border-bottom: 1px solid var(--accent-deep); }
+        .about-paper a { color: var(--accent-deep); cursor: none; }
+        .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.9rem; margin: 1.6rem 0 0.4rem; }
+        @media (max-width: 560px) { .facts { grid-template-columns: 1fr; } }
+        .fact { border-top: 1px solid rgba(26,15,7,0.18); padding-top: 0.6rem; }
+        .fact b { display: block; font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-deep); font-weight: 500; }
+        .fact span { font-size: 0.9rem; color: #4A3020; }
+        .about-sign { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent-deep); margin-top: 1.4rem; }
+        .section { max-width: 680px; margin: 2.4rem auto 0; }
+        .section-title { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: 1.6rem; color: var(--cream); margin-bottom: 1rem; text-align: center; text-shadow: 0 2px 8px rgba(0,0,0,0.5); }
+        .contact { display: flex; gap: 0.7rem; flex-wrap: wrap; justify-content: center; }
+        details.sources { background: rgba(15,8,3,0.6); backdrop-filter: blur(6px); border: 1px solid rgba(232,168,92,0.22); border-radius: 6px; }
+        details.sources summary {
+            list-style: none; cursor: none; padding: 1rem 1.4rem; display: flex; justify-content: space-between; align-items: center;
+            font-family: 'Instrument Serif', serif; font-style: italic; font-size: 1.2rem; color: var(--cream);
         }
-        .about-paper p:last-of-type { margin-bottom: 0; }
-        .about-paper mark {
-            background: none;
-            color: var(--ink);
-            border-bottom: 1px solid var(--accent-deep);
-        }
-        .about-paper strong { color: var(--ink); font-weight: 500; }
-        .about-sign {
-            font-family: 'Instrument Serif', serif;
-            font-style: italic;
-            font-size: 1rem;
-            color: var(--accent-deep);
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(26, 15, 7, 0.15);
-        }
-
-        .about-nl {
-            max-width: 640px;
-            margin: 2.5rem auto 0;
-            padding: 1.6rem 1.8rem;
-            background: rgba(15, 8, 3, 0.55);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(232, 168, 92, 0.2);
-            border-radius: 6px;
-            display: flex; gap: 1.4rem;
-            align-items: baseline;
-            flex-wrap: wrap;
-        }
-        .about-nl-title {
-            font-family: 'Instrument Serif', serif;
-            font-style: italic;
-            font-size: 1.25rem;
-            color: var(--cream);
-        }
-        .about-nl-desc {
-            flex: 1;
-            font-size: 0.95rem;
-            color: var(--cream-soft);
-            font-family: 'Instrument Serif', serif;
-        }
-        .about-nl-desc a {
-            color: var(--accent-warm);
-            text-decoration: none;
-            border-bottom: 1px solid var(--accent-warm);
-        }
-        .about-nl-follow {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem; letter-spacing: 0.24em;
-            text-transform: uppercase;
-            color: var(--accent-warm);
-            text-decoration: none;
-            border-bottom: 1px solid var(--accent-warm);
-            padding-bottom: 2px;
-        }
-        .news-block { max-width: 640px; margin: 2rem auto 0; }
-        .news-toggle {
-            width: 100%;
-            background: rgba(15, 8, 3, 0.5);
-            backdrop-filter: blur(6px);
-            border: 1px solid rgba(232, 168, 92, 0.2);
-            color: var(--cream);
-            padding: 1rem 1.4rem;
-            border-radius: 6px;
-            display: flex;
-            justify-content: space-between; align-items: center;
-            font-family: 'Instrument Serif', serif;
-            font-size: 1.2rem;
-            font-style: italic;
-            cursor: none;
-            transition: border-color 0.3s, background 0.3s, color 0.3s;
-        }
-        .news-toggle:hover { color: var(--accent-warm); border-color: var(--accent-warm); background: rgba(15, 8, 3, 0.7); }
-        .news-toggle .chev {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem;
-            color: var(--cream-mute);
-            transition: transform 0.3s;
-        }
-        .news-toggle.open .chev { transform: rotate(180deg); }
-        .news-body {
-            max-height: 0; overflow: hidden;
-            transition: max-height 0.5s ease;
-        }
-        .news-body.open { max-height: 1600px; padding: 1.5rem 0.6rem 0.5rem; }
-        .news-cat { margin-bottom: 1.5rem; }
-        .news-cat-title {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.65rem;
-            letter-spacing: 0.32em;
-            text-transform: uppercase;
-            color: var(--accent-warm);
-            margin-bottom: 0.5rem;
-        }
-        .news-cat-items {
-            font-family: 'Instrument Serif', serif;
-            font-size: 1.02rem;
-            color: var(--cream-soft);
-            line-height: 1.75;
-        }
-        .news-full-link {
-            display: inline-block;
-            margin-top: 0.5rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem; letter-spacing: 0.24em;
-            text-transform: uppercase;
-            color: var(--accent-warm);
-            text-decoration: none;
-            border-bottom: 1px solid var(--accent-warm);
-            padding-bottom: 3px;
-        }
-        .certs { max-width: 640px; margin: 3rem auto 0; }
-        .certs h4 {
-            font-family: 'Instrument Serif', serif;
-            font-style: italic;
-            font-size: 1.3rem;
-            color: var(--cream);
-            font-weight: 400;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
-        }
-        .cert {
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--line);
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 1.5rem;
-        }
+        details.sources summary::-webkit-details-marker { display: none; }
+        details.sources summary::after { content: '◇'; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--cream-mute); }
+        details.sources summary:hover { color: var(--accent-warm); }
+        .sources-body { padding: 0.2rem 1.4rem 1.4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem 2rem; }
+        @media (max-width: 560px) { .sources-body { grid-template-columns: 1fr; } }
+        .src-cat { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--accent-warm); margin-bottom: 0.4rem; }
+        .src-list { list-style: none; }
+        .src-list a { text-decoration: none; cursor: none; color: var(--cream-soft); font-family: 'Instrument Serif', serif; font-size: 1.02rem; border-bottom: 1px solid transparent; }
+        .src-list a:hover { color: var(--cream); border-bottom-color: var(--accent-warm); }
+        .sources-all { grid-column: 1 / -1; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-warm); text-decoration: none; cursor: none; }
+        .cert { padding: 1rem 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 1fr 2fr; gap: 1.5rem; }
         .cert:last-child { border-bottom: none; }
-        @media (max-width: 640px) { .cert { grid-template-columns: 1fr; gap: 0.4rem; } }
-        .cert-school {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem; letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--accent-warm);
-        }
-        .cert-title {
-            font-family: 'Instrument Serif', serif;
-            font-size: 1.05rem;
-            color: var(--cream);
-            margin-bottom: 0.25rem;
-        }
-        .cert-meta {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem;
-            color: var(--cream-mute);
-        }
-        .about-links {
-            display: flex; justify-content: center;
-            gap: 3rem;
-            margin: 3rem auto 0;
-            flex-wrap: wrap;
-        }
-        .about-link {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.72rem;
-            letter-spacing: 0.24em;
-            text-transform: uppercase;
-            color: var(--cream);
-            text-decoration: none;
-            padding-bottom: 3px;
-            border-bottom: 1px solid var(--accent-warm);
-            transition: color 0.3s;
-            text-shadow: 0 2px 6px rgba(0,0,0,0.5);
-        }
-        .about-link:hover { color: var(--accent-warm); }
+        @media (max-width: 640px) { .cert { grid-template-columns: 1fr; gap: 0.3rem; } }
+        .cert-school { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-warm); }
+        .cert-title { font-family: 'Instrument Serif', serif; font-size: 1.05rem; color: var(--cream); margin-bottom: 0.2rem; }
+        .cert-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--cream-mute); }
 
-        .footer {
-            text-align: center;
-            padding: 4rem 2rem 2rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.65rem;
-            letter-spacing: 0.28em;
-            text-transform: uppercase;
-            color: var(--cream-mute);
-            text-shadow: 0 2px 6px rgba(0,0,0,0.5);
-        }
-
-        /* Email popup */
-        .email-popup {
-            position: fixed;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            background: var(--cream-warm);
-            color: var(--ink);
-            padding: 2rem 2.2rem;
-            z-index: 300;
-            display: none;
-            text-align: center;
-            border-radius: 4px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-            min-width: 320px;
-        }
-        .email-popup p {
-            font-family: 'Instrument Serif', serif;
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-        }
-        .email-popup button {
-            background: none;
-            border: 1px solid var(--ink);
-            color: var(--ink);
-            padding: 0.5rem 1.2rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            cursor: none;
-            margin: 0 0.3rem;
-            transition: all 0.2s;
-        }
-        .email-popup button:hover { background: var(--ink); color: var(--cream); }
+        .footer { text-align: center; padding: 4rem 2rem 2rem; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--cream-mute); text-shadow: 0 2px 6px rgba(0,0,0,0.5); }
+        .footer a { color: var(--cream-soft); margin: 0 0.4rem; cursor: none; }
     </style>
 </head>
 <body>
     <div id="cursor"></div>
     <div id="cursor-dot"></div>
 
-    <div id="emailPopup" class="email-popup">
-        <p>graceguo2004@outlook.com</p>
-        <button id="copyBtn">Copy</button>
-        <button onclick="document.getElementById('emailPopup').style.display='none'">Close</button>
-    </div>
-
     <div id="readingBackdrop" class="reading-backdrop"></div>
-    <div id="reading" class="reading">
+    <div id="reading" class="reading" role="dialog" aria-modal="true" aria-labelledby="readingTitle">
         <button class="reading-close" id="readingClose">Close</button>
         <div class="reading-label" id="readingLabel"></div>
         <div class="reading-eyebrow" id="readingEyebrow"></div>
@@ -821,38 +620,40 @@
     </div>
 
     <nav>
-        <a class="brand" data-view="home">grace</a>
+        <a class="brand" href="#home">grace</a>
         <div class="nav-links">
-            <a class="nav-link active" data-view="home">Home</a>
-            <a class="nav-link" data-view="works">Works</a>
-            <a class="nav-link" data-view="about">About</a>
+            <a class="nav-link active" href="#home">Home</a>
+            <a class="nav-link" href="#works">Works</a>
+            <a class="nav-link" href="#about">About</a>
+            <a class="nav-cta" href="#contact">Contact</a>
         </div>
     </nav>
 
     <main>
-        <!-- ═══════ HOME ═══════ -->
+        <!-- ═══════ HOME (original design; one button added) ═══════ -->
         <section class="view active" id="view-home">
             <div class="container">
                 <div class="hero">
                     <div class="hero-eyebrow">Linge · Grace · Guo</div>
                     <h1 class="hero-name">grace</h1>
                     <p class="hero-sub">a sociotechnical lens on how AI and emerging technologies reshape the way we know, work, interact, and live.</p>
+                    <div class="hero-cta"><a class="btn btn-ghost" href="#works">See what I build →</a></div>
                 </div>
 
                 <div class="deer-marks">
-                    <div class="spot s1" data-item="speak">
+                    <div class="spot s1" data-item="speak" role="button" tabindex="0">
                         <div class="spot-dot">i</div>
                         <div class="spot-label">speak</div>
                     </div>
-                    <div class="spot s2" data-item="through">
+                    <div class="spot s2" data-item="through" role="button" tabindex="0">
                         <div class="spot-dot">ii</div>
                         <div class="spot-label">through</div>
                     </div>
-                    <div class="spot s3" data-item="analyze">
+                    <div class="spot s3" data-item="analyze" role="button" tabindex="0">
                         <div class="spot-dot">iii</div>
                         <div class="spot-label">analyze</div>
                     </div>
-                    <div class="spot s4" data-item="pursue">
+                    <div class="spot s4" data-item="pursue" role="button" tabindex="0">
                         <div class="spot-dot">iv</div>
                         <div class="spot-label">pursue</div>
                     </div>
@@ -867,136 +668,240 @@
         <!-- ═══════ WORKS ═══════ -->
         <section class="view" id="view-works">
             <div class="container">
-                <div class="page-header">
-                    <h2 class="page-title">works</h2>
-                    <div class="page-sub">four things I keep building</div>
+                <header class="page-header">
+                    <h1 class="page-title">works</h1>
+                    <p class="page-sub">Things I keep building: tools, apps, writing and notes.</p>
+                </header>
+
+                <div class="filters" role="group" aria-label="Filter works">
+                    <button class="filter" data-filter="all" aria-pressed="true">All</button>
+                    <button class="filter" data-filter="tools" aria-pressed="false">AI tools</button>
+                    <button class="filter" data-filter="apps" aria-pressed="false">Apps</button>
+                    <button class="filter" data-filter="writing" aria-pressed="false">Writing &amp; notes</button>
                 </div>
 
-                <div class="work">
-                    <div class="work-num">01</div>
-                    <div>
-                        <h3 class="work-title">Academic Portfolio</h3>
-                        <p class="work-desc">Research project showcase — study tools, AI sources, books. <em>"Unchained Melody" — play and take your time.</em> Grace's Kiosk is my academic folder.</p>
-                        <p class="work-desc">Grace's Bot: Q&amp;A on my papers plus a <mark>sociology study partner</mark> for theories, questions, and empirical trends.</p>
-                        <div class="work-links">
-                            <a class="work-link" href="https://app--graces-kiosk-a4c1d845.base44.app/" target="_blank">Grace's Kiosk</a>
-                            <a class="work-link" href="https://code.coze.cn/p/7616316878792818726/preview" target="_blank">Academic Agent</a>
+                <!-- 01 Claude Research Skills -->
+                <article class="group featured" data-cat="tools">
+                    <div class="group-head">
+                        <div class="group-top"><span class="work-num">01</span><span class="work-badge">New · open source</span></div>
+                        <h2 class="group-title">Claude Research Skills</h2>
+                        <div class="group-tags"><span class="tag">Claude Code</span><span class="tag">Claude.ai</span><span class="tag">Deep research</span><span class="tag">MIT</span></div>
+                        <p class="group-desc" id="skillsIntro">Free skills that turn Claude into a careful research analyst. Every claim is traced to a source, and nothing is made up.</p>
+                        <code class="code-line">/plugin marketplace add lingegrace/claude-research-skills</code>
+                        <div class="group-actions">
+                            <a class="work-link" href="https://github.com/lingegrace/claude-research-skills" target="_blank" rel="noopener">View on GitHub ↗</a>
+                            <a class="work-link" href="https://github.com/lingegrace/claude-research-skills#install" target="_blank" rel="noopener">How to install ↗</a>
                         </div>
                     </div>
-                </div>
+                    <div class="subgrid three" id="skillCards">
+                        <div class="sub">
+                            <div class="sub-kicker">Content research &amp; fact-checking</div>
+                            <h3 class="sub-title">content-research-analyst</h3>
+                            <p class="sub-desc">Turns articles, reports and news into a source-traceable research brief before you write a post, newsletter or report.</p>
+                            <div class="sub-links"><a class="work-link" href="https://github.com/lingegrace/claude-research-skills/tree/main/skills/content-research-analyst" target="_blank" rel="noopener">Open ↗</a></div>
+                        </div>
+                        <div class="sub">
+                            <div class="sub-kicker">Sociology deep research &amp; literature review</div>
+                            <h3 class="sub-title">sociology-deep-research</h3>
+                            <p class="sub-desc">Builds a citation-checked literature review and research dossier on a social question, with claim–evidence tables and an adversarial critique.</p>
+                            <div class="sub-links"><a class="work-link" href="https://github.com/lingegrace/claude-research-skills/tree/main/skills/sociology-deep-research" target="_blank" rel="noopener">Open ↗</a></div>
+                        </div>
+                        <div class="sub">
+                            <div class="sub-kicker">Competitor analysis &amp; market research</div>
+                            <h3 class="sub-title">competitive-market-research</h3>
+                            <p class="sub-desc">Builds competitor profiles, sales battlecards, market maps and pricing teardowns, with every source graded by how much to trust it.</p>
+                            <div class="sub-links"><a class="work-link" href="https://github.com/lingegrace/claude-research-skills/tree/main/skills/competitive-market-research" target="_blank" rel="noopener">Open ↗</a></div>
+                        </div>
+                    </div>
+                </article>
 
-                <div class="work">
-                    <div class="work-num">02</div>
-                    <div>
-                        <h3 class="work-title">Productivity Apps</h3>
-                        <p class="work-desc"><strong>Momentum</strong> — a gentle life management tool to visualize energy through <mark>science-backed recovery actions</mark>. Rest is not escape; it's part of your momentum.</p>
-                        <p class="work-desc"><strong>Neuro-Mentum</strong> — Micro-Tasks embedded in a 60-min Deep Work Focus Session to recover the Prefrontal Cortex after intensive concentration.</p>
-                        <div class="work-links">
-                            <a class="work-link" href="https://screenapp.io/app/v/YzJV1A2nJl" target="_blank">Demo</a>
-                            <a class="work-link" href="https://rugged-build-your-momentum.base44.app/Home" target="_blank">Momentum</a>
-                            <a class="work-link" href="https://clear-pfc-flow.base44.app" target="_blank">Neuro-Mentum</a>
+                <!-- 02 Academic Portfolio -->
+                <article class="group" data-cat="tools">
+                    <div class="group-head">
+                        <div class="group-top"><span class="work-num">02</span></div>
+                        <h2 class="group-title">Academic Portfolio</h2>
+                        <div class="group-tags"><span class="tag">AI agent</span><span class="tag">Sociology</span></div>
+                    </div>
+                    <div class="subgrid">
+                        <div class="sub">
+                            <div class="sub-kicker">Portfolio</div>
+                            <h3 class="sub-title">Grace's Kiosk</h3>
+                            <p class="sub-desc">My academic folder: research projects, study tools, AI sources and books. <em>"Unchained Melody" — play and take your time.</em></p>
+                            <div class="sub-links"><a class="work-link" href="https://app--graces-kiosk-a4c1d845.base44.app/" target="_blank" rel="noopener">Open Grace's Kiosk ↗</a></div>
+                        </div>
+                        <div class="sub">
+                            <div class="sub-kicker">Study partner</div>
+                            <h3 class="sub-title">Grace's Bot</h3>
+                            <p class="sub-desc">Q&amp;A on my papers, plus a sociology study partner for theories, questions and empirical trends.</p>
+                            <div class="sub-links"><a class="work-link" href="https://code.coze.cn/p/7616316878792818726/preview" target="_blank" rel="noopener">Chat with the agent ↗ <small>Coze</small></a></div>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <div class="work">
-                    <div class="work-num">03</div>
-                    <div>
-                        <h3 class="work-title">LinkedIn Newsletter</h3>
-                        <p class="work-desc">Weekly insights on macro forces, tech news, society, and of course on AI, from a <mark>humanistic perspective</mark>. Latest: <em>OpenClaw — Revolution from Digital Employee to Demographic Shift.</em></p>
-                        <div class="work-links">
-                            <a class="work-link" href="https://www.linkedin.com/pulse/openclaw-revolution-from-digital-employee-demographic-linge-guo-43vwc" target="_blank">Read latest</a>
-                            <a class="work-link" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7422191016994217984" target="_blank">Follow</a>
+                <!-- 03 Productivity Apps -->
+                <article class="group" data-cat="apps">
+                    <div class="group-head">
+                        <div class="group-top"><span class="work-num">03</span></div>
+                        <h2 class="group-title">Productivity Apps</h2>
+                        <div class="group-tags"><span class="tag">Wellbeing</span><span class="tag">Focus</span></div>
+                    </div>
+                    <div class="subgrid">
+                        <div class="sub">
+                            <div class="sub-kicker">Energy</div>
+                            <h3 class="sub-title">Momentum</h3>
+                            <p class="sub-desc">A gentle life-management tool that visualizes your energy through science-backed recovery actions. Rest is not escape; it's part of your momentum.</p>
+                            <div class="sub-links">
+                                <a class="work-link" href="https://rugged-build-your-momentum.base44.app/Home" target="_blank" rel="noopener">Open Momentum ↗</a>
+                                <a class="work-link" href="https://screenapp.io/app/v/YzJV1A2nJl" target="_blank" rel="noopener">Watch demo ↗</a>
+                            </div>
+                        </div>
+                        <div class="sub">
+                            <div class="sub-kicker">Deep work</div>
+                            <h3 class="sub-title">Neuro-Mentum</h3>
+                            <p class="sub-desc">Micro-tasks built into a 60-minute deep-work session, to help the prefrontal cortex recover after intense concentration.</p>
+                            <div class="sub-links"><a class="work-link" href="https://clear-pfc-flow.base44.app" target="_blank" rel="noopener">Open Neuro-Mentum ↗</a></div>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <div class="work">
-                    <div class="work-num">04</div>
-                    <div>
-                        <h3 class="work-title">AI Knowledge Wiki</h3>
-                        <p class="work-desc">Four notebooks I keep updating — for anyone who wants to <mark>think about AI seriously</mark>.</p>
-                        <div class="wiki-inline">
-                            <a class="wiki-line" href="https://rcnd1qqt63cw.feishu.cn/wiki/UfMaw8HkmiQR8JkdZwjcmQNjnyc?from=from_copylink" target="_blank"><em>i.</em>LLM Wiki</a>
-                            <a class="wiki-line" href="https://rcnd1qqt63cw.feishu.cn/wiki/P5O8w8uENiE6RGkVrw2c5pUunTc?from=from_copylink" target="_blank"><em>ii.</em>AI Governance</a>
-                            <a class="wiki-line" href="https://rcnd1qqt63cw.feishu.cn/wiki/Ep3ewlDZligXJMkiZnxcQsDDnNc?from=from_copylink" target="_blank"><em>iii.</em>Prompt Red Team</a>
-                            <a class="wiki-line" href="https://rcnd1qqt63cw.feishu.cn/wiki/U7oJwODIEiwUtHkEXKncffCYnNc?from=from_copylink" target="_blank"><em>iv.</em>Learning Sum</a>
+                <!-- 04 LinkedIn Newsletter (issues load from newsletter.json, updated daily) -->
+                <article class="group" data-cat="writing">
+                    <div class="group-head">
+                        <div class="group-top"><span class="work-num">04</span></div>
+                        <h2 class="group-title">LinkedIn Newsletter · <em>Signals Across Markets</em></h2>
+                        <div class="group-tags"><span class="tag">Weekly</span><span class="tag">AI &amp; society</span><span class="tag">Macro · tech</span></div>
+                        <p class="group-desc">Weekly insights on macro forces, tech news, society and AI, from a humanistic perspective.</p>
+                    </div>
+                    <div class="subgrid" id="issues">
+                        <a class="sub issue-latest" href="https://www.linkedin.com/pulse/how-find-meaning-life-age-ai-linge-guo-ajw7c" target="_blank" rel="noopener" style="text-decoration:none; cursor:none;">
+                            <div class="sub-kicker">Latest issue</div>
+                            <h3 class="sub-title">How to Find Meaning in Life in the Age of AI</h3>
+                            <div class="issue-date">Oct 25, 2026</div>
+                            <div class="sub-links"><span class="work-link">Read on LinkedIn ↗</span></div>
+                        </a>
+                    </div>
+                    <div class="group-actions">
+                        <a class="btn btn-primary" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7422191016994217984" target="_blank" rel="noopener">Subscribe</a>
+                        <a class="work-link" href="https://www.linkedin.com/newsletters/7422191016994217984/" target="_blank" rel="noopener">All issues ↗</a>
+                    </div>
+                </article>
+
+                <!-- 05 AI Knowledge Wiki -->
+                <article class="group" data-cat="writing">
+                    <div class="group-head">
+                        <div class="group-top"><span class="work-num">05</span></div>
+                        <h2 class="group-title">AI Knowledge Wiki</h2>
+                        <div class="group-tags"><span class="tag">Notebooks</span><span class="tag">Always updating</span></div>
+                        <p class="group-desc">Four notebooks I keep updating, for anyone who wants to think about AI seriously.</p>
+                    </div>
+                    <div class="subgrid">
+                        <div class="sub">
+                            <div class="sub-kicker">i.</div>
+                            <h3 class="sub-title">LLM Wiki</h3>
+                            <p class="sub-desc">How large language models work: key concepts, architectures and papers, explained in plain language.</p>
+                            <div class="sub-links"><a class="work-link" href="https://rcnd1qqt63cw.feishu.cn/wiki/UfMaw8HkmiQR8JkdZwjcmQNjnyc?from=from_copylink" target="_blank" rel="noopener">Open notebook ↗</a></div>
+                        </div>
+                        <div class="sub">
+                            <div class="sub-kicker">ii.</div>
+                            <h3 class="sub-title">AI Governance</h3>
+                            <p class="sub-desc">AI policy, regulation and safety frameworks, and how different countries approach them.</p>
+                            <div class="sub-links"><a class="work-link" href="https://rcnd1qqt63cw.feishu.cn/wiki/P5O8w8uENiE6RGkVrw2c5pUunTc?from=from_copylink" target="_blank" rel="noopener">Open notebook ↗</a></div>
+                        </div>
+                        <div class="sub">
+                            <div class="sub-kicker">iii.</div>
+                            <h3 class="sub-title">Prompt Red Team</h3>
+                            <p class="sub-desc">Adversarial prompts and failure cases: testing where models break, and why.</p>
+                            <div class="sub-links"><a class="work-link" href="https://rcnd1qqt63cw.feishu.cn/wiki/Ep3ewlDZligXJMkiZnxcQsDDnNc?from=from_copylink" target="_blank" rel="noopener">Open notebook ↗</a></div>
+                        </div>
+                        <div class="sub">
+                            <div class="sub-kicker">iv.</div>
+                            <h3 class="sub-title">Learning Sum</h3>
+                            <p class="sub-desc">My running summaries of the courses, books and talks I learn from.</p>
+                            <div class="sub-links"><a class="work-link" href="https://rcnd1qqt63cw.feishu.cn/wiki/U7oJwODIEiwUtHkEXKncffCYnNc?from=from_copylink" target="_blank" rel="noopener">Open notebook ↗</a></div>
                         </div>
                     </div>
-                </div>
+                    <p class="work-note">Hosted on Feishu (Lark). Opens in a new tab.</p>
+                </article>
             </div>
         </section>
 
         <!-- ═══════ ABOUT ═══════ -->
         <section class="view" id="view-about">
             <div class="container">
-                <div class="page-header">
-                    <h2 class="page-title">about</h2>
-                    <div class="page-sub">the person behind the marks</div>
-                </div>
+                <header class="page-header">
+                    <h1 class="page-title">about</h1>
+                    <p class="page-sub">The person behind the marks.</p>
+                </header>
 
                 <div class="about-paper">
                     <p>Hi, I'm <mark>Grace (Linge Guo)</mark>.</p>
                     <p>I'm a trained sociologist studying the societal impact of digital technologies through a <mark>sociotechnical lens</mark>. With a particular interest in AI, I examine the underlying mechanisms of its infrastructure to inform ethics from a sociological perspective.</p>
                     <p>I studied Sociology at UCL, then completed my MSc in Sociology at the University of Oxford — deepening my technical grounding at the Oxford Internet Institute in <mark>Fairness, Transparency, and Accountability of Machine Learning</mark>.</p>
-                    <p>Currently I'm working at the intersection of AI companions, AI deception, and platform governance — click any mark on the <strong>Home</strong> page to open the specific research threads.</p>
+                    <p>Currently I'm working at the intersection of AI companions, AI deception, and platform governance — <a href="#research/speak">open my research threads →</a></p>
+                    <div class="facts">
+                        <div class="fact"><b>Education</b><span>Sociology, UCL · MSc Sociology, Oxford</span></div>
+                        <div class="fact"><b>Focus</b><span>AI companions · AI deception · Governance</span></div>
+                        <div class="fact"><b>Published</b><span><a href="https://arxiv.org/abs/2403.09676" target="_blank" rel="noopener">arXiv:2403.09676</a></span></div>
+                    </div>
                     <p class="about-sign">— always thinking, sometimes writing.</p>
                 </div>
 
-                <div class="about-nl">
-                    <div class="about-nl-title">LinkedIn Newsletter</div>
-                    <div class="about-nl-desc">Weekly humanistic take on AI. Latest: <a href="https://www.linkedin.com/pulse/openclaw-revolution-from-digital-employee-demographic-linge-guo-43vwc" target="_blank">OpenClaw</a>.</div>
-                    <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7422191016994217984" target="_blank" class="about-nl-follow">Follow</a>
-                </div>
-
-                <div class="news-block">
-                    <button class="news-toggle" id="newsToggle">
-                        <span><em>AI news &amp; source list</em></span>
-                        <span class="chev">◇</span>
-                    </button>
-                    <div class="news-body" id="newsBody">
-                        <div class="news-cat">
-                            <div class="news-cat-title">— engineer</div>
-                            <div class="news-cat-items">
-                                <div>AI News</div>
-                                <div>Latent Space Substack</div>
-                                <div>Andrej Karpathy — Personal Web</div>
-                            </div>
-                        </div>
-                        <div class="news-cat">
-                            <div class="news-cat-title">— newsletter · blogs</div>
-                            <div class="news-cat-items">
-                                <div>YC Combinator</div>
-                                <div>AI·Business — specialized modules</div>
-                                <div>TechCrunch — Startup &amp; Ventures</div>
-                                <div>Lenny's Podcast Substack</div>
-                                <div>Artificial Ignorance Substack</div>
-                                <div>Elena's Growth Scoop Substack</div>
-                                <div>AI Valley</div>
-                            </div>
-                        </div>
-                        <div class="news-cat">
-                            <div class="news-cat-title">— policy</div>
-                            <div class="news-cat-items">
-                                <div>AI Safety in China Substack</div>
-                                <div>Centre for Humane Technology</div>
-                            </div>
-                        </div>
-                        <div class="news-cat">
-                            <div class="news-cat-title">— macro insights</div>
-                            <div class="news-cat-items">
-                                <div>Futurum Signals</div>
-                                <div>Gartner</div>
-                                <div>NIQ IQ Brief</div>
-                                <div>human8 annual trend report</div>
-                            </div>
-                        </div>
-                        <a href="https://rcnd1qqt63cw.feishu.cn/wiki/CDjwwrbjsixKWDkdmUzcdSCmnnE?from=from_copylink" target="_blank" class="news-full-link">Full compilation →</a>
+                <div class="section" id="contact">
+                    <h2 class="section-title">Get in touch</h2>
+                    <div class="contact">
+                        <a class="btn btn-primary" href="mailto:graceguo2004@outlook.com">Email me</a>
+                        <a class="btn btn-ghost" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7422191016994217984" target="_blank" rel="noopener">Newsletter ↗</a>
+                        <a class="btn btn-ghost" href="https://github.com/lingegrace" target="_blank" rel="noopener">GitHub ↗</a>
                     </div>
                 </div>
 
-                <div class="certs">
-                    <h4>learning</h4>
+                <div class="section">
+                    <details class="sources">
+                        <summary>AI news &amp; source list</summary>
+                        <div class="sources-body">
+                            <div>
+                                <div class="src-cat">— engineer</div>
+                                <ul class="src-list">
+                                    <li><a href="https://news.smol.ai/" target="_blank" rel="noopener">AI News</a></li>
+                                    <li><a href="https://www.latent.space/" target="_blank" rel="noopener">Latent Space Substack</a></li>
+                                    <li><a href="https://karpathy.ai/" target="_blank" rel="noopener">Andrej Karpathy — Personal Web</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <div class="src-cat">— policy</div>
+                                <ul class="src-list">
+                                    <li><a href="https://aisafetychina.substack.com/" target="_blank" rel="noopener">AI Safety in China Substack</a></li>
+                                    <li><a href="https://www.humanetech.com/" target="_blank" rel="noopener">Center for Humane Technology</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <div class="src-cat">— newsletter · blogs</div>
+                                <ul class="src-list">
+                                    <li><a href="https://www.ycombinator.com/blog" target="_blank" rel="noopener">Y Combinator</a></li>
+                                    <li><a href="https://aibusiness.com/" target="_blank" rel="noopener">AI·Business</a></li>
+                                    <li><a href="https://techcrunch.com/category/startups/" target="_blank" rel="noopener">TechCrunch — Startups &amp; Ventures</a></li>
+                                    <li><a href="https://www.lennysnewsletter.com/" target="_blank" rel="noopener">Lenny's Podcast Substack</a></li>
+                                    <li><a href="https://www.ignorance.ai/" target="_blank" rel="noopener">Artificial Ignorance Substack</a></li>
+                                    <li><a href="https://www.elenaverna.com/" target="_blank" rel="noopener">Elena's Growth Scoop Substack</a></li>
+                                    <li><a href="https://www.theaivalley.com/" target="_blank" rel="noopener">AI Valley</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <div class="src-cat">— macro insights</div>
+                                <ul class="src-list">
+                                    <li><a href="https://futurumgroup.com/" target="_blank" rel="noopener">Futurum Signals</a></li>
+                                    <li><a href="https://www.gartner.com/en/insights" target="_blank" rel="noopener">Gartner</a></li>
+                                    <li><a href="https://nielseniq.com/global/en/insights/" target="_blank" rel="noopener">NIQ IQ Brief</a></li>
+                                    <li><a href="https://www.human8.com/" target="_blank" rel="noopener">human8 annual trend report</a></li>
+                                </ul>
+                            </div>
+                            <a class="sources-all" href="https://rcnd1qqt63cw.feishu.cn/wiki/CDjwwrbjsixKWDkdmUzcdSCmnnE?from=from_copylink" target="_blank" rel="noopener">Full compilation →</a>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">learning</h2>
                     <div class="cert"><div class="cert-school">Oxford Internet Institute</div><div><div class="cert-title">Fairness, Accountability &amp; Transparency of ML</div><div class="cert-meta">2025 · Qualitative audit of XiaoIce</div></div></div>
                     <div class="cert"><div class="cert-school">Alan Turing Institute</div><div><div class="cert-title">Operationalising Ethics in AI — Expert</div><div class="cert-meta">Ongoing</div></div></div>
                     <div class="cert"><div class="cert-school">UCL</div><div><div class="cert-title">Sociology of Science &amp; Tech · Cybersecurity · STS</div><div class="cert-meta">2021–2024</div></div></div>
@@ -1004,15 +909,10 @@
                     <div class="cert"><div class="cert-school">IBM</div><div><div class="cert-title">Product Management: An Introduction</div><div class="cert-meta">Coursera · Feb 2026</div></div></div>
                     <div class="cert"><div class="cert-school">Amazon</div><div><div class="cert-title">Fundamentals of Machine Learning and AI</div><div class="cert-meta">Coursera · Feb 2026</div></div></div>
                 </div>
-
-                <div class="about-links">
-                    <a href="#" class="about-link" id="emailBtn">Email</a>
-                    <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7422191016994217984" target="_blank" class="about-link">LinkedIn</a>
-                </div>
             </div>
         </section>
 
-        <footer class="footer">built with curiosity · 2026</footer>
+        <footer class="footer">built with curiosity · 2026 · <a href="https://github.com/lingegrace" target="_blank" rel="noopener">GitHub</a><a href="mailto:graceguo2004@outlook.com">Email</a></footer>
     </main>
 
     <script>
@@ -1033,7 +933,7 @@
                 cursor.style.left = gx + 'px'; cursor.style.top = gy + 'px';
                 requestAnimationFrame(raf);
             })();
-            const interactive = 'a, button, .spot, .nav-link, .brand, .work-link, .wiki-line, .news-toggle, .about-link, .about-nl-follow, .news-full-link, .reading-close, .reading-next, .work';
+            const interactive = 'a, button, .spot, .nav-link, .brand, .work-link, .wiki-line, .news-toggle, .about-link, .about-nl-follow, .news-full-link, .reading-close, .reading-next, .work, .btn, .filter, .sub, .nav-cta, summary, .issue-list a';
             document.addEventListener('mouseover', e => {
                 if (e.target.closest && e.target.closest(interactive)) {
                     dot.style.transform = 'translate(-50%, -50%) scale(3)';
@@ -1052,16 +952,6 @@
                 }
             });
         } else { document.body.style.cursor = 'auto'; }
-
-        /* NAV / VIEW */
-        const navLinks = document.querySelectorAll('nav [data-view]');
-        const views = document.querySelectorAll('.view');
-        function switchView(name) {
-            views.forEach(v => v.classList.toggle('active', v.id === `view-${name}`));
-            document.querySelectorAll('.nav-link').forEach(a => a.classList.toggle('active', a.dataset.view === name));
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-        navLinks.forEach(a => a.addEventListener('click', e => { e.preventDefault(); switchView(a.dataset.view); }));
 
         /* SPOTS / READING */
         const order = ['speak', 'through', 'analyze', 'pursue'];
@@ -1128,10 +1018,12 @@
             reading.classList.add('visible');
             reading.scrollTop = 0;
         }
-        function closeReading() {
+        function closeReading(updateHash = true) {
+            if (!currentId) return;
             readingBackdrop.classList.remove('visible');
             reading.classList.remove('visible');
             currentId = null;
+            if (updateHash && location.hash.startsWith('#research/')) history.replaceState(null, '', '#home');
         }
         function nextReading() {
             if (!currentId) return;
@@ -1139,7 +1031,8 @@
             if (idx < order.length - 1) selectSpot(order[idx + 1]);
             else closeReading();
         }
-        function selectSpot(id) {
+        function selectSpot(id) { location.hash = '#research/' + id; }
+        function showSpot(id) {
             const el = document.querySelector(`.spot[data-item="${id}"]`);
             if (el && !clickedState[id]) {
                 clickedState[id] = true;
@@ -1148,36 +1041,74 @@
             heroHint.classList.add('dim');
             openReading(id);
         }
-        readingBackdrop.addEventListener('click', closeReading);
-        readingClose.addEventListener('click', closeReading);
+        readingBackdrop.addEventListener('click', () => closeReading());
+        readingClose.addEventListener('click', () => closeReading());
         readingNext.addEventListener('click', nextReading);
         document.addEventListener('keydown', e => { if (e.key === 'Escape') closeReading(); });
-        spots.forEach(s => s.addEventListener('click', () => selectSpot(s.dataset.item)));
-
-        /* EMAIL */
-        const emailBtn = document.getElementById('emailBtn');
-        const popup = document.getElementById('emailPopup');
-        const copyBtn = document.getElementById('copyBtn');
-        emailBtn?.addEventListener('click', e => { e.preventDefault(); popup.style.display = 'block'; });
-        copyBtn.addEventListener('click', () => {
-            navigator.clipboard?.writeText('graceguo2004@outlook.com').then(() => {
-                copyBtn.textContent = 'Copied';
-                setTimeout(() => copyBtn.textContent = 'Copy', 1500);
-            });
+        spots.forEach(s => {
+            s.addEventListener('click', () => selectSpot(s.dataset.item));
+            s.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectSpot(s.dataset.item); } });
         });
-        document.addEventListener('click', e => {
-            if (popup.style.display === 'block' && !popup.contains(e.target) && e.target !== emailBtn) {
-                popup.style.display = 'none';
+
+        /* ROUTES: #home  #works  #about  #contact  #research/<id> — every page and research thread has its own link */
+        const views = { home: 'view-home', works: 'view-works', about: 'view-about' };
+        const titles = { home: 'Grace (Linge Guo) · Sociologist of AI & Technology', works: 'Works · Grace (Linge Guo)', about: 'About · Grace (Linge Guo)' };
+        function showView(name) {
+            document.querySelectorAll('.view').forEach(v => v.classList.toggle('active', v.id === views[name]));
+            document.querySelectorAll('.nav-link').forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + name));
+            document.title = titles[name];
+        }
+        function route() {
+            const h = location.hash.slice(1) || 'home';
+            if (h.startsWith('research/')) {
+                showView('home');
+                const id = h.split('/')[1];
+                if (order.includes(id)) showSpot(id);
+                return;
             }
-        });
+            closeReading(false);
+            if (h === 'contact') { showView('about'); setTimeout(() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth', block: 'center' }), 60); return; }
+            showView(views[h] ? h : 'home');
+            window.scrollTo({ top: 0 });
+        }
+        window.addEventListener('hashchange', route);
+        route();
 
-        /* NEWS */
-        const newsToggle = document.getElementById('newsToggle');
-        const newsBody = document.getElementById('newsBody');
-        newsToggle.addEventListener('click', () => {
-            newsToggle.classList.toggle('open');
-            newsBody.classList.toggle('open');
-        });
+        /* WORKS FILTER */
+        document.querySelectorAll('.filter').forEach(b => b.addEventListener('click', () => {
+            document.querySelectorAll('.filter').forEach(x => x.setAttribute('aria-pressed', x === b));
+            const f = b.dataset.filter;
+            document.querySelectorAll('.group').forEach(g => { g.hidden = f !== 'all' && g.dataset.cat !== f; });
+        }));
+
+        /* CLAUDE SKILLS — skills.json is rebuilt daily from github.com/lingegrace/claude-research-skills; the HTML above is the fallback */
+        fetch('./skills.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).then(data => {
+            const list = (data && data.skills || []).filter(k => /^https:\/\/github\.com\/lingegrace\//.test(k.url));
+            if (!list.length) return;
+            const e = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+            document.getElementById('skillCards').innerHTML = list.map(k => `<div class="sub">
+                <div class="sub-kicker">${e(k.tagline)}</div>
+                <h3 class="sub-title">${e(k.name)}</h3>
+                <p class="sub-desc">${e(k.summary)}</p>
+                <div class="sub-links"><a class="work-link" href="${e(k.url)}" target="_blank" rel="noopener">Open ↗</a></div></div>`).join('');
+        }).catch(() => {});
+
+        /* NEWSLETTER — newsletter.json is refreshed daily by a GitHub Action; the HTML above is the fallback */
+        const fmt = d => d ? new Date(d + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
+        const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+        fetch('./newsletter.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).then(data => {
+            const issues = (data && data.issues || []).filter(i => /^https:\/\/www\.linkedin\.com\/pulse\//.test(i.url));
+            if (!issues.length) return;
+            const [latest, ...rest] = issues;
+            let html = `<a class="sub issue-latest" href="${esc(latest.url)}" target="_blank" rel="noopener" style="text-decoration:none; cursor:none;">
+                <div class="sub-kicker">Latest issue</div>
+                <h3 class="sub-title">${esc(latest.title)}</h3>
+                <div class="issue-date">${fmt(latest.date)}</div>
+                <div class="sub-links"><span class="work-link">Read on LinkedIn ↗</span></div></a>`;
+            if (rest.length) html += `<ul class="issue-list">${rest.slice(0, 4).map(i =>
+                `<li><a href="${esc(i.url)}" target="_blank" rel="noopener">${esc(i.title)}<span>${fmt(i.date)}</span></a></li>`).join('')}</ul>`;
+            document.getElementById('issues').innerHTML = html;
+        }).catch(() => {});
     })();
     </script>
 </body>

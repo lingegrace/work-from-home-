@@ -1,0 +1,24 @@
+{
+  "repo": "https://github.com/lingegrace/claude-research-skills",
+  "updated": "2026-11-07",
+  "skills": [
+    {
+      "name": "content-research-analyst",
+      "tagline": "Content research & fact-checking",
+      "summary": "Turns articles, reports and news into a source-traceable research brief before you write a post, newsletter or report.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/content-research-analyst"
+    },
+    {
+      "name": "sociology-deep-research",
+      "tagline": "Sociology deep research & literature review",
+      "summary": "Builds a citation-checked literature review and research dossier on a social question, with claim–evidence tables and an adversarial critique.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/sociology-deep-research"
+    },
+    {
+      "name": "competitive-market-research",
+      "tagline": "Competitor analysis & market research",
+      "summary": "Builds competitor profiles, sales battlecards, market maps and pricing teardowns, with every source graded by how much to trust it.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/competitive-market-research"
+    }
+  ]
+}
