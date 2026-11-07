@@ -1,24 +1,116 @@
 {
   "repo": "https://github.com/lingegrace/claude-research-skills",
+  "sections": {
+    "product-marketing": "Product & Marketing",
+    "sociology": "Sociology & Social Science",
+    "research": "Research & Writing"
+  },
   "updated": "2026-11-07",
   "skills": [
     {
-      "name": "content-research-analyst",
-      "tagline": "Content research & fact-checking",
-      "summary": "Turns articles, reports and news into a source-traceable research brief before you write a post, newsletter or report.",
-      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/content-research-analyst"
+      "name": "product-value-fab",
+      "section": "product-marketing",
+      "tagline": "Product value & FAB analysis",
+      "summary": "Turns a PRD, spec or feature list into a Feature–Advantage–Benefit analysis grounded in your audience, their pain points and the competition.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/product-marketing/product-value-fab"
     },
     {
-      "name": "sociology-deep-research",
-      "tagline": "Sociology deep research & literature review",
-      "summary": "Builds a citation-checked literature review and research dossier on a social question, with claim–evidence tables and an adversarial critique.",
-      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/sociology-deep-research"
+      "name": "positioning-messaging",
+      "section": "product-marketing",
+      "tagline": "Positioning & messaging framework",
+      "summary": "Writes a positioning statement and messaging house from product docs, personas and competitor research, then drafts taglines and pitches.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/product-marketing/positioning-messaging"
+    },
+    {
+      "name": "user-persona-builder",
+      "section": "product-marketing",
+      "tagline": "Personas & Jobs-to-be-Done",
+      "summary": "Builds evidence-based personas and JTBD statements from interviews, surveys, reviews and CRM notes, with every trait traced to evidence.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/product-marketing/user-persona-builder"
+    },
+    {
+      "name": "customer-review-mining",
+      "section": "product-marketing",
+      "tagline": "Voice of customer from reviews",
+      "summary": "Mines G2, App Store, Reddit, NPS and support feedback into ranked pain points, outcomes and objections, in customers' own words.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/product-marketing/customer-review-mining"
     },
     {
       "name": "competitive-market-research",
+      "section": "product-marketing",
       "tagline": "Competitor analysis & market research",
       "summary": "Builds competitor profiles, sales battlecards, market maps and pricing teardowns, with every source graded by how much to trust it.",
-      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/competitive-market-research"
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/product-marketing/competitive-market-research"
+    },
+    {
+      "name": "feature-launch-kit",
+      "section": "product-marketing",
+      "tagline": "Feature launch & GTM kit",
+      "summary": "Turns a PRD or changelog into release notes, a customer announcement, sales one-pager, support FAQ and social posts that all agree on the facts.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/product-marketing/feature-launch-kit"
+    },
+    {
+      "name": "customer-case-study",
+      "section": "product-marketing",
+      "tagline": "Customer case study writer",
+      "summary": "Turns an interview transcript or CSM notes into a result-led case study with real quotes, plus short versions for sales decks and social.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/product-marketing/customer-case-study"
+    },
+    {
+      "name": "ai-product-audit",
+      "section": "product-marketing",
+      "tagline": "AI product trust & risk audit",
+      "summary": "Audits an AI feature for transparency, dark patterns, overreliance, privacy, safety and compliance risk, with evidence and a fix for each issue.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/product-marketing/ai-product-audit"
+    },
+    {
+      "name": "research-question-grill",
+      "section": "sociology",
+      "tagline": "Research question interview",
+      "summary": "Interviews you one question at a time until a vague topic becomes a focused, answerable research question with scope, concepts and a falsifier.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/sociology/research-question-grill"
+    },
+    {
+      "name": "sociology-deep-research",
+      "section": "sociology",
+      "tagline": "Sociology deep research & literature review",
+      "summary": "Builds a citation-checked literature review and research dossier on a social question, with claim–evidence tables and an adversarial critique.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/sociology/sociology-deep-research"
+    },
+    {
+      "name": "interview-guide",
+      "section": "sociology",
+      "tagline": "Qualitative interview guide",
+      "summary": "Designs a semi-structured interview guide with themed open questions, probes, consent points and a bias check.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/sociology/interview-guide"
+    },
+    {
+      "name": "thematic-analysis",
+      "section": "sociology",
+      "tagline": "Thematic analysis (Braun & Clarke)",
+      "summary": "Runs reflexive thematic analysis on transcripts: a codebook with located quotes, reviewed themes and a write-up with an audit trail.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/sociology/thematic-analysis"
+    },
+    {
+      "name": "quantitative-analysis",
+      "section": "sociology",
+      "tagline": "Survey & quantitative analysis",
+      "summary": "Plans, runs and writes up survey or social science statistics, with assumption checks and interpretation that doesn't overclaim causation.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/sociology/quantitative-analysis"
+    },
+    {
+      "name": "content-research-analyst",
+      "section": "research",
+      "tagline": "Content research & fact-checking",
+      "summary": "Turns articles, reports and news into a source-traceable research brief before you write a post, newsletter or report.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/research/content-research-analyst"
+    },
+    {
+      "name": "fact-check-draft",
+      "section": "research",
+      "tagline": "Fact-check a draft",
+      "summary": "Checks a draft sentence by sentence against its sources and flags unsupported, overclaimed, wrong and outdated claims, then fixes them.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/research/fact-check-draft"
     }
   ]
 }
