@@ -541,8 +541,14 @@
         .skill-section:first-child { margin-top: 0; }
         .skill-section-title { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-warm); margin-bottom: 0.7rem; display: flex; gap: 0.6rem; align-items: baseline; }
         .skill-section-title span { color: var(--cream-mute); letter-spacing: 0.08em; }
-        #skillCards.grouped { display: block; }
-        #skillCards .sub-title { font-size: 1.2rem; }
+                #skillCards .sub-title { font-size: 1.2rem; }
+        .more-skills { margin-top: 1.2rem; padding-top: 1.1rem; border-top: 1px solid var(--line); }
+        .more-title { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-warm); margin-bottom: 0.6rem; }
+        .more-row { font-size: 0.9rem; color: var(--cream-mute); line-height: 1.9; margin: 0 0 0.3rem; }
+        .more-row b { font-weight: 500; color: var(--cream-soft); margin-right: 0.5rem; }
+        .more-row a { color: var(--cream-soft); text-decoration: none; border-bottom: 1px solid rgba(245,196,130,0.35); cursor: none; white-space: nowrap; }
+        .more-row a:hover { color: var(--accent-warm); border-bottom-color: var(--accent-warm); }
+        .more-row .sep { margin: 0 0.45rem; opacity: 0.5; }
         /* newsletter */
         .issue-latest { grid-column: 1 / -1; }
         .issue-latest .sub-title { font-size: 1.65rem; }
@@ -701,16 +707,10 @@
                     </div>
                     <div class="subgrid three" id="skillCards">
                         <div class="sub">
-                            <div class="sub-kicker">Content research &amp; fact-checking</div>
-                            <h3 class="sub-title">content-research-analyst</h3>
-                            <p class="sub-desc">Turns articles, reports and news into a source-traceable research brief before you write a post, newsletter or report.</p>
-                            <div class="sub-links"><a class="work-link" href="https://github.com/lingegrace/claude-research-skills/tree/main/skills/research/content-research-analyst" target="_blank" rel="noopener">Open ↗</a></div>
-                        </div>
-                        <div class="sub">
-                            <div class="sub-kicker">Sociology deep research &amp; literature review</div>
-                            <h3 class="sub-title">sociology-deep-research</h3>
-                            <p class="sub-desc">Builds a citation-checked literature review and research dossier on a social question, with claim–evidence tables and an adversarial critique.</p>
-                            <div class="sub-links"><a class="work-link" href="https://github.com/lingegrace/claude-research-skills/tree/main/skills/sociology/sociology-deep-research" target="_blank" rel="noopener">Open ↗</a></div>
+                            <div class="sub-kicker">Product value &amp; FAB analysis</div>
+                            <h3 class="sub-title">product-value-fab</h3>
+                            <p class="sub-desc">Turns a PRD, spec or feature list into a Feature–Advantage–Benefit analysis grounded in your audience, their pain points and the competition.</p>
+                            <div class="sub-links"><a class="work-link" href="https://github.com/lingegrace/claude-research-skills/tree/main/skills/product-marketing/product-value-fab" target="_blank" rel="noopener">Open ↗</a></div>
                         </div>
                         <div class="sub">
                             <div class="sub-kicker">Competitor analysis &amp; market research</div>
@@ -718,6 +718,16 @@
                             <p class="sub-desc">Builds competitor profiles, sales battlecards, market maps and pricing teardowns, with every source graded by how much to trust it.</p>
                             <div class="sub-links"><a class="work-link" href="https://github.com/lingegrace/claude-research-skills/tree/main/skills/product-marketing/competitive-market-research" target="_blank" rel="noopener">Open ↗</a></div>
                         </div>
+                        <div class="sub">
+                            <div class="sub-kicker">Sociology deep research &amp; literature review</div>
+                            <h3 class="sub-title">sociology-deep-research</h3>
+                            <p class="sub-desc">Builds a citation-checked literature review and research dossier on a social question, with claim–evidence tables and an adversarial critique.</p>
+                            <div class="sub-links"><a class="work-link" href="https://github.com/lingegrace/claude-research-skills/tree/main/skills/sociology/sociology-deep-research" target="_blank" rel="noopener">Open ↗</a></div>
+                        </div>
+                    </div>
+                    <div class="more-skills" id="moreSkills">
+                        <div class="more-title">More skills on GitHub</div>
+                        <p class="more-row"><a href="https://github.com/lingegrace/claude-research-skills#all-skills" target="_blank" rel="noopener">See all 15 skills ↗</a></p>
                     </div>
                 </article>
 
@@ -1098,14 +1108,17 @@
                 <h3 class="sub-title">${e(k.name)}</h3>
                 <p class="sub-desc">${e(k.summary)}</p>
                 <div class="sub-links"><a class="work-link" href="${e(k.url)}" target="_blank" rel="noopener">Open ↗</a></div></div>`;
+            let top = list.filter(k => k.featured);
+            if (!top.length) top = list.slice(0, 3);
+            const rest = list.filter(k => !top.includes(k));
+            document.getElementById('skillCards').innerHTML = top.map(card).join('');
             const order = [];
-            list.forEach(k => { if (!order.includes(k.section || '')) order.push(k.section || ''); });
-            const box = document.getElementById('skillCards');
-            box.classList.add('grouped');
-            box.innerHTML = order.map(sec => {
-                const items = list.filter(k => (k.section || '') === sec);
-                return `<div class="skill-section"><div class="skill-section-title">${e(names[sec] || 'Skills')}<span>· ${items.length}</span></div><div class="subgrid three">${items.map(card).join('')}</div></div>`;
-            }).join('');
+            rest.forEach(k => { if (!order.includes(k.section || '')) order.push(k.section || ''); });
+            const repo = e((data && data.repo) || 'https://github.com/lingegrace/claude-research-skills');
+            document.getElementById('moreSkills').innerHTML = `<div class="more-title">More skills on GitHub · ${rest.length}</div>` +
+                order.map(sec => `<p class="more-row"><b>${e(names[sec] || 'Other')}</b>${rest.filter(k => (k.section || '') === sec)
+                    .map(k => `<a href="${e(k.url)}" target="_blank" rel="noopener" title="${e(k.tagline)}">${e(k.name)}</a>`).join('<span class="sep">·</span>')}</p>`).join('') +
+                `<p class="more-row"><a href="${repo}#all-skills" target="_blank" rel="noopener">See all ${list.length} skills on GitHub ↗</a></p>`;
             const intro = document.getElementById('skillsIntro');
             if (intro) intro.textContent = intro.textContent.replace(/^\d+ free skills/, list.length + ' free skills');
         }).catch(() => {});

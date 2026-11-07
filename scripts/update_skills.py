@@ -13,6 +13,8 @@ import sys
 import urllib.request
 
 REPO = "lingegrace/claude-research-skills"
+# Shown as full cards on the website; every other skill appears in the short list.
+FEATURED = ["product-value-fab", "competitive-market-research", "sociology-deep-research"]
 OUT = pathlib.Path(__file__).resolve().parent.parent / "skills.json"
 
 
@@ -40,7 +42,7 @@ def main():
             summary = next((l for l in lines[1:] if l and not l.startswith(("#", "|"))), "")
             summary = re.sub(r"[*_`]", "", re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", summary))
             skills.append({"name": name, "section": section, "tagline": tagline, "summary": summary,
-                           "url": f"https://github.com/{REPO}/tree/main/{folder}"})
+                           "url": f"https://github.com/{REPO}/tree/main/{folder}", "featured": name in FEATURED})
     except Exception as ex:
         print(f"Could not read skills repo: {ex}. Keeping existing file.")
         return 0
