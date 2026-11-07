@@ -1,114 +1,54 @@
 {
   "repo": "https://github.com/lingegrace/claude-research-skills",
   "sections": {
-    "product-marketing": "Product & Marketing",
-    "sociology": "Sociology & Social Science",
-    "research": "Research & Writing"
+    "research": "Research & Intelligence",
+    "writing": "Content & Communication",
+    "work": "Work & Documents",
+    "learning": "Learning & Practice",
+    "marketing": "Marketing",
+    "product": "Product",
+    "skill-engineering": "Skill Engineering"
   },
   "updated": "2026-11-07",
   "skills": [
     {
-      "name": "value-proposition-writer",
-      "section": "product-marketing",
-      "tagline": "Value proposition writer — features to benefits (FAB)",
-      "summary": "Turns a PRD, spec or feature list into a Feature–Advantage–Benefit analysis grounded in your audience, their pain points and the competition.",
-      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/product-marketing/value-proposition-writer",
-      "featured": true
-    },
-    {
-      "name": "positioning-messaging",
-      "section": "product-marketing",
-      "tagline": "Positioning & messaging framework",
-      "summary": "Writes a positioning statement and messaging house from product docs, personas and competitor research, then drafts taglines and pitches.",
-      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/product-marketing/positioning-messaging",
-      "featured": false
-    },
-    {
-      "name": "user-persona-builder",
-      "section": "product-marketing",
-      "tagline": "Personas & Jobs-to-be-Done",
-      "summary": "Builds evidence-based personas and JTBD statements from interviews, surveys, reviews and CRM notes, with every trait traced to evidence.",
-      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/product-marketing/user-persona-builder",
-      "featured": false
-    },
-    {
-      "name": "customer-review-mining",
-      "section": "product-marketing",
-      "tagline": "Voice of customer from reviews",
-      "summary": "Mines G2, App Store, Reddit, NPS and support feedback into ranked pain points, outcomes and objections, in customers' own words.",
-      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/product-marketing/customer-review-mining",
-      "featured": false
-    },
-    {
-      "name": "competitive-market-research",
-      "section": "product-marketing",
-      "tagline": "Competitor analysis & market research",
-      "summary": "Builds competitor profiles, sales battlecards, market maps and pricing teardowns, with every source graded by how much to trust it.",
-      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/product-marketing/competitive-market-research",
-      "featured": true
-    },
-    {
-      "name": "feature-launch-kit",
-      "section": "product-marketing",
-      "tagline": "Feature launch & GTM kit",
-      "summary": "Turns a PRD or changelog into release notes, a customer announcement, sales one-pager, support FAQ and social posts that all agree on the facts.",
-      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/product-marketing/feature-launch-kit",
-      "featured": false
-    },
-    {
-      "name": "customer-case-study",
-      "section": "product-marketing",
-      "tagline": "Customer case study writer",
-      "summary": "Turns an interview transcript or CSM notes into a result-led case study with real quotes, plus short versions for sales decks and social.",
-      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/product-marketing/customer-case-study",
-      "featured": false
-    },
-    {
-      "name": "ai-product-audit",
-      "section": "product-marketing",
-      "tagline": "AI product trust & risk audit",
-      "summary": "Audits an AI feature for transparency, dark patterns, overreliance, privacy, safety and compliance risk, with evidence and a fix for each issue.",
-      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/product-marketing/ai-product-audit",
-      "featured": false
-    },
-    {
       "name": "research-question-grill",
-      "section": "sociology",
+      "section": "research",
       "tagline": "Research question interview",
       "summary": "Interviews you one question at a time until a vague topic becomes a focused, answerable research question with scope, concepts and a falsifier.",
-      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/sociology/research-question-grill",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/research/research-question-grill",
       "featured": false
     },
     {
       "name": "sociology-deep-research",
-      "section": "sociology",
+      "section": "research",
       "tagline": "Sociology deep research & literature review",
       "summary": "Builds a citation-checked literature review and research dossier on a social question, with claim–evidence tables and an adversarial critique.",
-      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/sociology/sociology-deep-research",
-      "featured": true
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/research/sociology-deep-research",
+      "featured": false
     },
     {
       "name": "interview-guide",
-      "section": "sociology",
+      "section": "research",
       "tagline": "Qualitative interview guide",
       "summary": "Designs a semi-structured interview guide with themed open questions, probes, consent points and a bias check.",
-      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/sociology/interview-guide",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/research/interview-guide",
       "featured": false
     },
     {
       "name": "thematic-analysis",
-      "section": "sociology",
+      "section": "research",
       "tagline": "Thematic analysis (Braun & Clarke)",
       "summary": "Runs reflexive thematic analysis on transcripts: a codebook with located quotes, reviewed themes and a write-up with an audit trail.",
-      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/sociology/thematic-analysis",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/research/thematic-analysis",
       "featured": false
     },
     {
       "name": "quantitative-analysis",
-      "section": "sociology",
+      "section": "research",
       "tagline": "Survey & quantitative analysis",
       "summary": "Plans, runs and writes up survey or social science statistics, with assumption checks and interpretation that doesn't overclaim causation.",
-      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/sociology/quantitative-analysis",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/research/quantitative-analysis",
       "featured": false
     },
     {
@@ -125,6 +65,486 @@
       "tagline": "Fact-check a draft",
       "summary": "Checks a draft sentence by sentence against its sources and flags unsupported, overclaimed, wrong and outdated claims, then fixes them.",
       "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/research/fact-check-draft",
+      "featured": false
+    },
+    {
+      "name": "competitor-analysis",
+      "section": "research",
+      "tagline": "Competitor analysis & sales battlecards",
+      "summary": "Builds competitor profiles, sales battlecards, market maps and pricing teardowns, with every source graded by how much to trust it.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/research/competitor-analysis",
+      "featured": false
+    },
+    {
+      "name": "deep-research",
+      "section": "research",
+      "tagline": "Cited research report on any question",
+      "summary": "Turns a hard question into a cited research report with a claim–evidence table, confidence levels, counterevidence and open questions.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/research/deep-research",
+      "featured": true
+    },
+    {
+      "name": "literature-review",
+      "section": "research",
+      "tagline": "Literature review and synthesis matrix",
+      "summary": "Turns a research question and your papers into a screening log, a literature matrix, a thematic synthesis, the research gap and a draft literature review.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/research/literature-review",
+      "featured": false
+    },
+    {
+      "name": "market-research",
+      "section": "research",
+      "tagline": "Market sizing and market analysis brief",
+      "summary": "Turns a market or product category and a business decision into a market brief with TAM/SAM/SOM sizing, drivers, structure and implications.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/research/market-research",
+      "featured": false
+    },
+    {
+      "name": "survey-design",
+      "section": "research",
+      "tagline": "Survey and questionnaire design",
+      "summary": "Turns a research or business question into a ready-to-field questionnaire with balanced scales, skip logic, a pilot checklist and an analysis plan.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/research/survey-design",
+      "featured": false
+    },
+    {
+      "name": "topic-discovery",
+      "section": "research",
+      "tagline": "Content ideas and research topics, ranked",
+      "summary": "Turns a niche, an audience and the sources you follow into a ranked list of topics worth writing or studying next.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/research/topic-discovery",
+      "featured": false
+    },
+    {
+      "name": "trend-research",
+      "section": "research",
+      "tagline": "Trend analysis and horizon scanning report",
+      "summary": "Turns a domain, a time horizon and the signals you've collected into a trend report separating signals, trends and drivers, with a watch-list.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/research/trend-research",
+      "featured": false
+    },
+    {
+      "name": "abstract-writer",
+      "section": "writing",
+      "tagline": "Abstract writer for papers and theses",
+      "summary": "Turns a paper draft or thesis into abstracts at the word limits you need, plus keywords and a plain-language summary.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/writing/abstract-writer",
+      "featured": false
+    },
+    {
+      "name": "academic-editing",
+      "section": "writing",
+      "tagline": "Academic English editing for theses and papers",
+      "summary": "Turns rough thesis, paper or essay paragraphs into clear academic English with a categorised change log and comments on argument flow.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/writing/academic-editing",
+      "featured": false
+    },
+    {
+      "name": "citation-formatter",
+      "section": "writing",
+      "tagline": "Reference list formatter and citation checker",
+      "summary": "Turns a messy reference list into clean APA, Harvard, Chicago, MLA, IEEE or GB/T 7714 references and checks every in-text citation against it.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/writing/citation-formatter",
+      "featured": false
+    },
+    {
+      "name": "copy-editor",
+      "section": "writing",
+      "tagline": "Copy edit with a change log",
+      "summary": "Turns a near-final text into a clean copy with a tracked change log, a style sheet and queries for the author.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/writing/copy-editor",
+      "featured": false
+    },
+    {
+      "name": "ethics-application",
+      "section": "writing",
+      "tagline": "Research ethics application and consent form drafts",
+      "summary": "Turns a study plan into draft ethics application answers, a participant information sheet and a consent form.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/writing/ethics-application",
+      "featured": false
+    },
+    {
+      "name": "executive-writing",
+      "section": "writing",
+      "tagline": "Executive summary and BLUF emails",
+      "summary": "Turns notes, a long update or an email thread into an executive-ready message with the bottom line first and a clear ask.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/writing/executive-writing",
+      "featured": false
+    },
+    {
+      "name": "human-writing",
+      "section": "writing",
+      "tagline": "Make AI text sound human",
+      "summary": "Turns an AI-sounding or stiff draft into a natural rewrite that keeps every fact, with a list of what changed and why.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/writing/human-writing",
+      "featured": true
+    },
+    {
+      "name": "interview-to-article",
+      "section": "writing",
+      "tagline": "Turn interview transcripts into articles",
+      "summary": "Turns an interview transcript into a feature article or Q&A with verbatim quotes, headline options and a quote-approval list.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/writing/interview-to-article",
+      "featured": false
+    },
+    {
+      "name": "linkedin-writer",
+      "section": "writing",
+      "tagline": "Write LinkedIn posts from notes",
+      "summary": "Turns an idea, notes, an article or a research brief into three LinkedIn post options with hooks, soft CTAs and first comments.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/writing/linkedin-writer",
+      "featured": false
+    },
+    {
+      "name": "long-form-editor",
+      "section": "writing",
+      "tagline": "Edit essays, articles and reports",
+      "summary": "Turns a long draft into an edited version through developmental, line and copy passes, with a prioritised change list.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/writing/long-form-editor",
+      "featured": false
+    },
+    {
+      "name": "methods-section-writer",
+      "section": "writing",
+      "tagline": "Methods section and methodology chapter writer",
+      "summary": "Turns study design notes into a methods section draft and a checklist of reporting items you still need to add.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/writing/methods-section-writer",
+      "featured": false
+    },
+    {
+      "name": "my-writing-voice",
+      "section": "writing",
+      "tagline": "Write in your own voice",
+      "summary": "Turns samples of your own writing into a reusable voice guide, then drafts or rewrites text that sounds like you.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/writing/my-writing-voice",
+      "featured": false
+    },
+    {
+      "name": "newsletter-writer",
+      "section": "writing",
+      "tagline": "Write a newsletter issue from research",
+      "summary": "Turns a research brief, notes or links into a full newsletter issue with subject lines, evidence-backed sections and a teaser post.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/writing/newsletter-writer",
+      "featured": false
+    },
+    {
+      "name": "peer-review-response",
+      "section": "writing",
+      "tagline": "Response to reviewers letter writer",
+      "summary": "Turns reviewer and editor comments into a polite point-by-point response letter and a revision checklist.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/writing/peer-review-response",
+      "featured": false
+    },
+    {
+      "name": "thesis-chapter-review",
+      "section": "writing",
+      "tagline": "Thesis and dissertation chapter feedback",
+      "summary": "Turns a thesis or dissertation chapter into a rubric-scored review with strengths, the top 5 fixes and paragraph-level comments.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/writing/thesis-chapter-review",
+      "featured": false
+    },
+    {
+      "name": "decision-memo",
+      "section": "work",
+      "tagline": "Decision memo with options and recommendation",
+      "summary": "Turns research, analysis, notes or a team debate into an answer-first decision memo with options, risks and a recommendation.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/work/decision-memo",
+      "featured": false
+    },
+    {
+      "name": "document-review",
+      "section": "work",
+      "tagline": "Review a draft document before sending",
+      "summary": "Reviews a proposal, report, plan, policy or deck text against its purpose and audience, with comments sorted by priority.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/work/document-review",
+      "featured": false
+    },
+    {
+      "name": "meeting-to-actions",
+      "section": "work",
+      "tagline": "Meeting notes to action items",
+      "summary": "Turns a meeting transcript, notes or chat log into decisions, owned action items, open questions and risks.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/work/meeting-to-actions",
+      "featured": true
+    },
+    {
+      "name": "sop-builder",
+      "section": "work",
+      "tagline": "Write an SOP from process notes",
+      "summary": "Turns a description, recording transcript or notes of how a process is done into a step-by-step SOP and a one-page checklist.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/work/sop-builder",
+      "featured": false
+    },
+    {
+      "name": "weekly-report",
+      "section": "work",
+      "tagline": "Weekly status report for your manager",
+      "summary": "Turns a week of task lists, notes, tickets and messages into a bottom-line-first weekly report with Progress, Plans and Problems.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/work/weekly-report",
+      "featured": false
+    },
+    {
+      "name": "active-recall",
+      "section": "learning",
+      "tagline": "Flashcards and self-quiz from your notes",
+      "summary": "Turns your notes, slides or a chapter into practice questions, flashcards and a graded self-quiz with a review schedule.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/learning/active-recall",
+      "featured": false
+    },
+    {
+      "name": "book-tutor",
+      "section": "learning",
+      "tagline": "Chapter-by-chapter book study guide",
+      "summary": "Turns a book, chapters or your notes into a chapter-by-chapter study guide you work through actively.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/learning/book-tutor",
+      "featured": false
+    },
+    {
+      "name": "ielts-speaking-partner",
+      "section": "learning",
+      "tagline": "IELTS speaking mock test with feedback",
+      "summary": "Turns your target band and topics into a three-part mock IELTS Speaking test with criterion-by-criterion feedback.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/learning/ielts-speaking-partner",
+      "featured": false
+    },
+    {
+      "name": "ielts-writing-coach",
+      "section": "learning",
+      "tagline": "IELTS writing feedback and band estimate",
+      "summary": "Turns your IELTS Task 1 or Task 2 answer into a per-criterion band estimate with evidence, top fixes, an improved version and practice.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/learning/ielts-writing-coach",
+      "featured": false
+    },
+    {
+      "name": "interview-practice",
+      "section": "learning",
+      "tagline": "Mock interview with STAR feedback",
+      "summary": "Turns a job description and your CV into a realistic mock interview with feedback on every answer.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/learning/interview-practice",
+      "featured": false
+    },
+    {
+      "name": "knowledge-gap-detector",
+      "section": "learning",
+      "tagline": "Find your weak spots before the exam",
+      "summary": "Turns a topic or syllabus into a diagnostic quiz and a gap map that tells you what to study next, in order.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/learning/knowledge-gap-detector",
+      "featured": false
+    },
+    {
+      "name": "mistake-analysis",
+      "section": "learning",
+      "tagline": "Mistake notebook and error analysis",
+      "summary": "Turns the wrong answers from your homework, tests or past papers into an error log by cause, patterns, targeted practice and a retest.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/learning/mistake-analysis",
+      "featured": false
+    },
+    {
+      "name": "paper-tutor",
+      "section": "learning",
+      "tagline": "Understand an academic paper, step by step",
+      "summary": "Turns a paper you can't get through into a guided reading at your level, ending in referenced reading notes.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/learning/paper-tutor",
+      "featured": false
+    },
+    {
+      "name": "resume-review",
+      "section": "learning",
+      "tagline": "Resume review against a job description",
+      "summary": "Turns your CV and a target job description into a match review, bullet-by-bullet impact check and rewrites that use only your real facts.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/learning/resume-review",
+      "featured": false
+    },
+    {
+      "name": "socratic-tutor",
+      "section": "learning",
+      "tagline": "Learn any topic by Socratic questioning",
+      "summary": "Turns a topic you want to understand into a question-by-question tutoring session that builds on what you already know.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/learning/socratic-tutor",
+      "featured": false
+    },
+    {
+      "name": "study-plan-builder",
+      "section": "learning",
+      "tagline": "Exam revision plan and study timetable",
+      "summary": "Turns your exam date, syllabus, materials and weekly hours into a week-by-week revision plan with spaced reviews and mock checkpoints.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/learning/study-plan-builder",
+      "featured": false
+    },
+    {
+      "name": "transfer-practice",
+      "section": "learning",
+      "tagline": "Apply what you learned to new problems",
+      "summary": "Turns something you have studied into practice problems in new contexts, from a worked example to solving on your own.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/learning/transfer-practice",
+      "featured": false
+    },
+    {
+      "name": "value-proposition-writer",
+      "section": "marketing",
+      "tagline": "Value proposition writer — features to benefits (FAB)",
+      "summary": "Turns a PRD, spec or feature list into a Feature–Advantage–Benefit analysis grounded in your audience, their pain points and the competition.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/marketing/value-proposition-writer",
+      "featured": false
+    },
+    {
+      "name": "positioning-messaging",
+      "section": "marketing",
+      "tagline": "Positioning & messaging framework",
+      "summary": "Writes a positioning statement and messaging house from product docs, personas and competitor research, then drafts taglines and pitches.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/marketing/positioning-messaging",
+      "featured": false
+    },
+    {
+      "name": "customer-review-mining",
+      "section": "marketing",
+      "tagline": "Voice of customer from reviews",
+      "summary": "Mines G2, App Store, Reddit, NPS and support feedback into ranked pain points, outcomes and objections, in customers' own words.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/marketing/customer-review-mining",
+      "featured": false
+    },
+    {
+      "name": "feature-launch-kit",
+      "section": "marketing",
+      "tagline": "Feature launch & GTM kit",
+      "summary": "Turns a PRD or changelog into release notes, a customer announcement, sales one-pager, support FAQ and social posts that all agree on the facts.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/marketing/feature-launch-kit",
+      "featured": false
+    },
+    {
+      "name": "customer-case-study",
+      "section": "marketing",
+      "tagline": "Customer case study writer",
+      "summary": "Turns an interview transcript or CSM notes into a result-led case study with real quotes, plus short versions for sales decks and social.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/marketing/customer-case-study",
+      "featured": false
+    },
+    {
+      "name": "competitor-messaging",
+      "section": "marketing",
+      "tagline": "Competitor messaging analysis and white space",
+      "summary": "Turns competitor homepages, landing pages and ads plus your own copy into a messaging map, the white space, and 3 angles that set you apart.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/marketing/competitor-messaging",
+      "featured": false
+    },
+    {
+      "name": "content-repurposing",
+      "section": "marketing",
+      "tagline": "Repurpose content across channels",
+      "summary": "Turns one article, report, webinar or newsletter into LinkedIn, X, newsletter, carousel, video and email versions that keep the same message.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/marketing/content-repurposing",
+      "featured": false
+    },
+    {
+      "name": "landing-page-writer",
+      "section": "marketing",
+      "tagline": "Landing page copy that converts",
+      "summary": "Turns your product info, audience and offer into full landing page copy, section by section, with headline variants to test.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/marketing/landing-page-writer",
+      "featured": false
+    },
+    {
+      "name": "seo-research",
+      "section": "marketing",
+      "tagline": "SEO keyword research and keyword map",
+      "summary": "Turns a product or topic, its audience and your keyword exports into a keyword map with intent, funnel stage, priority and a page for every cluster.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/marketing/seo-research",
+      "featured": false
+    },
+    {
+      "name": "user-persona-builder",
+      "section": "product",
+      "tagline": "Personas & Jobs-to-be-Done",
+      "summary": "Builds evidence-based personas and JTBD statements from interviews, surveys, reviews and CRM notes, with every trait traced to evidence.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/product/user-persona-builder",
+      "featured": false
+    },
+    {
+      "name": "ai-product-audit",
+      "section": "product",
+      "tagline": "AI product trust & risk audit",
+      "summary": "Audits an AI feature for transparency, dark patterns, overreliance, privacy, safety and compliance risk, with evidence and a fix for each issue.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/product/ai-product-audit",
+      "featured": false
+    },
+    {
+      "name": "feature-spec",
+      "section": "product",
+      "tagline": "User stories and acceptance criteria",
+      "summary": "Turns an approved PRD or feature description into an engineering-ready spec with Given/When/Then acceptance criteria.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/product/feature-spec",
+      "featured": false
+    },
+    {
+      "name": "prd-writer",
+      "section": "product",
+      "tagline": "Product requirements document (PRD) writer",
+      "summary": "Turns a feature idea, user feedback or research notes into a problem-first PRD with jobs-to-be-done and prioritised requirements.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/product/prd-writer",
+      "featured": false
+    },
+    {
+      "name": "product-critique",
+      "section": "product",
+      "tagline": "Product teardown and UX heuristic review",
+      "summary": "Critiques a product, feature, prototype or screenshots against the user's job, Nielsen's 10 heuristics and severity.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/product/product-critique",
+      "featured": false
+    },
+    {
+      "name": "product-discovery",
+      "section": "product",
+      "tagline": "Opportunity solution tree and assumption tests",
+      "summary": "Turns a desired outcome and what you already know into an opportunity solution tree, an assumption map and the next 3 cheapest experiments.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/product/product-discovery",
+      "featured": false
+    },
+    {
+      "name": "agent-orchestrator",
+      "section": "skill-engineering",
+      "tagline": "Plan a multi-agent AI workflow",
+      "summary": "Turns a goal too big for one prompt into an orchestration plan with sub-tasks, handoffs, human checkpoints and a brief for every sub-agent.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/skill-engineering/agent-orchestrator",
+      "featured": false
+    },
+    {
+      "name": "prompt-to-skill",
+      "section": "skill-engineering",
+      "tagline": "Turn a saved prompt into a skill",
+      "summary": "Turns a long prompt you keep reusing into a structured Claude skill, with a before/after and a log of what changed.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/skill-engineering/prompt-to-skill",
+      "featured": false
+    },
+    {
+      "name": "skill-creator",
+      "section": "skill-engineering",
+      "tagline": "Write your own Claude skill",
+      "summary": "Turns a task you repeat at work, with real input and output examples, into a ready SKILL.md, README and test plan.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/skill-engineering/skill-creator",
+      "featured": false
+    },
+    {
+      "name": "skill-eval",
+      "section": "skill-engineering",
+      "tagline": "Test and evaluate a Claude skill",
+      "summary": "Turns a skill and a few real example tasks into test cases, pass/fail criteria written up front, a run log and findings.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/skill-engineering/skill-eval",
+      "featured": false
+    },
+    {
+      "name": "skill-reviewer",
+      "section": "skill-engineering",
+      "tagline": "Review and fix a Claude skill",
+      "summary": "Turns an existing SKILL.md into a scored review, a frontmatter check, a prioritised fix list and a revised version.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/skill-engineering/skill-reviewer",
+      "featured": false
+    },
+    {
+      "name": "workflow-decomposer",
+      "section": "skill-engineering",
+      "tagline": "Find where AI fits in your work",
+      "summary": "Turns a job role or recurring piece of work into stages with inputs and outputs, an AI-versus-human judgement per stage, and a map of skills to build.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/skill-engineering/workflow-decomposer",
       "featured": false
     }
   ]

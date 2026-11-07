@@ -14,7 +14,7 @@ import urllib.request
 
 REPO = "lingegrace/claude-research-skills"
 # Shown as full cards on the website; every other skill appears in the short list.
-FEATURED = ["value-proposition-writer", "competitive-market-research", "sociology-deep-research"]
+FEATURED = ["deep-research", "human-writing", "meeting-to-actions"]
 OUT = pathlib.Path(__file__).resolve().parent.parent / "skills.json"
 
 
@@ -49,14 +49,14 @@ def main():
     if not skills:
         print("No skills found. Keeping existing file.")
         return 0
-    sections = ["product-marketing", "sociology", "research", ""]
+    sections = ["research", "writing", "work", "learning", "marketing", "product", "skill-engineering", ""]
     preferred = ["value-proposition-writer", "positioning-messaging", "user-persona-builder", "customer-review-mining",
                  "competitive-market-research", "feature-launch-kit", "customer-case-study", "ai-product-audit",
                  "research-question-grill", "sociology-deep-research", "interview-guide", "thematic-analysis",
                  "quantitative-analysis", "content-research-analyst", "fact-check-draft"]
     rank = lambda n: preferred.index(n) if n in preferred else len(preferred)
     skills.sort(key=lambda k: (sections.index(k["section"]) if k["section"] in sections else len(sections), rank(k["name"]), k["name"]))
-    data = {"repo": f"https://github.com/{REPO}", "sections": {"product-marketing": "Product & Marketing", "sociology": "Sociology & Social Science", "research": "Research & Writing"}, "updated": dt.date.today().isoformat(), "skills": skills}
+    data = {"repo": f"https://github.com/{REPO}", "sections": {"research": "Research & Intelligence", "writing": "Content & Communication", "work": "Work & Documents", "learning": "Learning & Practice", "marketing": "Marketing", "product": "Product", "skill-engineering": "Skill Engineering"}, "updated": dt.date.today().isoformat(), "skills": skills}
     OUT.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Wrote {len(skills)} skills: {', '.join(s['name'] for s in skills)}")
     return 0
