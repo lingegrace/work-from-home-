@@ -35,7 +35,9 @@ def parse(page):
         tail = page[m.end():m.end() + 6000]
         d = re.search(r"\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]* (\d{1,2}), (20\d\d)", tail)
         date = dt.datetime.strptime(" ".join(d.groups()), "%b %d %Y").date().isoformat() if d else None
-        issues.append({"title": title, "url": url, "date": date})
+        before = page[max(0, m.start() - 2500):m.start()]
+        covers = [html.unescape(c) for c in re.findall(r'(?:data-delayed-url|src)="(https://media\.licdn\.com/dms/image/[^"]+)"', before) if "article-cover" in c]
+        issues.append({"title": title, "url": url, "date": date, "cover": covers[-1] if covers else None})
     # newest first, keeping LinkedIn's order for undated items
     order = {i["url"]: n for n, i in enumerate(issues)}
     issues.sort(key=lambda i: (i["date"] or "", -order[i["url"]]), reverse=True)
@@ -44,14 +46,16 @@ def parse(page):
 
 def main():
     try:
-        issues = parse(fetch(NEWSLETTER_URL))
+        page = fetch(NEWSLETTER_URL)
+        issues = parse(page)
     except Exception as e:  # network error, LinkedIn block, etc.
         print(f"Could not read newsletter page: {e}. Keeping existing file.")
         return 0
     if not issues:
         print("No issues found on the page (layout changed or blocked). Keeping existing file.")
         return 0
-    data = {"newsletter": "Signals Across Markets", "url": NEWSLETTER_URL,
+    logo = re.search(r'<meta property="og:image" content="([^"]+)"', page)
+    data = {"newsletter": "Signals Across Markets", "url": NEWSLETTER_URL, "logo": html.unescape(logo.group(1)) if logo else None,
             "updated": dt.date.today().isoformat(), "issues": issues[:6]}
     OUT.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Wrote {len(data['issues'])} issues. Latest: {issues[0]['title']}")
