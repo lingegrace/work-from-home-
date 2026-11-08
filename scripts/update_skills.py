@@ -49,14 +49,14 @@ def main():
     if not skills:
         print("No skills found. Keeping existing file.")
         return 0
-    sections = ["research", "writing", "work", "learning", "marketing", "product", "skill-engineering", ""]
+    sections = ["social-science", "market-research", "writing", "work", "learning", "marketing", "product", "skill-engineering", ""]
     preferred = ["value-proposition-writer", "positioning-messaging", "user-persona-builder", "customer-review-mining",
                  "competitive-market-research", "feature-launch-kit", "customer-case-study", "ai-product-audit",
                  "research-question-grill", "sociology-deep-research", "interview-guide", "thematic-analysis",
                  "quantitative-analysis", "content-research-analyst", "fact-check-draft"]
     rank = lambda n: preferred.index(n) if n in preferred else len(preferred)
     skills.sort(key=lambda k: (sections.index(k["section"]) if k["section"] in sections else len(sections), rank(k["name"]), k["name"]))
-    data = {"repo": f"https://github.com/{REPO}", "sections": {"research": "Social Science & Market Research", "writing": "Writing, Editing & Social Media", "work": "Meetings, Memos & Reports", "learning": "Learning & Exam Prep", "marketing": "Marketing", "product": "Product Management", "skill-engineering": "Build Your Own Skills"}, "updated": dt.date.today().isoformat(), "skills": skills}
+    data = {"repo": f"https://github.com/{REPO}", "sections": {"social-science": "Social Science Research", "market-research": "Market Research", "writing": "Writing, Editing & Social Media", "work": "Meetings, Memos & Reports", "learning": "Learning & Exam Prep", "marketing": "Marketing", "product": "Product Management", "skill-engineering": "Build Your Own Skills"}, "updated": dt.date.today().isoformat(), "skills": skills}
     OUT.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Wrote {len(skills)} skills: {', '.join(s['name'] for s in skills)}")
     return 0
