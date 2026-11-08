@@ -23,16 +23,22 @@ def fetch(url):
 
 
 def parse(page):
+    """Find every issue link. Attribute order inside the <a> tag doesn't matter (LinkedIn changes it)."""
     issues, seen = [], set()
-    for m in re.finditer(r'href="(https://www\.linkedin\.com/pulse/[^"?]+)[^"]*"[^>]*share-article__title-link"[^>]*>\s*([^<]+?)\s*<', page):
-        url, title = m.group(1), html.unescape(m.group(2)).strip()
-        if url in seen:
+    for m in re.finditer(r"<a\b([^>]*\bshare-article__title-link\b[^>]*)>\s*([^<]+?)\s*<", page):
+        attrs, title = m.group(1), html.unescape(m.group(2)).strip()
+        h = re.search(r'href="(https://www\.linkedin\.com/pulse/[^"?]+)', attrs)
+        if not h or h.group(1) in seen or not title:
             continue
+        url = h.group(1)
         seen.add(url)
         tail = page[m.end():m.end() + 6000]
         d = re.search(r"\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]* (\d{1,2}), (20\d\d)", tail)
         date = dt.datetime.strptime(" ".join(d.groups()), "%b %d %Y").date().isoformat() if d else None
         issues.append({"title": title, "url": url, "date": date})
+    # newest first, keeping LinkedIn's order for undated items
+    order = {i["url"]: n for n, i in enumerate(issues)}
+    issues.sort(key=lambda i: (i["date"] or "", -order[i["url"]]), reverse=True)
     return issues
 
 
