@@ -1,7 +1,8 @@
 {
   "repo": "https://github.com/lingegrace/claude-research-skills",
   "sections": {
-    "research": "Social Science & Market Research",
+    "social-science": "Social Science Research",
+    "market-research": "Market Research",
     "writing": "Writing, Editing & Social Media",
     "work": "Meetings, Memos & Reports",
     "learning": "Learning & Exam Prep",
@@ -13,114 +14,114 @@
   "skills": [
     {
       "name": "research-question-grill",
-      "section": "research",
+      "section": "social-science",
       "tagline": "Research question interview",
       "summary": "Interviews you one question at a time until a vague topic becomes a focused, answerable research question with scope, concepts and a falsifier.",
-      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/research/research-question-grill",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/social-science/research-question-grill",
       "featured": false
     },
     {
       "name": "sociology-deep-research",
-      "section": "research",
+      "section": "social-science",
       "tagline": "Sociology deep research & literature review",
       "summary": "Builds a citation-checked literature review and research dossier on a social question, with claim–evidence tables and an adversarial critique.",
-      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/research/sociology-deep-research",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/social-science/sociology-deep-research",
       "featured": false
     },
     {
       "name": "interview-guide",
-      "section": "research",
+      "section": "social-science",
       "tagline": "Qualitative interview guide",
       "summary": "Designs a semi-structured interview guide with themed open questions, probes, consent points and a bias check.",
-      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/research/interview-guide",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/social-science/interview-guide",
       "featured": false
     },
     {
       "name": "thematic-analysis",
-      "section": "research",
+      "section": "social-science",
       "tagline": "Thematic analysis (Braun & Clarke)",
       "summary": "Runs reflexive thematic analysis on transcripts: a codebook with located quotes, reviewed themes and a write-up with an audit trail.",
-      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/research/thematic-analysis",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/social-science/thematic-analysis",
       "featured": false
     },
     {
       "name": "quantitative-analysis",
-      "section": "research",
+      "section": "social-science",
       "tagline": "Survey & quantitative analysis",
       "summary": "Plans, runs and writes up survey or social science statistics, with assumption checks and interpretation that doesn't overclaim causation.",
-      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/research/quantitative-analysis",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/social-science/quantitative-analysis",
       "featured": false
-    },
-    {
-      "name": "content-research-analyst",
-      "section": "research",
-      "tagline": "Content research & fact-checking",
-      "summary": "Turns articles, reports and news into a source-traceable research brief before you write a post, newsletter or report.",
-      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/research/content-research-analyst",
-      "featured": false
-    },
-    {
-      "name": "fact-check-draft",
-      "section": "research",
-      "tagline": "Fact-check a draft",
-      "summary": "Checks a draft sentence by sentence against its sources and flags unsupported, overclaimed, wrong and outdated claims, then fixes them.",
-      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/research/fact-check-draft",
-      "featured": false
-    },
-    {
-      "name": "competitor-analysis",
-      "section": "research",
-      "tagline": "Competitor analysis & sales battlecards",
-      "summary": "Builds competitor profiles, sales battlecards, market maps and pricing teardowns, with every source graded by how much to trust it.",
-      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/research/competitor-analysis",
-      "featured": false
-    },
-    {
-      "name": "deep-research",
-      "section": "research",
-      "tagline": "Cited research report on any question",
-      "summary": "Turns a hard question into a cited research report with a claim–evidence table, confidence levels, counterevidence and open questions.",
-      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/research/deep-research",
-      "featured": true
     },
     {
       "name": "literature-review",
-      "section": "research",
+      "section": "social-science",
       "tagline": "Literature review and synthesis matrix",
       "summary": "Turns a research question and your papers into a screening log, a literature matrix, a thematic synthesis, the research gap and a draft literature review.",
-      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/research/literature-review",
-      "featured": false
-    },
-    {
-      "name": "market-research",
-      "section": "research",
-      "tagline": "Market sizing and market analysis brief",
-      "summary": "Turns a market or product category and a business decision into a market brief with TAM/SAM/SOM sizing, drivers, structure and implications.",
-      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/research/market-research",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/social-science/literature-review",
       "featured": false
     },
     {
       "name": "survey-design",
-      "section": "research",
+      "section": "social-science",
       "tagline": "Survey and questionnaire design",
       "summary": "Turns a research or business question into a ready-to-field questionnaire with balanced scales, skip logic, a pilot checklist and an analysis plan.",
-      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/research/survey-design",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/social-science/survey-design",
+      "featured": false
+    },
+    {
+      "name": "competitor-analysis",
+      "section": "market-research",
+      "tagline": "Competitor analysis & sales battlecards",
+      "summary": "Builds competitor profiles, sales battlecards, market maps and pricing teardowns, with every source graded by how much to trust it.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/market-research/competitor-analysis",
+      "featured": false
+    },
+    {
+      "name": "deep-research",
+      "section": "market-research",
+      "tagline": "Cited research report on any question",
+      "summary": "Turns a hard question into a cited research report with a claim–evidence table, confidence levels, counterevidence and open questions.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/market-research/deep-research",
+      "featured": true
+    },
+    {
+      "name": "market-research",
+      "section": "market-research",
+      "tagline": "Market sizing and market analysis brief",
+      "summary": "Turns a market or product category and a business decision into a market brief with TAM/SAM/SOM sizing, drivers, structure and implications.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/market-research/market-research",
       "featured": false
     },
     {
       "name": "topic-discovery",
-      "section": "research",
+      "section": "market-research",
       "tagline": "Content ideas and research topics, ranked",
       "summary": "Turns a niche, an audience and the sources you follow into a ranked list of topics worth writing or studying next.",
-      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/research/topic-discovery",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/market-research/topic-discovery",
       "featured": false
     },
     {
       "name": "trend-research",
-      "section": "research",
+      "section": "market-research",
       "tagline": "Trend analysis and horizon scanning report",
       "summary": "Turns a domain, a time horizon and the signals you've collected into a trend report separating signals, trends and drivers, with a watch-list.",
-      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/research/trend-research",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/market-research/trend-research",
+      "featured": false
+    },
+    {
+      "name": "content-research-analyst",
+      "section": "writing",
+      "tagline": "Content research & fact-checking",
+      "summary": "Turns articles, reports and news into a source-traceable research brief before you write a post, newsletter or report.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/writing/content-research-analyst",
+      "featured": false
+    },
+    {
+      "name": "fact-check-draft",
+      "section": "writing",
+      "tagline": "Fact-check a draft",
+      "summary": "Checks a draft sentence by sentence against its sources and flags unsupported, overclaimed, wrong and outdated claims, then fixes them.",
+      "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/writing/fact-check-draft",
       "featured": false
     },
     {
