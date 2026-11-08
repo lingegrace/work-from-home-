@@ -1,13 +1,13 @@
 {
   "repo": "https://github.com/lingegrace/claude-research-skills",
   "sections": {
-    "research": "Research & Intelligence",
-    "writing": "Content & Communication",
-    "work": "Work & Documents",
-    "learning": "Learning & Practice",
+    "research": "Social Science & Market Research",
+    "writing": "Writing, Editing & Social Media",
+    "work": "Meetings, Memos & Reports",
+    "learning": "Learning & Exam Prep",
     "marketing": "Marketing",
-    "product": "Product",
-    "skill-engineering": "Skill Engineering"
+    "product": "Product Management",
+    "skill-engineering": "Build Your Own Skills"
   },
   "updated": "2026-11-08",
   "skills": [
