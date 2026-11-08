@@ -549,6 +549,11 @@
         .more-row a { color: var(--cream-soft); text-decoration: none; border-bottom: 1px solid rgba(245,196,130,0.35); cursor: none; white-space: nowrap; }
         .more-row a:hover { color: var(--accent-warm); border-bottom-color: var(--accent-warm); }
         .more-row .sep { margin: 0 0.45rem; opacity: 0.5; }
+        .more-grid { display: grid; grid-template-columns: 12.5rem 1fr; gap: 0.1rem 1.2rem; align-items: baseline; margin-bottom: 0.55rem; }
+        .more-grid b { margin-right: 0; line-height: 1.5; }
+        .more-links { min-width: 0; overflow-wrap: anywhere; }
+        .more-grid .sep { margin: 0 0.15rem; }
+        @media (max-width: 720px) { .more-grid { grid-template-columns: 1fr; } }
         /* newsletter */
         .issue-latest { grid-column: 1 / -1; }
         .issue-latest .sub-title { font-size: 1.65rem; }
@@ -1117,8 +1122,8 @@
             rest.forEach(k => { if (!order.includes(k.section || '')) order.push(k.section || ''); });
             const repo = e((data && data.repo) || 'https://github.com/lingegrace/claude-research-skills');
             document.getElementById('moreSkills').innerHTML = `<div class="more-title">More skills on GitHub · ${rest.length}</div>` +
-                order.map(sec => `<p class="more-row"><b>${e(names[sec] || 'Other')}</b>${rest.filter(k => (k.section || '') === sec)
-                    .map(k => `<a href="${e(k.url)}" target="_blank" rel="noopener" title="${e(k.tagline)}">${e(k.name)}</a>`).join('<span class="sep">·</span>')}</p>`).join('') +
+                order.map(sec => `<p class="more-row more-grid"><b>${e(names[sec] || 'Other')}</b><span class="more-links">${rest.filter(k => (k.section || '') === sec)
+                    .map(k => `<a href="${e(k.url)}" target="_blank" rel="noopener" title="${e(k.tagline)}">${e(k.name)}</a>`).join(' <span class="sep">·</span> ')}</span></p>`).join('') +
                 `<p class="more-row"><a href="https://lingegrace.github.io/skills/skills/" target="_blank" rel="noopener">See all ${list.length} skills in the Skill Library ↗</a></p>`;
             const intro = document.getElementById('skillsIntro');
             if (intro) intro.textContent = intro.textContent.replace(/^\d+ free skills/, list.length + ' free skills');
