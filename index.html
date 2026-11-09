@@ -178,7 +178,7 @@
             z-index: 1;
         }
 
-        .hero { text-align: center; margin-bottom: 3rem; }
+        .hero { text-align: center; margin-bottom: 1.2rem; }
         .hero-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.72rem;
@@ -215,8 +215,8 @@
         .deer-marks {
             position: relative;
             width: 100%;
-            height: min(50vh, 460px);
-            margin: 2rem auto 1rem;
+            height: min(40vh, 370px);
+            margin: 0.6rem auto 0.4rem;
             max-width: 1100px;
         }
         .spot {
@@ -314,7 +314,7 @@
             letter-spacing: 0.32em;
             text-transform: uppercase;
             color: var(--cream);
-            margin-top: 2.5rem;
+            margin-top: 1.4rem;
             transition: opacity 0.5s;
             text-shadow: 0 2px 6px rgba(0,0,0,0.6);
         }
@@ -531,6 +531,10 @@
         .work-link:hover { background: var(--accent-warm); color: var(--ink); }
         .work-link small { opacity: 0.7; font-size: 0.66rem; }
         .work-note { font-size: 0.8rem; color: var(--cream-mute); margin-top: 0.9rem; }
+        .sub { position: relative; }
+        .nm-cat { position: absolute; top: 0.4rem; right: 0.6rem; width: 92px; height: 92px; pointer-events: none; }
+        .nm-cat ~ .sub-title, .nm-cat ~ .sub-desc { padding-right: 80px; }
+        .nm-note { font-size: 0.72rem; color: var(--cream-mute); margin-top: 0.6rem; line-height: 1.5; }
         .code-line {
             display: block; font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--cream);
             background: rgba(0,0,0,0.35); border: 1px solid var(--line); border-radius: 6px;
@@ -778,10 +782,38 @@
                             </div>
                         </div>
                         <div class="sub">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" class="nm-cat" role="img" aria-label="A line-drawn cat looking up at a glowing lamp">
+                              <style>
+                                .ln{fill:none;stroke:#F5C482;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+                                .thin{stroke-width:1.6}
+                                .fillbg{fill:#2B1D14}
+                                .dot{fill:#F5C482}
+                                .glow{fill:#F5C482;opacity:.45}
+                              </style>
+                              <g transform="translate(68 30) scale(1.4)">
+                                <ellipse class="glow" cx="12" cy="18" rx="9" ry="6"/>
+                                <path class="ln thin" d="M12 20v4M5 18l-3 3M19 18l3 3M8 22l-1.5 3.5M16 22l1.5 3.5" opacity=".8"/>
+                                <path class="ln" d="M12 -30v34.5M4 13a8 8.5 0 0 1 16 0zM9.5 13a2.5 2.5 0 0 0 5 0z"/>
+                              </g>
+                              <g transform="translate(6 40) scale(.62)">
+                                <path class="ln" d="M66 104c18 2 26-10 20-22-3-6-10-6-11 0"/>
+                                <path class="ln fillbg" d="M35 58c-12 18-12 40-2 52h34c10-12 10-34-2-52z"/>
+                                <path class="ln thin" d="M39 110q4-5 8 0M53 110q4-5 8 0"/>
+                                <path class="ln" d="M36 70c-4 10-2 22 8 26M64 70c4 10 2 22-8 26"/>
+                                <path class="ln fillbg" d="M30 31l1-21 15 11M70 31l-1-21-15 11"/>
+                                <path class="ln thin" d="M33 25l.6-9 7 5M67 25l-.6-9-7 5"/>
+                                <ellipse class="ln fillbg" cx="50" cy="40" rx="25" ry="21"/>
+                                <circle class="dot" cx="43" cy="37" r="2.6"/><circle class="dot" cx="61" cy="37" r="2.6"/>
+                                <path class="dot" d="M48.6 45.2h2.8l-1.4 1.6z" style="opacity:.9"/>
+                                <path class="ln thin" d="M45 49q2.5 3 5 0q2.5 3 5 0"/>
+                                <path class="ln thin" d="M27 45h-9M27 49l-8 2M73 45h9M73 49l8 2"/>
+                              </g>
+                            </svg>
                             <div class="sub-kicker">Deep work</div>
                             <h3 class="sub-title">Neuro-Mentum</h3>
-                            <p class="sub-desc">Micro-tasks built into a 60-minute deep-work session, to help the prefrontal cortex recover after intense concentration.</p>
-                            <div class="sub-links"><a class="work-link" href="https://clear-pfc-flow.base44.app" target="_blank" rel="noopener">Open Neuro-Mentum ↗</a></div>
+                            <p class="sub-desc">Micro-tasks built into a 60-minute deep-work session, to help the prefrontal cortex recover after intense concentration. Now also a quiet desk lamp in your Mac menu bar.</p>
+                            <div class="sub-links"><a class="work-link" href="https://clear-pfc-flow.base44.app" target="_blank" rel="noopener">Open web app ↗</a><a class="work-link" href="https://github.com/lingegrace/neuro-mentum/releases/download/v0.2.1/Neuro-Mentum-0.2.1.dmg">Download for Mac ↓</a><a class="work-link" href="https://github.com/lingegrace/neuro-mentum" target="_blank" rel="noopener">About the app ↗</a></div>
+                            <p class="nm-note">Mac app · macOS 11+ · Apple silicon &amp; Intel. First launch: System Settings → Privacy &amp; Security → Open Anyway.</p>
                         </div>
                     </div>
                 </article>
@@ -821,28 +853,28 @@
                             <div class="sub-kicker">i.</div>
                             <h3 class="sub-title">LLM Wiki</h3>
                             <p class="sub-desc">How large language models work: key concepts, architectures and papers, explained in plain language.</p>
-                            <div class="sub-links"><a class="work-link" href="https://rcnd1qqt63cw.feishu.cn/wiki/UfMaw8HkmiQR8JkdZwjcmQNjnyc?from=from_copylink" target="_blank" rel="noopener">Open notebook ↗</a></div>
+                            <div class="sub-links"><a class="work-link" href="https://lingegrace.github.io/skills/resources/#llm-notebook" target="_blank" rel="noopener">Open notebook ↗</a></div>
                         </div>
                         <div class="sub">
                             <div class="sub-kicker">ii.</div>
                             <h3 class="sub-title">AI Governance</h3>
                             <p class="sub-desc">AI policy, regulation and safety frameworks, and how different countries approach them.</p>
-                            <div class="sub-links"><a class="work-link" href="https://rcnd1qqt63cw.feishu.cn/wiki/P5O8w8uENiE6RGkVrw2c5pUunTc?from=from_copylink" target="_blank" rel="noopener">Open notebook ↗</a></div>
+                            <div class="sub-links"><a class="work-link" href="https://lingegrace.github.io/skills/resources/#ai-governance" target="_blank" rel="noopener">Open notebook ↗</a></div>
                         </div>
                         <div class="sub">
                             <div class="sub-kicker">iii.</div>
                             <h3 class="sub-title">Prompt Red Team</h3>
                             <p class="sub-desc">Adversarial prompts and failure cases: testing where models break, and why.</p>
-                            <div class="sub-links"><a class="work-link" href="https://rcnd1qqt63cw.feishu.cn/wiki/Ep3ewlDZligXJMkiZnxcQsDDnNc?from=from_copylink" target="_blank" rel="noopener">Open notebook ↗</a></div>
+                            <div class="sub-links"><a class="work-link" href="https://lingegrace.github.io/skills/resources/" target="_blank" rel="noopener">Open notebook ↗</a></div>
                         </div>
                         <div class="sub">
                             <div class="sub-kicker">iv.</div>
                             <h3 class="sub-title">Learning Sum</h3>
                             <p class="sub-desc">My running summaries of the courses, books and talks I learn from.</p>
-                            <div class="sub-links"><a class="work-link" href="https://rcnd1qqt63cw.feishu.cn/wiki/U7oJwODIEiwUtHkEXKncffCYnNc?from=from_copylink" target="_blank" rel="noopener">Open notebook ↗</a></div>
+                            <div class="sub-links"><a class="work-link" href="https://lingegrace.github.io/skills/resources/#reading-notes" target="_blank" rel="noopener">Open notebook ↗</a></div>
                         </div>
                     </div>
-                    <p class="work-note">Hosted on Feishu (Lark). Opens in a new tab.</p>
+                    <p class="work-note">Now in my Skill Workshop. Opens in a new tab.</p>
                 </article>
             </div>
         </section>
