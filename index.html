@@ -321,64 +321,6 @@
         .hero-hint.dim { opacity: 0.35; }
         .hero-hint em { color: var(--accent-warm); font-style: normal; }
 
-        /* ═══════ BEYOND ACADEMIA BRIDGE · DEMO ═══════ */
-        .beyond-academia {
-            max-width: 760px;
-            margin: clamp(3.5rem, 8vw, 6.5rem) auto 2rem;
-            padding: 2.2rem 1.5rem 2.6rem;
-            text-align: center;
-            border-top: 1px solid rgba(248, 236, 209, 0.24);
-            position: relative;
-        }
-        .beyond-kicker {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.68rem;
-            letter-spacing: 0.28em;
-            text-transform: uppercase;
-            color: var(--accent-warm);
-            margin-bottom: 1rem;
-        }
-        .beyond-academia h2 {
-            font-family: 'Instrument Serif', serif;
-            font-size: clamp(2rem, 4vw, 3.1rem);
-            line-height: 1.05;
-            font-weight: 400;
-            font-style: italic;
-            color: var(--cream);
-            margin: 0 auto 1rem;
-            text-shadow: 0 2px 14px rgba(0,0,0,.35);
-        }
-        .beyond-academia p {
-            max-width: 620px;
-            margin: 0.8rem auto;
-            color: var(--cream-warm);
-            font-size: 0.98rem;
-            line-height: 1.8;
-        }
-        .beyond-academia .beyond-note {
-            color: var(--accent-warm);
-            font-family: 'Fraunces', 'Instrument Serif', serif;
-            font-style: italic;
-            font-size: 1rem;
-        }
-        .beyond-link {
-            display: inline-block;
-            margin-top: 1.1rem;
-            padding-bottom: 0.3rem;
-            border-bottom: 1px solid rgba(248, 236, 209, 0.55);
-            color: var(--cream);
-            text-decoration: none;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-        }
-        .beyond-link span { color: var(--accent-warm); margin-left: 0.3rem; }
-        @media (max-width: 640px) {
-            .beyond-academia { padding: 1.8rem 1rem 2.2rem; margin-top: 3rem; }
-            .beyond-academia p { font-size: 0.92rem; }
-        }
-
         /* ═══════ READING PANE ═══════ */
         .reading-backdrop {
             position: fixed;
@@ -680,7 +622,6 @@
         .footer { text-align: center; padding: 4rem 2rem 2rem; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--cream-mute); text-shadow: 0 2px 6px rgba(0,0,0,0.5); }
         .footer a { color: var(--cream-soft); margin: 0 0.4rem; cursor: none; }
     </style>
-    <!-- Beyond Academia demo: refreshed for live review -->
 </head>
 <body>
     <div id="cursor"></div>
@@ -716,8 +657,8 @@
                 <div class="hero">
                     <div class="hero-eyebrow">Linge · Grace · Guo</div>
                     <h1 class="hero-name">grace</h1>
-                    <p class="hero-sub">From academic curiosity to practical creation — exploring how technology reshapes the way we think, work, interact and live.</p>
-                    <div class="hero-cta"><a class="btn btn-ghost" href="#works">Beyond Academia · See what I build →</a></div>
+                    <p class="hero-sub">a sociotechnical lens on how AI and emerging technologies reshape the way we know, work, interact, and live.</p>
+                    <div class="hero-cta"><a class="btn btn-ghost" href="#works">See what I build →</a></div>
                 </div>
 
                 <div class="deer-marks">
@@ -731,7 +672,7 @@
                     </div>
                     <div class="spot s3" data-item="analyze" role="button" tabindex="0">
                         <div class="spot-dot">iii</div>
-                        <div class="spot-label">analyse</div>
+                        <div class="spot-label">analyze</div>
                     </div>
                     <div class="spot s4" data-item="pursue" role="button" tabindex="0">
                         <div class="spot-dot">iv</div>
@@ -740,16 +681,8 @@
                 </div>
 
                 <div class="hero-hint" id="heroHint">
-                    follow the marks — four chapters of a continuing intellectual journey
+                    click a mark on the fawn — start with <em>i. speak</em>
                 </div>
-
-                <section class="beyond-academia" aria-labelledby="beyond-title">
-                    <div class="beyond-kicker">Beyond Academia</div>
-                    <h2 id="beyond-title">The questions stayed. The setting changed.</h2>
-                    <p>Oxford shaped how I think. Beyond academia, I continue to follow those questions through experiments, tools, research and things I build in the real world.</p>
-                    <p class="beyond-note">A journey from curiosity to creation. 从学术思考出发，把想法带进现实世界。</p>
-                    <a class="beyond-link" href="#works">Explore what I'm building <span aria-hidden="true">→</span></a>
-                </section>
             </div>
         </section>
 
