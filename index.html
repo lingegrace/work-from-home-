@@ -161,6 +161,9 @@
         .card h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.8rem, 2.8vw, 2.3rem); line-height: 1.1; color: var(--cream); margin: .45rem 0 .55rem; }
         .card p { font-size: .98rem; }
         .stack { display: grid; gap: 1.4rem; }
+        /* each piece of work gets its own screen */
+        .screen { min-height: 100svh; display: flex; flex-direction: column; justify-content: center; padding: calc(var(--nav-h) + 1rem) 0 2rem; }
+        .screen + .screen { border-top: 1px solid var(--faint); }
         .row-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; }
         .row-2 > *, .feature > * { min-width: 0; }
         .feature { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(1.5rem, 4vw, 3rem); }
@@ -217,7 +220,7 @@
         .sbtn-sit .txt { left: 8%; right: 12%; top: 60%; bottom: 8%; font-size: .78rem; }
         .sbtn-sit:hover { transform: translateY(-3px) rotate(-2deg); }
         .sbtn-rose { width: 270px; height: 70px; }
-        .sbtn-rose .txt { left: 27%; right: 5%; top: 10%; bottom: 10%; }
+        .sbtn-rose .txt { left: 22%; right: 18%; top: 14%; bottom: 14%; }
         .sbtn-rose:hover { transform: translateY(-2px) rotate(-1deg); }
         .sbtn-mail { width: 150px; height: 64px; }
         .sbtn-mail .txt { left: 6%; right: 6%; top: 42%; bottom: 8%; }
@@ -365,13 +368,13 @@
         <!-- 4 ── works -->
         <section class="works" id="works">
             <div class="wrap">
-                <div class="sec-head reveal">
+                <div class="screen">
+                    <div class="sec-head reveal">
                     <span class="label">Works</span>
                     <h2>What I've built</h2>
                     <p>Skills that actually work, writing worth reading, and a small app for deep work.</p>
                 </div>
 
-                <div class="stack">
                     <article class="card feature reveal">
                         <div>
                             <span class="label">Claude skills · free &amp; open source</span>
@@ -398,6 +401,8 @@
                         </details>
                     </article>
 
+                </div>
+                <div class="screen">
                     <div class="row-2">
                         <article class="card reveal">
                             <span class="label">LinkedIn newsletter · weekly</span>
@@ -425,12 +430,14 @@
                                 <li><a href="https://lingegrace.github.io/skills/resources/test-before-you-ship/" target="_blank" rel="noopener">Test a skill before you ship it ↗</a><span>A real test run, and the one change it forced.</span></li>
                             </ul>
                             <div class="actions"><a class="sbtn sbtn-rose" href="https://lingegrace.github.io/skills/resources/" target="_blank" rel="noopener">
-                                <svg viewBox="0 0 280 72" aria-hidden="true"><path class="outline" d="M58 36 C100 8 220 6 274 36 C220 66 100 64 58 36 Z"/><path class="outline" d="M36 10 C48 10 54 17 56 25 C64 27 66 39 60 45 C62 55 52 63 42 61 C36 67 24 65 20 57 C10 55 6 43 12 37 C6 29 12 17 22 17 C24 11 30 10 36 10 Z"/><path class="detail" d="M36 25 C44 25 46 35 40 39 C34 43 28 37 31 32 C33 29 38 30 38 33 M24 30 C22 40 28 50 38 51 M50 30 C54 40 50 50 42 52 M90 36 C140 30 200 30 250 36"/></svg>
+                                <svg viewBox="0 0 280 72" aria-hidden="true"><path class="outline" d="M54 21 C108 11 170 29 228 17 L276 12 L257 35 L276 58 L228 54 C170 66 108 47 54 50 Z"/><path class="outline" d="M36 10 C48 10 54 17 56 25 C64 27 66 39 60 45 C62 55 52 63 42 61 C36 67 24 65 20 57 C10 55 6 43 12 37 C6 29 12 17 22 17 C24 11 30 10 36 10 Z"/><path class="detail" d="M36 25 C44 25 46 35 40 39 C34 43 28 37 31 32 C33 29 38 30 38 33 M24 30 C22 40 28 50 38 51 M50 30 C54 40 50 50 42 52 M228 17 L228 54"/></svg>
                                 <span class="txt">Go to the Skill Workshop ↗</span>
                             </a></div>
                         </article>
                     </div>
 
+                </div>
+                <div class="screen">
                     <article class="card nm reveal">
                         <div>
                             <span class="label">Mac app · deep work</span>
