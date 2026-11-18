@@ -4,798 +4,461 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grace (Linge Guo) · Sociologist of AI & Technology</title>
-    <meta name="description" content="Linge (Grace) Guo — Oxford-trained sociologist researching AI companions, AI deception and platform governance through a sociotechnical lens. Research, apps, newsletter and open-source Claude research skills.">
+    <meta name="description" content="Linge (Grace) Guo — Oxford-trained sociologist researching AI companions, AI deception and platform governance through a sociotechnical lens. Research, Claude skills, newsletter and apps.">
     <meta name="author" content="Linge (Grace) Guo">
     <link rel="canonical" href="https://lingegrace.github.io/work-from-home-/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Grace (Linge Guo) · Sociologist of AI & Technology">
-    <meta property="og:description" content="Research on AI companions, AI deception and platform governance — plus the tools and writing I keep building.">
+    <meta property="og:description" content="Research on how AI shapes people's choices and lives — and the tools I build to make it help.">
     <meta property="og:url" content="https://lingegrace.github.io/work-from-home-/">
     <meta property="og:image" content="https://lingegrace.github.io/work-from-home-/deer-opt.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="theme-color" content="#1A0F07">
+    <meta name="theme-color" content="#120A05">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231A0F07'/><text x='50' y='70' font-size='62' text-anchor='middle' font-family='Georgia,serif' font-style='italic' fill='%23F5C482'>g</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <!-- Only the first screen's photo is preloaded; Works/About photos load when opened -->
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="preload" as="image" href="./deer-opt.jpg" fetchpriority="high">
     <script type="application/ld+json">
     {"@context": "https://schema.org", "@type": "Person", "name": "Linge Guo", "alternateName": "Grace Guo",
      "url": "https://lingegrace.github.io/work-from-home-/", "jobTitle": "Sociologist — AI & society",
      "alumniOf": [{"@type": "CollegeOrUniversity", "name": "University of Oxford"}, {"@type": "CollegeOrUniversity", "name": "University College London"}],
-     "knowsAbout": ["AI companions", "AI deception", "Platform governance", "Sociology of technology", "AI ethics"],
-     "sameAs": ["https://github.com/lingegrace", "https://arxiv.org/abs/2403.09676"]}
+     "knowsAbout": ["AI companions", "AI deception", "Platform governance", "Sociology of technology", "AI ethics", "Claude skills"],
+     "sameAs": ["https://github.com/lingegrace", "https://www.linkedin.com/in/lingeguo2004/", "https://arxiv.org/abs/2403.09676", "https://lingegrace.github.io/skills/"]}
     </script>
     <style>
+        /* Two typefaces only: Instrument Serif for display, Inter for everything you read. */
         :root {
-            --ink: #1A0F07;
             --cream: #F8ECD1;
-            --cream-warm: #FDF4DE;
-            --cream-soft: rgba(248, 236, 209, 0.75);
-            --cream-mute: rgba(248, 236, 209, 0.55);
-            --accent: #E8A85C;       /* honey */
-            --accent-deep: #C4562A;  /* burnt orange */
-            --accent-warm: #F5C482;
-            --line: rgba(248, 236, 209, 0.18);
+            --text: rgba(248, 236, 209, .82);
+            --mute: rgba(248, 236, 209, .56);
+            --faint: rgba(248, 236, 209, .14);
+            --honey: #F5C482;
+            --amber: #E8A85C;
+            --mark: rgba(245, 196, 130, .26);
+            --card: rgba(248, 236, 209, .045);
+            --card-hover: rgba(248, 236, 209, .075);
+            --nav-h: 68px;
+            --serif: 'Instrument Serif', Georgia, serif;
+            --sans: 'Figtree', system-ui, sans-serif;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-            font-weight: 300;
-            font-size: 16px;
-            line-height: 1.7;
-            color: var(--cream);
-            background: #1A0F07;
-            min-height: 100vh;
-            overflow-x: hidden;
-            cursor: none;
-        }
-        @media (hover: none) and (pointer: coarse) {
-            body { cursor: auto; }
-            #cursor, #cursor-dot { display: none !important; }
-        }
+        html { scroll-behavior: smooth; scroll-padding-top: var(--nav-h); background: #120A05; }
+        /* each screen has its own photo or a brown taken from it; the edges fade into the next screen */
+        body { font-family: var(--sans); font-size: 17px; line-height: 1.72; color: var(--text); overflow-x: hidden; cursor: none; -webkit-font-smoothing: antialiased; background: #1C130C; }
+        .photo { position: relative; background-size: cover; background-position: center; background-repeat: no-repeat; }
+        .research { background: #2A1E15; }
+        .bridge { background: linear-gradient(180deg, #2A1E15 0%, #22170E 50%, #1C130C 100%); }
+        .works { background: linear-gradient(180deg, #1C130C 0%, #20160E 100%); }
+        .about { background-color: #160E08; background-image: linear-gradient(180deg, #20160E 0%, rgba(26, 17, 10, .8) 12%, rgba(26, 17, 10, .78) 55%, #160E08 88%), url('./rabbit-back-opt.jpg'); background-size: 100% 100%, max(100%, 150vh) auto; background-position: center top, center top; }
+        .contact { background: #160E08; }
+        a { color: inherit; }
+        @media (hover: none), (pointer: coarse) { body { cursor: auto; } #cursor, #cursor-dot { display: none !important; } }
+        @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+        .wrap { width: min(1080px, 100% - 3rem); margin: 0 auto; }
+        .label { font-family: var(--sans); font-size: .72rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--honey); }
 
-        /* ═══════ CURSOR ═══════ */
-        #cursor {
-            position: fixed;
-            width: 220px; height: 220px;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            transform: translate(-50%, -50%);
-            background: radial-gradient(circle at center,
-                rgba(255, 220, 170, 0.28) 0%,
-                rgba(230, 180, 130, 0.14) 35%,
-                transparent 70%);
-            filter: blur(20px);
-            mix-blend-mode: screen;
-            display: none;
-        }
-        #cursor-dot {
-            position: fixed;
-            width: 5px; height: 5px;
-            border-radius: 50%;
-            background: var(--cream);
-            pointer-events: none;
-            z-index: 10000;
-            transform: translate(-50%, -50%);
-            box-shadow: 0 0 10px rgba(248, 236, 209, 0.7);
-            transition: transform 0.15s ease, background 0.25s ease, box-shadow 0.25s ease;
-            display: none;
-        }
-        #cursor-dot.on-paper {
-            background: #3A1F0F;
-            box-shadow: 0 0 8px rgba(58, 31, 15, 0.6);
-        }
+        /* cursor (kept from the original site) */
+        #cursor { position: fixed; width: 220px; height: 220px; border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%);
+            background: radial-gradient(circle, rgba(255, 220, 170, .26) 0%, rgba(230, 180, 130, .12) 35%, transparent 70%); filter: blur(20px); mix-blend-mode: screen; display: none; }
+        #cursor-dot { position: fixed; width: 6px; height: 6px; border-radius: 50%; background: var(--cream); pointer-events: none; z-index: 10000; transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px rgba(248, 236, 209, .7); transition: transform .15s; display: none; }
 
-        /* ═══════ NAV ═══════ */
-        nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 100;
-            padding: 1.6rem 3rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            background: linear-gradient(180deg, rgba(15, 8, 3, 0.55) 0%, rgba(15, 8, 3, 0.15) 60%, transparent 100%);
-            backdrop-filter: blur(4px);
-        }
-        .brand {
-            font-family: 'Instrument Serif', serif;
-            font-style: italic;
-            font-size: 1.55rem;
-            color: var(--cream);
-            text-decoration: none;
-            transition: color 0.3s;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
-        }
-        .brand:hover { color: var(--accent-warm); }
-        .nav-links { display: flex; gap: 2.4rem; }
-        .nav-link {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.72rem;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--cream-soft);
-            text-decoration: none;
-            transition: color 0.3s;
-            position: relative;
-            padding-bottom: 3px;
-            text-shadow: 0 2px 6px rgba(0,0,0,0.5);
-        }
-        .nav-link:hover, .nav-link.active { color: var(--accent-warm); }
-        .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            height: 1px;
-            background: var(--accent-warm);
-        }
-        @media (max-width: 640px) {
-            nav { padding: 1.2rem 1.4rem; }
-            .nav-links { gap: 1.4rem; }
-            .nav-link { font-size: 0.6rem; letter-spacing: 0.2em; }
-            .brand { font-size: 1.2rem; }
-        }
+        /* nav */
+        nav { position: fixed; inset: 0 0 auto; z-index: 100; height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; padding: 0 clamp(1.2rem, 4vw, 3rem); transition: background .4s, box-shadow .4s; }
+        nav.solid { background: rgba(18, 10, 5, .78); backdrop-filter: blur(12px); box-shadow: 0 1px 0 var(--faint); }
+        .brand { font-family: var(--serif); font-style: italic; font-size: 1.6rem; text-decoration: none; color: var(--cream); }
+        .nav-links { display: flex; align-items: center; gap: clamp(1rem, 3vw, 2.2rem); }
+        .nav-link { font-size: .9rem; font-weight: 500; text-decoration: none; color: var(--mute); position: relative; transition: color .3s; }
+        .nav-link:hover, .nav-link.active { color: var(--cream); }
+        .nav-link.active::after { content: ''; position: absolute; left: 0; right: 0; bottom: -5px; height: 1.5px; border-radius: 2px; background: var(--honey); }
+        @media (max-width: 560px) { .nav-links { gap: .9rem; } .nav-link { font-size: .82rem; } .brand { font-size: 1.3rem; } }
 
-        /* ═══════ VIEW BASE ═══════ */
-        .view {
-            display: none;
-            min-height: 100vh;
-            position: relative;
-            padding: 6.5rem 2rem 4rem;
-        }
-        .view.active { display: block; animation: viewIn 0.7s cubic-bezier(0.2, 0.7, 0.2, 1); }
-        @keyframes viewIn {
-            from { opacity: 0; transform: translateY(12px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            width: 100%;
-            position: relative;
-            z-index: 3;
-        }
+        /* buttons: glass with a honey edge, no flat fills */
+        .btn { display: inline-flex; align-items: center; gap: .4rem; font-size: .92rem; font-weight: 500; text-decoration: none; padding: .62rem 1.2rem; border-radius: 100px;
+            color: var(--cream); border: 1px solid rgba(248, 236, 209, .26); background: rgba(248, 236, 209, .04); transition: background .25s, border-color .25s, color .25s, transform .25s, box-shadow .25s; }
+        .btn:hover { border-color: rgba(248, 236, 209, .5); background: rgba(248, 236, 209, .08); transform: translateY(-1px); }
+        .btn-main { color: var(--honey); border-color: rgba(245, 196, 130, .6);
+            background: linear-gradient(135deg, rgba(245, 196, 130, .2), rgba(232, 168, 92, .06)); box-shadow: inset 0 1px 0 rgba(255, 236, 200, .18), 0 8px 24px -12px rgba(245, 196, 130, .45); }
+        .btn-main:hover { color: #FFE2B5; border-color: var(--honey); background: linear-gradient(135deg, rgba(245, 196, 130, .3), rgba(232, 168, 92, .12)); box-shadow: inset 0 1px 0 rgba(255, 236, 200, .25), 0 10px 30px -10px rgba(245, 196, 130, .6); }
 
-        /* ═══════ HOME — deer photo bg ═══════ */
-        #view-home {
-            background:
-                linear-gradient(180deg, rgba(15, 8, 3, 0.42) 0%, rgba(15, 8, 3, 0.15) 40%, rgba(15, 8, 3, 0.55) 100%),
-                url('./deer-opt.jpg') center/cover fixed no-repeat;
-        }
-        /* subtle grain over photo — makes it feel like film, not too crisp */
-        #view-home::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            opacity: 0.22;
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch' seed='4'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.7'/></svg>");
-            mix-blend-mode: overlay;
-            z-index: 1;
-        }
+        /* 1. first screen */
+        .hero { position: relative; min-height: 100svh; display: grid; place-items: center; text-align: center; padding: var(--nav-h) 1.5rem 34vh; overflow: hidden; }
+        .hero-bg { position: absolute; inset: -2%; background: url('./deer-opt.jpg') center/cover no-repeat; will-change: transform; }
+        .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15, 8, 3, .45) 0%, rgba(15, 8, 3, .22) 45%, rgba(38, 27, 19, .6) 78%, #2A1E15 100%); }
+        .hero::after { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .16; mix-blend-mode: overlay;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch' seed='4'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.7'/></svg>"); }
+        .hero-inner { position: relative; z-index: 1; max-width: 680px; will-change: transform, opacity; }
+        .hero .label { letter-spacing: .32em; text-shadow: 0 2px 8px rgba(0, 0, 0, .6); }
+        .hero h1 { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(4.4rem, 12vw, 8.5rem); line-height: .95; letter-spacing: -.02em; color: var(--cream); margin: .6rem 0 1.4rem; text-shadow: 0 4px 24px rgba(0, 0, 0, .55); }
+        .hero-sub { font-family: var(--serif); font-style: italic; font-size: clamp(1.02rem, 1.35vw, 1.22rem); line-height: 1.5; max-width: 34em; margin: 0 auto; text-wrap: balance; color: #FDF4DE; text-shadow: 0 2px 10px rgba(0, 0, 0, .6); }
+        .scroll-cue { position: absolute; left: 50%; bottom: 2.2rem; transform: translateX(-50%); z-index: 1; display: flex; flex-direction: column; align-items: center; gap: .6rem; text-decoration: none;
+            font-size: .72rem; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: var(--text); }
+        .scroll-cue i { width: 1px; height: 42px; background: linear-gradient(var(--cream), transparent); animation: cue 1.8s ease-in-out infinite; transform-origin: top; }
+        @keyframes cue { 0% { transform: scaleY(0); } 60% { transform: scaleY(1); } 100% { transform: scaleY(1); opacity: 0; } }
 
-        .hero { text-align: center; margin-bottom: 1.2rem; }
-        .hero-eyebrow {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.72rem;
-            letter-spacing: 0.32em;
-            text-transform: uppercase;
-            color: var(--accent-warm);
-            margin-bottom: 0.5rem;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.6);
-        }
-        .hero-name {
-            font-family: 'Instrument Serif', serif;
-            font-style: italic;
-            font-size: clamp(4rem, 10vw, 7.5rem);
-            line-height: 0.95;
-            color: var(--cream);
-            letter-spacing: -0.02em;
-            font-weight: 400;
-            text-shadow: 0 4px 24px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.4);
-        }
-        .hero-sub {
-            font-family: 'Fraunces', 'Instrument Serif', serif;
-            font-weight: 300;
-            font-style: italic;
-            font-size: clamp(1rem, 1.5vw, 1.28rem);
-            color: var(--cream-warm);
-            max-width: 560px;
-            margin: 1.1rem auto 0;
-            line-height: 1.6;
-            letter-spacing: 0.035em;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.6);
-        }
+        /* 2. research: pinned, scrolling moves through i–iv, text types itself */
+        .research { position: relative; }
+        .research.pinned { height: 440vh; }
+        .r-stage { position: relative; overflow: hidden; }
+        .r-stage::before { content: ''; position: absolute; inset: -15%; pointer-events: none; z-index: 0; filter: blur(30px);
+            background: radial-gradient(42% 52% at 20% 32%, rgba(214, 182, 148, .55), transparent 72%), radial-gradient(46% 56% at 80% 64%, rgba(191, 163, 135, .42), transparent 72%),
+                radial-gradient(30% 38% at 60% 16%, rgba(236, 210, 178, .32), transparent 72%), radial-gradient(36% 44% at 36% 86%, rgba(176, 138, 102, .38), transparent 72%);
+            background-size: 130% 130%; animation: drift 22s ease-in-out infinite alternate;
+            -webkit-mask-image: linear-gradient(transparent, #000 14%, #000 88%, transparent); mask-image: linear-gradient(transparent, #000 14%, #000 88%, transparent); }
+        .r-stage > .wrap { position: relative; z-index: 1; }
+        @keyframes drift { 0% { background-position: 0% 0%; } 50% { background-position: 60% 40%; } 100% { background-position: 100% 80%; } }
+        @media (prefers-reduced-motion: reduce) { .r-stage::before { animation: none; } }
+        .research.pinned .r-stage { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; padding-top: var(--nav-h); }
+        .r-grid { display: grid; grid-template-columns: minmax(220px, 1fr) minmax(0, 1.9fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+        .r-grid > * { min-width: 0; }
+        .r-side .label { margin-bottom: 1.4rem; display: block; }
+        .r-index { list-style: none; border-left: 1.5px solid var(--faint); }
+        .r-index a { position: relative; display: block; padding: .6rem 0 .6rem 1.3rem; text-decoration: none; color: var(--mute); transition: color .35s; }
+        .r-index a::before { content: ''; position: absolute; left: -1.5px; top: 0; bottom: 0; width: 1.5px; background: var(--honey); transform: scaleY(0); transition: transform .5s cubic-bezier(.2, .8, .2, 1); }
+        .r-index .word { font-family: var(--serif); font-style: italic; font-size: clamp(1.7rem, 2.8vw, 2.4rem); line-height: 1.05; }
+        .r-index .num { font-family: var(--serif); font-style: italic; font-size: 1.05rem; margin-right: .45rem; }
+        .r-index .gloss { display: block; font-size: .88rem; margin-top: .15rem; }
+        .r-index a.on { color: var(--cream); }
+        .r-index a.on::before { transform: scaleY(1); }
+        .r-index a.on .word, .r-index a.on .num { color: var(--honey); }
+        .r-progress { height: 1.5px; background: var(--faint); margin-top: 1.6rem; overflow: hidden; }
+        .r-progress i { display: block; height: 100%; width: 0; background: var(--honey); }
+        .thread { display: none; }
+        .thread.on { display: block; animation: fadeUp .6s ease; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+        .thread .label { color: var(--mute); }
+        .thread h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.9rem, 3.2vw, 2.7rem); line-height: 1.12; letter-spacing: -.005em; margin: .5rem 0 1.1rem; color: var(--cream); }
+        .thread p { font-size: clamp(.98rem, .5vw + .8rem, 1.08rem); line-height: 1.75; margin-bottom: .85rem; max-width: 640px; }
+        .thread p.ask { font-style: italic; color: var(--mute); font-size: .95rem; }
+        .thread mark { background: transparent; color: inherit; padding: 0 .1em; transition: background .7s ease, color .7s ease; }
+        .thread mark.lit, .thread.done mark { background: linear-gradient(transparent 52%, var(--mark) 52%); color: var(--cream); }
+        .thread a { color: var(--honey); }
+        .ch { opacity: 0; }
+        .ch.v { opacity: 1; }
+        .ch.cur { position: relative; }
+        .ch.cur::after { content: ''; position: absolute; right: -2px; top: .15em; bottom: .05em; width: 2px; background: var(--honey); animation: blink .9s steps(1) infinite; }
+        @keyframes blink { 50% { opacity: 0; } }
+        .thread-word { display: none; font-family: var(--serif); font-style: italic; font-size: 2.3rem; color: var(--honey); line-height: 1; }
+        .research:not(.pinned) .r-stage { padding: 5rem 0 2rem; }
+        .research:not(.pinned) .r-grid { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+        .research:not(.pinned) .r-index, .research:not(.pinned) .r-progress { display: none; }
+        .research:not(.pinned) .thread { display: block; padding: 1.8rem 0; border-top: 1px solid var(--faint); }
+        .research:not(.pinned) .thread-word { display: block; margin-bottom: .4rem; }
 
-        /* ═══════ SPOTS on the deer ═══════ */
-        .deer-marks {
-            position: relative;
-            width: 100%;
-            height: min(40vh, 370px);
-            margin: 0.6rem auto 0.4rem;
-            max-width: 1100px;
-        }
-        .spot {
-            position: absolute;
-            display: flex;
-            align-items: center;
-            gap: 0.9rem;
-            cursor: none;
-            transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.3, 1);
-            z-index: 4;
-        }
-        .spot:hover { transform: translateY(-2px); }
-        /* Marker — dashed outline circle with roman numeral inside (field-notebook style) */
-        .spot-dot {
-            width: 36px; height: 36px;
-            border-radius: 50%;
-            border: 1.5px dashed rgba(248, 236, 209, 0.7);
-            background: rgba(15, 8, 3, 0.32);
-            backdrop-filter: blur(3px);
-            -webkit-backdrop-filter: blur(3px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Instrument Serif', serif;
-            font-style: italic;
-            font-size: 0.95rem;
-            color: var(--cream);
-            transition: border-color 0.5s, background 0.5s, color 0.5s, transform 0.4s, box-shadow 0.4s;
-            flex-shrink: 0;
-            animation: borderBreathe 4.2s ease-in-out infinite;
-        }
-        .spot.s1 .spot-dot { animation-delay: 0s; }
-        .spot.s2 .spot-dot { animation-delay: 1.05s; }
-        .spot.s3 .spot-dot { animation-delay: 2.1s; }
-        .spot.s4 .spot-dot { animation-delay: 3.15s; }
-        @keyframes borderBreathe {
-            0%, 100% { border-color: rgba(248, 236, 209, 0.55); }
-            50%      { border-color: rgba(248, 236, 209, 0.95); }
-        }
-        .spot:hover .spot-dot {
-            border-color: var(--accent-warm);
-            border-style: solid;
-            background: rgba(245, 196, 130, 0.18);
-            color: var(--accent-warm);
-            transform: scale(1.12);
-            box-shadow: 0 0 28px rgba(245, 196, 130, 0.55);
-            animation-play-state: paused;
-        }
-        .spot.clicked .spot-dot {
-            border-color: var(--accent);
-            border-style: solid;
-            background: rgba(232, 168, 92, 0.22);
-            color: var(--accent-warm);
-        }
-        /* Label — dark pill capsule; the name is always visible and prominent */
-        .spot-label {
-            background: rgba(15, 8, 3, 0.78);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(232, 168, 92, 0.32);
-            padding: 0.55rem 1.15rem;
-            border-radius: 100px;
-            white-space: nowrap;
-            transition: border-color 0.3s, background 0.3s, color 0.3s, transform 0.3s;
-            font-family: 'Instrument Serif', serif;
-            font-style: italic;
-            font-size: 1.10rem;
-            color: var(--cream);
-            letter-spacing: 0.015em;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
-        }
-        .spot:hover .spot-label {
-            background: rgba(15, 8, 3, 0.9);
-            border-color: var(--accent-warm);
-            color: var(--accent-warm);
-            transform: translateX(2px);
-        }
-        /* Positions — diagonal along the sika deer's spine (upper-left → lower-right) */
-        .spot.s1 { top: 8%;  left: 30%; }   /* neck / shoulder */
-        .spot.s2 { top: 26%; left: 45%; }   /* upper back */
-        .spot.s3 { top: 46%; left: 60%; }   /* mid back */
-        .spot.s4 { top: 66%; left: 74%; }   /* lower back / hip */
-        /* Right-side markers get labels flipped to the left so they don't fall off the edge */
-        .spot.s3, .spot.s4 { flex-direction: row-reverse; }
+        /* 3. bridge */
+        .bridge { min-height: 92vh; display: flex; align-items: center; padding: 7rem 0 6rem; text-align: center; }
+        .bridge .wrap { width: min(1080px, 100% - 3rem); }
+        .bridge p { font-family: var(--serif); font-size: clamp(1.9rem, 4.2vw, 3.3rem); line-height: 1.15; text-shadow: 0 2px 18px rgba(0, 0, 0, .65); text-wrap: balance; color: var(--cream); max-width: 900px; margin: 0 auto; }
+        .bridge p span { display: block; }
+        .bridge p em { color: var(--honey); }
+        .bridge .line { opacity: 0; transform: translateY(22px); filter: blur(6px); transition: opacity 1s ease, transform 1s ease, filter 1s ease; }
+        .bridge.in .line { opacity: 1; transform: none; filter: none; }
+        .bridge.in .line:nth-child(2) { transition-delay: .55s; }
+        .bridge .down { display: inline-block; margin-top: 2.2rem; font-size: .9rem; font-weight: 500; text-decoration: none; color: var(--honey); opacity: 0; transition: opacity 1s ease 1.1s; }
+        .bridge.in .down { opacity: 1; }
 
-        @media (max-width: 780px) {
-            .deer-marks { height: auto; min-height: 0; padding: 0 1rem; }
-            .spot { position: relative !important; top: auto !important; left: auto !important; margin-bottom: 1rem; flex-direction: row !important; }
-        }
+        /* 4. works */
+        .works { padding: 1rem 0 5rem; }
+        .sec-head { margin-bottom: 2rem; }
+        .sec-head h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(2.6rem, 5.4vw, 3.9rem); line-height: 1.04; color: var(--cream); margin-top: .35rem; }
+        .sec-head p { max-width: 620px; margin-top: .6rem; }
+        .card { position: relative; background: var(--card); border: 1px solid var(--faint); border-radius: 16px; padding: clamp(1.4rem, 3vw, 2.1rem); transition: background .3s, border-color .3s, transform .3s; }
+        .card:hover { background: var(--card-hover); border-color: rgba(245, 196, 130, .3); }
+        .card h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.8rem, 2.8vw, 2.3rem); line-height: 1.1; color: var(--cream); margin: .45rem 0 .55rem; }
+        .card p { font-size: .98rem; }
+        .stack { display: grid; gap: 1.4rem; }
+        .row-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; }
+        .row-2 > *, .feature > * { min-width: 0; }
+        .feature { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(1.5rem, 4vw, 3rem); }
+        .feature h3 { font-size: clamp(2.2rem, 4vw, 3rem); }
+        .tag-row { display: flex; flex-wrap: wrap; gap: .4rem; margin: .8rem 0 0; }
+        .tag { font-size: .76rem; color: var(--mute); border: 1px solid var(--faint); padding: .15rem .6rem; border-radius: 100px; }
+        .actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.3rem; align-items: center; }
+        .code-line { display: block; max-width: 100%; font-family: ui-monospace, Menlo, monospace; font-size: .8rem; background: rgba(0, 0, 0, .28); color: var(--text); padding: .55rem .8rem; border-radius: 8px; margin-top: 1rem; overflow-wrap: anywhere; }
+        .picks { display: grid; gap: .7rem; align-content: start; }
+        .pick { display: block; text-decoration: none; padding: .9rem 1.1rem; border: 1px solid var(--faint); border-radius: 12px; background: rgba(0, 0, 0, .14); transition: border-color .25s, transform .25s, background .25s; }
+        .pick:hover { border-color: rgba(245, 196, 130, .45); background: rgba(245, 196, 130, .05); transform: translateX(4px); }
+        .pick b { display: block; font-family: var(--serif); font-weight: 400; font-size: 1.45rem; line-height: 1.15; color: var(--cream); }
+        .pick span { display: block; font-size: .9rem; color: var(--mute); margin-top: .15rem; }
+        .all-skills { grid-column: 1 / -1; border-top: 1px solid var(--faint); padding-top: 1rem; }
+        .all-skills summary { cursor: pointer; font-size: .92rem; font-weight: 500; color: var(--honey); }
+        .more-grid { display: grid; grid-template-columns: 12.5rem minmax(0, 1fr); gap: .1rem 1.2rem; font-size: .9rem; margin-top: .75rem; }
+        .more-grid b { font-weight: 500; color: var(--cream); }
+        .more-grid a { text-decoration: none; border-bottom: 1px solid rgba(245, 196, 130, .3); white-space: nowrap; }
+        .more-grid a:hover { color: var(--honey); border-color: var(--honey); }
+        .more-grid .sep { color: var(--mute); margin: 0 .15rem; }
+        .issue-latest { display: block; text-decoration: none; margin-top: 1rem; padding: 1rem 1.1rem; border-radius: 12px; border: 1px solid var(--faint); background: rgba(0, 0, 0, .14); transition: border-color .25s; }
+        .issue-latest:hover { border-color: rgba(245, 196, 130, .45); }
+        .issue-latest small { font-size: .8rem; color: var(--mute); }
+        .issue-latest b { display: block; font-family: var(--serif); font-weight: 400; font-size: 1.45rem; line-height: 1.2; color: var(--cream); margin-top: .15rem; }
+        .issue-list { list-style: none; margin-top: .9rem; }
+        .issue-list a { display: flex; justify-content: space-between; gap: 1rem; padding: .6rem 0; border-bottom: 1px solid var(--faint); text-decoration: none; font-size: .93rem; }
+        .issue-list a:hover { color: var(--honey); }
+        .issue-list span { color: var(--mute); white-space: nowrap; font-size: .82rem; }
+        .wiki { list-style: none; margin-top: .8rem; }
+        .wiki li { padding: .65rem 0; border-bottom: 1px solid var(--faint); }
+        .wiki a { text-decoration: none; font-family: var(--serif); font-size: 1.45rem; line-height: 1.2; color: var(--cream); transition: color .25s; }
+        .wiki a:hover { color: var(--honey); }
+        .wiki span { display: block; font-size: .9rem; color: var(--mute); }
+        .nm { display: grid; grid-template-columns: minmax(0, 1fr) 150px; gap: 2rem; align-items: center; }
+        .nm-cat { width: 150px; height: 150px; }
+        .nm-cat .ln { fill: none; stroke: var(--honey); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+        .nm-cat .thin { stroke-width: 1.5; }
+        .nm-cat .fillbg { fill: #241810; }
+        .nm-cat .dot { fill: var(--honey); }
+        .nm-cat .glow { fill: var(--honey); opacity: .35; animation: lampGlow 3.2s ease-in-out infinite; transform-origin: center; }
+        @keyframes lampGlow { 50% { opacity: .65; } }
+        /* shaped buttons: an outline drawn around the words (lying cat, envelope) */
+        .sbtn { position: relative; display: inline-block; flex: none; text-decoration: none; color: var(--honey); transition: transform .35s cubic-bezier(.2, .8, .2, 1); }
+        .sbtn svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+        .sbtn .outline { fill: rgba(245, 196, 130, .07); stroke: rgba(245, 196, 130, .55); stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; transition: fill .35s, stroke .35s, filter .35s; }
+        .sbtn .detail { fill: none; stroke: rgba(245, 196, 130, .45); stroke-width: 1.1; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+        .sbtn .txt { position: absolute; display: flex; align-items: center; justify-content: center; font-size: .86rem; font-weight: 500; white-space: nowrap; }
+        .sbtn:hover { transform: translateY(-2px); color: #FFE2B5; }
+        .sbtn:hover .outline { fill: rgba(245, 196, 130, .14); stroke: rgba(245, 196, 130, .85); filter: drop-shadow(0 0 10px rgba(245, 196, 130, .3)); }
+        .sbtn-cat { width: 214px; height: 86px; }
+        .sbtn-cat .txt { left: 35%; right: 9%; top: 42%; bottom: 6%; }
+        .sbtn-cat:hover { transform: translateY(-2px) rotate(-1.5deg); }
+        .sbtn-sit { width: 112px; height: 121px; }
+        .sbtn-sit .txt { left: 8%; right: 12%; top: 60%; bottom: 8%; font-size: .78rem; }
+        .sbtn-sit:hover { transform: translateY(-3px) rotate(-2deg); }
+        .sbtn-rose { width: 270px; height: 70px; }
+        .sbtn-rose .txt { left: 27%; right: 5%; top: 10%; bottom: 10%; }
+        .sbtn-rose:hover { transform: translateY(-2px) rotate(-1deg); }
+        .sbtn-mail { width: 150px; height: 64px; }
+        .sbtn-mail .txt { left: 6%; right: 6%; top: 42%; bottom: 8%; }
+        .note { font-size: .82rem; color: var(--mute); margin-top: .8rem; }
+        @media (max-width: 820px) { .feature, .row-2, .nm { grid-template-columns: minmax(0, 1fr); } .more-grid { grid-template-columns: minmax(0, 1fr); } .nm-cat { width: 110px; height: 110px; order: -1; } }
 
-        .hero-hint {
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.65rem;
-            letter-spacing: 0.32em;
-            text-transform: uppercase;
-            color: var(--cream);
-            margin-top: 1.4rem;
-            transition: opacity 0.5s;
-            text-shadow: 0 2px 6px rgba(0,0,0,0.6);
-        }
-        .hero-hint.dim { opacity: 0.35; }
-        .hero-hint em { color: var(--accent-warm); font-style: normal; }
+        /* 5. about */
+        .about { padding: 7rem 0 6rem; }
+        .about-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4rem); align-items: end; }
+        /* Grace's Kiosk: a translucent card in the outline of the rabbit behind it */
+        .kiosk { position: relative; display: block; width: min(100%, 440px); aspect-ratio: 400 / 360; margin: 0 0 0 auto; text-decoration: none; transition: transform .35s cubic-bezier(.2, .8, .2, 1); }
+        .kiosk svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+        .kiosk .shape { fill: rgba(245, 196, 130, .08); stroke: rgba(245, 196, 130, .5); stroke-width: 1.15; stroke-linejoin: round; vector-effect: non-scaling-stroke; transition: fill .35s, stroke .35s, filter .35s; filter: drop-shadow(0 14px 28px rgba(0, 0, 0, .55)); }
+        .kiosk:hover { transform: translateY(-4px) rotate(-1deg); }
+        .kiosk:hover .shape { fill: rgba(245, 196, 130, .17); stroke: var(--honey); filter: drop-shadow(0 0 16px rgba(245, 196, 130, .35)) drop-shadow(0 14px 28px rgba(0, 0, 0, .55)); }
+        .kiosk-body { position: absolute; left: 18%; right: 13%; top: 41%; bottom: 8%; display: flex; flex-direction: column; justify-content: center; }
+        .kiosk b { display: block; font-family: var(--serif); font-weight: 400; font-size: clamp(1.5rem, 2.6vw, 1.95rem); line-height: 1.1; color: var(--cream); margin: .3rem 0 .4rem; }
+        .kiosk b i { font-style: normal; font-size: 1rem; color: var(--honey); margin-left: .3rem; }
+        .kiosk-sub { display: block; font-size: .86rem; line-height: 1.5; color: var(--text); }        .learning-label { display: block; margin-top: 3.5rem; }
+        .sources-body { overflow: hidden; }
+        .about-grid > * { min-width: 0; }
+        .about-text p { font-size: 1.05rem; margin-bottom: 1rem; text-shadow: 0 1px 10px rgba(0, 0, 0, .6); }
+        .about-text mark { background: linear-gradient(transparent 52%, var(--mark) 52%); color: var(--cream); }
+        .learning { list-style: none; margin-top: .6rem; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .2rem 2rem; }
+        .learning li { padding: .6rem 0; border-bottom: 1px solid var(--faint); font-size: .93rem; }
+        .learning b { font-weight: 500; color: var(--cream); } .learning span { color: var(--mute); }
+        .sources { margin-top: 2rem; }
+        .sources summary { cursor: pointer; font-weight: 500; color: var(--honey); }
+        .sources-body { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem 2rem; margin-top: 1rem; font-size: .9rem; }
+        .sources-body b { display: block; font-size: .8rem; font-weight: 500; color: var(--mute); margin-bottom: .3rem; }
+        .sources-body ul { list-style: none; }
+        .sources-body a { text-decoration: none; border-bottom: 1px solid var(--faint); }
+        .sources-body a:hover { color: var(--honey); }
+        @media (max-width: 820px) { .about-grid, .learning { grid-template-columns: minmax(0, 1fr); } .sources-body { grid-template-columns: 1fr 1fr; } }
 
-        /* ═══════ READING PANE ═══════ */
-        .reading-backdrop {
-            position: fixed;
-            inset: 0;
-            background: rgba(15, 8, 3, 0.65);
-            backdrop-filter: blur(4px);
-            z-index: 200;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.4s, visibility 0.4s;
-        }
-        .reading-backdrop.visible { opacity: 1; visibility: visible; }
-        .reading {
-            position: fixed;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -48%);
-            width: min(640px, 92vw);
-            max-height: 82vh;
-            overflow-y: auto;
-            background: #1F1108;
-            color: var(--cream);
-            padding: 2.8rem 3rem 2.2rem;
-            z-index: 201;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.5s cubic-bezier(0.2, 0.9, 0.3, 1),
-                        transform 0.5s cubic-bezier(0.2, 0.9, 0.3, 1),
-                        visibility 0.5s;
-            box-shadow: 0 24px 60px rgba(0,0,0,0.6);
-            border-radius: 6px;
-            border: 1px solid rgba(232, 168, 92, 0.25);
-        }
-        .reading.visible {
-            opacity: 1; visibility: visible;
-            transform: translate(-50%, -50%);
-        }
-        .reading::-webkit-scrollbar { width: 4px; }
-        .reading::-webkit-scrollbar-thumb { background: rgba(248, 236, 209, 0.2); }
-        .reading-label {
-            font-family: 'Instrument Serif', serif;
-            font-style: italic;
-            font-size: 2.4rem;
-            color: var(--accent-warm);
-            line-height: 1;
-            margin-bottom: 0.3rem;
-            letter-spacing: -0.005em;
-        }
-        .reading-eyebrow {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.65rem;
-            letter-spacing: 0.36em;
-            text-transform: uppercase;
-            color: rgba(245, 196, 130, 0.75);
-            margin-bottom: 1.4rem;
-        }
-        .reading-title {
-            font-family: 'Instrument Serif', serif;
-            font-size: clamp(1.5rem, 2.6vw, 2rem);
-            line-height: 1.25;
-            color: var(--cream);
-            margin-bottom: 1.6rem;
-            font-weight: 400;
-        }
-        .reading-body p {
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 1.08rem;
-            line-height: 1.75;
-            color: rgba(248, 236, 209, 0.95);
-            margin-bottom: 1.1em;
-            letter-spacing: 0.01em;
-        }
-        .reading-body p:last-child { margin-bottom: 0; }
-        .reading-body mark {
-            background: none;
-            color: var(--cream);
-            border-bottom: 1px solid var(--accent);
-        }
-        .reading-body a {
-            color: var(--accent-warm);
-            border-bottom: 1px solid var(--accent-warm);
-            text-decoration: none;
-        }
-        .reading-body a:hover { color: var(--cream); }
-        .reading-nav {
-            display: flex; justify-content: space-between; align-items: center;
-            margin-top: 2rem; padding-top: 1.3rem;
-            border-top: 1px solid rgba(248, 236, 209, 0.18);
-        }
-        .reading-progress {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem; letter-spacing: 0.24em;
-            color: rgba(248, 236, 209, 0.55);
-        }
-        .reading-next {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem; letter-spacing: 0.24em;
-            text-transform: uppercase;
-            color: var(--accent-warm);
-            background: none; border: none;
-            cursor: none; padding: 0.4rem 0;
-        }
-        .reading-next:hover { color: var(--cream); }
-        .reading-close {
-            position: absolute;
-            top: 1rem; right: 1.2rem;
-            background: none; border: none;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem; letter-spacing: 0.24em;
-            text-transform: uppercase;
-            color: rgba(248, 236, 209, 0.55);
-            cursor: none; padding: 0.3rem 0.5rem;
-        }
-        .reading-close:hover { color: var(--accent-warm); }
+        /* 6. contact */
+        .contact { padding: 5rem 0 3rem; text-align: center; }
+        .contact h2 { font-family: var(--serif); font-weight: 400; font-style: italic; font-size: clamp(2.6rem, 5.4vw, 3.9rem); color: var(--cream); }
+        .contact p { margin-top: .5rem; }
+        .contact .actions { justify-content: center; margin-top: 1.8rem; }
+        .footer { margin-top: 3.5rem; font-size: .82rem; color: var(--mute); }
 
-        /* ═══════ ADDITIONS (new) ═══════ */
-        a.nav-link, a.brand { cursor: none; }
-        .nav-links { align-items: baseline; }
-        .nav-cta {
-            font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
-            text-decoration: none; color: var(--ink); background: var(--accent-warm);
-            padding: 0.35rem 0.85rem; border-radius: 100px; transition: background .3s; cursor: none;
-        }
-        .nav-cta:hover { background: var(--cream); }
-        @media (max-width: 640px) { .nav-cta { display: none; } }
-        :focus-visible { outline: 2px solid var(--accent-warm); outline-offset: 3px; border-radius: 4px; }
-
-        /* home: the one new button, styled like the existing pills */
-        .hero-cta { text-align: center; margin-top: 1.6rem; }
-        .btn {
-            display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.22em;
-            text-transform: uppercase; text-decoration: none; padding: 0.7rem 1.4rem; border-radius: 100px; cursor: none;
-            border: 1px solid rgba(232, 168, 92, 0.55); transition: background .3s, color .3s, border-color .3s;
-        }
-        .btn-ghost { background: rgba(15, 8, 3, 0.6); color: var(--cream); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
-        .btn-ghost:hover { border-color: var(--accent-warm); color: var(--accent-warm); background: rgba(15, 8, 3, 0.85); }
-        .btn-primary { background: var(--accent-warm); color: var(--ink); border-color: var(--accent-warm); }
-        .btn-primary:hover { background: var(--cream); border-color: var(--cream); }
-
-        /* page headers */
-        .page-header { text-align: center; margin-bottom: 3rem; }
-        .page-title {
-            font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400;
-            font-size: clamp(3.2rem, 6.5vw, 5rem); letter-spacing: -0.01em; margin-bottom: 0.3rem; color: var(--cream);
-            text-shadow: 0 4px 20px rgba(0,0,0,0.6);
-        }
-        .page-sub { font-size: 1.05rem; color: var(--cream-warm); text-shadow: 0 2px 8px rgba(0,0,0,0.6); }
-        .tag {
-            font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.06em; color: var(--accent-warm);
-            border: 1px solid rgba(245,196,130,0.4); border-radius: 100px; padding: 0.15rem 0.6rem; white-space: nowrap;
-        }
-
-        /* ═══════ WORKS ═══════ */
-        #view-works {
-            background: linear-gradient(180deg, rgba(15,8,3,0.55) 0%, rgba(15,8,3,0.45) 100%), url('./rabbit-back-opt.jpg') center/cover no-repeat;
-        }
-        #view-works::before, #view-about::before {
-            content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0.18; z-index: 1; mix-blend-mode: overlay;
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch' seed='5'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/></svg>");
-        }
-        #view-works .container, #view-about .container { max-width: 1000px; }
-        .filters { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.2rem; }
-        .filter {
-            font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
-            background: rgba(15,8,3,0.55); color: var(--cream-soft); border: 1px solid var(--line);
-            padding: 0.45rem 0.95rem; border-radius: 100px; cursor: none; backdrop-filter: blur(6px);
-        }
-        .filter[aria-pressed="true"], .filter:hover { color: var(--ink); background: var(--accent-warm); border-color: var(--accent-warm); }
-
-        .group {
-            background: rgba(15, 8, 3, 0.66); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(232,168,92,0.2); border-radius: 10px; padding: 1.9rem 1.9rem 1.7rem; margin-bottom: 1.5rem;
-            transition: border-color .3s;
-        }
-        .group:hover { border-color: rgba(232,168,92,0.45); }
-        .group.featured { border-color: rgba(245,196,130,0.5); }
-        .group[hidden] { display: none; }
-        @media (max-width: 640px) { .group { padding: 1.4rem 1.1rem; } }
-        .group-head { margin-bottom: 1.3rem; }
-        .group-top { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
-        .work-num { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 1.8rem; color: var(--accent-warm); line-height: 1; }
-        .work-badge { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); background: var(--accent-warm); padding: 0.15rem 0.55rem; border-radius: 100px; }
-        .group-title { font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(1.7rem, 2.8vw, 2.2rem); line-height: 1.15; color: var(--cream); margin: 0.4rem 0 0.6rem; }
-        .group-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.8rem; }
-        .group-desc { font-size: 0.98rem; line-height: 1.65; color: var(--cream-soft); max-width: 720px; }
-        .group-desc strong { color: var(--cream); font-weight: 500; }
-        .group-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center; margin-top: 0.9rem; }
-
-        .subgrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.9rem; }
-        .subgrid.three { grid-template-columns: repeat(3, 1fr); }
-        @media (max-width: 860px) { .subgrid.three { grid-template-columns: 1fr; } }
-        @media (max-width: 640px) { .subgrid { grid-template-columns: 1fr; } }
-        .sub {
-            display: flex; flex-direction: column; background: rgba(248, 236, 209, 0.045);
-            border: 1px solid rgba(248, 236, 209, 0.12); border-radius: 8px; padding: 1.1rem 1.2rem 1.1rem;
-            transition: border-color .3s, background .3s, transform .3s;
-        }
-        .sub:hover { border-color: rgba(245,196,130,0.5); background: rgba(248,236,209,0.07); transform: translateY(-2px); }
-        .sub-kicker { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-warm); margin-bottom: 0.3rem; }
-        .sub-title { font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 1.4rem; line-height: 1.2; color: var(--cream); margin-bottom: 0.4rem; }
-        .sub-desc { font-size: 0.92rem; line-height: 1.6; color: var(--cream-soft); margin-bottom: 0.9rem; }
-        .sub-desc em { font-family: 'Instrument Serif', serif; font-size: 1.02rem; color: var(--accent-warm); }
-        .sub-links { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: auto; }
-        .work-link {
-            font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.08em; cursor: none;
-            color: var(--accent-warm); text-decoration: none; border: 1px solid rgba(245,196,130,0.4);
-            padding: 0.38rem 0.8rem; border-radius: 100px; transition: background .3s, color .3s;
-        }
-        .work-link:hover { background: var(--accent-warm); color: var(--ink); }
-        .work-link small { opacity: 0.7; font-size: 0.66rem; }
-        .work-note { font-size: 0.8rem; color: var(--cream-mute); margin-top: 0.9rem; }
-        .sub { position: relative; }
-        .nm-cat { position: absolute; top: 0.4rem; right: 0.6rem; width: 92px; height: 92px; pointer-events: none; }
-        .nm-cat ~ .sub-title, .nm-cat ~ .sub-desc { padding-right: 80px; }
-        .nm-note { font-size: 0.72rem; color: var(--cream-mute); margin-top: 0.6rem; line-height: 1.5; }
-        .code-line {
-            display: block; font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--cream);
-            background: rgba(0,0,0,0.35); border: 1px solid var(--line); border-radius: 6px;
-            padding: 0.55rem 0.8rem; margin-top: 0.9rem; overflow-x: auto; white-space: nowrap; max-width: 560px;
-        }
-
-        .skill-section { margin-top: 1.4rem; }
-        .skill-section:first-child { margin-top: 0; }
-        .skill-section-title { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-warm); margin-bottom: 0.7rem; display: flex; gap: 0.6rem; align-items: baseline; }
-        .skill-section-title span { color: var(--cream-mute); letter-spacing: 0.08em; }
-                #skillCards .sub-title { font-size: 1.2rem; }
-        .more-skills { margin-top: 1.2rem; padding-top: 1.1rem; border-top: 1px solid var(--line); }
-        .more-title { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-warm); margin-bottom: 0.6rem; }
-        .more-row { font-size: 0.9rem; color: var(--cream-mute); line-height: 1.9; margin: 0 0 0.3rem; }
-        .more-row b { font-weight: 500; color: var(--cream-soft); margin-right: 0.5rem; }
-        .more-row a { color: var(--cream-soft); text-decoration: none; border-bottom: 1px solid rgba(245,196,130,0.35); cursor: none; white-space: nowrap; }
-        .more-row a:hover { color: var(--accent-warm); border-bottom-color: var(--accent-warm); }
-        .more-row .sep { margin: 0 0.45rem; opacity: 0.5; }
-        .more-grid { display: grid; grid-template-columns: 12.5rem 1fr; gap: 0.1rem 1.2rem; align-items: baseline; margin-bottom: 0.55rem; }
-        .more-grid b { margin-right: 0; line-height: 1.5; }
-        .more-links { min-width: 0; overflow-wrap: anywhere; }
-        .more-grid .sep { margin: 0 0.15rem; }
-        @media (max-width: 720px) { .more-grid { grid-template-columns: 1fr; } }
-        /* newsletter */
-        .issue-latest { grid-column: 1 / -1; }
-        .issue-latest .sub-title { font-size: 1.65rem; }
-        .issue-date { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--cream-mute); margin-bottom: 0.8rem; }
-        .issue-list { list-style: none; grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.4rem 1.4rem; }
-        @media (max-width: 640px) { .issue-list { grid-template-columns: 1fr; } }
-        .issue-list a {
-            display: flex; justify-content: space-between; gap: 1rem; text-decoration: none; cursor: none;
-            color: var(--cream-soft); font-size: 0.92rem; padding: 0.55rem 0; border-bottom: 1px solid var(--line);
-        }
-        .issue-list a:hover { color: var(--accent-warm); }
-        .issue-list span { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--cream-mute); white-space: nowrap; }
-
-        /* ═══════ ABOUT ═══════ */
-        #view-about {
-            background: linear-gradient(180deg, rgba(15,8,3,0.72) 0%, rgba(15,8,3,0.88) 100%), url('./rabbit-lying.webp') center/cover no-repeat;
-        }
-        /* Works/About photos never rescale when the page gets taller (e.g. opening the source list) */
-        #view-works, #view-about { background-size: auto, auto 100vh; background-position: center, top center; }
-        @media (hover: hover) and (pointer: fine) {
-            #view-works, #view-about { background-attachment: fixed, fixed; background-size: cover, cover; background-position: center, center; }
-        }
-        .about-paper {
-            background: var(--cream-warm); color: var(--ink); padding: 3.2rem 3.4rem 2.6rem;
-            max-width: 680px; margin: 0 auto 2rem; box-shadow: 0 24px 60px rgba(0,0,0,0.55); border-radius: 4px;
-        }
-        @media (max-width: 640px) { .about-paper { padding: 2rem 1.4rem; } }
-        .about-paper p { font-family: 'Instrument Serif', serif; font-size: 1.2rem; line-height: 1.72; color: #4A3020; margin-bottom: 1em; }
-        .about-paper mark { background: none; color: var(--ink); border-bottom: 1px solid var(--accent-deep); }
-        .about-paper a { color: var(--accent-deep); cursor: none; }
-        .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.9rem; margin: 1.6rem 0 0.4rem; }
-        @media (max-width: 560px) { .facts { grid-template-columns: 1fr; } }
-        .fact { border-top: 1px solid rgba(26,15,7,0.18); padding-top: 0.6rem; }
-        .fact b { display: block; font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-deep); font-weight: 500; }
-        .fact span { font-size: 0.9rem; color: #4A3020; }
-        .about-sign { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent-deep); margin-top: 1.4rem; }
-        .section { max-width: 680px; margin: 2.4rem auto 0; }
-        .section-title { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: 1.6rem; color: var(--cream); margin-bottom: 1rem; text-align: center; text-shadow: 0 2px 8px rgba(0,0,0,0.5); }
-        .contact { display: flex; gap: 0.7rem; flex-wrap: wrap; justify-content: center; }
-        details.sources { background: rgba(15,8,3,0.6); backdrop-filter: blur(6px); border: 1px solid rgba(232,168,92,0.22); border-radius: 6px; }
-        details.sources summary {
-            list-style: none; cursor: none; padding: 1rem 1.4rem; display: flex; justify-content: space-between; align-items: center;
-            font-family: 'Instrument Serif', serif; font-style: italic; font-size: 1.2rem; color: var(--cream);
-        }
-        details.sources summary::-webkit-details-marker { display: none; }
-        details.sources summary::after { content: '◇'; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--cream-mute); }
-        details.sources summary:hover { color: var(--accent-warm); }
-        .sources-body { padding: 0.2rem 1.4rem 1.4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem 2rem; }
-        @media (max-width: 560px) { .sources-body { grid-template-columns: 1fr; } }
-        .src-cat { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--accent-warm); margin-bottom: 0.4rem; }
-        .src-list { list-style: none; }
-        .src-list a { text-decoration: none; cursor: none; color: var(--cream-soft); font-family: 'Instrument Serif', serif; font-size: 1.02rem; border-bottom: 1px solid transparent; }
-        .src-list a:hover { color: var(--cream); border-bottom-color: var(--accent-warm); }
-        .sources-all { grid-column: 1 / -1; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-warm); text-decoration: none; cursor: none; }
-        .cert { padding: 1rem 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 1fr 2fr; gap: 1.5rem; }
-        .cert:last-child { border-bottom: none; }
-        @media (max-width: 640px) { .cert { grid-template-columns: 1fr; gap: 0.3rem; } }
-        .cert-school { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-warm); }
-        .cert-title { font-family: 'Instrument Serif', serif; font-size: 1.05rem; color: var(--cream); margin-bottom: 0.2rem; }
-        .cert-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--cream-mute); }
-
-        .footer { text-align: center; padding: 4rem 2rem 2rem; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--cream-mute); text-shadow: 0 2px 6px rgba(0,0,0,0.5); }
-        .footer a { color: var(--cream-soft); margin: 0 0.4rem; cursor: none; }
+        /* reveal on scroll */
+        .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s cubic-bezier(.2, .8, .2, 1); }
+        .reveal.in { opacity: 1; transform: none; }
+        @media (prefers-reduced-motion: reduce) { .reveal, .bridge .line, .bridge .down { opacity: 1; transform: none; filter: none; transition: none; } .scroll-cue i, .nm-cat .glow { animation: none; } }
     </style>
 </head>
 <body>
     <div id="cursor"></div>
     <div id="cursor-dot"></div>
 
-    <div id="readingBackdrop" class="reading-backdrop"></div>
-    <div id="reading" class="reading" role="dialog" aria-modal="true" aria-labelledby="readingTitle">
-        <button class="reading-close" id="readingClose">Close</button>
-        <div class="reading-label" id="readingLabel"></div>
-        <div class="reading-eyebrow" id="readingEyebrow"></div>
-        <h2 class="reading-title" id="readingTitle"></h2>
-        <div class="reading-body" id="readingBody"></div>
-        <div class="reading-nav">
-            <span class="reading-progress" id="readingProgress">01 / 04</span>
-            <button class="reading-next" id="readingNext">Next →</button>
-        </div>
-    </div>
-
-    <nav>
+    <nav id="nav">
         <a class="brand" href="#home">grace</a>
         <div class="nav-links">
-            <a class="nav-link active" href="#home">Home</a>
+            <a class="nav-link" href="#research">Research</a>
             <a class="nav-link" href="#works">Works</a>
             <a class="nav-link" href="#about">About</a>
-            <a class="nav-cta" href="#contact">Contact</a>
+            <a class="nav-link" href="#contact">Contact</a>
         </div>
     </nav>
 
     <main>
-        <!-- ═══════ HOME (original design; one button added) ═══════ -->
-        <section class="view active" id="view-home">
-            <div class="container">
-                <div class="hero">
-                    <div class="hero-eyebrow">Linge · Grace · Guo</div>
-                    <h1 class="hero-name">grace</h1>
-                    <p class="hero-sub">a sociotechnical lens on how AI and emerging technologies reshape the way we know, work, interact, and live.</p>
-                    <div class="hero-cta"><a class="btn btn-ghost" href="#works">See what I build →</a></div>
-                </div>
+        <!-- 1 ── first screen -->
+        <header class="hero" id="home">
+            <div class="hero-bg" id="heroBg"></div>
+            <div class="hero-inner" id="heroInner">
+                <div class="label">Linge · Grace · Guo</div>
+                <h1>grace</h1>
+                <p class="hero-sub">a sociotechnical lens on how AI and emerging technologies reshape the way we know, work, interact, and live.</p>
+            </div>
+            <a class="scroll-cue" href="#research">scroll to read <i></i></a>
+        </header>
 
-                <div class="deer-marks">
-                    <div class="spot s1" data-item="speak" role="button" tabindex="0">
-                        <div class="spot-dot">i</div>
-                        <div class="spot-label">speak</div>
+        <!-- 2 ── research: scrolling moves through the four threads -->
+        <section class="research" id="research" aria-label="Research">
+            <div class="r-stage">
+                <div class="wrap r-grid">
+                    <div class="r-side">
+                        <span class="label">My research</span>
+                        <ol class="r-index">
+                            <li><a href="#research/speak"><span class="num">i.</span><span class="word">speak</span><span class="gloss">for the marginalized</span></a></li>
+                            <li><a href="#research/through"><span class="num">ii.</span><span class="word">through</span><span class="gloss">a socio-technical lens</span></a></li>
+                            <li><a href="#research/analyze"><span class="num">iii.</span><span class="word">analyze</span><span class="gloss">human · technology interaction</span></a></li>
+                            <li><a href="#research/pursue"><span class="num">iv.</span><span class="word">pursue</span><span class="gloss">the best practice</span></a></li>
+                        </ol>
+                        <div class="r-progress" aria-hidden="true"><i id="rBar"></i></div>
                     </div>
-                    <div class="spot s2" data-item="through" role="button" tabindex="0">
-                        <div class="spot-dot">ii</div>
-                        <div class="spot-label">through</div>
+                    <div class="r-main">
+                        <article class="thread" id="t-speak">
+                            <span class="thread-word">i. speak</span>
+                            <div class="label">Thread 01 / 04 · AI deception</div>
+                            <h3>Unmasking the Shadows of AI — Deceptive Capabilities in LLMs</h3>
+                            <div class="type">
+                                <p>Inspired by critical questions raised during the 2023 AI Safety Summit, I began exploring <mark>AI deception</mark> — how different forms of deceptive capabilities entangle with historical and societal biases, and how discourses around deception evolve alongside technological development.</p>
+                                <p>Drawing on Science and Technology Studies to understand the power dynamics shaping technological paradigms, I evaluated AI deception's social implications and persistent challenges — <mark>published on arXiv</mark> during my undergraduate studies.</p>
+                                <p><a href="https://arxiv.org/abs/2403.09676" target="_blank" rel="noopener">Read the paper · arXiv:2403.09676 ↗</a></p>
+                            </div>
+                        </article>
+                        <article class="thread" id="t-through">
+                            <span class="thread-word">ii. through</span>
+                            <div class="label">Thread 02 / 04 · Algorithmic audit</div>
+                            <h3>Unmasking Artificial Intimacy — A Critical Audit of Microsoft's XiaoIce</h3>
+                            <div class="type">
+                                <p>At the Oxford Internet Institute I studied <mark>Fairness, Transparency and Accountability in Machine Learning</mark>.</p>
+                                <p>I applied these tools in a qualitative audit of Microsoft's XiaoIce, an AI companion released in 2014, years before Character.ai and Replika.</p>
+                                <p>Following ACM FAccT's auditing principles, the audit drew on interdisciplinary theory to examine the model's <mark>gendered design and the power dynamics built into its affordances</mark>.</p>
+                            </div>
+                        </article>
+                        <article class="thread" id="t-analyze">
+                            <span class="thread-word">iii. analyze</span>
+                            <div class="label">Thread 03 / 04 · Oxford MSc thesis</div>
+                            <h3>The Velvet Cage of AI Companions — Illusions of Intimacy and Control</h3>
+                            <div class="type">
+                                <p>My Oxford thesis asked how, and why, people come to see AI companions as <mark>trustworthy 'social actors'</mark>.</p>
+                                <p>Using mixed methods — quantitative dataset analysis and qualitative interviews — I studied both romantic and non-romantic users' experiences.</p>
+                                <p>I traced the mechanisms of connectedness, moments of anthropomorphisation, and the <mark>cyclical fulfilment of dual needs</mark> that can foster compulsive use, and how non-judgemental self-disclosure to an AI may reshape what people expect from relationships and love.</p>
+                                <p class="ask">The abstract is available on request.</p>
+                            </div>
+                        </article>
+                        <article class="thread" id="t-pursue">
+                            <span class="thread-word">iv. pursue</span>
+                            <div class="label">Thread 04 / 04 · Policy</div>
+                            <h3>Policy Recommendations to the Cyberspace Administration of China</h3>
+                            <div class="type">
+                                <p>Building on my thesis, I submitted <mark>policy recommendations</mark> to the Cyberspace Administration of China, informing its provisional framework for increasingly human-like AI services.</p>
+                                <p>Four priorities: measurable indicators of users' emotional dependency; tiered intervention for users in high-risk psychological states; clear in-interface disclosure; and oversight of anthropomorphic design so it cannot exploit <mark>psychological vulnerabilities</mark> for engagement.</p>
+                                <p class="ask">The full recommendations are available on request.</p>
+                            </div>
+                        </article>
                     </div>
-                    <div class="spot s3" data-item="analyze" role="button" tabindex="0">
-                        <div class="spot-dot">iii</div>
-                        <div class="spot-label">analyze</div>
-                    </div>
-                    <div class="spot s4" data-item="pursue" role="button" tabindex="0">
-                        <div class="spot-dot">iv</div>
-                        <div class="spot-label">pursue</div>
-                    </div>
-                </div>
-
-                <div class="hero-hint" id="heroHint">
-                    click a mark on the fawn — start with <em>i. speak</em>
                 </div>
             </div>
         </section>
 
-        <!-- ═══════ WORKS ═══════ -->
-        <section class="view" id="view-works">
-            <div class="container">
-                <header class="page-header">
-                    <h1 class="page-title">works</h1>
-                    <p class="page-sub">Things I keep building: tools, apps, writing and notes.</p>
-                </header>
+        <!-- 3 ── bridge from research to building -->
+        <section class="bridge" id="bridge">
+            <div class="wrap">
+                <p><span class="line">My research asks how AI is reshaping the way we live, choose and love.</span>
+                   <span class="line"><em>Building with it shows me how AI can truly help, in everyday work and in business.</em></span></p>
+                <a class="down" href="#works">What I've built ↓</a>
+            </div>
+        </section>
 
-                <div class="filters" role="group" aria-label="Filter works">
-                    <button class="filter" data-filter="all" aria-pressed="true">All</button>
-                    <button class="filter" data-filter="tools" aria-pressed="false">AI tools</button>
-                    <button class="filter" data-filter="apps" aria-pressed="false">Apps</button>
-                    <button class="filter" data-filter="writing" aria-pressed="false">Writing &amp; notes</button>
+        <!-- 4 ── works -->
+        <section class="works" id="works">
+            <div class="wrap">
+                <div class="sec-head reveal">
+                    <span class="label">Works</span>
+                    <h2>What I've built</h2>
+                    <p>Skills that actually work, writing worth reading, and a small app for deep work.</p>
                 </div>
 
-                <!-- 01 Claude Research Skills -->
-                <article class="group featured" data-cat="tools">
-                    <div class="group-head">
-                        <div class="group-top"><span class="work-num">01</span><span class="work-badge">New · open source</span></div>
-                        <h2 class="group-title">Claude Research Skills</h2>
-                        <div class="group-tags"><span class="tag">Claude Code</span><span class="tag">Claude.ai</span><span class="tag">Research</span><span class="tag">Writing</span><span class="tag">Work</span><span class="tag">Learning</span><span class="tag">MIT</span></div>
-                        <p class="group-desc" id="skillsIntro">67 free skills for research, writing and everyday work, for students and professionals. Each one asks what you need first, follows a named method, and never makes things up.</p>
-                        <code class="code-line">/plugin marketplace add lingegrace/claude-research-skills</code>
-                        <div class="group-actions">
-                            <a class="btn btn-primary" href="https://lingegrace.github.io/skills/" target="_blank" rel="noopener">Visit the Skill Library ↗</a>
-                            <a class="work-link" href="https://github.com/lingegrace/claude-research-skills" target="_blank" rel="noopener">View on GitHub ↗</a>
-                            <a class="work-link" href="https://github.com/lingegrace/claude-research-skills#install" target="_blank" rel="noopener">How to install ↗</a>
-                        </div>
-                    </div>
-                    <div class="subgrid three" id="skillCards">
-                        <div class="sub">
-                            <div class="sub-kicker">Deep research with citations</div>
-                            <h3 class="sub-title">deep-research</h3>
-                            <p class="sub-desc">Answers a hard question with a cited report, a claim–evidence table, confidence levels and counterevidence.</p>
-                            <div class="sub-links"><a class="work-link" href="https://github.com/lingegrace/claude-research-skills/tree/main/skills/research/deep-research" target="_blank" rel="noopener">Open ↗</a></div>
-                        </div>
-                        <div class="sub">
-                            <div class="sub-kicker">Make AI text sound human</div>
-                            <h3 class="sub-title">human-writing</h3>
-                            <p class="sub-desc">Rewrites stiff, AI-sounding drafts so they read like a person, without changing a single fact.</p>
-                            <div class="sub-links"><a class="work-link" href="https://github.com/lingegrace/claude-research-skills/tree/main/skills/writing/human-writing" target="_blank" rel="noopener">Open ↗</a></div>
-                        </div>
-                        <div class="sub">
-                            <div class="sub-kicker">Meeting notes to action items</div>
-                            <h3 class="sub-title">meeting-to-actions</h3>
-                            <p class="sub-desc">Turns a transcript into decisions, owners, due dates and open questions you can read in five minutes.</p>
-                            <div class="sub-links"><a class="work-link" href="https://github.com/lingegrace/claude-research-skills/tree/main/skills/work/meeting-to-actions" target="_blank" rel="noopener">Open ↗</a></div>
-                        </div>
-                    </div>
-                    <div class="more-skills" id="moreSkills">
-                        <div class="more-title">More skills on GitHub</div>
-                        <p class="more-row"><a href="https://lingegrace.github.io/skills/skills/" target="_blank" rel="noopener">See all skills in the Skill Library ↗</a></p>
-                    </div>
-                </article>
-
-                <!-- 02 Academic Portfolio -->
-                <article class="group" data-cat="tools">
-                    <div class="group-head">
-                        <div class="group-top"><span class="work-num">02</span></div>
-                        <h2 class="group-title">Academic Portfolio</h2>
-                        <div class="group-tags"><span class="tag">AI agent</span><span class="tag">Sociology</span></div>
-                    </div>
-                    <div class="subgrid">
-                        <div class="sub">
-                            <div class="sub-kicker">Portfolio</div>
-                            <h3 class="sub-title">Grace's Kiosk</h3>
-                            <p class="sub-desc">My academic folder: research projects, study tools, AI sources and books. <em>"Unchained Melody" — play and take your time.</em></p>
-                            <div class="sub-links"><a class="work-link" href="https://app--graces-kiosk-a4c1d845.base44.app/" target="_blank" rel="noopener">Open Grace's Kiosk ↗</a></div>
-                        </div>
-                        <div class="sub">
-                            <div class="sub-kicker">Study partner</div>
-                            <h3 class="sub-title">Grace's Bot</h3>
-                            <p class="sub-desc">Q&amp;A on my papers, plus a sociology study partner for theories, questions and empirical trends.</p>
-                            <div class="sub-links"><a class="work-link" href="https://code.coze.cn/p/7616316878792818726/preview" target="_blank" rel="noopener">Chat with the agent ↗ <small>Coze</small></a></div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- 03 Productivity Apps -->
-                <article class="group" data-cat="apps">
-                    <div class="group-head">
-                        <div class="group-top"><span class="work-num">03</span></div>
-                        <h2 class="group-title">Productivity Apps</h2>
-                        <div class="group-tags"><span class="tag">Wellbeing</span><span class="tag">Focus</span></div>
-                    </div>
-                    <div class="subgrid">
-                        <div class="sub">
-                            <div class="sub-kicker">Energy</div>
-                            <h3 class="sub-title">Momentum</h3>
-                            <p class="sub-desc">A gentle life-management tool that visualizes your energy through science-backed recovery actions. Rest is not escape; it's part of your momentum.</p>
-                            <div class="sub-links">
-                                <a class="work-link" href="https://rugged-build-your-momentum.base44.app/Home" target="_blank" rel="noopener">Open Momentum ↗</a>
-                                <a class="work-link" href="https://screenapp.io/app/v/YzJV1A2nJl" target="_blank" rel="noopener">Watch demo ↗</a>
+                <div class="stack">
+                    <article class="card feature reveal">
+                        <div>
+                            <span class="label">Claude skills · free &amp; open source</span>
+                            <h3>Grace's Skill Library</h3>
+                            <p id="skillsIntro">67 free skills for research, writing and everyday work. Each one asks what you need first, follows a named method, and never makes things up.</p>
+                            <div class="tag-row"><span class="tag">Claude Code</span><span class="tag">Claude.ai</span><span class="tag">Research</span><span class="tag">Writing</span><span class="tag">Work</span><span class="tag">Learning</span></div>
+                            <div class="actions">
+                                <a class="sbtn sbtn-sit" href="https://lingegrace.github.io/skills/" target="_blank" rel="noopener">
+                                    <svg viewBox="0 0 120 130" aria-hidden="true"><path class="outline" d="M40 58 C26 50 26 26 36 20 L34 2 L52 16 C58 14 62 14 68 16 L86 2 L84 20 C94 26 94 50 80 58 C96 70 102 96 96 116 C108 118 116 108 112 96 C122 104 120 126 100 126 L24 126 C14 126 14 116 18 108 C14 90 22 70 40 58 Z"/><path class="detail" d="M48 36 q3 3 6 0 M66 36 q3 3 6 0 M56 45 q2 2 4 0 q2 2 4 0 M38 42 h-9 M38 46 l-8 2 M82 42 h9 M82 46 l8 2"/></svg>
+                                    <span class="txt">Check it out ↗</span>
+                                </a>
+                                <a class="btn" href="https://github.com/lingegrace/claude-research-skills" target="_blank" rel="noopener">GitHub ↗</a>
                             </div>
+                            <code class="code-line">/plugin marketplace add lingegrace/claude-research-skills</code>
                         </div>
-                        <div class="sub">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" class="nm-cat" role="img" aria-label="A line-drawn cat looking up at a glowing lamp">
-                              <style>
-                                .ln{fill:none;stroke:#F5C482;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
-                                .thin{stroke-width:1.6}
-                                .fillbg{fill:#2B1D14}
-                                .dot{fill:#F5C482}
-                                .glow{fill:#F5C482;opacity:.45}
-                              </style>
-                              <g transform="translate(68 30) scale(1.4)">
+                        <div class="picks" id="skillCards">
+                            <a class="pick" href="https://lingegrace.github.io/skills/skills/deep-research/" target="_blank" rel="noopener"><b>deep-research</b><span>A cited report with a claim–evidence table and confidence levels.</span></a>
+                            <a class="pick" href="https://lingegrace.github.io/skills/skills/human-writing/" target="_blank" rel="noopener"><b>human-writing</b><span>Rewrites stiff AI drafts so they read like a person.</span></a>
+                            <a class="pick" href="https://lingegrace.github.io/skills/skills/meeting-to-actions/" target="_blank" rel="noopener"><b>meeting-to-actions</b><span>A transcript turned into decisions, owners and due dates.</span></a>
+                        </div>
+                        <details class="all-skills" id="moreSkills">
+                            <summary>Browse every skill by field</summary>
+                            <p class="more-grid"><a href="https://lingegrace.github.io/skills/skills/" target="_blank" rel="noopener">See all skills in the Skill Library ↗</a></p>
+                        </details>
+                    </article>
+
+                    <div class="row-2">
+                        <article class="card reveal">
+                            <span class="label">LinkedIn newsletter · weekly</span>
+                            <h3>Signals Across Markets</h3>
+                            <p>Macro forces, tech news, society and AI, read from a humanistic perspective.</p>
+                            <div id="issues">
+                                <a class="issue-latest" href="https://www.linkedin.com/newsletters/7422191016994217984/" target="_blank" rel="noopener"><small>Latest issue</small><b>Read the newsletter on LinkedIn</b></a>
+                            </div>
+                            <div class="actions">
+                                <a class="btn btn-main" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7422191016994217984" target="_blank" rel="noopener">Subscribe</a>
+                                <a class="sbtn sbtn-mail" href="https://www.linkedin.com/newsletters/7422191016994217984/" target="_blank" rel="noopener">
+                                    <svg viewBox="0 0 200 84" preserveAspectRatio="none" aria-hidden="true"><path class="outline" d="M12 8 H188 Q196 8 196 16 V68 Q196 76 188 76 H12 Q4 76 4 68 V16 Q4 8 12 8 Z"/><path class="detail" d="M8 13 L100 38 L192 13"/></svg>
+                                    <span class="txt">All issues ↗</span>
+                                </a>
+                            </div>
+                        </article>
+
+                        <article class="card reveal">
+                            <span class="label">Lessons · Skill Workshop</span>
+                            <h3>Skill Workshop</h3>
+                            <p>How I design skills that hold up in real work: the method behind them, and how to write and test your own.</p>
+                            <ul class="wiki">
+                                <li><a href="https://lingegrace.github.io/skills/resources/how-to-create-a-skill/" target="_blank" rel="noopener">How to create a skill ↗</a><span>From a job you keep repeating to a tested skill.</span></li>
+                                <li><a href="https://lingegrace.github.io/skills/resources/context-is-everything/" target="_blank" rel="noopener">Context is everything ↗</a><span>What an LLM actually reads, and why it changes the result.</span></li>
+                                <li><a href="https://lingegrace.github.io/skills/resources/test-before-you-ship/" target="_blank" rel="noopener">Test a skill before you ship it ↗</a><span>A real test run, and the one change it forced.</span></li>
+                            </ul>
+                            <div class="actions"><a class="sbtn sbtn-rose" href="https://lingegrace.github.io/skills/resources/" target="_blank" rel="noopener">
+                                <svg viewBox="0 0 280 72" aria-hidden="true"><path class="outline" d="M58 36 C100 8 220 6 274 36 C220 66 100 64 58 36 Z"/><path class="outline" d="M36 10 C48 10 54 17 56 25 C64 27 66 39 60 45 C62 55 52 63 42 61 C36 67 24 65 20 57 C10 55 6 43 12 37 C6 29 12 17 22 17 C24 11 30 10 36 10 Z"/><path class="detail" d="M36 25 C44 25 46 35 40 39 C34 43 28 37 31 32 C33 29 38 30 38 33 M24 30 C22 40 28 50 38 51 M50 30 C54 40 50 50 42 52 M90 36 C140 30 200 30 250 36"/></svg>
+                                <span class="txt">Go to the Skill Workshop ↗</span>
+                            </a></div>
+                        </article>
+                    </div>
+
+                    <article class="card nm reveal">
+                        <div>
+                            <span class="label">Mac app · deep work</span>
+                            <h3>Neuro-Mentum</h3>
+                            <p>A quiet desk lamp in your Mac menu bar. Focus in rounds, then take a short recovery break chosen for how you feel, so the prefrontal cortex can recover.</p>
+                            <div class="actions">
+                                <a class="btn btn-main" href="https://github.com/lingegrace/neuro-mentum/releases/download/v0.2.1/Neuro-Mentum-0.2.1.dmg">Download for Mac ↓</a>
+                                <a class="sbtn sbtn-cat" href="https://github.com/lingegrace/neuro-mentum" target="_blank" rel="noopener">
+                                    <svg viewBox="0 0 240 96" aria-hidden="true"><path class="outline" d="M30 92 C16 92 9 82 14 71 C8 61 9 45 18 35 L17 11 L35 24 C43 20 54 20 62 24 L77 10 L79 36 C105 28 156 26 190 36 C214 44 226 62 224 80 C236 78 242 66 236 56 C247 66 243 92 216 92 Z"/><path class="detail" d="M27 54 q4 3 8 0 M46 54 q4 3 8 0 M38 62 q2 2 4 0 M14 60 h-8 M14 65 l-7 2"/></svg>
+                                    <span class="txt">About the app ↗</span>
+                                </a>
+                            </div>
+                            <p class="note">macOS 11+ · Apple silicon &amp; Intel. First launch: System Settings → Privacy &amp; Security → Open Anyway.</p>
+                        </div>
+                        <svg class="nm-cat" viewBox="0 0 120 120" role="img" aria-label="A line-drawn cat looking up at a glowing lamp">
+                            <g transform="translate(68 30) scale(1.4)">
                                 <ellipse class="glow" cx="12" cy="18" rx="9" ry="6"/>
                                 <path class="ln thin" d="M12 20v4M5 18l-3 3M19 18l3 3M8 22l-1.5 3.5M16 22l1.5 3.5" opacity=".8"/>
                                 <path class="ln" d="M12 -30v34.5M4 13a8 8.5 0 0 1 16 0zM9.5 13a2.5 2.5 0 0 0 5 0z"/>
-                              </g>
-                              <g transform="translate(6 40) scale(.62)">
+                            </g>
+                            <g transform="translate(6 40) scale(.62)">
                                 <path class="ln" d="M66 104c18 2 26-10 20-22-3-6-10-6-11 0"/>
                                 <path class="ln fillbg" d="M35 58c-12 18-12 40-2 52h34c10-12 10-34-2-52z"/>
                                 <path class="ln thin" d="M39 110q4-5 8 0M53 110q4-5 8 0"/>
@@ -804,378 +467,267 @@
                                 <path class="ln thin" d="M33 25l.6-9 7 5M67 25l-.6-9-7 5"/>
                                 <ellipse class="ln fillbg" cx="50" cy="40" rx="25" ry="21"/>
                                 <circle class="dot" cx="43" cy="37" r="2.6"/><circle class="dot" cx="61" cy="37" r="2.6"/>
-                                <path class="dot" d="M48.6 45.2h2.8l-1.4 1.6z" style="opacity:.9"/>
+                                <path class="dot" d="M48.6 45.2h2.8l-1.4 1.6z"/>
                                 <path class="ln thin" d="M45 49q2.5 3 5 0q2.5 3 5 0"/>
                                 <path class="ln thin" d="M27 45h-9M27 49l-8 2M73 45h9M73 49l8 2"/>
-                              </g>
-                            </svg>
-                            <div class="sub-kicker">Deep work</div>
-                            <h3 class="sub-title">Neuro-Mentum</h3>
-                            <p class="sub-desc">Micro-tasks built into a 60-minute deep-work session, to help the prefrontal cortex recover after intense concentration. Now also a quiet desk lamp in your Mac menu bar.</p>
-                            <div class="sub-links"><a class="work-link" href="https://github.com/lingegrace/neuro-mentum/releases/download/v0.2.1/Neuro-Mentum-0.2.1.dmg">Download for Mac ↓</a><a class="work-link" href="https://github.com/lingegrace/neuro-mentum" target="_blank" rel="noopener">About the app ↗</a></div>
-                            <p class="nm-note">Mac app · macOS 11+ · Apple silicon &amp; Intel. First launch: System Settings → Privacy &amp; Security → Open Anyway.</p>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- 04 LinkedIn Newsletter (issues load from newsletter.json, updated daily) -->
-                <article class="group" data-cat="writing">
-                    <div class="group-head">
-                        <div class="group-top"><span class="work-num">04</span></div>
-                        <h2 class="group-title">LinkedIn Newsletter · <em>Signals Across Markets</em></h2>
-                        <div class="group-tags"><span class="tag">Weekly</span><span class="tag">AI &amp; society</span><span class="tag">Macro · tech</span></div>
-                        <p class="group-desc">Weekly insights on macro forces, tech news, society and AI, from a humanistic perspective.</p>
-                    </div>
-                    <div class="subgrid" id="issues">
-                        <a class="sub issue-latest" href="https://www.linkedin.com/pulse/how-find-meaning-life-age-ai-linge-guo-ajw7c" target="_blank" rel="noopener" style="text-decoration:none; cursor:none;">
-                            <div class="sub-kicker">Latest issue</div>
-                            <h3 class="sub-title">How to Find Meaning in Life in the Age of AI</h3>
-                            <div class="issue-date">Oct 25, 2026</div>
-                            <div class="sub-links"><span class="work-link">Read on LinkedIn ↗</span></div>
-                        </a>
-                    </div>
-                    <div class="group-actions">
-                        <a class="btn btn-primary" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7422191016994217984" target="_blank" rel="noopener">Subscribe</a>
-                        <a class="work-link" href="https://www.linkedin.com/newsletters/7422191016994217984/" target="_blank" rel="noopener">All issues ↗</a>
-                    </div>
-                </article>
-
-                <!-- 05 AI Knowledge Wiki -->
-                <article class="group" data-cat="writing">
-                    <div class="group-head">
-                        <div class="group-top"><span class="work-num">05</span></div>
-                        <h2 class="group-title">AI Knowledge Wiki</h2>
-                        <div class="group-tags"><span class="tag">Notebooks</span><span class="tag">Always updating</span></div>
-                        <p class="group-desc">Four notebooks I keep updating, for anyone who wants to think about AI seriously.</p>
-                    </div>
-                    <div class="subgrid">
-                        <div class="sub">
-                            <div class="sub-kicker">i.</div>
-                            <h3 class="sub-title">LLM Wiki</h3>
-                            <p class="sub-desc">How large language models work: key concepts, architectures and papers, explained in plain language.</p>
-                            <div class="sub-links"><a class="work-link" href="https://lingegrace.github.io/skills/resources/#llm-notebook" target="_blank" rel="noopener">Open notebook ↗</a></div>
-                        </div>
-                        <div class="sub">
-                            <div class="sub-kicker">ii.</div>
-                            <h3 class="sub-title">AI Governance</h3>
-                            <p class="sub-desc">AI policy, regulation and safety frameworks, and how different countries approach them.</p>
-                            <div class="sub-links"><a class="work-link" href="https://lingegrace.github.io/skills/resources/#ai-governance" target="_blank" rel="noopener">Open notebook ↗</a></div>
-                        </div>
-                        <div class="sub">
-                            <div class="sub-kicker">iii.</div>
-                            <h3 class="sub-title">Prompt Red Team</h3>
-                            <p class="sub-desc">Adversarial prompts and failure cases: testing where models break, and why.</p>
-                            <div class="sub-links"><a class="work-link" href="https://lingegrace.github.io/skills/resources/" target="_blank" rel="noopener">Open notebook ↗</a></div>
-                        </div>
-                        <div class="sub">
-                            <div class="sub-kicker">iv.</div>
-                            <h3 class="sub-title">Learning Sum</h3>
-                            <p class="sub-desc">My running summaries of the courses, books and talks I learn from.</p>
-                            <div class="sub-links"><a class="work-link" href="https://lingegrace.github.io/skills/resources/#reading-notes" target="_blank" rel="noopener">Open notebook ↗</a></div>
-                        </div>
-                    </div>
-                    <p class="work-note">Now in my Skill Workshop. Opens in a new tab.</p>
-                </article>
-            </div>
-        </section>
-
-        <!-- ═══════ ABOUT ═══════ -->
-        <section class="view" id="view-about">
-            <div class="container">
-                <header class="page-header">
-                    <h1 class="page-title">about</h1>
-                    <p class="page-sub">The person behind the marks.</p>
-                </header>
-
-                <div class="about-paper">
-                    <p>Hi, I'm <mark>Grace (Linge Guo)</mark>.</p>
-                    <p>I'm a trained sociologist studying the societal impact of digital technologies through a <mark>sociotechnical lens</mark>. With a particular interest in AI, I examine the underlying mechanisms of its infrastructure to inform ethics from a sociological perspective.</p>
-                    <p>I studied Sociology at UCL, then completed my MSc in Sociology at the University of Oxford — deepening my technical grounding at the Oxford Internet Institute in <mark>Fairness, Transparency, and Accountability of Machine Learning</mark>.</p>
-                    <p>Currently I'm working at the intersection of AI companions, AI deception, and platform governance — <a href="#research/speak">open my research threads →</a></p>
-                    <div class="facts">
-                        <div class="fact"><b>Education</b><span>Sociology, UCL · MSc Sociology, Oxford</span></div>
-                        <div class="fact"><b>Focus</b><span>AI companions · AI deception · Governance</span></div>
-                        <div class="fact"><b>Published</b><span><a href="https://arxiv.org/abs/2403.09676" target="_blank" rel="noopener">arXiv:2403.09676</a></span></div>
-                    </div>
-                    <p class="about-sign">— always thinking, sometimes writing.</p>
-                </div>
-
-                <div class="section" id="contact">
-                    <h2 class="section-title">Get in touch</h2>
-                    <div class="contact">
-                        <a class="btn btn-primary" href="mailto:graceguo2004@outlook.com">Email me</a>
-                        <a class="btn btn-ghost" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7422191016994217984" target="_blank" rel="noopener">Newsletter ↗</a>
-                        <a class="btn btn-ghost" href="https://github.com/lingegrace" target="_blank" rel="noopener">GitHub ↗</a>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <details class="sources">
-                        <summary>AI news &amp; source list</summary>
-                        <div class="sources-body">
-                            <div>
-                                <div class="src-cat">— engineer</div>
-                                <ul class="src-list">
-                                    <li><a href="https://news.smol.ai/" target="_blank" rel="noopener">AI News</a></li>
-                                    <li><a href="https://www.latent.space/" target="_blank" rel="noopener">Latent Space Substack</a></li>
-                                    <li><a href="https://karpathy.ai/" target="_blank" rel="noopener">Andrej Karpathy — Personal Web</a></li>
-                                </ul>
-                            </div>
-                            <div>
-                                <div class="src-cat">— policy</div>
-                                <ul class="src-list">
-                                    <li><a href="https://aisafetychina.substack.com/" target="_blank" rel="noopener">AI Safety in China Substack</a></li>
-                                    <li><a href="https://www.humanetech.com/" target="_blank" rel="noopener">Center for Humane Technology</a></li>
-                                </ul>
-                            </div>
-                            <div>
-                                <div class="src-cat">— newsletter · blogs</div>
-                                <ul class="src-list">
-                                    <li><a href="https://www.ycombinator.com/blog" target="_blank" rel="noopener">Y Combinator</a></li>
-                                    <li><a href="https://aibusiness.com/" target="_blank" rel="noopener">AI·Business</a></li>
-                                    <li><a href="https://techcrunch.com/category/startups/" target="_blank" rel="noopener">TechCrunch — Startups &amp; Ventures</a></li>
-                                    <li><a href="https://www.lennysnewsletter.com/" target="_blank" rel="noopener">Lenny's Podcast Substack</a></li>
-                                    <li><a href="https://www.ignorance.ai/" target="_blank" rel="noopener">Artificial Ignorance Substack</a></li>
-                                    <li><a href="https://www.elenaverna.com/" target="_blank" rel="noopener">Elena's Growth Scoop Substack</a></li>
-                                    <li><a href="https://www.theaivalley.com/" target="_blank" rel="noopener">AI Valley</a></li>
-                                </ul>
-                            </div>
-                            <div>
-                                <div class="src-cat">— macro insights</div>
-                                <ul class="src-list">
-                                    <li><a href="https://futurumgroup.com/" target="_blank" rel="noopener">Futurum Signals</a></li>
-                                    <li><a href="https://www.gartner.com/en/insights" target="_blank" rel="noopener">Gartner</a></li>
-                                    <li><a href="https://nielseniq.com/global/en/insights/" target="_blank" rel="noopener">NIQ IQ Brief</a></li>
-                                    <li><a href="https://www.human8.com/" target="_blank" rel="noopener">human8 annual trend report</a></li>
-                                </ul>
-                            </div>
-                            <a class="sources-all" href="https://rcnd1qqt63cw.feishu.cn/wiki/CDjwwrbjsixKWDkdmUzcdSCmnnE?from=from_copylink" target="_blank" rel="noopener">Full compilation →</a>
-                        </div>
-                    </details>
-                </div>
-
-                <div class="section">
-                    <h2 class="section-title">learning</h2>
-                    <div class="cert"><div class="cert-school">Oxford Internet Institute</div><div><div class="cert-title">Fairness, Accountability &amp; Transparency of ML</div><div class="cert-meta">2025 · Qualitative audit of XiaoIce</div></div></div>
-                    <div class="cert"><div class="cert-school">Alan Turing Institute</div><div><div class="cert-title">Operationalising Ethics in AI — Expert</div><div class="cert-meta">Ongoing</div></div></div>
-                    <div class="cert"><div class="cert-school">UCL</div><div><div class="cert-title">Sociology of Science &amp; Tech · Cybersecurity · STS</div><div class="cert-meta">2021–2024</div></div></div>
-                    <div class="cert"><div class="cert-school">Duke</div><div><div class="cert-title">ML Foundations for Product Managers</div><div class="cert-meta">Coursera · Mar 2026</div></div></div>
-                    <div class="cert"><div class="cert-school">IBM</div><div><div class="cert-title">Product Management: An Introduction</div><div class="cert-meta">Coursera · Feb 2026</div></div></div>
-                    <div class="cert"><div class="cert-school">Amazon</div><div><div class="cert-title">Fundamentals of Machine Learning and AI</div><div class="cert-meta">Coursera · Feb 2026</div></div></div>
+                            </g>
+                        </svg>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <footer class="footer">built with curiosity · 2026 · <a href="https://github.com/lingegrace" target="_blank" rel="noopener">GitHub</a><a href="mailto:graceguo2004@outlook.com">Email</a></footer>
+        <!-- 5 ── about -->
+        <section class="about photo" id="about">
+            <div class="wrap">
+                <div class="about-grid reveal">
+                    <div class="about-text">
+                        <div class="sec-head">
+                            <span class="label">About</span>
+                            <h2>Hi, I'm Grace.</h2>
+                        </div>
+                        <p>I'm a sociologist studying the social impact of digital technologies through a <mark>sociotechnical lens</mark>. With a particular interest in AI, I look at how its infrastructure works underneath, to inform ethics from a sociological perspective.</p>
+                        <p>I studied Sociology at UCL, then completed an MSc in Sociology at the University of Oxford, with technical grounding at the Oxford Internet Institute in <mark>Fairness, Transparency and Accountability of Machine Learning</mark>.</p>
+                        <p>I work where AI companions, AI deception and platform governance meet, and I turn what I learn into tools people can use.</p>
+                    </div>
+                    <a class="kiosk" href="https://app--graces-kiosk-a4c1d845.base44.app/" target="_blank" rel="noopener" aria-label="Open Grace's Kiosk, my academic portfolio">
+                        <svg viewBox="0 0 400 360" preserveAspectRatio="none" aria-hidden="true">
+                            <path class="shape" d="M62 330 C18 300 16 202 70 152 C110 112 170 102 226 110 C236 82 248 42 262 18 C271 4 289 7 287 25 C286 50 281 80 279 104 C294 70 318 32 334 22 C350 12 364 26 353 44 C339 74 318 104 307 127 C342 152 362 192 357 242 C352 300 320 336 278 341 L94 343 C80 343 69 339 62 330 Z"/>
+                        </svg>
+                        <span class="kiosk-body">
+                            <span class="label">Academic portfolio</span>
+                            <b>Grace's Kiosk<i>↗</i></b>
+                            <span class="kiosk-sub">My academic folder: research, study tools, sources and books. <em>"Unchained Melody" — take your time.</em></span>
+                        </span>
+                    </a>
+                </div>
+
+                <span class="label learning-label reveal">Background</span>
+                <ul class="learning reveal">
+                    <li><b>Oxford Internet Institute</b> · Fairness, Accountability &amp; Transparency of ML <span>· 2025</span></li>
+                    <li><b>Alan Turing Institute</b> · Operationalising Ethics in AI — Expert <span>· ongoing</span></li>
+                    <li><b>UCL</b> · Sociology of Science &amp; Tech · Cybersecurity · STS <span>· 2021–2024</span></li>
+                    <li><b>Duke</b> · ML Foundations for Product Managers <span>· 2026</span></li>
+                    <li><b>IBM</b> · Product Management: An Introduction <span>· 2026</span></li>
+                    <li><b>Amazon</b> · Fundamentals of Machine Learning and AI <span>· 2026</span></li>
+                </ul>
+                <details class="sources">
+                    <summary>The AI news and sources I read</summary>
+                    <div class="sources-body">
+                        <div><b>Engineering</b><ul><li><a href="https://news.smol.ai/" target="_blank" rel="noopener">AI News</a></li><li><a href="https://www.latent.space/" target="_blank" rel="noopener">Latent Space</a></li><li><a href="https://karpathy.ai/" target="_blank" rel="noopener">Andrej Karpathy</a></li></ul></div>
+                        <div><b>Policy</b><ul><li><a href="https://aisafetychina.substack.com/" target="_blank" rel="noopener">AI Safety in China</a></li><li><a href="https://www.humanetech.com/" target="_blank" rel="noopener">Center for Humane Technology</a></li></ul></div>
+                        <div><b>Newsletters &amp; blogs</b><ul><li><a href="https://www.ycombinator.com/blog" target="_blank" rel="noopener">Y Combinator</a></li><li><a href="https://aibusiness.com/" target="_blank" rel="noopener">AI Business</a></li><li><a href="https://techcrunch.com/category/startups/" target="_blank" rel="noopener">TechCrunch Startups</a></li><li><a href="https://www.lennysnewsletter.com/" target="_blank" rel="noopener">Lenny's Newsletter</a></li><li><a href="https://www.ignorance.ai/" target="_blank" rel="noopener">Artificial Ignorance</a></li><li><a href="https://www.elenaverna.com/" target="_blank" rel="noopener">Elena's Growth Scoop</a></li><li><a href="https://www.theaivalley.com/" target="_blank" rel="noopener">AI Valley</a></li></ul></div>
+                        <div><b>Macro insights</b><ul><li><a href="https://futurumgroup.com/" target="_blank" rel="noopener">Futurum Signals</a></li><li><a href="https://www.gartner.com/en/insights" target="_blank" rel="noopener">Gartner</a></li><li><a href="https://nielseniq.com/global/en/insights/" target="_blank" rel="noopener">NIQ IQ Brief</a></li><li><a href="https://www.human8.com/" target="_blank" rel="noopener">human8 trend report</a></li></ul></div>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- 6 ── contact -->
+        <section class="contact" id="contact">
+            <div class="wrap reveal">
+                <h2>Let's talk.</h2>
+                <p>Research, collaboration, or a skill built around your team's work.</p>
+                <div class="actions">
+                    <a class="btn btn-main" href="mailto:graceguo2004@outlook.com">Email me</a>
+                    <a class="btn" href="https://www.linkedin.com/in/lingeguo2004/" target="_blank" rel="noopener">LinkedIn ↗</a>
+                    <a class="btn" href="https://github.com/lingegrace" target="_blank" rel="noopener">GitHub ↗</a>
+                </div>
+                <p class="footer">built with curiosity · 2026</p>
+            </div>
+        </section>
     </main>
 
     <script>
-    (function() {
-        /* CURSOR */
-        const cursor = document.getElementById('cursor');
-        const dot = document.getElementById('cursor-dot');
-        if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-            cursor.style.display = 'block';
-            dot.style.display = 'block';
-            let mx = innerWidth/2, my = innerHeight/2, gx = mx, gy = my;
-            document.addEventListener('mousemove', e => {
-                mx = e.clientX; my = e.clientY;
-                dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+    (function () {
+        const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+
+        /* cursor (desktop only) */
+        const cursor = $('#cursor'), dot = $('#cursor-dot');
+        if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
+            cursor.style.display = dot.style.display = 'block';
+            let mx = innerWidth / 2, my = innerHeight / 2, gx = mx, gy = my;
+            addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; dot.style.left = mx + 'px'; dot.style.top = my + 'px'; });
+            (function raf() { gx += (mx - gx) * .16; gy += (my - gy) * .16; cursor.style.left = gx + 'px'; cursor.style.top = gy + 'px'; requestAnimationFrame(raf); })();
+            document.addEventListener('mouseover', e => { if (e.target.closest('a, button, summary')) dot.style.transform = 'translate(-50%, -50%) scale(3)'; });
+            document.addEventListener('mouseout', e => { if (e.target.closest('a, button, summary')) dot.style.transform = 'translate(-50%, -50%) scale(1)'; });
+        } else document.body.style.cursor = 'auto';
+
+        /* first screen: the photo drifts and the title lifts away as you scroll */
+        const hero = $('#home'), heroBg = $('#heroBg'), heroInner = $('#heroInner');
+        function onScrollHero() {
+            if (reduce) return;
+            const h = hero.offsetHeight, y = Math.min(scrollY, h);
+            const p = y / h;
+            heroBg.style.transform = `translateY(${y * .3}px) scale(${1 + p * .08})`;
+            heroInner.style.transform = `translateY(${-y * .22}px)`;
+            heroInner.style.opacity = String(Math.max(0, 1 - p * 1.6));
+        }
+
+        /* nav: clear over the photo, frosted once you scroll past it */
+        const nav = $('#nav');
+        const sections = ['research', 'works', 'about', 'contact'].map(id => document.getElementById(id));
+        function onScrollNav() {
+            nav.classList.toggle('solid', hero.getBoundingClientRect().bottom < 80);
+            let cur = '';
+            sections.forEach(s => { if (s.getBoundingClientRect().top < innerHeight * .4) cur = s.id; });
+            $$('.nav-link').forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
+        }
+
+        /* typewriter: every character is in the page from the start (search engines read it); untyped ones are invisible */
+        function prepare(el) {
+            if (el.dataset.prepared) return;
+            el.dataset.prepared = '1';
+            const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), texts = [];
+            while (walker.nextNode()) if (walker.currentNode.nodeValue.trim()) texts.push(walker.currentNode);
+            texts.forEach(t => {
+                const frag = document.createDocumentFragment();
+                for (const c of t.nodeValue) { const s = document.createElement('span'); s.className = 'ch'; s.textContent = c; frag.appendChild(s); }
+                t.parentNode.replaceChild(frag, t);
             });
-            (function raf() {
-                gx += (mx - gx) * 0.16; gy += (my - gy) * 0.16;
-                cursor.style.left = gx + 'px'; cursor.style.top = gy + 'px';
-                requestAnimationFrame(raf);
-            })();
-            const interactive = 'a, button, .spot, .nav-link, .brand, .work-link, .wiki-line, .news-toggle, .about-link, .about-nl-follow, .news-full-link, .reading-close, .reading-next, .work, .btn, .filter, .sub, .nav-cta, summary, .issue-list a';
-            document.addEventListener('mouseover', e => {
-                if (e.target.closest && e.target.closest(interactive)) {
-                    dot.style.transform = 'translate(-50%, -50%) scale(3)';
-                }
-                /* Cream paper cards (about + reading pane) — swap dot to dark brown so it stays visible */
-                if (e.target.closest && e.target.closest('.about-paper, .reading')) {
-                    dot.classList.add('on-paper');
-                }
-            });
-            document.addEventListener('mouseout', e => {
-                if (e.target.closest && e.target.closest(interactive)) {
-                    dot.style.transform = 'translate(-50%, -50%) scale(1)';
-                }
-                if (e.target.closest && e.target.closest('.about-paper, .reading')) {
-                    dot.classList.remove('on-paper');
-                }
-            });
-        } else { document.body.style.cursor = 'auto'; }
-
-        /* SPOTS / READING */
-        const order = ['speak', 'through', 'analyze', 'pursue'];
-        const spots = document.querySelectorAll('.spot');
-        const heroHint = document.getElementById('heroHint');
-        const readingBackdrop = document.getElementById('readingBackdrop');
-        const reading = document.getElementById('reading');
-        const readingClose = document.getElementById('readingClose');
-        const readingLabel = document.getElementById('readingLabel');
-        const readingEyebrow = document.getElementById('readingEyebrow');
-        const readingTitle = document.getElementById('readingTitle');
-        const readingBody = document.getElementById('readingBody');
-        const readingNext = document.getElementById('readingNext');
-        const readingProgress = document.getElementById('readingProgress');
-        const clickedState = {};
-        let currentId = null;
-
-        const eyebrowMap = {
-            speak:   'i. Speak — for the marginalized',
-            through: 'ii. Through — socio-technical lens',
-            analyze: 'iii. Analyze — human · technology interaction',
-            pursue:  'iv. Pursue — the best practice'
-        };
-        const titleMap = {
-            analyze: "The Velvet Cage of AI Companions — Illusions of Intimacy and Control",
-            through: "Unmasking Artificial Intimacy — A Critical Audit of Microsoft's XiaoIce",
-            pursue:  "Policy Recommendations to the Cyberspace Administration of China",
-            speak:   "Unmasking the Shadows of AI — Deceptive Capabilities in LLMs"
-        };
-        const bodyMap = {
-            analyze: [
-                "My master thesis at Oxford investigated the contexts, processes, and mechanisms through which users connect with AI Companions (AICs), perceiving them as <mark>trustworthy 'social actors'</mark>.",
-                "Using a mixed-methods approach — quantitative dataset analysis and qualitative interviews with inductive analysis — I examined both romantic and non-romantic users' experiences with AICs.",
-                "My analysis explored the mechanisms of connectedness, moments of anthropomorphisation, and the <mark>cyclical fulfilment of dual needs</mark> that can foster compulsive use. This study interrogates the ways in which AICs facilitate non-judgemental backstage self-disclosure, and examines how these interactions may reshape role expectations and reconceptualise romantic relationships and love.",
-                "Please feel free to request the Abstract individually."
-            ],
-            through: [
-                "I deepened my technical understanding through studies at the Oxford Internet Institute, where I gained expertise in <mark>Fairness, Transparency, and Accountability in Machine Learning</mark>.",
-                "I applied these tools in a qualitative audit of Microsoft's XiaoIce — an AI companion released in 2014, predating popular apps like Character.ai and Replika.",
-                "Conducted in accordance with ACM FAccT's auditing principles, this audit integrated interdisciplinary theories to critically examine the model's <mark>gendered design and the power dynamics embedded in its affordances</mark>."
-            ],
-            pursue: [
-                "Building on the empirical insights of my thesis, I developed <mark>comprehensive policy recommendations</mark> submitted to the Cyberspace Administration of China, informing China's provisional regulatory framework for increasingly anthropomorphised services.",
-                "Four regulatory priorities: (1) measurable indicators and monitoring systems to assess user emotional dependency; (2) tiered intervention protocols for users in high-risk psychological states; (3) clear in-interface disclosure; (4) oversight of anthropomorphic deliberation to prevent exploitation of <mark>psychological vulnerabilities</mark> for engagement.",
-                "Please feel free to request individually."
-            ],
-            speak: [
-                "Inspired by critical questions raised during the 2023 AI Safety Summit, I began exploring the issue of <mark>AI deception</mark> — how different forms of deceptive capabilities entangle with historical and societal biases, and how discourses around deception evolve alongside technological development.",
-                "Drawing on courses in Science and Technology Studies to deepen my understanding of the power dynamics shaping technological paradigms, I offered an evaluation of AI deception's social implications and persistent challenges — <mark>published on arXiv</mark> during my undergraduate studies.",
-                "→ <a href='https://arxiv.org/abs/2403.09676' target='_blank'>arXiv:2403.09676</a>"
-            ]
-        };
-
-        function openReading(id) {
-            currentId = id;
-            readingLabel.textContent = id;
-            readingEyebrow.textContent = eyebrowMap[id];
-            readingTitle.textContent = titleMap[id];
-            readingBody.innerHTML = bodyMap[id].map(p => `<p>${p}</p>`).join('');
-            const idx = order.indexOf(id);
-            readingProgress.textContent = String(idx + 1).padStart(2, '0') + ' / 04';
-            readingNext.textContent = idx < order.length - 1 ? `Next: ${order[idx + 1]} →` : 'Close ✕';
-            readingBackdrop.classList.add('visible');
-            reading.classList.add('visible');
-            reading.scrollTop = 0;
         }
-        function closeReading(updateHash = true) {
-            if (!currentId) return;
-            readingBackdrop.classList.remove('visible');
-            reading.classList.remove('visible');
-            currentId = null;
-            if (updateHash && location.hash.startsWith('#research/')) history.replaceState(null, '', '#home');
+        const MS_PER_CHAR = 16, SENTENCE_PAUSE = 520, START_PAUSE = 450;
+        let typing = null;
+        function typeThread(article) {
+            if (typing) typing.cancel();
+            const box = article.querySelector('.type');
+            if (article.classList.contains('done') || reduce) { article.classList.add('done'); return; }
+            prepare(box);
+            const chars = [...box.querySelectorAll('.ch')];
+            let i = 0, last = performance.now(), wait = START_PAUSE, carry = 0, stop = false;
+            const step = now => {
+                if (stop) return;
+                let dt = now - last; last = now;
+                if (wait > 0) { wait -= dt; if (wait > 0) return requestAnimationFrame(step); dt = -wait; }
+                carry += dt;
+                while (carry >= MS_PER_CHAR && i < chars.length) {
+                    carry -= MS_PER_CHAR;
+                    const c = chars[i++];
+                    c.classList.add('v');
+                    const m = c.closest('mark');
+                    if (m && m.lastElementChild === c) m.classList.add('lit');
+                    if ('.;?!'.includes(c.textContent) && chars[i] && chars[i].textContent === ' ') { wait = SENTENCE_PAUSE; carry = 0; break; }
+                    if (c.textContent === ',' ) carry -= MS_PER_CHAR * 4;
+                }
+                box.querySelectorAll('.cur').forEach(x => x.classList.remove('cur'));
+                if (i < chars.length) { chars[i - 1] && chars[i - 1].classList.add('cur'); requestAnimationFrame(step); }
+                else { article.classList.add('done'); typing = null; }
+            };
+            requestAnimationFrame(step);
+            typing = { cancel() { stop = true; chars.forEach(c => c.classList.add('v')); box.querySelectorAll('.cur').forEach(x => x.classList.remove('cur')); article.classList.add('done'); typing = null; } };
         }
-        function nextReading() {
-            if (!currentId) return;
-            const idx = order.indexOf(currentId);
-            if (idx < order.length - 1) selectSpot(order[idx + 1]);
-            else closeReading();
-        }
-        function selectSpot(id) { location.hash = '#research/' + id; }
-        function showSpot(id) {
-            const el = document.querySelector(`.spot[data-item="${id}"]`);
-            if (el && !clickedState[id]) {
-                clickedState[id] = true;
-                el.classList.add('clicked');
-            }
-            heroHint.classList.add('dim');
-            openReading(id);
-        }
-        readingBackdrop.addEventListener('click', () => closeReading());
-        readingClose.addEventListener('click', () => closeReading());
-        readingNext.addEventListener('click', nextReading);
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeReading(); });
-        spots.forEach(s => {
-            s.addEventListener('click', () => selectSpot(s.dataset.item));
-            s.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectSpot(s.dataset.item); } });
-        });
+        $$('.thread').forEach(a => a.addEventListener('click', e => { if (!e.target.closest('a') && typing) typing.cancel(); }));
 
-        /* ROUTES: #home  #works  #about  #contact  #research/<id> — every page and research thread has its own link */
-        const views = { home: 'view-home', works: 'view-works', about: 'view-about' };
-        const titles = { home: 'Grace (Linge Guo) · Sociologist of AI & Technology', works: 'Works · Grace (Linge Guo)', about: 'About · Grace (Linge Guo)' };
-        function showView(name) {
-            document.querySelectorAll('.view').forEach(v => v.classList.toggle('active', v.id === views[name]));
-            document.querySelectorAll('.nav-link').forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + name));
-            document.title = titles[name];
+        /* research: pinned on large screens, stacked on phones / short screens / reduced motion */
+        const research = $('#research'), threads = $$('.thread'), index = $$('.r-index a'), bar = $('#rBar');
+        const ids = ['speak', 'through', 'analyze', 'pursue'];
+        let pinned = null, active = -1, stackedObs;
+        function layout() {
+            const want = !reduce && innerWidth >= 860 && innerHeight >= 620;
+            if (want === pinned) return;
+            pinned = want;
+            research.classList.toggle('pinned', pinned);
+            if (!pinned) { threads.forEach(t => t.classList.add('on')); watchStacked(); }
+            else { threads.forEach(t => t.classList.remove('on')); active = -1; onScrollResearch(); }
+        }
+        function show(i) {
+            if (i === active) return;
+            active = i;
+            threads.forEach((t, k) => t.classList.toggle('on', k === i));
+            index.forEach((a, k) => a.classList.toggle('on', k === i));
+            typeThread(threads[i]);
+        }
+        function onScrollResearch() {
+            if (!pinned) return;
+            const r = research.getBoundingClientRect();
+            const p = Math.min(1, Math.max(0, -r.top / (research.offsetHeight - innerHeight)));
+            bar.style.width = (p * 100) + '%';
+            show(Math.min(3, Math.floor(p * 4)));
+        }
+        function watchStacked() {
+            if (stackedObs) return;
+            stackedObs = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting && !pinned) { typeThread(en.target); stackedObs.unobserve(en.target); } }), { threshold: .3 });
+            threads.forEach(t => { if (!t.classList.contains('done')) stackedObs.observe(t); });
+        }
+        function goThread(id) {
+            const i = ids.indexOf(id);
+            if (i < 0) return;
+            if (pinned) scrollTo({ top: research.offsetTop + (research.offsetHeight - innerHeight) * (i + .5) / 4, behavior: reduce ? 'auto' : 'smooth' });
+            else document.getElementById('t-' + id).scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
         }
         function route() {
-            const h = location.hash.slice(1) || 'home';
-            if (h.startsWith('research/')) {
-                showView('home');
-                const id = h.split('/')[1];
-                if (order.includes(id)) showSpot(id);
-                return;
-            }
-            closeReading(false);
-            if (h === 'contact') { showView('about'); setTimeout(() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth', block: 'center' }), 60); return; }
-            showView(views[h] ? h : 'home');
-            window.scrollTo({ top: 0 });
+            const h = location.hash.slice(1);
+            if (h.startsWith('research/')) goThread(h.split('/')[1]);
+            else if (h === 'research') scrollTo({ top: research.offsetTop, behavior: reduce ? 'auto' : 'smooth' });
         }
-        window.addEventListener('hashchange', route);
-        route();
+        document.addEventListener('click', e => {
+            const a = e.target.closest('a[href^="#research"]');
+            if (!a) return;
+            e.preventDefault();
+            history.replaceState(null, '', a.getAttribute('href'));
+            route();
+        });
+        addEventListener('hashchange', route);
 
-        /* WORKS FILTER */
-        document.querySelectorAll('.filter').forEach(b => b.addEventListener('click', () => {
-            document.querySelectorAll('.filter').forEach(x => x.setAttribute('aria-pressed', x === b));
-            const f = b.dataset.filter;
-            document.querySelectorAll('.group').forEach(g => { g.hidden = f !== 'all' && g.dataset.cat !== f; });
-        }));
+        let ticking = false;
+        addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { onScrollHero(); onScrollNav(); onScrollResearch(); ticking = false; }); } }, { passive: true });
+        addEventListener('resize', () => { layout(); onScrollNav(); });
+        layout(); onScrollNav(); onScrollHero();
+        if (location.hash.startsWith('#research')) setTimeout(route, 80);
 
-        /* CLAUDE SKILLS — skills.json is rebuilt daily from github.com/lingegrace/claude-research-skills; the HTML above is the fallback */
+        /* <details> open and close smoothly instead of jumping */
+        document.addEventListener('click', e => {
+            const sum = e.target.closest('details.sources > summary, details.all-skills > summary');
+            if (!sum || reduce) return;
+            e.preventDefault();
+            const d = sum.parentElement;
+            if (d.dataset.anim) return;
+            const start = d.offsetHeight;
+            d.dataset.anim = '1';
+            if (!d.open) d.open = true;
+            else d.classList.add('closing');
+            const end = d.classList.contains('closing') ? sum.offsetHeight : d.scrollHeight;
+            d.style.overflow = 'hidden';
+            const a = d.animate({ height: [start + 'px', end + 'px'] }, { duration: 520, easing: 'cubic-bezier(.2, .8, .2, 1)' });
+            a.onfinish = () => {
+                if (d.classList.contains('closing')) { d.open = false; d.classList.remove('closing'); }
+                d.style.overflow = ''; delete d.dataset.anim;
+            };
+        });
+
+        /* reveal the rest of the page as it comes into view */
+        const ro = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); ro.unobserve(en.target); } }), { threshold: .15 });
+        $$('.reveal, .bridge').forEach(el => ro.observe(el));
+
+        /* The three featured skills come from the Skill Library (featured.json), so names stay in sync with it.
+           skills.json (rebuilt daily from github.com/lingegrace/claude-research-skills) fills the full list; the HTML above is the fallback. */
+        const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+        const page = n => 'https://lingegrace.github.io/skills/skills/' + encodeURIComponent(n) + '/';
+        const pick = k => `<a class="pick" href="${esc(k.url || page(k.name))}" target="_blank" rel="noopener"><b>${esc(k.name)}</b><span>${esc(k.tagline)}</span></a>`;
+        fetch('/skills/featured.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).then(data => {
+            const top = (data && data.skills || []).filter(k => k.name && /^https:\/\/lingegrace\.github\.io\/skills\//.test(k.url || page(k.name)));
+            if (top.length) $('#skillCards').innerHTML = top.map(pick).join('');
+        }).catch(() => {});
         fetch('./skills.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).then(data => {
             const list = (data && data.skills || []).filter(k => /^https:\/\/github\.com\/lingegrace\//.test(k.url));
             if (!list.length) return;
-            const e = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-            const names = (data && data.sections) || {};
-            const card = k => `<div class="sub">
-                <div class="sub-kicker">${e(k.tagline)}</div>
-                <h3 class="sub-title">${e(k.name)}</h3>
-                <p class="sub-desc">${e(k.summary)}</p>
-                <div class="sub-links"><a class="work-link" href="${e(k.url)}" target="_blank" rel="noopener">Open ↗</a></div></div>`;
-            let top = list.filter(k => k.featured);
-            if (!top.length) top = list.slice(0, 3);
-            const rest = list.filter(k => !top.includes(k));
-            document.getElementById('skillCards').innerHTML = top.map(card).join('');
-            const order = [];
-            rest.forEach(k => { if (!order.includes(k.section || '')) order.push(k.section || ''); });
-            const repo = e((data && data.repo) || 'https://github.com/lingegrace/claude-research-skills');
-            document.getElementById('moreSkills').innerHTML = `<div class="more-title">More skills on GitHub · ${rest.length}</div>` +
-                order.map(sec => `<p class="more-row more-grid"><b>${e(names[sec] || 'Other')}</b><span class="more-links">${rest.filter(k => (k.section || '') === sec)
-                    .map(k => `<a href="${e(k.url)}" target="_blank" rel="noopener" title="${e(k.tagline)}">${e(k.name)}</a>`).join(' <span class="sep">·</span> ')}</span></p>`).join('') +
-                `<p class="more-row"><a href="https://lingegrace.github.io/skills/skills/" target="_blank" rel="noopener">See all ${list.length} skills in the Skill Library ↗</a></p>`;
-            const intro = document.getElementById('skillsIntro');
-            if (intro) intro.textContent = intro.textContent.replace(/^\d+ free skills/, list.length + ' free skills');
+            const names = data.sections || {};
+            const order = []; list.forEach(k => { if (!order.includes(k.section || '')) order.push(k.section || ''); });
+            $('#moreSkills').innerHTML = `<summary>Browse all ${list.length} skills by field</summary>` + order.map(sec =>
+                `<p class="more-grid"><b>${esc(names[sec] || 'Other')}</b><span>${list.filter(k => (k.section || '') === sec)
+                .map(k => `<a href="${page(k.name)}" target="_blank" rel="noopener" title="${esc(k.tagline)}">${esc(k.name)}</a>`).join(' <span class="sep">·</span> ')}</span></p>`).join('');
+            const intro = $('#skillsIntro'); if (intro) intro.textContent = intro.textContent.replace(/^\d+ free skills/, list.length + ' free skills');
         }).catch(() => {});
 
-        /* NEWSLETTER — newsletter.json is refreshed daily by a GitHub Action; the HTML above is the fallback */
+        /* newsletter.json is refreshed daily by a GitHub Action */
         const fmt = d => d ? new Date(d + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
-        const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
         fetch('./newsletter.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).then(data => {
             const issues = (data && data.issues || []).filter(i => /^https:\/\/www\.linkedin\.com\/pulse\//.test(i.url));
             if (!issues.length) return;
             const [latest, ...rest] = issues;
-            let html = `<a class="sub issue-latest" href="${esc(latest.url)}" target="_blank" rel="noopener" style="text-decoration:none; cursor:none;">
-                <div class="sub-kicker">Latest issue</div>
-                <h3 class="sub-title">${esc(latest.title)}</h3>
-                <div class="issue-date">${fmt(latest.date)}</div>
-                <div class="sub-links"><span class="work-link">Read on LinkedIn ↗</span></div></a>`;
-            if (rest.length) html += `<ul class="issue-list">${rest.slice(0, 4).map(i =>
-                `<li><a href="${esc(i.url)}" target="_blank" rel="noopener">${esc(i.title)}<span>${fmt(i.date)}</span></a></li>`).join('')}</ul>`;
-            document.getElementById('issues').innerHTML = html;
+            $('#issues').innerHTML = `<a class="issue-latest" href="${esc(latest.url)}" target="_blank" rel="noopener"><small>Latest issue · ${fmt(latest.date)}</small><b>${esc(latest.title)}</b></a>` +
+                (rest.length ? `<ul class="issue-list">${rest.slice(0, 3).map(i => `<li><a href="${esc(i.url)}" target="_blank" rel="noopener">${esc(i.title)}<span>${fmt(i.date)}</span></a></li>`).join('')}</ul>` : '');
         }).catch(() => {});
     })();
     </script>
