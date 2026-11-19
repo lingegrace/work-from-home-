@@ -10,7 +10,7 @@
     "product": "Product Management",
     "skill-engineering": "Build Your Own Skills"
   },
-  "updated": "2026-11-18",
+  "updated": "2026-11-19",
   "skills": [
     {
       "name": "research-question-grill",
@@ -175,8 +175,8 @@
     {
       "name": "human-writing",
       "section": "writing",
-      "tagline": "Make AI text sound human",
-      "summary": "Turns an AI-sounding or stiff draft into a natural rewrite that keeps every fact, with a list of what changed and why.",
+      "tagline": "Edit an AI draft toward your voice",
+      "summary": "Edits an AI draft sentence by sentence toward the way you write, keeps every fact, and explains each change.",
       "url": "https://github.com/lingegrace/claude-research-skills/tree/main/skills/writing/human-writing",
       "featured": true
     },
